@@ -8,7 +8,7 @@
 
 ![GitHub Downloads](https://img.shields.io/github/downloads/JababaDev/Jababarium/total)
 ![GitHub Release](https://img.shields.io/github/v/release/JababaDev/Jababarium?include_prereleases&sort=date)
-![GitHub Stars](https://img.shields.io/github/stars/JababaDev/Jababarium/)
+![GitHub Stars](https://img.shields.io/github/stars/JababaDev/Jababarium)
 
 > [!WARNING]
 > **This mod is a work in progress.** Expect bugs, missing content, placeholder sprites, and balance that isn't final. Save compatibility between versions is **not guaranteed** - updating mid-campaign may break your save.
