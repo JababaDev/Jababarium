@@ -53,6 +53,7 @@ import mindustry.world.blocks.defense.turrets.ItemTurret;
 import mindustry.world.blocks.defense.turrets.PowerTurret;
 import mindustry.world.blocks.distribution.*;
 import mindustry.world.blocks.production.Drill;
+import mindustry.world.blocks.storage.Unloader;
 import mindustry.world.consumers.ConsumeLiquid;
 import mindustry.world.meta.BuildVisibility;
 
@@ -66,7 +67,7 @@ public class JBBlocks {
             entropyChain, cryostalDrill, selfhealingliquidBridge, ionizer, solarApex, chronos, antiMatterWarper, ignis,
             hastae,
             adamantiumSynthesizer, overlord, transgression, apex, avangard, omega, nyx, abbys, entropy, nokko, cascade,
-            nexus, reaper, tempest, basicUnitPrinter, advancedUnitPrinter, gammaReaper;
+            nexus, reaper, tempest, basicUnitPrinter, advancedUnitPrinter, gammaReaper, cryostalUnloader;
 
     public static void load() {
 
@@ -225,6 +226,18 @@ public class JBBlocks {
                 canOverdrive = false;
                 speed = 0f;
                 itemCapacity = 20;
+            }
+        };
+
+        cryostalUnloader = new Unloader("cryostal-unloader") {
+            {
+                requirements(Category.distribution, with(
+                        JBItems.cryostal, 20,
+                        JBItems.adamantium, 15,
+                        Items.surgeAlloy, 10));
+                health = 60;
+                speed = 0.33f;
+                canOverdrive = true;
             }
         };
 
