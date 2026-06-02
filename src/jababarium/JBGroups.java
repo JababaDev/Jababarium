@@ -11,6 +11,8 @@ import jababarium.expand.block.commandable.CommandableBlock;
 import static mindustry.Vars.world;
 
 public class JBGroups {
+
+    //gfdgdfdf
     protected static final Seq<GravityTrapField> tmpGravityFields = new Seq<>();
     protected static final Rect tmpRect = new Rect();
     public static QuadTree<GravityTrapField> gravityFields = new QuadTree<>(new Rect());
