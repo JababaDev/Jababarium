@@ -2,7 +2,7 @@
 
 > A Mindustry v8 mod
 
-[![Mindustry Version](https://img.shields.io/badge/Mindustry-v158+-blue)](https://github.com/Anuken/Mindustry/releases)
+[![Mindustry Version](https://img.shields.io/badge/Mindustry-v154+-blue)](https://github.com/Anuken/Mindustry/releases)
 [![Status](https://img.shields.io/badge/status-WIP-orange)]()
 [![License](https://img.shields.io/badge/license-MIT-yellow)](LICENSE)
 
