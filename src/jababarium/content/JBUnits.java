@@ -113,7 +113,8 @@ public class JBUnits {
                                 .inertia(0.1f)
                                 .acceleration(0.06f)
                                 .outlineRadius(0)
-                                .engine(0f, -7f, 7f, 270f)
+                                .noCell()
+                                .engine(0f, -13f, 7f, 270f)
                                 .weapon(
                                                 WeaponBuilder.create("blip-lightning")
                                                                 .reload(20f)
