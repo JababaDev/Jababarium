@@ -83,7 +83,7 @@ For art contributions, we would appreciate any sprites.
 ### Credits
 
 - **Shroud**, **kadi4ok** - code
-- **he1ixo**, **goman777joy**, **花杨永瀛** - sprites
+- **he1ixo**, **goman777joy**, **花杨永瀛**, **Cirrus**  - sprites
 
 ---
 
