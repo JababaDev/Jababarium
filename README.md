@@ -83,13 +83,13 @@ For art contributions, we would appreciate any sprites.
 ### Credits
 
 - **Shroud**, **kadi4ok** - code
-- **he1ixo**, **goman777joy**, **花杨永瀛** - sprites
+- **he1ixo**, **goman777joy**, **花杨永瀛**, **Cirrus**  - sprites
 
 ---
 
 ## Support
 
-- **Bugs / Suggestions**: [GitHub Issues](https://github.com/Shroud-y/Jababarium/issues)
+- **Bugs / Suggestions**: [GitHub Issues](https://github.com/JababaDev/Jababarium/issues)
 - **My discord**: mr.wilol
 - **kadi4ok's discord**: medusa5098460
 - **For any sprites questions he1ixo's discord**: he1ixo
