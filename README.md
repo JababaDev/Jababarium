@@ -89,7 +89,7 @@ For art contributions, we would appreciate any sprites.
 
 ## Support
 
-- **Bugs / Suggestions**: [GitHub Issues](https://github.com/Shroud-y/Jababarium/issues)
+- **Bugs / Suggestions**: [GitHub Issues](https://github.com/JababaDev/Jababarium/issues)
 - **My discord**: mr.wilol
 - **kadi4ok's discord**: medusa5098460
 - **For any sprites questions he1ixo's discord**: he1ixo
