@@ -599,9 +599,9 @@ public class EliteTurrets {
                     {
                         barrels = new float[] {
                                 -10f, 6f, 0f,
-                                -30f, -24f, 0f,
+                                -30f, -14f, 0f,
                                 10f, 6f, 0f,
-                                30f, -24f, 0f
+                                30f, -14f, 0f
                         };
                         shots = 4;
                         shotDelay = 5f;
