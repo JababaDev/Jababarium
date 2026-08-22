@@ -682,8 +682,8 @@ public class AdvancedTurrets {
                 shoot = new ShootBarrel() {
                     {
                         barrels = new float[] {
-                                -25f, 4f, 0f,
-                                25f, 4f, 0f
+                                -20.5f, 1f, 0f,
+                                21f, 1f, 0f
                         };
                         shots = 2;
                         shotDelay = 5f;

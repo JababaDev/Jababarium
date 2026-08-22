@@ -1225,6 +1225,8 @@ public class HeavyTurrets {
 
         tempest = new PowerTurret("tempest") {
             {
+                shootY = 21f;
+                shootX = 0f;
                 requirements(Category.turret, with(
                         JBItems.feronium, 1800,
                         Items.silicon, 1600,
