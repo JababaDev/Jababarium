@@ -93,6 +93,8 @@ public class AdvancedTurrets {
 
         overlord = new PowerTurret("overlord") {
             {
+                shootY = 17.5f;
+                shootX = 0f;
                 requirements(Category.turret, with(
                         Items.surgeAlloy, 600,
                         Items.plastanium, 450,
@@ -732,6 +734,8 @@ public class AdvancedTurrets {
 
         chronos = new ItemTurret("chronos") {
             {
+                shootY = 15.5f;
+                shootX = 0f;
                 requirements(Category.turret, with(
                         JBItems.chronite, 1200,
                         JBItems.singularium, 900,
