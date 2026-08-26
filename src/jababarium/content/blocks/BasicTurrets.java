@@ -138,6 +138,8 @@ public class BasicTurrets {
 
         omega = new ItemTurret("omega") { 
             {
+                shootY = 20.5f;
+                shootX = 0f;
                 requirements(Category.turret,
                         with(Items.graphite, 160, JBItems.feronium, 150, Items.silicon, 120, JBItems.phaseFabric, 50));
 

@@ -182,7 +182,7 @@ public class SpecialBlocks {
                         JBItems.adamantium, 3000));
                 recipe = ItemStack.with(JBItems.sergium, 1200, JBItems.pulsarite, 1500, JBItems.adamantium, 3000);
                 buildTime = 60 * 20;
-                size = 9;
+                size = 8;
                 consumePower(180f);
                 upgrades.put(JBUnits.decimator, JBUnits.revenant);
                 upgrades.put(JBUnits.vindicator, JBUnits.oblivion);
@@ -201,7 +201,7 @@ public class SpecialBlocks {
                         JBItems.sergium, 3000));
                 recipe = ItemStack.with(JBItems.singularium, 3200, JBItems.amalgam, 5000, JBItems.sergium, 3000);
                 buildTime = 60 * 50;
-                size = 9;
+                size = 8;
                 consumePower(280f);
                 upgrades.put(JBUnits.revenant, JBUnits.nemesis);
                 upgrades.put(JBUnits.oraxia, JBUnits.broodmother);

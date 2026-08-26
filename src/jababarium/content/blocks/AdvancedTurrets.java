@@ -211,6 +211,8 @@ public class AdvancedTurrets {
 
         transgression = new PowerTurret("transgression") {
             {
+                shootY = 18.5f;
+                shootX = 0f;
                 requirements(Category.turret, with(
                         Items.silicon, 1200,
                         Items.plastanium, 500,
@@ -278,6 +280,8 @@ public class AdvancedTurrets {
 
         nokko = new ItemTurret("nokko") {
             {
+                shootY = 17.5f;
+                shootX = 0f;
                 requirements(Category.turret, with(
                         Items.lead, 2400,
                         JBItems.adamantium, 800,
