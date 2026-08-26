@@ -280,7 +280,7 @@ public class AdvancedTurrets {
 
         nokko = new ItemTurret("nokko") {
             {
-                shootY = 17.5f;
+                shootY = 38f;
                 shootX = 0f;
                 requirements(Category.turret, with(
                         Items.lead, 2400,
