@@ -119,12 +119,12 @@ public class ProductionBlocks {
                 size = 3;
                 itemCapacity = 30;
                 scaledHealth = 15;
-                powerProduction = 55f;
+                powerProduction = 65f;
                 updateEffect = JBFx.adamantiumSynthesizerWork;
                 itemDuration = 120f;
 
                 consumeItems(ItemStack.with(JBItems.adamantium, 2));
-                consumeLiquids(LiquidStack.with(JBLiquids.cryofluid, 0.8f));
+                consumeLiquids(LiquidStack.with(JBLiquids.cryofluid, 0.4f));
 
                 drawer = new DrawMulti(
                         new DrawRegion(),

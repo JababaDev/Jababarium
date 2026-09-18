@@ -1144,7 +1144,7 @@ public class JBUnits {
                                 .landShake(5f)
                                 .noCell()
 
-                                .health(100750f)
+                                .health(400000f)
                                 .speed(0.7f)
                                 .armor(120f)
                                 .hitSize(280f)

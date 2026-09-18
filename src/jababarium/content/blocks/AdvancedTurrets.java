@@ -224,7 +224,7 @@ public class AdvancedTurrets {
                 range = 400f;
 
                 consumePower(25f);
-                consumeLiquid(JBLiquids.nectron, 0.4f);
+                consumeLiquid(JBLiquids.water, 0.4f);
 
                 shootSound = JBSounds.beam;
                 loopSound = JBSounds.bioLoop;
