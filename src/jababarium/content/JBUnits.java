@@ -593,7 +593,7 @@ public class JBUnits {
                 
                 nemesis = UnitBuilder.create("nemesis")
                                 .flying()
-                                .health(666000f)
+                                .health(866000f)
                                 .speed(0.3f)
                                 .outlineRadius(0)
                                 .engine(0f, -410f, 60f, 270f)
@@ -1063,7 +1063,7 @@ public class JBUnits {
                                 .ripple(0.8f)
                                 .landShake(5f)
 
-                                .health(150050f)
+                                .health(700000f)
                                 .speed(0.7f)
                                 .armor(10f)
                                 .hitSize(170f)
@@ -1144,7 +1144,7 @@ public class JBUnits {
                                 .landShake(5f)
                                 .noCell()
 
-                                .health(400000f)
+                                .health(866000f)
                                 .speed(0.7f)
                                 .armor(120f)
                                 .hitSize(280f)
@@ -1643,7 +1643,7 @@ public class JBUnits {
 
                 tidebreaker = UnitBuilder.create("tidebreaker")
                                 .naval()
-                                .health(60000f)
+                                .health(70000f)
                                 .speed(0.8f)
                                 .armor(795f)
                                 .outlineRadius(0)

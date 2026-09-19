@@ -667,7 +667,7 @@ public class TideBullets {
             }
         };
 
-        LightningRed = new LightningLinkerBulletType(4f, 220) {
+        LightningRed = new LightningLinkerBulletType(4f, 140) {
             private final Effect RshootEffect = new Effect(24.0F, e -> {
                 e.scaled(10.0F, (b) -> {
                     Draw.color(e.color);
@@ -692,7 +692,7 @@ public class TideBullets {
                 lifetime = 160;
                 keepVelocity = false;
 
-                lightningDamage = damage = splashDamage = 580;
+                lightningDamage = damage = splashDamage = 280;
                 splashDamageRadius = 50f;
 
                 homingDelay = 20f;
