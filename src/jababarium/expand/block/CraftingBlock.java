@@ -141,7 +141,7 @@ public class CraftingBlock {
                 updateEffectChance = 0.1f;
 
                 consumePower(35f);
-                consumeItems(ItemStack.with(JBItems.thorium, 4, JBItems.adamantium, 3, JBItems.sergium, 3));
+                consumeItems(ItemStack.with(JBItems.thorium, 4, JBItems.adamantium, 3, JBItems.sergium, 1.5f));
             }
         };
 
@@ -250,7 +250,7 @@ public class CraftingBlock {
                 updateEffect = JBFx.sergiumMixerUpdate;
                 updateEffectChance = 0.07f;
 
-                outputItems = ItemStack.with(JBItems.sergium, 1f);
+                outputItems = ItemStack.with(JBItems.sergium, 2.2f);
 
                 drawer = new DrawMulti(
                         new DrawRegion("-bottom"),
@@ -285,7 +285,7 @@ public class CraftingBlock {
                 updateEffect = JBFx.energyPulseCore;
                 updateEffectChance = 0.02f;
 
-                outputItems = ItemStack.with(JBItems.amalgam, 1.6f);
+                outputItems = ItemStack.with(JBItems.amalgam, 2.6f);
 
                 drawer = new DrawMulti(
                         new DrawRegion("-bottom"),
@@ -390,7 +390,7 @@ public class CraftingBlock {
 
                 consumePower(50f);
                 consumeItems(ItemStack.with(JBItems.chronite, 1f, JBItems.feronium, 2, JBItems.plastanium, 2));
-                consumeLiquids(LiquidStack.with(JBLiquids.nectron, 1f));
+                consumeLiquids(LiquidStack.with(JBLiquids.nectron, 0.3f));
             }
         };
 
@@ -440,7 +440,7 @@ public class CraftingBlock {
 
                 consumePower(60f);
                 consumeItems(ItemStack.with(JBItems.amalgam, 1, JBItems.sergium, 2));
-                consumeLiquids(LiquidStack.with(JBLiquids.argon, 1f));
+                consumeLiquids(LiquidStack.with(JBLiquids.argon, 0.3f));
             }
         };
 
