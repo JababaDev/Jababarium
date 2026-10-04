@@ -54,30 +54,30 @@ public class VoidBullets {
                 shrinkY = 0f;
                 shrinkX = 0f;
 
-                backColor = Color.valueOf("8b4fc4");
-                frontColor = Color.valueOf("f3e5ff");
-                lightColor = Color.valueOf("b47dff");
+                backColor = Color.valueOf("4bc8ad");
+                frontColor = Color.valueOf("e6fef8");
+                lightColor = Color.valueOf("92ead7");
                 lightOpacity = 1f;
                 lightRadius = 110f;
 
                 trailLength = 32;
                 trailWidth = 8f;
-                trailColor = Color.valueOf("9f5ed4");
+                trailColor = Color.valueOf("5cd6bc");
                 trailInterval = 0.8f;
 
                 trailEffect = new Effect(60f, e -> {
 
-                    Draw.color(Color.valueOf("8b4fc4"));
+                    Draw.color(Color.valueOf("4bc8ad"));
                     Draw.alpha(e.fout() * 0.9f);
                     circle(e.x, e.y, (12f + Mathf.absin(e.time, 4f, 3f)) * e.fout());
 
-                    Draw.color(Color.valueOf("d896ff"));
+                    Draw.color(Color.valueOf("a6efde"));
                     circle(e.x, e.y, (8f + Mathf.absin(e.time, 4f, 2f)) * e.fout());
 
                     Draw.color(Color.white);
                     circle(e.x, e.y, (5f + Mathf.absin(e.time, 4f, 1.5f)) * e.fout());
 
-                    Draw.color(Color.valueOf("b47dff"));
+                    Draw.color(Color.valueOf("92ead7"));
                     Draw.alpha(e.fout() * 0.85f);
 
                     for (int i = 0; i < 3; i++) {
@@ -87,7 +87,7 @@ public class VoidBullets {
                     }
 
                     Angles.randLenVectors(e.id, 6, (8f + e.fin() * 4f) * e.fout(), (x, y) -> {
-                        Draw.color(Color.valueOf("d896ff"), Color.white, Mathf.random(0.3f, 0.8f));
+                        Draw.color(Color.valueOf("a6efde"), Color.white, Mathf.random(0.3f, 0.8f));
                         circle(e.x + x, e.y + y, e.fout() * 2.5f);
                     });
 
@@ -97,7 +97,7 @@ public class VoidBullets {
 
                         Tmp.v1.trns(angle, rad);
 
-                        Draw.color(Color.valueOf("f3e5ff"));
+                        Draw.color(Color.valueOf("e6fef8"));
                         Draw.alpha(e.fout() * 0.7f);
                         circle(e.x + Tmp.v1.x, e.y + Tmp.v1.y, e.fout() * 2f);
                     }
@@ -110,7 +110,7 @@ public class VoidBullets {
                     Draw.color(Color.white);
                     circle(e.x, e.y, (28f + Mathf.absin(e.time, 3f, 4f)) * e.fout());
 
-                    Draw.color(Color.valueOf("8b4fc4"), Color.valueOf("f3e5ff"), e.fin() * 0.6f);
+                    Draw.color(Color.valueOf("4bc8ad"), Color.valueOf("e6fef8"), e.fin() * 0.6f);
 
                     e.scaled(30f, s -> {
                         Lines.stroke(7f * s.fout());
@@ -130,7 +130,7 @@ public class VoidBullets {
                         Lines.circle(e.x, e.y, 20f + s.fin() * 140f);
                     });
 
-                    Draw.color(Color.white, Color.valueOf("b47dff"), e.fin() + 0.3f);
+                    Draw.color(Color.white, Color.valueOf("92ead7"), e.fin() + 0.3f);
                     Lines.stroke(3.5f * e.fout());
 
                     for (int i = 0; i < 12; i++) {
@@ -141,7 +141,7 @@ public class VoidBullets {
                         Lines.lineAngle(e.x, e.y, angle, len * e.fout());
                     }
 
-                    Draw.color(Color.valueOf("d896ff"), Color.white, e.fout() * 0.7f);
+                    Draw.color(Color.valueOf("a6efde"), Color.white, e.fout() * 0.7f);
                     Lines.stroke(2.5f * e.fout());
 
                     Angles.randLenVectors(e.id, 24, 20f + 80f * e.finpow(), (x, y) -> {
@@ -149,11 +149,11 @@ public class VoidBullets {
                         Lines.lineAngle(e.x + x, e.y + y, angle, e.fout() * (15f + Mathf.random(18f)));
 
                         Tmp.v1.set(x, y);
-                        Draw.color(Color.white, Color.valueOf("f3e5ff"), e.fin());
+                        Draw.color(Color.white, Color.valueOf("e6fef8"), e.fin());
                         circle(e.x + x, e.y + y, e.fout() * 3.5f);
                     });
 
-                    Draw.color(Color.valueOf("b47dff"), Color.white, e.fout() * 0.6f);
+                    Draw.color(Color.valueOf("92ead7"), Color.white, e.fout() * 0.6f);
                     Lines.stroke(1.8f * e.fout());
 
                     Angles.randLenVectors(e.id + 1, 20, 12f + 65f * e.finpow(), (x, y) -> {
@@ -161,15 +161,15 @@ public class VoidBullets {
                     });
 
                     Angles.randLenVectors(e.id + 2, 18, 8f + 55f * e.finpow(), (x, y) -> {
-                        Draw.color(Color.white, Color.valueOf("8b4fc4"), e.fin() * 0.8f);
+                        Draw.color(Color.white, Color.valueOf("4bc8ad"), e.fin() * 0.8f);
                         circle(e.x + x, e.y + y, e.fout() * 7f);
 
-                        Draw.color(Color.valueOf("b47dff"));
+                        Draw.color(Color.valueOf("92ead7"));
                         Draw.alpha(e.fout() * 0.5f);
                         circle(e.x + x, e.y + y, e.fout() * 10f);
                     });
 
-                    Draw.color(Color.valueOf("8b4fc4"), Color.valueOf("d896ff"), e.fout());
+                    Draw.color(Color.valueOf("4bc8ad"), Color.valueOf("a6efde"), e.fout());
                     Lines.stroke(3f * e.fout());
                     for (int i = 0; i < 8; i++) {
                         float angle1 = i * 45f;
@@ -190,7 +190,7 @@ public class VoidBullets {
 
                         Tmp.v1.trns(angle, dst);
 
-                        Draw.color(Color.valueOf("b47dff"), Color.white, e.fout() * 0.6f);
+                        Draw.color(Color.valueOf("92ead7"), Color.white, e.fout() * 0.6f);
                         Lines.stroke(3f * e.fout());
                         Lines.lineAngle(e.x + Tmp.v1.x, e.y + Tmp.v1.y, angle + 90f, e.fout() * 25f);
 
@@ -198,7 +198,7 @@ public class VoidBullets {
                         circle(e.x + Tmp.v1.x, e.y + Tmp.v1.y, e.fout() * 4f);
                     }
 
-                    Draw.color(Color.valueOf("d896ff"));
+                    Draw.color(Color.valueOf("a6efde"));
                     Lines.stroke(2.5f * e.fout());
                     for (int i = 0; i < 4; i++) {
                         float rot = e.fin() * 360f * (i % 2 == 0 ? 1 : -1);
@@ -207,19 +207,19 @@ public class VoidBullets {
                         Lines.arc(e.x, e.y, radius, 0.5f, rot);
                     }
 
-                    Draw.color(Color.valueOf("5a2f8f"));
+                    Draw.color(Color.valueOf("29957d"));
                     Draw.alpha(e.fout() * 0.9f);
                     circle(e.x, e.y, (20f + Mathf.absin(e.time, 3f, 5f)) * e.fout());
 
-                    Draw.color(Color.valueOf("8b4fc4"));
+                    Draw.color(Color.valueOf("4bc8ad"));
                     circle(e.x, e.y, (12f + Mathf.absin(e.time, 3f, 3f)) * e.fout());
 
-                    Drawf.light(e.x, e.y, e.fout() * 180f, Color.valueOf("b47dff"), 0.95f);
+                    Drawf.light(e.x, e.y, e.fout() * 180f, Color.valueOf("92ead7"), 0.95f);
 
                     Angles.randLenVectors(e.id + 3, 30, 30f + 90f * e.fin(), (x, y) -> {
                         float angle = Mathf.angle(x, y);
 
-                        Draw.color(Color.valueOf("f3e5ff"), Color.valueOf("8b4fc4"), Mathf.random());
+                        Draw.color(Color.valueOf("e6fef8"), Color.valueOf("4bc8ad"), Mathf.random());
                         Draw.alpha(e.fout() * 0.7f);
 
                         for (int i = 0; i < 3; i++) {
@@ -235,11 +235,11 @@ public class VoidBullets {
 
                 shootEffect = new Effect(40f, e -> {
 
-                    Draw.color(Color.valueOf("5a2f8f"));
+                    Draw.color(Color.valueOf("29957d"));
                     Draw.alpha(e.fin() * 0.8f);
                     circle(e.x, e.y, e.fin() * 20f);
 
-                    Draw.color(Color.valueOf("8b4fc4"), Color.white, e.fin() * 0.7f);
+                    Draw.color(Color.valueOf("4bc8ad"), Color.white, e.fin() * 0.7f);
 
                     for (int i = 0; i < 4; i++) {
                         float rot = e.time * (2f + i * 0.8f) * (i % 2 == 0 ? 1 : -1);
@@ -249,17 +249,17 @@ public class VoidBullets {
 
                     Lines.stroke(e.fout() * 4f);
                     Angles.randLenVectors(e.id, 16, 45f * e.finpow(), (x, y) -> {
-                        Draw.color(Color.valueOf("d896ff"), Color.white, e.fout() * 0.8f);
+                        Draw.color(Color.valueOf("a6efde"), Color.white, e.fout() * 0.8f);
                         Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 14f + 5f);
                     });
 
                     Draw.color(Color.white);
                     circle(e.x, e.y, e.fout() * 12f);
 
-                    Draw.color(Color.valueOf("f3e5ff"));
+                    Draw.color(Color.valueOf("e6fef8"));
                     circle(e.x, e.y, e.fout() * 8f);
 
-                    Draw.color(Color.valueOf("b47dff"));
+                    Draw.color(Color.valueOf("92ead7"));
                     Lines.stroke(4f * e.fout());
                     Lines.circle(e.x, e.y, e.finpow() * 30f);
 
@@ -272,26 +272,26 @@ public class VoidBullets {
 
                         Tmp.v1.trns(angle, distance);
 
-                        Draw.color(Color.valueOf("d896ff"), Color.white, e.fin() * 0.7f);
+                        Draw.color(Color.valueOf("a6efde"), Color.white, e.fin() * 0.7f);
                         Draw.alpha(e.fin() * 0.9f);
                         circle(e.x + Tmp.v1.x, e.y + Tmp.v1.y, e.fin() * 4f);
                     }
 
-                    Drawf.light(e.x, e.y, e.fout() * 70f, Color.valueOf("b47dff"), 0.8f);
+                    Drawf.light(e.x, e.y, e.fout() * 70f, Color.valueOf("92ead7"), 0.8f);
                 });
 
                 smokeEffect = new Effect(50f, e -> {
-                    Draw.color(Color.valueOf("8b4fc4"));
+                    Draw.color(Color.valueOf("4bc8ad"));
                     Draw.alpha(e.fout() * 0.8f);
 
                     circle(e.x, e.y, e.fout() * 10f);
 
-                    Draw.color(Color.valueOf("d896ff"));
+                    Draw.color(Color.valueOf("a6efde"));
                     Lines.stroke(2.5f * e.fout());
                     Lines.circle(e.x, e.y, e.fin() * 20f);
 
                     Angles.randLenVectors(e.id, 6, e.fin() * 15f, (x, y) -> {
-                        Draw.color(Color.valueOf("f3e5ff"), Color.valueOf("8b4fc4"), Mathf.random());
+                        Draw.color(Color.valueOf("e6fef8"), Color.valueOf("4bc8ad"), Mathf.random());
                         Draw.alpha(e.fout() * 0.7f);
                         circle(e.x + x, e.y + y, e.fout() * 3f);
                     });
@@ -329,36 +329,36 @@ public class VoidBullets {
                 shrinkY = 0.1f;
                 shrinkX = 0f;
 
-                backColor = Color.valueOf("8b4fc4");
-                frontColor = Color.valueOf("e8d5ff");
-                lightColor = Color.valueOf("b47dff");
+                backColor = Color.valueOf("4bc8ad");
+                frontColor = Color.valueOf("d9fbf2");
+                lightColor = Color.valueOf("92ead7");
                 lightOpacity = 0.9f;
                 lightRadius = 75f;
 
                 trailLength = 22;
                 trailWidth = 4.5f;
-                trailColor = Color.valueOf("9f5ed4");
+                trailColor = Color.valueOf("5cd6bc");
                 trailInterval = 1.5f;
 
                 trailEffect = new Effect(45f, e -> {
 
-                    Draw.color(Color.valueOf("8b4fc4"));
+                    Draw.color(Color.valueOf("4bc8ad"));
                     Draw.alpha(e.fout() * 0.7f);
                     circle(e.x, e.y, e.fout() * 7f);
 
-                    Draw.color(Color.valueOf("b47dff"));
+                    Draw.color(Color.valueOf("92ead7"));
                     circle(e.x, e.y, e.fout() * 4.5f);
 
                     Draw.color(Color.white);
                     circle(e.x, e.y, e.fout() * 2f);
 
-                    Draw.color(Color.valueOf("9f5ed4"));
+                    Draw.color(Color.valueOf("5cd6bc"));
                     Draw.alpha(e.fout() * 0.6f);
                     Lines.stroke(1.8f * e.fout());
                     Lines.circle(e.x, e.y, e.fout() * 9f);
 
                     Angles.randLenVectors(e.id, 4, e.fin() * 6f, (x, y) -> {
-                        Draw.color(Color.valueOf("e8d5ff"), Color.valueOf("8b4fc4"), Mathf.random());
+                        Draw.color(Color.valueOf("d9fbf2"), Color.valueOf("4bc8ad"), Mathf.random());
                         circle(e.x + x, e.y + y, e.fout() * 1.8f);
                     });
                 });
@@ -370,7 +370,7 @@ public class VoidBullets {
                     Draw.color(Color.white);
                     circle(e.x, e.y, e.fout() * 18f);
 
-                    Draw.color(Color.valueOf("8b4fc4"), Color.valueOf("e8d5ff"), e.fin() * 0.6f);
+                    Draw.color(Color.valueOf("4bc8ad"), Color.valueOf("d9fbf2"), e.fin() * 0.6f);
 
                     e.scaled(25f, s -> {
                         Lines.stroke(5f * s.fout());
@@ -382,7 +382,7 @@ public class VoidBullets {
                         Lines.circle(e.x, e.y, 10f + s.fin(Interp.pow2Out) * 80f);
                     });
 
-                    Draw.color(Color.valueOf("b47dff"), Color.white, e.fout() * 0.7f);
+                    Draw.color(Color.valueOf("92ead7"), Color.white, e.fout() * 0.7f);
                     Lines.stroke(2.5f * e.fout());
 
                     Angles.randLenVectors(e.id, 18, 15f + 60f * e.finpow(), (x, y) -> {
@@ -391,7 +391,7 @@ public class VoidBullets {
                     });
 
                     Angles.randLenVectors(e.id + 1, 14, 8f + 45f * e.finpow(), (x, y) -> {
-                        Draw.color(Color.white, Color.valueOf("8b4fc4"), e.fin() * 0.8f);
+                        Draw.color(Color.white, Color.valueOf("4bc8ad"), e.fin() * 0.8f);
                         circle(e.x + x, e.y + y, e.fout() * 5f);
                     });
 
@@ -401,18 +401,18 @@ public class VoidBullets {
 
                         Tmp.v1.trns(angle, dst);
 
-                        Draw.color(Color.valueOf("b47dff"), Color.white, e.fout() * 0.6f);
+                        Draw.color(Color.valueOf("92ead7"), Color.white, e.fout() * 0.6f);
                         Lines.stroke(2.2f * e.fout());
                         Lines.lineAngle(e.x + Tmp.v1.x, e.y + Tmp.v1.y, angle + 90f, e.fout() * 16f);
                     }
 
-                    Drawf.light(e.x, e.y, e.fout() * 100f, Color.valueOf("b47dff"), 0.85f);
+                    Drawf.light(e.x, e.y, e.fout() * 100f, Color.valueOf("92ead7"), 0.85f);
                 });
 
                 despawnHit = true;
 
                 shootEffect = new Effect(30f, e -> {
-                    Draw.color(Color.white, Color.valueOf("8b4fc4"), e.fin() * 0.7f);
+                    Draw.color(Color.white, Color.valueOf("4bc8ad"), e.fin() * 0.7f);
 
                     Lines.stroke(e.fout() * 3.5f);
                     Angles.randLenVectors(e.id, 12, 35f * e.finpow(), (x, y) -> {
@@ -421,19 +421,19 @@ public class VoidBullets {
 
                     circle(e.x, e.y, e.fout() * 9f);
 
-                    Draw.color(Color.valueOf("b47dff"));
+                    Draw.color(Color.valueOf("92ead7"));
                     Lines.stroke(3f * e.fout());
                     Lines.circle(e.x, e.y, e.finpow() * 22f);
 
-                    Drawf.light(e.x, e.y, e.fout() * 50f, Color.valueOf("b47dff"), 0.7f);
+                    Drawf.light(e.x, e.y, e.fout() * 50f, Color.valueOf("92ead7"), 0.7f);
                 });
 
                 smokeEffect = new Effect(40f, e -> {
-                    Draw.color(Color.valueOf("8b4fc4"));
+                    Draw.color(Color.valueOf("4bc8ad"));
                     Draw.alpha(e.fout() * 0.7f);
                     circle(e.x, e.y, e.fout() * 6f);
 
-                    Draw.color(Color.valueOf("9f5ed4"));
+                    Draw.color(Color.valueOf("5cd6bc"));
                     Lines.stroke(2f * e.fout());
                     Lines.circle(e.x, e.y, e.fin() * 14f);
                 });
@@ -473,29 +473,29 @@ public class VoidBullets {
                 shrinkY = 0f;
                 shrinkX = 0f;
 
-                backColor = Color.valueOf("2a1540");
-                frontColor = Color.valueOf("e8d5ff");
-                lightColor = Color.valueOf("9955ee");
+                backColor = Color.valueOf("114439");
+                frontColor = Color.valueOf("d9fbf2");
+                lightColor = JBColor.nemesisLight;
                 lightOpacity = 1f;
                 lightRadius = 130f;
 
                 trailLength = 25;
                 trailWidth = 7f;
-                trailColor = Color.valueOf("4a2866");
+                trailColor = Color.valueOf("1d715f");
                 trailInterval = 1.8f;
 
                 trailEffect = new Effect(65f, e -> {
-                    Draw.color(Color.valueOf("2a1540"));
+                    Draw.color(Color.valueOf("114439"));
                     Draw.alpha(e.fout() * 0.9f);
                     circle(e.x, e.y, (12f + Mathf.absin(e.time, 2.5f, 3f)) * e.fout());
 
-                    Draw.color(Color.valueOf("9955ee"));
+                    Draw.color(JBColor.nemesisLight);
                     circle(e.x, e.y, (8f + Mathf.absin(e.time, 2.5f, 2f)) * e.fout());
 
                     Draw.color(Color.white);
                     circle(e.x, e.y, (4f + Mathf.absin(e.time, 2.5f, 1f)) * e.fout());
 
-                    Draw.color(Color.valueOf("aa77ff"));
+                    Draw.color(Color.valueOf("8de9d5"));
                     Draw.alpha(e.fout() * 0.8f);
 
                     float timeVal = e.time;
@@ -529,19 +529,19 @@ public class VoidBullets {
 
                 hitEffect = new Effect(130f, 350f, e -> {
 
-                    Draw.color(Color.valueOf("0d0520"));
+                    Draw.color(Color.valueOf("081d19"));
                     circle(e.x, e.y, (55f + Mathf.absin(e.time, 1.8f, 12f)) * e.fout());
 
-                    Draw.color(Color.valueOf("2a1540"));
+                    Draw.color(Color.valueOf("114439"));
                     circle(e.x, e.y, (42f + Mathf.absin(e.time, 1.8f, 9f)) * e.fout());
 
-                    Draw.color(Color.valueOf("9955ee"));
+                    Draw.color(JBColor.nemesisLight);
                     circle(e.x, e.y, (28f + Mathf.absin(e.time, 1.8f, 6f)) * e.fout());
 
                     Draw.color(Color.white);
                     circle(e.x, e.y, (14f + Mathf.absin(e.time, 1.8f, 3f)) * e.fout());
 
-                    Draw.color(Color.valueOf("9955ee"), Color.valueOf("e8d5ff"), e.fin() * 0.5f);
+                    Draw.color(JBColor.nemesisLight, Color.valueOf("d9fbf2"), e.fin() * 0.5f);
 
                     float exVal = e.x;
                     float eyVal = e.y;
@@ -564,7 +564,7 @@ public class VoidBullets {
                     Angles.randLenVectors(e.id, 35, 20f + 120f * e.finpow(), (x, y) -> {
                         float angle = Mathf.angle(x, y);
 
-                        Draw.color(Color.valueOf("e8d5ff"), Color.valueOf("2a1540"), e.fin() * 0.6f);
+                        Draw.color(Color.valueOf("d9fbf2"), Color.valueOf("114439"), e.fin() * 0.6f);
                         Draw.alpha(e.fout() * 0.9f);
 
                         for (int i = 0; i < 6; i++) {
@@ -580,33 +580,33 @@ public class VoidBullets {
 
                         Tmp.v1.trns(angle, dst);
 
-                        Draw.color(Color.valueOf("2a1540"));
+                        Draw.color(Color.valueOf("114439"));
                         Draw.alpha(e.fout() * 0.8f);
                         circle(e.x + Tmp.v1.x, e.y + Tmp.v1.y, e.fout() * 14f);
 
-                        Draw.color(Color.valueOf("9955ee"));
+                        Draw.color(JBColor.nemesisLight);
                         circle(e.x + Tmp.v1.x, e.y + Tmp.v1.y, e.fout() * 9f);
 
                         Draw.color(Color.white);
                         circle(e.x + Tmp.v1.x, e.y + Tmp.v1.y, e.fout() * 4f);
 
-                        Draw.color(Color.valueOf("aa77ff"));
+                        Draw.color(Color.valueOf("8de9d5"));
                         Draw.alpha(e.fout() * 0.6f);
                         Lines.stroke(3f * e.fout());
                         Lines.line(e.x, e.y, e.x + Tmp.v1.x, e.y + Tmp.v1.y);
                     }
 
-                    Drawf.light(e.x, e.y, e.fout() * 260f, Color.valueOf("9955ee"), 1f);
+                    Drawf.light(e.x, e.y, e.fout() * 260f, JBColor.nemesisLight, 1f);
                 });
 
                 despawnHit = true;
 
                 shootEffect = new Effect(55f, e -> {
-                    Draw.color(Color.valueOf("0d0520"));
+                    Draw.color(Color.valueOf("081d19"));
                     Draw.alpha(e.fin() * 0.95f);
                     circle(e.x, e.y, e.fin() * 35f);
 
-                    Draw.color(Color.valueOf("2a1540"), Color.white, e.fin() * 0.4f);
+                    Draw.color(Color.valueOf("114439"), Color.white, e.fin() * 0.4f);
 
                     for (int i = 0; i < 7; i++) {
                         final int fi = i;
@@ -623,7 +623,7 @@ public class VoidBullets {
                     float xVal = e.x;
                     float yVal = e.y;
                     Angles.randLenVectors(e.id, 28, 65f * (1f - finVal), (x, y) -> {
-                        Draw.color(Color.valueOf("e8d5ff"), Color.valueOf("9955ee"), finVal);
+                        Draw.color(Color.valueOf("d9fbf2"), JBColor.nemesisLight, finVal);
                         Draw.alpha(finVal * 0.95f);
                         circle(xVal + x * (1f - finVal), yVal + y * (1f - finVal), finVal * 5f);
                     });
@@ -631,11 +631,11 @@ public class VoidBullets {
                     Draw.color(Color.white);
                     circle(e.x, e.y, e.fout() * 20f);
 
-                    Drawf.light(e.x, e.y, e.fout() * 100f, Color.valueOf("9955ee"), 0.9f);
+                    Drawf.light(e.x, e.y, e.fout() * 100f, JBColor.nemesisLight, 0.9f);
                 });
 
                 smokeEffect = new Effect(70f, e -> {
-                    Draw.color(Color.valueOf("2a1540"));
+                    Draw.color(Color.valueOf("114439"));
                     Draw.alpha(e.fout() * 0.85f);
 
                     float xVal = e.x;
@@ -683,18 +683,18 @@ public class VoidBullets {
 
                 
                 frontColor = Color.white;
-                backColor = Pal.techBlue;
-                hitColor = Pal.techBlue;
+                backColor = Color.valueOf("859cef");
+                hitColor = Color.valueOf("859cef");
 
                 
                 trailLength = 40;
                 trailWidth = 7f;
-                trailColor = Pal.techBlue;
+                trailColor = Color.valueOf("859cef");
                 trailInterval = 1f;
                 trailRotation = false;
 
                 
-                lightColor = Pal.techBlue;
+                lightColor = Color.valueOf("859cef");
                 lightRadius = 110f;
                 lightOpacity = 0.9f;
 
@@ -707,7 +707,7 @@ public class VoidBullets {
                 lightningDamage = 90f;
                 lightningLength = 12;
                 lightningLengthRand = 20;
-                lightningColor = Pal.techBlue;
+                lightningColor = Color.valueOf("859cef");
 
                 
                 status = StatusEffects.electrified;
@@ -719,24 +719,24 @@ public class VoidBullets {
                 
                 shootEffect = new Effect(45f, e -> {
                     
-                    color(Pal.techBlue, Color.white, e.fout() * 0.4f);
+                    color(Color.valueOf("859cef"), Color.white, e.fout() * 0.4f);
                     stroke(e.fout() * 4f);
                     Lines.circle(e.x, e.y, e.finpow() * 55f);
 
                     
-                    color(Pal.techBlue);
+                    color(Color.valueOf("859cef"));
                     stroke(e.fout() * 2.5f);
                     Lines.circle(e.x, e.y, e.finpow() * 35f);
 
                     
                     randLenVectors(e.id, 14, e.finpow() * 45f, e.rotation, 18f, (x, y) -> {
-                        color(Pal.techBlue, Color.white, e.fout() * 0.5f);
+                        color(Color.valueOf("859cef"), Color.white, e.fout() * 0.5f);
                         stroke(e.fout() * 2.2f);
                         lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fout() * 14f + 4f);
                     });
 
                     
-                    color(Pal.techBlue);
+                    color(Color.valueOf("859cef"));
                     stroke(e.fout() * 3f);
                     for (int s : Mathf.signs) {
                         float bx = e.x + Angles.trnsx(e.rotation + 90f * s, 22f * e.finpow());
@@ -747,7 +747,7 @@ public class VoidBullets {
 
                 
                 smokeEffect = new Effect(30f, e -> {
-                    color(Pal.techBlue, Color.white, e.fin() * 0.3f);
+                    color(Color.valueOf("859cef"), Color.white, e.fin() * 0.3f);
                     Draw.alpha(e.fout() * 0.6f);
                     Angles.randLenVectors(e.id, 8, 5f + 28f * e.finpow(), (x, y) -> {
                         circle(e.x + x, e.y + y, e.fout() * 5.5f);
@@ -760,7 +760,7 @@ public class VoidBullets {
                     rand.setSeed(e.id);
 
                     
-                    Draw.color(Pal.techBlue, Color.white, rand.random(0.4f));
+                    Draw.color(Color.valueOf("859cef"), Color.white, rand.random(0.4f));
                     Draw.alpha(e.fout() * 0.75f);
 
                     float ang = e.rotation + rand.range(55f);
@@ -773,27 +773,27 @@ public class VoidBullets {
                             ang);
 
                     
-                    Draw.color(Pal.techBlue);
+                    Draw.color(Color.valueOf("859cef"));
                     Draw.alpha(e.fout() * 0.5f);
                     circle(
                             e.x + rand.range(8f),
                             e.y + rand.range(8f),
                             rand.random(1.5f, 3.5f) * e.fout());
 
-                    Drawf.light(e.x, e.y, e.fout() * 35f, Pal.techBlue, 0.5f);
+                    Drawf.light(e.x, e.y, e.fout() * 35f, Color.valueOf("859cef"), 0.5f);
                     Draw.reset();
                 });
 
                 
                 hitEffect = new OptionalMultiEffect(
-                        JBFx.blast(Pal.techBlue, 95f),
-                        JBFx.sharpBlast(Pal.techBlue, Color.white, 55f, 100f),
-                        JBFx.hitSpark(Pal.techBlue, 70f, 24, 95f, 3f, 16f));
+                        JBFx.blast(Color.valueOf("859cef"), 95f),
+                        JBFx.sharpBlast(Color.valueOf("859cef"), Color.white, 55f, 100f),
+                        JBFx.hitSpark(Color.valueOf("859cef"), 70f, 24, 95f, 3f, 16f));
 
                 despawnEffect = new OptionalMultiEffect(
-                        JBFx.sharpBlast(Pal.techBlue, Color.white, 40f, 75f),
-                        JBFx.crossBlast(Pal.techBlue, 90f, 0),
-                        JBFx.crossBlast(Pal.techBlue, 70f, 45));
+                        JBFx.sharpBlast(Color.valueOf("859cef"), Color.white, 40f, 75f),
+                        JBFx.crossBlast(Color.valueOf("859cef"), 90f, 0),
+                        JBFx.crossBlast(Color.valueOf("859cef"), 70f, 45));
             }
 
             @Override
@@ -807,20 +807,20 @@ public class VoidBullets {
                 
                 Lines.stroke(2.2f + pulse * 0.4f);
 
-                Draw.color(Pal.techBlue, Color.white, 0.2f);
+                Draw.color(Color.valueOf("859cef"), Color.white, 0.2f);
                 Draw.alpha(0.5f + pulse * 0.12f);
                 for (int i = 0; i < 3; i++) {
                     Lines.arc(b.x, b.y, width * 2f + pulse, 0.22f, rot + i * 120f);
                 }
 
-                Draw.color(Pal.techBlue);
+                Draw.color(Color.valueOf("859cef"));
                 Draw.alpha(0.38f + pulse * 0.1f);
                 for (int i = 0; i < 3; i++) {
                     Lines.arc(b.x, b.y, width * 1.45f + pulse, 0.18f, -rot * 1.4f + i * 120f);
                 }
 
                 
-                Draw.color(Pal.techBlue, Color.white, 0.35f);
+                Draw.color(Color.valueOf("859cef"), Color.white, 0.35f);
                 Draw.alpha(0.6f + pulse * 0.15f);
                 for (int i = 0; i < 4; i++) {
                     float angle = rot * 1.2f + i * 90f;
@@ -835,12 +835,12 @@ public class VoidBullets {
 
                 
                 
-                Draw.color(Pal.techBlue);
+                Draw.color(Color.valueOf("859cef"));
                 Draw.alpha(0.45f + pulse * 0.2f);
                 circle(b.x, b.y, width * 1.05f + pulse * 2f);
 
                 
-                Draw.color(Pal.techBlue, Color.white, 0.45f);
+                Draw.color(Color.valueOf("859cef"), Color.white, 0.45f);
                 Draw.alpha(0.7f + pulse * 0.15f);
                 circle(b.x, b.y, width * 0.6f + pulse);
 
@@ -850,7 +850,7 @@ public class VoidBullets {
                 circle(b.x, b.y, width * 0.28f + pulse * 0.5f);
 
                 
-                Drawf.light(b.x, b.y, lightRadius * (0.85f + pulse * 0.08f), Pal.techBlue, lightOpacity);
+                Drawf.light(b.x, b.y, lightRadius * (0.85f + pulse * 0.08f), Color.valueOf("859cef"), lightOpacity);
 
                 Draw.reset();
             }

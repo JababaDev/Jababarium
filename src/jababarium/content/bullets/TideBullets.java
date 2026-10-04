@@ -50,8 +50,8 @@ public class TideBullets {
                 status = StatusEffects.slow;
                 statusDuration = 60f;
                 width = 11f;
-                fromColor = Pal.techBlue;
-                hitColor = lightColor = lightningColor = toColor = Pal.techBlue;
+                fromColor = Color.valueOf("859cef");
+                hitColor = lightColor = lightningColor = toColor = Color.valueOf("859cef");
                 shootEffect = JBFx.lightningHitSmall(toColor);
                 smokeEffect = new OptionalMultiEffect(new Effect(lifetime + 2f, b -> {
                     Draw.color(fromColor, toColor, b.fin());
@@ -71,16 +71,16 @@ public class TideBullets {
                 height = 58f;
 
                 frontColor = Color.white;
-                backColor = Pal.techBlue;
-                hitColor = Pal.techBlue;
+                backColor = Color.valueOf("859cef");
+                hitColor = Color.valueOf("859cef");
 
                 trailLength = 45;
                 trailWidth = 6.5f;
-                trailColor = Pal.techBlue;
+                trailColor = Color.valueOf("859cef");
                 trailInterval = 1f;
                 trailRotation = false;
 
-                lightColor = Pal.techBlue;
+                lightColor = Color.valueOf("859cef");
                 lightRadius = 80f;
                 lightOpacity = 0.85f;
 
@@ -94,24 +94,24 @@ public class TideBullets {
                 hitSound = Sounds.explosionCleroi;
 
                 shootEffect = new Effect(30f, e -> {
-                    color(Pal.techBlue, Color.white, e.fout() * 0.45f);
+                    color(Color.valueOf("859cef"), Color.white, e.fout() * 0.45f);
                     stroke(e.fout() * 3.5f);
                     Lines.circle(e.x, e.y, e.finpow() * 32f);
 
-                    color(Pal.techBlue);
+                    color(Color.valueOf("859cef"));
                     randLenVectors(e.id, 8, e.finpow() * 35f, e.rotation + 180f, 50f, (x, y) -> {
                         circle(e.x + x, e.y + y, e.fout() * 3.2f);
-                        Drawf.light(e.x + x, e.y + y, e.fout() * 8f, Pal.techBlue, 0.6f);
+                        Drawf.light(e.x + x, e.y + y, e.fout() * 8f, Color.valueOf("859cef"), 0.6f);
                     });
                 });
 
                 smokeEffect = Fx.none;
 
                 trailEffect = new Effect(25f, e -> {
-                    color(Pal.techBlue, Color.white, e.fin() * 0.3f);
+                    color(Color.valueOf("859cef"), Color.white, e.fin() * 0.3f);
                     stroke(e.fout(Interp.pow2Out) * 1.8f);
                     Lines.circle(e.x, e.y, e.fout() * 9f + 2f);
-                    Drawf.light(e.x, e.y, e.fout() * 18f, Pal.techBlue, 0.5f);
+                    Drawf.light(e.x, e.y, e.fout() * 18f, Color.valueOf("859cef"), 0.5f);
                     Draw.reset();
                 });
 
@@ -121,14 +121,14 @@ public class TideBullets {
 
                     
                     e.scaled(40f, i -> {
-                        Draw.color(Color.white, Pal.techBlue, i.fin() * 0.6f);
+                        Draw.color(Color.white, Color.valueOf("859cef"), i.fin() * 0.6f);
                         Lines.stroke(14f * i.fout(Interp.pow2Out));
                         Lines.circle(e.x, e.y, i.fin(Interp.circleOut) * rad * 1.4f);
                     });
 
                     
                     e.scaled(65f, i -> {
-                        color(Pal.techBlue);
+                        color(Color.valueOf("859cef"));
                         Lines.stroke(8f * i.fout());
                         Lines.circle(e.x, e.y, i.fin(Interp.circleOut) * rad);
 
@@ -138,7 +138,7 @@ public class TideBullets {
                     });
 
                     
-                    color(Pal.techBlue, Color.white, 0.25f);
+                    color(Color.valueOf("859cef"), Color.white, 0.25f);
                     stroke(e.fout(Interp.pow4Out) * 3.5f);
                     Lines.circle(e.x, e.y, e.fin(Interp.pow3Out) * rad * 1.85f);
 
@@ -151,7 +151,7 @@ public class TideBullets {
                                     float w = i.foutpowdown() * Mathf.random(rad / 8f, rad / 5f) / 2f * i.fout();
                                     float len = Mathf.random(rad * 0.6f, rad * 1.2f) * i.fout(Interp.circleOut);
 
-                                    Draw.color(Pal.techBlue, Color.white, 0.35f);
+                                    Draw.color(Color.valueOf("859cef"), Color.white, 0.35f);
                                     DrawFunc.tri(i.x + x, i.y + y, w, rad / 3.5f * i.fout(Interp.pow2In), angle - 180f);
                                     DrawFunc.tri(i.x + x, i.y + y, w, len, angle);
 
@@ -162,12 +162,12 @@ public class TideBullets {
 
                     
                     e.scaled(25f, i -> {
-                        Draw.color(Color.white, Pal.techBlue, i.fin());
+                        Draw.color(Color.white, Color.valueOf("859cef"), i.fin());
                         Draw.alpha(i.fout(Interp.pow2Out));
                         circle(e.x, e.y, i.fout(Interp.pow3Out) * rad * 0.5f);
                     });
 
-                    Drawf.light(e.x, e.y, rad * e.fout() * 4.5f, Pal.techBlue, 0.9f);
+                    Drawf.light(e.x, e.y, rad * e.fout() * 4.5f, Color.valueOf("859cef"), 0.9f);
                 });
 
                 despawnEffect = new Effect(45f, e -> {
@@ -178,15 +178,15 @@ public class TideBullets {
                             continue;
                         float fo = 1f - p;
 
-                        color(Pal.techBlue, Color.white, fo * 0.4f);
+                        color(Color.valueOf("859cef"), Color.white, fo * 0.4f);
                         stroke(fo * (2.5f - i * 0.5f));
                         Lines.circle(e.x, e.y, p * (20f + i * 18f));
                     }
 
-                    color(Pal.techBlue);
+                    color(Color.valueOf("859cef"));
                     Draw.alpha(e.fout(Interp.pow3Out) * 0.5f);
                     circle(e.x, e.y, e.fout(Interp.pow3Out) * 14f);
-                    Drawf.light(e.x, e.y, e.fout() * 50f, Pal.techBlue, 0.55f);
+                    Drawf.light(e.x, e.y, e.fout() * 50f, Color.valueOf("859cef"), 0.55f);
                     Draw.reset();
                 });
             }
@@ -211,11 +211,11 @@ public class TideBullets {
 
                     float fade = 1f - Math.abs(phase - 0.5f) * 2f;
 
-                    Draw.color(Pal.techBlue);
+                    Draw.color(Color.valueOf("859cef"));
                     Draw.alpha((0.28f + pulse * 0.08f) * fade);
 
                     
-                    Draw.color(Pal.techBlue);
+                    Draw.color(Color.valueOf("859cef"));
                     Draw.alpha(0.22f + pulse * 0.07f);
                     circle(b.x, b.y, width * 1.05f + pulse);
 
@@ -224,7 +224,7 @@ public class TideBullets {
                     Draw.alpha(0.92f);
                     circle(b.x, b.y, width * 0.32f);
 
-                    Drawf.light(b.x, b.y, lightRadius * (0.75f + pulse * 0.1f), Pal.techBlue, lightOpacity);
+                    Drawf.light(b.x, b.y, lightRadius * (0.75f + pulse * 0.1f), Color.valueOf("859cef"), lightOpacity);
 
                     Draw.reset();
                 }
@@ -239,9 +239,9 @@ public class TideBullets {
 
         tidebreakerStd = new AccelBulletType(2.85f, 920f) {
             {
-                frontColor = JBColor.lightSkyFront;
-                backColor = lightningColor = hitColor = lightColor = JBColor.lightSkyBack;
-                trailColor = JBColor.lightSkyMiddle;
+                frontColor = Color.valueOf("e5ebff");
+                backColor = lightningColor = hitColor = lightColor = Color.valueOf("aabcf9");
+                trailColor = JBColor.tidebreakerPale;
                 lifetime = 156f;
                 knockback = 2f;
                 ammoMultiplier = 8f;
@@ -318,6 +318,39 @@ public class TideBullets {
             }
         };
 
+        basicSkyFragTidebreaker = new BasicBulletType(6.8f, 150) {
+            {
+                speed = 6f;
+                trailLength = 12;
+                trailWidth = 2f;
+                lifetime = 60;
+                despawnEffect = JBFx.square45_4_45;
+                hitEffect = new Effect(45f, e -> {
+                    Fx.rand.setSeed(e.id);
+                    Draw.color(Color.valueOf("e5ebff"), Color.valueOf("aabcf9"), e.fin());
+                    Lines.stroke(1.75f * e.fout());
+                    Lines.spikes(e.x, e.y, Fx.rand.random(14, 28) * e.finpow(),
+                            Fx.rand.random(1, 5) * e.fout() + Fx.rand.random(5, 8) * e.fin(JBInterp.parabola4Reversed),
+                            4, 45);
+                    Lines.square(e.x, e.y, Fx.rand.random(4, 14) * e.fin(Interp.pow3Out), 45);
+                });
+                knockback = 4f;
+                width = 15f;
+                height = 37f;
+                lightningDamage = damage * 0.65f;
+                backColor = lightColor = lightningColor = trailColor = hitColor = Color.valueOf("aabcf9");
+                frontColor = Color.valueOf("e5ebff");
+                lightning = 2;
+                lightningLength = lightningLengthRand = 3;
+                smokeEffect = Fx.shootBigSmoke2;
+                trailChance = 0.2f;
+                trailEffect = JBFx.skyTrail;
+                drag = 0.015f;
+                hitShake = 2f;
+                hitSound = Sounds.explosion;
+            }
+        };
+
         tideLightning = new LightningLinkerBulletType(5.5f, 1950) {
             {
                 rangeOverride = 480;
@@ -327,7 +360,7 @@ public class TideBullets {
                 trailWidth = 8f;
                 trailLength = 40;
 
-                backColor = trailColor = lightColor = lightningColor = JBColor.lightSkyBack;
+                backColor = trailColor = lightColor = lightningColor = Color.valueOf("aabcf9");
                 frontColor = Color.white;
                 randomGenerateRange = 280f;
                 randomLightningNum = 5;
@@ -343,16 +376,16 @@ public class TideBullets {
                 fragVelocityMax = 0.75f;
                 fragVelocityMin = 0.25f;
                 fragBullets = 13;
-                fragBullet = JBBullets.basicSkyFrag;
+                fragBullet = JBBullets.basicSkyFragTidebreaker;
                 drawSize = 40;
                 splashDamageRadius = 240;
                 splashDamage = 850;
                 status = StatusEffects.shocked;
                 lifetime = 300;
-                despawnEffect = new OptionalMultiEffect(JBFx.circleOut(JBColor.lightSkyFront, 120f),
-                        JBFx.hitSpark(JBColor.lightSkyFront, 50f, 40, 200f, 7f, 25f));
+                despawnEffect = new OptionalMultiEffect(JBFx.circleOut(Color.valueOf("e5ebff"), 120f),
+                        JBFx.hitSpark(Color.valueOf("e5ebff"), 50f, 40, 200f, 7f, 25f));
                 hitEffect = new Effect(50, e -> {
-                    color(JBColor.lightSkyBack);
+                    color(Color.valueOf("aabcf9"));
                     circle(e.x, e.y, e.fout() * 44);
                     stroke(e.fout() * 3.2f);
                     circle(e.x, e.y, e.fin() * 80);
@@ -366,7 +399,7 @@ public class TideBullets {
                     circle(e.x, e.y, e.fout() * 30);
                 });
                 shootEffect = new Effect(30f, e -> {
-                    color(JBColor.lightSkyBack);
+                    color(Color.valueOf("aabcf9"));
                     circle(e.x, e.y, e.fout() * 32);
                     color(Color.white);
                     circle(e.x, e.y, e.fout() * 20);
@@ -389,8 +422,8 @@ public class TideBullets {
                 
                 
 
-                trailColor = hitColor = backColor = lightColor = lightningColor = JBColor.thurmixRed;
-                frontColor = JBColor.thurmixRedLight;
+                trailColor = hitColor = backColor = lightColor = lightningColor = Color.valueOf("f6ab9b");
+                frontColor = JBColor.ocelexisPale;
                 width = 10f;
                 height = 40f;
 
@@ -427,9 +460,9 @@ public class TideBullets {
                 pierceCap = -1;
 
                 frontColor = Color.white;
-                backColor = Color.red;
+                backColor = Color.valueOf("c03f3f");
 
-                trailColor = JBColor.thurmixRed;
+                trailColor = Color.valueOf("ff9292");
                 trailWidth = 7f;
                 trailLength = 60;
 
@@ -455,9 +488,9 @@ public class TideBullets {
                 shrinkX = 0f;
 
                 Color lightningWhite = Color.valueOf("#ffffff");
-                Color lightningPurple = Color.valueOf("#f99292");
-                Color deepPurple = Color.valueOf("#b06b6b");
-                Color darkPurple = Color.valueOf("#845c5c");
+                Color lightningPurple = Color.valueOf("ff8c8c");
+                Color deepPurple = Color.valueOf("d24949");
+                Color darkPurple = Color.valueOf("ad3333");
 
                 frontColor = lightningWhite;
                 backColor = lightningPurple;
@@ -568,8 +601,8 @@ public class TideBullets {
                                 lifetime = 40f;
                                 sizeFrom = 10f;
                                 sizeTo = 0f;
-                                colorFrom = Color.valueOf("#f99292");
-                                colorTo = Color.valueOf("#b06b6b").cpy().a(0f);
+                                colorFrom = Color.valueOf("ff8c8c");
+                                colorTo = Color.valueOf("d24949").cpy().a(0f);
                                 cone = 360f;
                                 lightOpacity = 0.9f;
                             }
@@ -583,7 +616,7 @@ public class TideBullets {
                                 sizeFrom = 8f;
                                 sizeTo = 0f;
                                 colorFrom = Color.valueOf("ffffff");
-                                colorTo = Color.valueOf("#f99292").cpy().a(0f);
+                                colorTo = Color.valueOf("ff8c8c").cpy().a(0f);
                                 cone = 360f;
                             }
                         }).at(x, y);
@@ -598,7 +631,7 @@ public class TideBullets {
                     
                     Lightning.create(
                             team,
-                            Color.valueOf("#f99292"),
+                            Color.valueOf("ff8c8c"),
                             boltDamage,
                             x, y,
                             angle,
@@ -609,7 +642,7 @@ public class TideBullets {
                         float midAngle = angle + (360f / mainBolts) / 2f;
                         Lightning.create(
                                 team,
-                                Color.valueOf("#b06b6b"),
+                                Color.valueOf("d24949"),
                                 boltDamage * 0.6f,
                                 x, y,
                                 midAngle,
@@ -623,7 +656,7 @@ public class TideBullets {
                         float randomAngle = Mathf.random(360f);
                         Lightning.create(
                                 team,
-                                Color.valueOf("#f99292").cpy().a(0.6f),
+                                Color.valueOf("ff8c8c").cpy().a(0.6f),
                                 boltDamage * 0.4f,
                                 x, y,
                                 randomAngle,
@@ -652,8 +685,8 @@ public class TideBullets {
                                 lifetime = 35f;
                                 sizeFrom = 6f;
                                 sizeTo = 0f;
-                                colorFrom = Color.valueOf("#f99292").cpy().a(0.7f);
-                                colorTo = Color.valueOf("#b06b6b").cpy().a(0f);
+                                colorFrom = Color.valueOf("ff8c8c").cpy().a(0.7f);
+                                colorTo = Color.valueOf("d24949").cpy().a(0f);
                                 cone = 360f;
                             }
                         }.at(x, y);
@@ -732,7 +765,7 @@ public class TideBullets {
             }
 
             public Color getColor(Bullet b) {
-                return JBColor.thurmixRed;
+                return Color.valueOf("f6ab9b");
             }
 
             @Override
@@ -745,19 +778,19 @@ public class TideBullets {
                 Effect.shake(hitShake, hitShake, b);
                 if (b.timer(5, hitSpacing)) {
                     slopeEffect.at(b.x + Mathf.range(size / 4f), b.y + Mathf.range(size / 4f), Mathf.random(2f, 4f),
-                            JBColor.thurmixRed);
-                    spreadEffect.at(b.x, b.y, JBColor.thurmixRed);
+                            Color.valueOf("f6ab9b"));
+                    spreadEffect.at(b.x, b.y, Color.valueOf("f6ab9b"));
                     PosLightning.createRange(b, collidesAir, collidesGround, b, b.team, linkRange, maxHit,
-                            JBColor.thurmixRed, Mathf.chanceDelta(randomLightningChance), lightningDamage,
+                            Color.valueOf("f6ab9b"), Mathf.chanceDelta(randomLightningChance), lightningDamage,
                             lightningLength, PosLightning.WIDTH, boltNum, p -> {
-                                liHitEffect.at(p.getX(), p.getY(), JBColor.thurmixRed);
+                                liHitEffect.at(p.getX(), p.getY(), Color.valueOf("f6ab9b"));
                             });
                 }
 
                 if (Mathf.chanceDelta(0.1)) {
                     slopeEffect.at(b.x + Mathf.range(size / 4f), b.y + Mathf.range(size / 4f), Mathf.random(2f, 4f),
-                            JBColor.thurmixRed);
-                    spreadEffect.at(b.x, b.y, JBColor.thurmixRed);
+                            Color.valueOf("f6ab9b"));
+                    spreadEffect.at(b.x, b.y, Color.valueOf("f6ab9b"));
                 }
 
                 if (randomGenerateRange > 0f && Mathf.chance(Time.delta * randomGenerateChance)
@@ -768,7 +801,7 @@ public class TideBullets {
                                 randomGenerateSound.at(hitPos, Mathf.random(0.9f, 1.1f));
                                 Damage.damage(b.team, hitPos.getX(), hitPos.getY(), splashDamageRadius / 8,
                                         splashDamage * b.damageMultiplier() / 8, collidesAir, collidesGround);
-                                JBFx.lightningHitLarge.at(hitPos.getX(), hitPos.getY(), JBColor.thurmixRed);
+                                JBFx.lightningHitLarge.at(hitPos.getX(), hitPos.getY(), Color.valueOf("f6ab9b"));
 
                                 hitModifier.get(hitPos);
                             });
@@ -777,8 +810,8 @@ public class TideBullets {
                     for (int i = 0; i < effectLingtning; i++) {
                         Vec2 v = randVec.rnd(effectLightningLength + Mathf.random(effectLightningLengthRand)).add(b)
                                 .add(Tmp.v1.set(b.vel).scl(Fx.chainLightning.lifetime / 2));
-                        Fx.chainLightning.at(b.x, b.y, 12f, JBColor.thurmixRed, v.cpy());
-                        JBFx.lightningHitSmall.at(v.x, v.y, 20f, JBColor.thurmixRed);
+                        Fx.chainLightning.at(b.x, b.y, 12f, Color.valueOf("f6ab9b"), v.cpy());
+                        JBFx.lightningHitSmall.at(v.x, v.y, 20f, Color.valueOf("f6ab9b"));
                     }
                 }
             }
@@ -789,8 +822,8 @@ public class TideBullets {
 
                 b.lifetime *= Mathf.randomSeed(b.id, 0.875f, 1.125f);
 
-                RsmokeEffect.at(b.x, b.y, JBColor.thurmixRed);
-                RshootEffect.at(b.x, b.y, b.rotation(), JBColor.thurmixRed);
+                RsmokeEffect.at(b.x, b.y, Color.valueOf("f6ab9b"));
+                RshootEffect.at(b.x, b.y, b.rotation(), Color.valueOf("f6ab9b"));
             }
 
             @Override
@@ -827,20 +860,20 @@ public class TideBullets {
 
                 Fill.circle(b.x, b.y, size / 6.125f + size / 3 * Mathf.curve(b.fout(), 0.1f, 0.35f));
 
-                Drawf.light(b.x, b.y, size * 6.85f, JBColor.thurmixRed, 0.7f);
+                Drawf.light(b.x, b.y, size * 6.85f, Color.valueOf("f6ab9b"), 0.7f);
             }
 
             @Override
             public void despawned(Bullet b) {
-                PosLightning.createRandomRange(b, b.team, b, randomGenerateRange, JBColor.thurmixRed,
+                PosLightning.createRandomRange(b, b.team, b, randomGenerateRange, Color.valueOf("f6ab9b"),
                         Mathf.chanceDelta(randomLightningChance), 0, 0, boltWidth, boltNum, randomLightningNum,
                         hitPos -> {
                             Damage.damage(b.team, hitPos.getX(), hitPos.getY(), splashDamageRadius,
                                     splashDamage * b.damageMultiplier(), collidesAir, collidesGround);
-                            JBFx.lightningHitLarge.at(hitPos.getX(), hitPos.getY(), JBColor.thurmixRed);
+                            JBFx.lightningHitLarge.at(hitPos.getX(), hitPos.getY(), Color.valueOf("f6ab9b"));
                             liHitEffect.at(hitPos);
                             for (int j = 0; j < lightning; j++) {
-                                Lightning.create(b, JBColor.thurmixRed,
+                                Lightning.create(b, Color.valueOf("f6ab9b"),
                                         lightningDamage < 0.0F ? damage : lightningDamage, b.x, b.y,
                                         b.rotation() + Mathf.range(lightningCone / 2.0F) + lightningAngle,
                                         lightningLength + Mathf.random(lightningLengthRand));
@@ -860,7 +893,7 @@ public class TideBullets {
                     createFrags(b, b.x, b.y);
                 }
 
-                despawnEffect.at(b.x, b.y, b.rotation(), JBColor.thurmixRed);
+                despawnEffect.at(b.x, b.y, b.rotation(), Color.valueOf("f6ab9b"));
                 despawnSound.at(b);
 
                 Effect.shake(despawnShake, despawnShake, b);
@@ -868,7 +901,7 @@ public class TideBullets {
 
             @Override
             public void hit(Bullet b, float x, float y) {
-                hitEffect.at(x, y, b.rotation(), JBColor.thurmixRed);
+                hitEffect.at(x, y, b.rotation(), Color.valueOf("f6ab9b"));
                 hitSound.at(x, y, hitSoundPitch, hitSoundVolume);
 
                 Effect.shake(hitShake, hitShake, b);
@@ -888,7 +921,7 @@ public class TideBullets {
                 createSplashDamage(b, x, y);
 
                 for (int i = 0; i < lightning; i++) {
-                    Lightning.create(b, JBColor.thurmixRed, lightningDamage < 0 ? damage : lightningDamage, b.x, b.y,
+                    Lightning.create(b, Color.valueOf("f6ab9b"), lightningDamage < 0 ? damage : lightningDamage, b.x, b.y,
                             b.rotation() + Mathf.range(lightningCone / 2) + lightningAngle,
                             lightningLength + Mathf.random(lightningLengthRand));
                 }
@@ -897,7 +930,7 @@ public class TideBullets {
             @Override
             public void removed(Bullet b) {
                 if (trailLength > 0 && b.trail != null && b.trail.size() > 0) {
-                    Fx.trailFade.at(b.x, b.y, trailWidth, JBColor.thurmixRed, b.trail.copy());
+                    Fx.trailFade.at(b.x, b.y, trailWidth, Color.valueOf("f6ab9b"), b.trail.copy());
                 }
             }
         };
@@ -910,9 +943,9 @@ public class TideBullets {
                 sprite = "missile-large";
 
                 
-                backColor = JBColor.thurmixRed;
+                backColor = Color.valueOf("ff9292");
                 frontColor = Color.white;
-                lightColor = JBColor.thurmixRedLight;
+                lightColor = Color.valueOf("ffcece");
                 lightRadius = 180f;
                 lightOpacity = 0.9f;
 
@@ -940,15 +973,15 @@ public class TideBullets {
                 hitSound = JBSounds.blastShockwave;
 
                 shootEffect = new MultiEffect(
-                        JBFx.crossBlast(Color.valueOf("ff1a1a"), 320f),
+                        JBFx.crossBlast(Color.valueOf("d14848"), 320f),
                         new Effect(60f, e -> {
-                            Draw.color(Color.valueOf("ff1a1a"), Color.white, e.fin());
+                            Draw.color(Color.valueOf("d14848"), Color.white, e.fin());
                             Lines.stroke(5f * e.fout());
                             Lines.circle(e.x, e.y, 180f * e.fout());
                             Angles.randLenVectors(e.id, 25, 90f * e.fout(), (x, y) -> {
                                 Fill.circle(e.x + x, e.y + y, 7f * e.fout());
                             });
-                            Drawf.light(e.x, e.y, e.fout() * 150f, Color.valueOf("ff1a1a"), 0.8f);
+                            Drawf.light(e.x, e.y, e.fout() * 150f, Color.valueOf("d14848"), 0.8f);
                         }));
 
                 hitEffect = new MultiEffect(
@@ -983,8 +1016,28 @@ public class TideBullets {
         tideLaser = new LaserBulletType() {
             {
                 damage = 1600f;
-                hitColor = JBColor.thurmixRed;
-                colors = new Color[] { hitColor.cpy().mul(1f, 1f, 1f, 0.45f), hitColor, JBColor.thurmixRedLight,
+                hitColor = Color.valueOf("f6ab9b");
+                colors = new Color[] { hitColor.cpy().mul(1f, 1f, 1f, 0.45f), hitColor, JBColor.ocelexisPale,
+                        Color.white };
+                length = 600f;
+                width = 14f;
+                lifetime = PosLightning.lifetime + 5f;
+                ammoMultiplier = 4;
+                lengthFalloff = 0.8f;
+                sideLength = 40f;
+                sideWidth = 0.5f;
+                sideAngle = 30f;
+                largeHit = true;
+                hitEffect = JBFx.instHit(hitColor, 2, 36f);
+                shootEffect = JBFx.square(hitColor, 15f, 2, 8f, 2f);
+            }
+        };
+
+        tideLaserBroodmother = new LaserBulletType() {
+            {
+                damage = 1600f;
+                hitColor = Color.valueOf("ff9292");
+                colors = new Color[] { hitColor.cpy().mul(1f, 1f, 1f, 0.45f), hitColor, Color.valueOf("ffcece"),
                         Color.white };
                 length = 600f;
                 width = 14f;
@@ -1003,7 +1056,7 @@ public class TideBullets {
         tideBall = new AccelBulletType(3.85f, 240f, "mine-bullet") {
             {
                 frontColor = Color.white;
-                backColor = lightningColor = trailColor = hitColor = lightColor = JBColor.thurmixRed;
+                backColor = lightningColor = trailColor = hitColor = lightColor = Color.valueOf("f6ab9b");
                 lifetime = 165f;
 
                 spin = 3f;
@@ -1083,7 +1136,175 @@ public class TideBullets {
                         lightningAngleRand = 40f;
                         scaledSplashDamage = largeHit = true;
 
-                        lightningColor = trailColor = hitColor = lightColor = JBColor.thurmixRedLight;
+                        lightningColor = trailColor = hitColor = lightColor = JBColor.ocelexisPale;
+
+                        despawnHit = false;
+                        hitEffect = new Effect(90, 500, e -> {
+                            Draw.color(backColor, frontColor, e.fout() * 0.7f);
+                            Fill.circle(e.x, e.y, e.fout() * height / 1.55f);
+                            Lines.stroke(e.fout() * 3f);
+                            Lines.circle(e.x, e.y, e.fin(Interp.pow3Out) * 80);
+                            Angles.randLenVectors(e.id, 18, 18 + 100 * e.fin(),
+                                    (x, y) -> Fill.circle(e.x + x, e.y + y, e.fout() * 7f));
+
+                            Draw.color(frontColor);
+                            Fill.circle(e.x, e.y, e.fout() * height / 2f);
+                        });
+
+                        sideAngle = 15f;
+                        sideWidth = 0f;
+                        sideLength = 0f;
+                        colors = new Color[] { hitColor.cpy().a(0.2f), hitColor, Color.white };
+                    }
+
+                    @Override
+                    public void despawned(Bullet b) {
+                        
+                    }
+
+                    @Override
+                    public void init(Bullet b) {
+                        Vec2 p = new Vec2()
+                                .set(JBFunc.collideBuildOnLength(b.team, b.x, b.y, length, b.rotation(), bu -> true));
+
+                        float resultLength = b.dst(p), rot = b.rotation();
+
+                        b.fdata = resultLength;
+                        laserEffect.at(b.x, b.y, rot, resultLength * 0.75f);
+
+                        if (lightningSpacing > 0) {
+                            int idx = 0;
+                            for (float i = 0; i <= resultLength; i += lightningSpacing) {
+                                float cx = b.x + Angles.trnsx(rot, i),
+                                        cy = b.y + Angles.trnsy(rot, i);
+
+                                int f = idx++;
+
+                                for (int s : Mathf.signs) {
+                                    Time.run(f * lightningDelay, () -> {
+                                        if (b.isAdded() && b.type == this) {
+                                            Lightning.create(b, lightningColor,
+                                                    lightningDamage < 0 ? damage : lightningDamage,
+                                                    cx, cy, rot + 90 * s + Mathf.range(lightningAngleRand),
+                                                    lightningLength + Mathf.random(lightningLengthRand));
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void draw(Bullet b) {
+                        float realLength = b.fdata;
+
+                        float f = Mathf.curve(b.fin(), 0f, 0.2f);
+                        float baseLen = realLength * f;
+                        float cwidth = width;
+                        float compound = 1f;
+
+                        Tmp.v1.trns(b.rotation(), baseLen);
+
+                        for (Color color : colors) {
+                            Draw.color(color);
+                            Lines.stroke((cwidth *= lengthFalloff) * b.fout());
+                            Lines.lineAngle(b.x, b.y, b.rotation(), baseLen, false);
+
+                            Fill.circle(Tmp.v1.x + b.x, Tmp.v1.y + b.y, Lines.getStroke() * 2.2f);
+                            Fill.circle(b.x, b.y, 1f * cwidth * b.fout());
+                            compound *= lengthFalloff;
+                        }
+                        Draw.reset();
+                        Drawf.light(b.x, b.y, b.x + Tmp.v1.x, b.y + Tmp.v1.y, width * 1.4f * b.fout(), colors[0], 0.6f);
+                    }
+                };
+            }
+        };
+
+        tideBallBroodmother = new AccelBulletType(3.85f, 240f, "mine-bullet") {
+            {
+                frontColor = Color.white;
+                backColor = lightningColor = trailColor = hitColor = lightColor = Color.valueOf("ff9292");
+                lifetime = 165f;
+
+                spin = 3f;
+
+                statusDuration = 300f;
+
+                accelerateBegin = 0.15f;
+                accelerateEnd = 0.95f;
+
+                despawnSound = hitSound = Sounds.explosionTitan;
+
+                velocityBegin = 8f;
+                velocityIncrease = -7.5f;
+
+                collides = false;
+                scaleLife = scaledSplashDamage = true;
+                despawnHit = true;
+                hitShake = despawnShake = 18f;
+                lightning = 4;
+                lightningCone = 360;
+                lightningLengthRand = 12;
+                lightningLength = 10;
+                width = height = 30;
+                shrinkX = shrinkY = 0;
+
+                splashDamageRadius = 120f;
+                splashDamage = 800f;
+
+                lightningDamage = damage * 0.85f;
+
+                hitEffect = JBFx.hitSparkLarge;
+                despawnEffect = JBFx.square45_6_45;
+                trailEffect = JBFx.trailToGray;
+
+                trailLength = 15;
+                trailWidth = 5f;
+                drawSize = 300f;
+
+                shootEffect = JBFx.instShoot(backColor, frontColor);
+                smokeEffect = JBFx.lightningHitLarge;
+
+                hitEffect = new Effect(90, e -> {
+                    Draw.color(backColor, frontColor, e.fout() * 0.7f);
+                    Fill.circle(e.x, e.y, e.fout() * height / 1.25f);
+                    Lines.stroke(e.fout() * 3f);
+                    Lines.circle(e.x, e.y, e.fin() * 80);
+                    Lines.stroke(e.fout() * 2f);
+                    Lines.circle(e.x, e.y, e.fin() * 50);
+                    Angles.randLenVectors(e.id, 35, 18 + 100 * e.fin(),
+                            (x, y) -> lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 12 + 4));
+
+                    Draw.color(frontColor);
+                    Fill.circle(e.x, e.y, e.fout() * height / 1.75f);
+                });
+                despawnEffect = new OptionalMultiEffect(JBFx.hitSparkHuge, JBFx.instHit(backColor, 3, 120f));
+
+                fragBullets = 3;
+                fragBullet = new LaserBulletType() {
+                    {
+                        length = 460f;
+                        damage = 4060f;
+                        width = 45f;
+
+                        statusDuration = 120f;
+
+                        lifetime = 65f;
+
+                        splashDamage = 800;
+                        splashDamageRadius = 120;
+                        hitShake = 18f;
+
+                        lightningSpacing = 35f;
+                        lightningLength = 8;
+                        lightningDelay = 1.1f;
+                        lightningLengthRand = 15;
+                        lightningDamage = 450;
+                        lightningAngleRand = 40f;
+                        scaledSplashDamage = largeHit = true;
+
+                        lightningColor = trailColor = hitColor = lightColor = Color.valueOf("ffcece");
 
                         despawnHit = false;
                         hitEffect = new Effect(90, 500, e -> {
@@ -1186,32 +1407,32 @@ public class TideBullets {
                 trailWidth = 3.5f;
                 trailChance = 1f;
 
-                backColor = trailColor = hitColor = lightColor = lightningColor = JBColor.thurmixRed;
-                frontColor = JBColor.thurmixRedLight;
+                backColor = trailColor = hitColor = lightColor = lightningColor = Color.valueOf("f6ab9b");
+                frontColor = JBColor.ocelexisPale;
 
                 trailEffect = new Effect(28f, e -> {
                     rand.setSeed(e.id);
-                    Draw.color(JBColor.thurmixRed, JBColor.thurmixRedLight, e.fout() * 0.4f);
+                    Draw.color(Color.valueOf("f6ab9b"), JBColor.ocelexisPale, e.fout() * 0.4f);
                     Draw.alpha(e.fout() * 0.85f);
                     Fill.square(e.x, e.y, rand.random(1.5f, 4f) * e.fout(), e.rotation + 45f);
-                    Drawf.light(e.x, e.y, e.fout() * 14f, JBColor.thurmixRed, 0.6f);
+                    Drawf.light(e.x, e.y, e.fout() * 14f, Color.valueOf("f6ab9b"), 0.6f);
                 });
 
                 shootEffect = new Effect(35f, e -> {
-                    Draw.color(JBColor.thurmixRed, Color.white, e.fout() * 0.5f);
+                    Draw.color(Color.valueOf("f6ab9b"), Color.white, e.fout() * 0.5f);
 
                     Lines.stroke(e.fout() * 2.5f);
                     Lines.circle(e.x, e.y, e.fin(Interp.pow3Out) * 28f);
 
                     Angles.randLenVectors(e.id, 5, 6f + 28f * e.finpow(), e.rotation, 28f, (x, y) -> {
                         Fill.square(e.x + x, e.y + y, e.fout() * 3.5f, 45f);
-                        Drawf.light(e.x + x, e.y + y, e.fout() * 8f, JBColor.thurmixRed, 0.6f);
+                        Drawf.light(e.x + x, e.y + y, e.fout() * 8f, Color.valueOf("f6ab9b"), 0.6f);
                     });
                 });
 
                 hitEffect = new MultiEffect(
                         new Effect(55f, e -> {
-                            Draw.color(JBColor.thurmixRed, Color.white, e.fout() * 0.35f);
+                            Draw.color(Color.valueOf("f6ab9b"), Color.white, e.fout() * 0.35f);
 
                             
                             Lines.stroke(3.5f * e.fout());
@@ -1224,33 +1445,33 @@ public class TideBullets {
                             Angles.randLenVectors(e.id, 10, 8f + 55f * e.finpow(), (x, y) -> {
                                 float ang = Mathf.angle(x, y);
                                 Fill.square(e.x + x, e.y + y, e.fout() * 4.5f, ang + 45f);
-                                Drawf.light(e.x + x, e.y + y, e.fout() * 10f, JBColor.thurmixRed, 0.5f);
+                                Drawf.light(e.x + x, e.y + y, e.fout() * 10f, Color.valueOf("f6ab9b"), 0.5f);
                             });
 
                             
-                            Draw.color(Color.white, JBColor.thurmixRedLight, e.fin());
+                            Draw.color(Color.white, JBColor.ocelexisPale, e.fin());
                             Fill.circle(e.x, e.y, e.fout(Interp.pow5Out) * 14f);
 
-                            Drawf.light(e.x, e.y, e.fout() * 90f, JBColor.thurmixRed, 0.8f);
+                            Drawf.light(e.x, e.y, e.fout() * 90f, Color.valueOf("f6ab9b"), 0.8f);
                         }),
-                        JBFx.sharpBlast(JBColor.thurmixRed, JBColor.thurmixRedLight, 65f, 32f),
-                        JBFx.hitSpark(JBColor.thurmixRed, 50f, 16, 60f, 1.8f, 9f));
+                        JBFx.sharpBlast(Color.valueOf("f6ab9b"), JBColor.ocelexisPale, 65f, 32f),
+                        JBFx.hitSpark(Color.valueOf("f6ab9b"), 50f, 16, 60f, 1.8f, 9f));
 
                 despawnEffect = new MultiEffect(
                         new Effect(40f, e -> {
-                            Draw.color(JBColor.thurmixRed, JBColor.thurmixRedLight, e.fin());
+                            Draw.color(Color.valueOf("f6ab9b"), JBColor.ocelexisPale, e.fin());
                             Lines.stroke(2f * e.fout());
                             for (int i = 0; i < 4; i++) {
                                 float angle = i * 90f + e.fin() * 35f;
                                 Lines.lineAngle(e.x, e.y, angle, e.finpow() * 30f);
                             }
                             Fill.circle(e.x, e.y, e.fout() * 6f);
-                            Drawf.light(e.x, e.y, e.fout() * 40f, JBColor.thurmixRed, 0.6f);
+                            Drawf.light(e.x, e.y, e.fout() * 40f, Color.valueOf("f6ab9b"), 0.6f);
                         }),
                         JBFx.square45_4_45);
 
                 smokeEffect = new Effect(45f, e -> {
-                    Draw.color(JBColor.thurmixRedDark, Color.darkGray, e.fin());
+                    Draw.color(Color.valueOf("200909"), Color.darkGray, e.fin());
                     Angles.randLenVectors(e.id, 5, 3f + 18f * e.finpow(),
                             (x, y) -> Fill.circle(e.x + x, e.y + y, e.fout() * 3.5f));
                 });
@@ -1278,41 +1499,41 @@ public class TideBullets {
                 trailLength = 25;
                 trailWidth = 7f;
 
-                backColor = trailColor = hitColor = lightColor = lightningColor = JBColor.thurmixRed;
-                frontColor = JBColor.thurmixRedLight;
+                backColor = trailColor = hitColor = lightColor = lightningColor = Color.valueOf("f6ab9b");
+                frontColor = JBColor.ocelexisPale;
 
                 trailEffect = new Effect(35f, e -> {
-                    Draw.color(JBColor.thurmixRed, Color.white, e.fout() * 0.3f);
+                    Draw.color(Color.valueOf("f6ab9b"), Color.white, e.fout() * 0.3f);
                     Fill.circle(e.x, e.y, e.fout() * 9f);
-                    Drawf.light(e.x, e.y, e.fout() * 30f, JBColor.thurmixRed, 0.8f);
+                    Drawf.light(e.x, e.y, e.fout() * 30f, Color.valueOf("f6ab9b"), 0.8f);
                 });
 
                 Effect explosion = new Effect(110f, 600f, e -> {
                     
-                    Draw.color(JBColor.thurmixRed, Color.white, e.fout() * 0.55f);
+                    Draw.color(Color.valueOf("f6ab9b"), Color.white, e.fout() * 0.55f);
                     Lines.stroke(6f * e.fout(Interp.pow5Out));
                     Lines.circle(e.x, e.y, e.fin(Interp.pow3Out) * 260f);
 
                     
                     e.scaled(70f, s -> {
-                        Draw.color(JBColor.thurmixRed);
+                        Draw.color(Color.valueOf("f6ab9b"));
                         Lines.stroke(4f * s.fout());
                         Lines.circle(e.x, e.y, s.fin(Interp.pow2Out) * 180f);
                     });
 
                     
                     e.scaled(45f, s -> {
-                        Draw.color(JBColor.thurmixRedLight);
+                        Draw.color(JBColor.ocelexisPale);
                         Lines.stroke(2.5f * s.fout());
                         Lines.circle(e.x, e.y, s.fin(Interp.pow2Out) * 110f);
                     });
 
                     
                     e.scaled(50f, s -> {
-                        Draw.color(Color.white, JBColor.thurmixRedLight, s.fin());
+                        Draw.color(Color.white, JBColor.ocelexisPale, s.fin());
                         Fill.circle(e.x, e.y, s.fout(Interp.pow3Out) * 95f);
 
-                        Draw.color(JBColor.thurmixRed, JBColor.thurmixRedDark, s.fin());
+                        Draw.color(Color.valueOf("f6ab9b"), Color.valueOf("200909"), s.fin());
                         Fill.circle(e.x, e.y, s.fout(Interp.pow2Out) * 70f);
                     });
 
@@ -1323,19 +1544,19 @@ public class TideBullets {
                     });
 
                     
-                    Draw.color(JBColor.thurmixRed, Color.white, e.fout() * 0.4f);
+                    Draw.color(Color.valueOf("f6ab9b"), Color.white, e.fout() * 0.4f);
                     Angles.randLenVectors(e.id, 18, 25f + 200f * e.finpow(), (x, y) -> {
                         float ang = Mathf.angle(x, y);
                         Lines.stroke(e.fout() * 4f);
                         Lines.lineAngle(e.x + x, e.y + y, ang, e.fslope() * 28f + 8f);
-                        Drawf.light(e.x + x, e.y + y, e.fout() * 22f, JBColor.thurmixRed, 0.6f);
+                        Drawf.light(e.x + x, e.y + y, e.fout() * 22f, Color.valueOf("f6ab9b"), 0.6f);
                     });
 
                     
-                    Draw.color(JBColor.thurmixRedLight, JBColor.thurmixRed, e.fin());
+                    Draw.color(JBColor.ocelexisPale, Color.valueOf("f6ab9b"), e.fin());
                     Angles.randLenVectors(e.id + 3, 12, 15f + 130f * e.finpow(), (x, y) -> {
                         Fill.square(e.x + x, e.y + y, e.fout() * 5.5f, 45f);
-                        Drawf.light(e.x + x, e.y + y, e.fout() * 14f, JBColor.thurmixRedLight, 0.5f);
+                        Drawf.light(e.x + x, e.y + y, e.fout() * 14f, JBColor.ocelexisPale, 0.5f);
                     });
 
                     
@@ -1345,18 +1566,18 @@ public class TideBullets {
                             (x, y) -> Fill.circle(e.x + x, e.y + y, e.fout() * 22f));
 
                     
-                    Drawf.light(e.x, e.y, e.fout() * 380f, JBColor.thurmixRed, 0.98f);
+                    Drawf.light(e.x, e.y, e.fout() * 380f, Color.valueOf("f6ab9b"), 0.98f);
                 });
 
                 hitEffect = new MultiEffect(
                         explosion,
-                        JBFx.hitSpark(JBColor.thurmixRed, 90f, 32, 170f, 3.5f, 22f),
-                        JBFx.sharpBlast(JBColor.thurmixRed, JBColor.thurmixRedLight, 110f, 85f),
-                        JBFx.circleOut(JBColor.thurmixRed, 200f));
+                        JBFx.hitSpark(Color.valueOf("f6ab9b"), 90f, 32, 170f, 3.5f, 22f),
+                        JBFx.sharpBlast(Color.valueOf("f6ab9b"), JBColor.ocelexisPale, 110f, 85f),
+                        JBFx.circleOut(Color.valueOf("f6ab9b"), 200f));
 
                 despawnEffect = hitEffect;
 
-                shootEffect = JBFx.instShoot(JBColor.thurmixRed, JBColor.thurmixRedLight);
+                shootEffect = JBFx.instShoot(Color.valueOf("f6ab9b"), JBColor.ocelexisPale);
                 smokeEffect = Fx.shootBigSmoke2;
                 hitSound = Sounds.explosionAfflict;
                 hitSoundVolume = 2f;

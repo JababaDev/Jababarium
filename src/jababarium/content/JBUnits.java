@@ -46,6 +46,9 @@ public class JBUnits {
                                                                 .reload(30f)
                                                                 .bullet(new BasicBulletType(4f, 20) {
                                                                         {
+                                                                                backColor = JBColor.nemesisMid;
+                                                                                frontColor = JBColor.nemesisGlow;
+                                                                                hitColor = trailColor = lightColor = JBColor.nemesisLight;
                                                                                 width = 6f;
                                                                                 height = 8f;
                                                                                 lifetime = 40f;
@@ -71,6 +74,9 @@ public class JBUnits {
                                                                 .reload(30f)
                                                                 .bullet(new BasicBulletType(4f, 20) {
                                                                         {
+                                                                                backColor = JBColor.oblivionMid;
+                                                                                frontColor = JBColor.oblivionGlow;
+                                                                                hitColor = trailColor = lightColor = JBColor.oblivionLight;
                                                                                 width = 6f;
                                                                                 height = 8f;
                                                                                 lifetime = 40f;
@@ -100,7 +106,13 @@ public class JBUnits {
                                                                 .mirror(true)
                                                                 .top(true)
                                                                 .pos(4f, -1f)
-                                                                .bullet(new LaserBoltBulletType(6f, 55))
+                                                                .bullet(new LaserBoltBulletType(6f, 55) {
+                                                                        {
+                                                                                backColor = JBColor.nemesisMid;
+                                                                                frontColor = JBColor.nemesisGlow;
+                                                                                hitColor = lightColor = JBColor.nemesisLight;
+                                                                        }
+                                                                })
                                                                 .build())
                                 .build();
                 fray.constructor = UnitEntity::create;
@@ -132,8 +144,7 @@ public class JBUnits {
                                                                                 lightningLengthRand = 6;
                                                                                 lightningCone = 22f;
 
-                                                                                lightningColor = Color
-                                                                                                .valueOf("ff3b3b");
+                                                                                lightningColor = JBColor.oblivionLight;
                                                                                 hitColor = lightningColor;
                                                                                 lightColor = lightningColor;
                                                                                 lightOpacity = 0.7f;
@@ -192,7 +203,7 @@ public class JBUnits {
                                                 0f,
                                                 12f,
                                                 6f,
-                                                Color.valueOf("6aff6a")))
+                                                Color.valueOf("83e6d1")))
                                 .build();
 
                 omniq.constructor = UnitEntity::create;
@@ -476,7 +487,7 @@ public class JBUnits {
                                 .armor(500f)
                                 .ability(new AuraCircleAbility(
                                                 270f,
-                                                Color.valueOf("#52ABFA")))
+                                                JBColor.nemesisLight))
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-revenant-cannon")
                                                                 .reload(130f)
@@ -604,9 +615,9 @@ public class JBUnits {
                                 .rotateSpeed(0.07f)
                                 .armor(700)
                                 .lockRotation()
-                                .ability(new AuraCircleAbility(530f, Color.valueOf("#75FFB0")))
-                                .ability(new RotatingCoreAbility(Color.valueOf("#75FFB0"), 35f, 0f, 0f))
-                                .ability(new ShockWaveAbility(50f, 510f, 5890f, Color.valueOf("#75FFB0")))
+                                .ability(new AuraCircleAbility(530f, Color.valueOf("8be9d4")))
+                                .ability(new RotatingCoreAbility(Color.valueOf("8be9d4"), 35f, 0f, 0f))
+                                .ability(new ShockWaveAbility(50f, 510f, 5890f, Color.valueOf("8be9d4")))
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-nemesis-cannon")
                                                                 .reload(50f)
@@ -755,6 +766,9 @@ public class JBUnits {
                                                                 .top(false)
                                                                 .bullet(new BasicBulletType(5.5f, 35) {
                                                                         {
+                                                                                backColor = JBColor.broodmotherMid;
+                                                                                frontColor = JBColor.broodmotherGlow;
+                                                                                hitColor = trailColor = lightColor = JBColor.broodmotherLight;
                                                                                 width = 8f;
                                                                                 height = 11f;
                                                                                 lifetime = 45f;
@@ -807,6 +821,9 @@ public class JBUnits {
                                                                 .mirror(true)
                                                                 .bullet(new BasicBulletType(7f, 55) {
                                                                         {
+                                                                                backColor = JBColor.broodmotherMid;
+                                                                                frontColor = JBColor.broodmotherGlow;
+                                                                                hitColor = trailColor = lightColor = JBColor.broodmotherLight;
                                                                                 width = 9f;
                                                                                 height = 12f;
                                                                                 lifetime = 40f;
@@ -829,6 +846,9 @@ public class JBUnits {
                                                                 .mirror(true)
                                                                 .bullet(new BasicBulletType(8f, 20) {
                                                                         {
+                                                                                backColor = JBColor.broodmotherMid;
+                                                                                frontColor = JBColor.broodmotherGlow;
+                                                                                hitColor = trailColor = lightColor = JBColor.broodmotherLight;
                                                                                 width = 6f;
                                                                                 height = 8f;
                                                                                 lifetime = 30f;
@@ -848,6 +868,9 @@ public class JBUnits {
                                                                 .burst(3, 8f) 
                                                                 .bullet(new MissileBulletType(4f, 60) {
                                                                         {
+                                                                                backColor = JBColor.broodmotherMid;
+                                                                                frontColor = JBColor.broodmotherGlow;
+                                                                                hitColor = trailColor = lightColor = JBColor.broodmotherLight;
                                                                                 width = 8f;
                                                                                 height = 10f;
                                                                                 lifetime = 60f;
@@ -868,6 +891,7 @@ public class JBUnits {
                                                                 .mirror(false)
                                                                 .bullet(new LightningBulletType() {
                                                                         {
+                                                                                lightningColor = hitColor = lightColor = JBColor.broodmotherLight;
                                                                                 damage = 50f;
                                                                                 lightningLength = 15;
                                                                                 lightningLengthRand = 10;
@@ -1118,7 +1142,7 @@ public class JBUnits {
                                                                 .pos(109f, 12f)
                                                                 .rotate(true)
                                                                 .mirror(true)
-                                                                .bullet(JBBullets.tideLaser)
+                                                                .bullet(JBBullets.tideLaserBroodmother)
                                                                 .shootSound(JBSounds.shootGauss1)
                                                                 .build())
                                 .build();
@@ -1179,7 +1203,7 @@ public class JBUnits {
                                                                 .rotate(true)
                                                                 .pos(60f, 60f)
                                                                 .mirror(true)
-                                                                .bullet(JBBullets.tideBall)
+                                                                .bullet(JBBullets.tideBallBroodmother)
                                                                 .shootSound(JBSounds.shootGauss1)
                                                                 .build())
                                 .weapon(
@@ -1221,6 +1245,9 @@ public class JBUnits {
                                                                 .pos(5f, 0f)
                                                                 .bullet(new BasicBulletType(7f, 55) {
                                                                         {
+                                                                                backColor = JBColor.tidebreakerMid;
+                                                                                frontColor = JBColor.tidebreakerGlow;
+                                                                                hitColor = trailColor = lightColor = JBColor.tidebreakerLight;
                                                                                 width = 6f;
                                                                                 height = 8f;
                                                                                 lifetime = 40f;
@@ -1248,6 +1275,9 @@ public class JBUnits {
                                                                 .pos(5f, 0f)
                                                                 .bullet(new BasicBulletType(7f, 55) {
                                                                         {
+                                                                                backColor = JBColor.ocelexisMid;
+                                                                                frontColor = JBColor.ocelexisGlow;
+                                                                                hitColor = trailColor = lightColor = JBColor.ocelexisLight;
                                                                                 width = 6f;
                                                                                 height = 8f;
                                                                                 lifetime = 40f;
@@ -1276,6 +1306,9 @@ public class JBUnits {
                                                                 .pos(8f, 2f)
                                                                 .bullet(new MissileBulletType(4f, 60) {
                                                                         {
+                                                                                backColor = JBColor.tidebreakerMid;
+                                                                                frontColor = JBColor.tidebreakerGlow;
+                                                                                hitColor = trailColor = lightColor = JBColor.tidebreakerLight;
                                                                                 width = 8f;
                                                                                 height = 10f;
                                                                                 lifetime = 60f;
@@ -1308,6 +1341,9 @@ public class JBUnits {
                                                                 .pos(5f, 0f)
                                                                 .bullet(new MissileBulletType(4f, 60) {
                                                                         {
+                                                                                backColor = JBColor.ocelexisMid;
+                                                                                frontColor = JBColor.ocelexisGlow;
+                                                                                hitColor = trailColor = lightColor = JBColor.ocelexisLight;
                                                                                 width = 8f;
                                                                                 height = 10f;
                                                                                 lifetime = 60f;
@@ -1339,6 +1375,9 @@ public class JBUnits {
                                                                 .pos(12f, 2f)
                                                                 .bullet(new MissileBulletType(4f, 70) {
                                                                         {
+                                                                                backColor = JBColor.tidebreakerMid;
+                                                                                frontColor = JBColor.tidebreakerGlow;
+                                                                                hitColor = trailColor = lightColor = JBColor.tidebreakerLight;
                                                                                 width = 8f;
                                                                                 height = 10f;
                                                                                 lifetime = 60f;
@@ -1358,6 +1397,7 @@ public class JBUnits {
                                                                 .pos(10f, 0f)
                                                                 .bullet(new LightningBulletType() {
                                                                         {
+                                                                                lightningColor = hitColor = lightColor = JBColor.tidebreakerLight;
                                                                                 damage = 50f;
                                                                                 lightningLength = 15;
                                                                                 lightningLengthRand = 10;
@@ -1388,6 +1428,9 @@ public class JBUnits {
                                                                 .pos(12f, 2f)
                                                                 .bullet(new MissileBulletType(4f, 70) {
                                                                         {
+                                                                                backColor = JBColor.ocelexisMid;
+                                                                                frontColor = JBColor.ocelexisGlow;
+                                                                                hitColor = trailColor = lightColor = JBColor.ocelexisLight;
                                                                                 width = 8f;
                                                                                 height = 10f;
                                                                                 lifetime = 60f;
@@ -1407,6 +1450,7 @@ public class JBUnits {
                                                                 .pos(10f, 0f)
                                                                 .bullet(new LightningBulletType() {
                                                                         {
+                                                                                lightningColor = hitColor = lightColor = JBColor.ocelexisLight;
                                                                                 damage = 50f;
                                                                                 lightningLength = 15;
                                                                                 lightningLengthRand = 10;
@@ -1437,7 +1481,7 @@ public class JBUnits {
                                                                 .mirror(true)
                                                                 .burst(4, 4f)
                                                                 .pos(15f, 0f)
-                                                                .bullet(JBBullets.Orb)
+                                                                .bullet(JBBullets.OrbTidebreaker)
                                                                 .shootSound(JBSounds.shootGauss1)
                                                                 .build())
                                 .weapon(
@@ -1447,7 +1491,7 @@ public class JBUnits {
                                                                 .burst(3, 5f)
                                                                 .reload(60)
                                                                 .pos(10f, 20f)
-                                                                .bullet(JBBullets.lightSupport2)
+                                                                .bullet(JBBullets.lightSupport2Tidebreaker)
                                                                 .shootSound(JBSounds.shootGauss2)
                                                                 .build())
                                 .build();
@@ -1472,7 +1516,7 @@ public class JBUnits {
                                                                 .rotate(true)
                                                                 .burst(2, 8f)
                                                                 .pos(10f, 12f)
-                                                                .bullet(JBBullets.laserBeam)
+                                                                .bullet(JBBullets.laserBeamOcelexis)
                                                                 .shootSound(JBSounds.blast)
                                                                 .build())
                                 .weapon(
@@ -1481,7 +1525,7 @@ public class JBUnits {
                                                                 .mirror(true)
                                                                 .reload(100f)
                                                                 .pos(15f, -5f)
-                                                                .bullet(JBBullets.crimsonLanceHeavy)
+                                                                .bullet(JBBullets.crimsonLanceHeavyOcelexis)
                                                                 .shootSound(JBSounds.shootGauss3)
                                                                 .build())
                                 .build();

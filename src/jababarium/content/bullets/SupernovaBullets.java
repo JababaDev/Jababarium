@@ -68,6 +68,31 @@ public class SupernovaBullets {
             }
         };
 
+        supernovaLaserBroodmother = new BasicBulletType(16f, 2500f) {
+            {
+                width = 14f;
+                height = 60f;
+                lifetime = 35f;
+
+                
+                pierce = true;
+                pierceBuilding = true;
+                pierceCap = 10;
+
+                backColor = Color.valueOf("ff9292");
+                frontColor = Color.white;
+                lightColor = Color.valueOf("ff9292");
+
+                trailColor = Color.valueOf("ff9292");
+                trailWidth = 5f;
+                trailLength = 25;
+
+                hitEffect = JBFx.hitSparkLarge;
+                despawnEffect = Fx.hitLaserColor;
+                hitColor = Color.valueOf("ff9292");
+            }
+        };
+
         supernovaCore = new BasicBulletType(0f, 0f) {
             {
                 lifetime = 240f; 
@@ -130,6 +155,68 @@ public class SupernovaBullets {
             }
         };
 
+        supernovaCoreBroodmother = new BasicBulletType(0f, 0f) {
+            {
+                lifetime = 240f; 
+
+                
+                
+                
+                collides = false;
+                collidesAir = false;
+                collidesGround = false;
+                absorbable = false;
+                hittable = false;
+
+                
+                bulletInterval = 3f; 
+                intervalBullets = 4; 
+                intervalRandomSpread = 360f; 
+                intervalBullet = supernovaLaserBroodmother;
+
+                
+                splashDamage = 45000f; 
+                splashDamageRadius = 400f; 
+
+                hitEffect = Fx.none;
+                
+                despawnEffect = new MultiEffect(
+                        JBFx.blast(Color.valueOf("ff9292"), 600f),
+                        JBFx.crossBlast(Color.valueOf("ff9292"), 750f),
+                        JBFx.lightningHitLarge,
+                        new Effect(120f, e -> {
+                            Draw.color(Color.valueOf("ff9292"), Color.white, e.fin());
+                            Lines.stroke(25f * e.fout());
+                            Lines.circle(e.x, e.y, 500f * e.fin());
+
+                            Angles.randLenVectors(e.id, 80, 600f * e.fin(), (x, y) -> {
+                                Fill.circle(e.x + x, e.y + y, 12f * e.fout());
+                            });
+                            Drawf.light(e.x, e.y, 1000f * e.fout(), Color.valueOf("ff9292"), 2f);
+                        }));
+                hitSound = JBSounds.blastHuge; 
+            }
+
+            
+            @Override
+            public void draw(Bullet b) {
+                super.draw(b);
+                
+                float pulse = 1f + Mathf.absin(Time.time, 4f, 0.2f);
+
+                
+                Draw.color(Color.valueOf("ff9292"), Color.white, Mathf.absin(Time.time, 8f, 0.5f));
+                Fill.circle(b.x, b.y, 55f * pulse);
+
+                
+                Draw.color(Color.valueOf("ff9292"));
+                Lines.stroke(5f);
+                Lines.circle(b.x, b.y, 85f * pulse);
+
+                Drawf.light(b.x, b.y, 400f * pulse, Color.valueOf("ff9292"), 1.5f);
+            }
+        };
+
         supernovaArtillery = new ArtilleryBulletType(7f, 2000f) {
             {
                 lifetime = 220f; 
@@ -137,12 +224,12 @@ public class SupernovaBullets {
                 height = 40f;
                 sprite = "large-bomb";
 
-                backColor = JBColor.thurmixRed;
+                backColor = Color.valueOf("ff9292");
                 frontColor = Color.white;
 
                 trailLength = 60;
                 trailWidth = 15f;
-                trailColor = JBColor.thurmixRed;
+                trailColor = Color.valueOf("ff9292");
                 trailEffect = JBFx.hitSparkLarge;
                 trailInterval = 4f;
 
@@ -151,11 +238,11 @@ public class SupernovaBullets {
 
                 
                 fragBullets = 1;
-                fragBullet = supernovaCore;
+                fragBullet = supernovaCoreBroodmother;
                 fragVelocityMin = 0f;
                 fragVelocityMax = 0f;
 
-                hitEffect = JBFx.crossBlast(JBColor.thurmixRed, 250f);
+                hitEffect = JBFx.crossBlast(Color.valueOf("ff9292"), 250f);
                 despawnEffect = Fx.none;
                 hitSound = JBSounds.blastShockwave;
             }
@@ -167,13 +254,13 @@ public class SupernovaBullets {
                 height = 45f;
                 lifetime = 70f;
 
-                backColor = JBColor.thurmixRed;
+                backColor = Color.valueOf("ff9292");
                 frontColor = Color.white;
-                lightColor = JBColor.thurmixRed;
+                lightColor = Color.valueOf("ff9292");
                 lightRadius = 60f;
 
                 
-                trailColor = JBColor.thurmixRed;
+                trailColor = Color.valueOf("ff9292");
                 trailWidth = 6f;
                 trailLength = 20;
 
@@ -190,7 +277,7 @@ public class SupernovaBullets {
                 lightningLength = 15;
                 lightningLengthRand = 10;
                 lightningDamage = 600f;
-                lightningColor = JBColor.thurmixRed;
+                lightningColor = Color.valueOf("ff9292");
 
                 
                 hitEffect = JBFx.hitSparkLarge;

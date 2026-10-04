@@ -57,27 +57,27 @@ public class VerdantBullets {
                 shrinkX = 0f;
                 shrinkY = 0f;
 
-                backColor = Color.valueOf("1a5c3a");
-                frontColor = Color.valueOf("75ffb0");
-                lightColor = Color.valueOf("75ffb0");
+                backColor = Color.valueOf("185e4f");
+                frontColor = Color.valueOf("8be9d4");
+                lightColor = Color.valueOf("8be9d4");
                 lightOpacity = 1f;
                 lightRadius = 260f;
 
                 trailLength = 28;
                 trailWidth = 10f;
-                trailColor = Color.valueOf("44cc88");
+                trailColor = Color.valueOf("49c7ac");
                 trailInterval = 1f;
 
                 trailEffect = JBFx.polyTrail(
-                        Color.valueOf("75ffb0"),
-                        Color.valueOf("1a5c3a"),
+                        Color.valueOf("8be9d4"),
+                        Color.valueOf("185e4f"),
                         18f, 60f);
                 trailChance = 0.85f;
 
-                shootEffect = JBFx.crossBlast(Color.valueOf("75ffb0"), 100f);
+                shootEffect = JBFx.crossBlast(Color.valueOf("8be9d4"), 100f);
 
                 smokeEffect = new Effect(45f, e -> {
-                    Draw.color(Color.valueOf("1a5c3a"));
+                    Draw.color(Color.valueOf("185e4f"));
                     Angles.randLenVectors(e.id, 6, 2f + 19f * e.finpow(),
                             (x, y) -> circle(e.x + x / 2f, e.y + y / 2f, e.fout() * 2.5f));
                     e.scaled(28f, i -> Angles.randLenVectors(i.id, 6, 2f + 19f * i.finpow(),
@@ -92,13 +92,13 @@ public class VerdantBullets {
                     e.scaled(20f, col -> {
                         float cf = col.fin(Interp.pow3Out);
 
-                        Draw.color(Color.valueOf("75ffb0"));
+                        Draw.color(Color.valueOf("8be9d4"));
                         Angles.randLenVectors(col.id, 32, (1f - cf) * 220f, (x, y) -> {
                             Draw.alpha(cf * 0.9f);
                             circle(ex + x * (1f - cf), ey + y * (1f - cf), (1f - cf) * 7f + 1f);
                         });
 
-                        Draw.color(Color.valueOf("75ffb0"), Color.white, cf * 0.4f);
+                        Draw.color(Color.valueOf("8be9d4"), Color.white, cf * 0.4f);
                         for (int i = 0; i < 4; i++) {
                             final int fi = i;
                             float delay = fi * 0.18f;
@@ -113,11 +113,11 @@ public class VerdantBullets {
                         Draw.alpha(cf);
                         circle(ex, ey, cf * 40f);
 
-                        Draw.color(Color.valueOf("75ffb0"));
+                        Draw.color(Color.valueOf("8be9d4"));
                         Draw.alpha(col.fout());
                         Lines.stroke(6f * col.fout());
                         Lines.circle(ex, ey, cf * 40f + 1f);
-                        Drawf.light(ex, ey, cf * 450f, Color.valueOf("75ffb0"), 1f);
+                        Drawf.light(ex, ey, cf * 450f, Color.valueOf("8be9d4"), 1f);
                     });
 
                     if (etime >= 5f && etime < 5f + Time.delta) {
@@ -150,26 +150,26 @@ public class VerdantBullets {
 
                                         float bx = ex + x, by = ey + y;
 
-                                        Draw.color(Color.valueOf("0a2e18"));
+                                        Draw.color(Color.valueOf("0c2c26"));
                                         Draw.alpha(wfo * 0.95f);
                                         Drawf.tri(bx, by, blastW * 1.4f, blastLen * 1.05f, baseAngle);
                                         Drawf.tri(bx, by, blastW * 0.9f, blastLen * 0.25f, baseAngle + 180f);
 
-                                        Draw.color(Color.valueOf("75ffb0"));
+                                        Draw.color(Color.valueOf("8be9d4"));
                                         Draw.alpha(wfo * 0.93f);
                                         Drawf.tri(bx, by, blastW, blastLen, baseAngle);
                                         Drawf.tri(bx, by, blastW * 0.65f, blastLen * 0.22f, baseAngle + 180f);
 
-                                        Draw.color(Color.valueOf("eeffee"));
+                                        Draw.color(JBColor.nemesisGlow);
                                         Draw.alpha(wfo * 0.72f);
                                         Drawf.tri(bx, by, blastW * 0.38f, blastLen * 0.85f, baseAngle);
 
                                         Tmp.v1.trns(baseAngle, blastLen);
                                         Drawf.light(bx + Tmp.v1.x, by + Tmp.v1.y,
-                                                65f * wfo, Color.valueOf("75ffb0"), 0.82f);
+                                                65f * wfo, Color.valueOf("8be9d4"), 0.82f);
                                     });
 
-                            Drawf.light(ex, ey, 200f * wfo, Color.valueOf("44cc88"), 0.7f);
+                            Drawf.light(ex, ey, 200f * wfo, Color.valueOf("49c7ac"), 0.7f);
                         });
                     }
 
@@ -188,26 +188,26 @@ public class VerdantBullets {
                         Draw.alpha(cfo * 0.85f);
                         circle(ex, ey, (28f + pulse * 3f) * cfo);
 
-                        Draw.color(Color.valueOf("75ffb0"));
+                        Draw.color(Color.valueOf("8be9d4"));
                         Draw.alpha(cfo * 0.95f);
                         Lines.stroke((5f + pulse * 1.5f) * cfo);
                         Lines.circle(ex, ey, (32f + pulse * 4f) * cfo);
 
-                        Draw.color(Color.valueOf("44cc88"));
+                        Draw.color(Color.valueOf("49c7ac"));
                         Draw.alpha(cfo * 0.8f);
                         Lines.stroke(3f * cfo);
                         Lines.arc(ex, ey, (24f + pulse * 2f) * cfo, 0.65f, core.time * 2.8f);
 
-                        Draw.color(Color.valueOf("eeffee"));
+                        Draw.color(JBColor.nemesisGlow);
                         Draw.alpha(cfo * 0.7f);
                         Lines.stroke(2f * cfo);
                         Lines.arc(ex, ey, (16f + pulse * 2f) * cfo, 0.5f, -core.time * 3.5f);
 
-                        Draw.color(Color.valueOf("75ffb0"));
+                        Draw.color(Color.valueOf("8be9d4"));
                         Draw.alpha(cfo * 0.9f);
                         circle(ex, ey, (10f + pulse * 2f) * cfo);
 
-                        Draw.color(Color.valueOf("eeffee"));
+                        Draw.color(JBColor.nemesisGlow);
                         Draw.alpha(cfo * 0.75f);
                         circle(ex, ey, (5f + pulse) * cfo);
 
@@ -220,15 +220,15 @@ public class VerdantBullets {
                             float r = (20f + pulse * 3f) * cfo;
                             float sx = ex + Angles.trnsx(a, r);
                             float sy = ey + Angles.trnsy(a, r);
-                            Draw.color(Color.valueOf("75ffb0"));
+                            Draw.color(Color.valueOf("8be9d4"));
                             Draw.alpha(cfo * 0.9f);
                             circle(sx, sy, (3.5f + pulse) * cfo);
                             Draw.color(Color.white);
                             Draw.alpha(cfo * 0.6f);
                             circle(sx, sy, (1.5f + pulse * 0.5f) * cfo);
-                            Drawf.light(sx, sy, 20f * cfo, Color.valueOf("75ffb0"), 0.8f);
+                            Drawf.light(sx, sy, 20f * cfo, Color.valueOf("8be9d4"), 0.8f);
                         }
-                        Drawf.light(ex, ey, (80f + pulse * 25f) * cfo, Color.valueOf("75ffb0"), 0.95f);
+                        Drawf.light(ex, ey, (80f + pulse * 25f) * cfo, Color.valueOf("8be9d4"), 0.95f);
                     });
 
                     e.scaled(230f, ring -> {
@@ -250,17 +250,17 @@ public class VerdantBullets {
                         }
 
                         if (ringRadius > 1f) {
-                            Draw.color(Color.valueOf("0a2e18"));
+                            Draw.color(Color.valueOf("0c2c26"));
                             Draw.alpha(ringAlpha * 0.8f);
                             Lines.stroke(ringStroke * 2.2f);
                             Lines.circle(ex, ey, ringRadius);
 
-                            Draw.color(Color.valueOf("75ffb0"));
+                            Draw.color(Color.valueOf("8be9d4"));
                             Draw.alpha(ringAlpha);
                             Lines.stroke(ringStroke);
                             Lines.circle(ex, ey, ringRadius);
 
-                            Draw.color(Color.valueOf("eeffee"));
+                            Draw.color(JBColor.nemesisGlow);
                             Draw.alpha(ringAlpha * 0.6f);
                             Lines.stroke(ringStroke * 0.4f);
                             Lines.circle(ex, ey, ringRadius);
@@ -269,14 +269,14 @@ public class VerdantBullets {
                                 float ma = i * 45f + rTime * (rTime < 195f ? 0.5f : 5f);
                                 float mx = ex + Angles.trnsx(ma, ringRadius);
                                 float my = ey + Angles.trnsy(ma, ringRadius);
-                                Draw.color(Color.valueOf("75ffb0"));
+                                Draw.color(Color.valueOf("8be9d4"));
                                 Draw.alpha(ringAlpha);
                                 circle(mx, my, ringStroke * 1.8f);
                                 Draw.color(Color.white);
                                 Draw.alpha(ringAlpha * 0.7f);
                                 circle(mx, my, ringStroke * 0.8f);
                             }
-                            Drawf.light(ex, ey, ringRadius * 0.5f, Color.valueOf("75ffb0"), 0.3f);
+                            Drawf.light(ex, ey, ringRadius * 0.5f, Color.valueOf("8be9d4"), 0.3f);
                         }
                     });
 
@@ -285,36 +285,36 @@ public class VerdantBullets {
                             return;
                         float lfo = ltng.fout();
 
-                        Draw.color(Color.valueOf("75ffb0"), Color.white, lfo * 0.35f);
+                        Draw.color(Color.valueOf("8be9d4"), Color.white, lfo * 0.35f);
                         Lines.stroke(lfo * 2.5f);
                         Angles.randLenVectors(ltng.id + 3, 10,
                                 15f + ltng.fin(Interp.pow3Out) * 180f,
                                 (x, y) -> Lines.lineAngle(ex + x, ey + y,
                                         Mathf.angle(x, y), lfo * 25f + 8f));
 
-                        Draw.color(Color.valueOf("ccffdd"), Color.white, lfo * 0.5f);
+                        Draw.color(Color.valueOf("d1faef"), Color.white, lfo * 0.5f);
                         Lines.stroke(lfo * 1.5f);
                         Angles.randLenVectors(ltng.id + 17, 12,
                                 8f + ltng.fin() * 90f,
                                 (x, y) -> Lines.lineAngle(ex + x, ey + y,
                                         Mathf.angle(x, y), lfo * 18f + 5f));
 
-                        Drawf.light(ex, ey, 80f * lfo, Color.valueOf("75ffb0"), 0.6f);
+                        Drawf.light(ex, ey, 80f * lfo, Color.valueOf("8be9d4"), 0.6f);
                     });
 
                     if (etime >= 230f && etime < 230f + Time.delta) {
                         JBSounds.hugeBlast.at(ex, ey, 1f, 1f);
 
-                        JBFx.blast(Color.valueOf("75ffb0"), 340f).at(ex, ey);
-                        JBFx.circleOut(Color.valueOf("75ffb0"), 500f).at(ex, ey);
-                        JBFx.circleOut(Color.valueOf("44cc88"), 380f).at(ex, ey);
-                        JBFx.crossBlast(Color.valueOf("75ffb0"), 240f).at(ex, ey);
-                        JBFx.hitSparkHuge.at(ex, ey, 0f, Color.valueOf("75ffb0"));
+                        JBFx.blast(Color.valueOf("8be9d4"), 340f).at(ex, ey);
+                        JBFx.circleOut(Color.valueOf("8be9d4"), 500f).at(ex, ey);
+                        JBFx.circleOut(Color.valueOf("49c7ac"), 380f).at(ex, ey);
+                        JBFx.crossBlast(Color.valueOf("8be9d4"), 240f).at(ex, ey);
+                        JBFx.hitSparkHuge.at(ex, ey, 0f, Color.valueOf("8be9d4"));
 
                         for (int i = 0; i < 8; i++) {
                             float la = i * 45f;
                             float ld = 100f + (i % 3) * 60f;
-                            JBFx.lightningHitLarge(Color.valueOf("75ffb0"))
+                            JBFx.lightningHitLarge(Color.valueOf("8be9d4"))
                                     .at(ex + Angles.trnsx(la, ld),
                                             ey + Angles.trnsy(la, ld));
                         }
@@ -334,13 +334,13 @@ public class VerdantBullets {
                             Draw.color(Color.white);
                             Draw.alpha(ff * 0.95f);
                             circle(ex, ey, ff * 500f);
-                            Draw.color(Color.valueOf("eeffee"));
+                            Draw.color(JBColor.nemesisGlow);
                             Draw.alpha(ff * 0.85f);
                             circle(ex, ey, ff * 420f);
-                            Draw.color(Color.valueOf("75ffb0"));
+                            Draw.color(Color.valueOf("8be9d4"));
                             Draw.alpha(ff * 0.7f);
                             circle(ex, ey, ff * 360f);
-                            Drawf.light(ex, ey, ff * 1000f, Color.valueOf("75ffb0"), 1f);
+                            Drawf.light(ex, ey, ff * 1000f, Color.valueOf("8be9d4"), 1f);
                         });
 
                         for (int wv = 0; wv < 5; wv++) {
@@ -351,12 +351,12 @@ public class VerdantBullets {
                             float wvP = Math.min((bp - wvDelay) / (1f - wvDelay), 1f);
                             float wvFo = 1f - wvP;
 
-                            Draw.color(Color.valueOf("0a2e18"));
+                            Draw.color(Color.valueOf("0c2c26"));
                             Draw.alpha(wvFo * 0.85f);
                             Lines.stroke((20f - fwv * 3f) * wvFo);
                             Lines.circle(ex, ey, 10f + Interp.pow3Out.apply(wvP) * (520f + fwv * 70f));
 
-                            Draw.color(Color.valueOf("75ffb0"));
+                            Draw.color(Color.valueOf("8be9d4"));
                             Draw.alpha(wvFo * 0.9f);
                             Lines.stroke((12f - fwv * 1.8f) * wvFo);
                             Lines.circle(ex, ey, 8f + Interp.pow3Out.apply(wvP) * (500f + fwv * 70f));
@@ -367,7 +367,7 @@ public class VerdantBullets {
                             Lines.circle(ex, ey, 6f + Interp.pow3Out.apply(wvP) * (482f + fwv * 70f));
 
                             Drawf.light(ex, ey,
-                                    wvFo * (420f - fwv * 40f), Color.valueOf("75ffb0"), 0.9f);
+                                    wvFo * (420f - fwv * 40f), Color.valueOf("8be9d4"), 0.9f);
                         }
 
                         Angles.randLenVectors(boom.id + 44, 32,
@@ -378,22 +378,22 @@ public class VerdantBullets {
                                     float rLen = Fx.rand.random(360f, 580f) * bfo;
                                     float rW = Fx.rand.random(18f, 44f) * bfo * bfo;
 
-                                    Draw.color(Color.valueOf("0a2e18"));
+                                    Draw.color(Color.valueOf("0c2c26"));
                                     Draw.alpha(bfo * 0.95f);
                                     Drawf.tri(ex + x, ey + y, rW * 1.35f, rLen * 1.08f, ang);
                                     Drawf.tri(ex + x, ey + y, rW * 0.8f, rLen * 0.28f, ang + 180f);
 
-                                    Draw.color(Color.valueOf("75ffb0"));
+                                    Draw.color(Color.valueOf("8be9d4"));
                                     Draw.alpha(bfo * 0.93f);
                                     Drawf.tri(ex + x, ey + y, rW, rLen, ang);
                                     Drawf.tri(ex + x, ey + y, rW * 0.55f, rLen * 0.24f, ang + 180f);
 
-                                    Draw.color(Color.valueOf("eeffee"));
+                                    Draw.color(JBColor.nemesisGlow);
                                     Draw.alpha(bfo * 0.68f);
                                     Drawf.tri(ex + x, ey + y, rW * 0.42f, rLen * 0.78f, ang);
 
                                     Drawf.light(ex + x, ey + y, rW * 3f * bfo,
-                                            Color.valueOf("75ffb0"), 0.75f);
+                                            Color.valueOf("8be9d4"), 0.75f);
                                 });
 
                         Angles.randLenVectors(boom.id + 77, 36,
@@ -406,23 +406,23 @@ public class VerdantBullets {
                                     float spinRate = Fx.rand.random(40f, 140f);
                                     float sr = ang + baseRot + bp * spinRate;
 
-                                    Draw.color(Color.valueOf("0a2e18"));
+                                    Draw.color(Color.valueOf("0c2c26"));
                                     Draw.alpha(bfo * 0.92f);
                                     Drawf.tri(ex + x, ey + y, ss * 1.2f, sl * 1.1f, sr);
                                     Drawf.tri(ex + x, ey + y, ss * 0.8f, sl * 0.5f, sr + 180f);
 
-                                    Draw.color(Color.valueOf("44cc88"),
-                                            Color.valueOf("75ffb0"), Fx.rand.random(1f));
+                                    Draw.color(Color.valueOf("49c7ac"),
+                                            Color.valueOf("8be9d4"), Fx.rand.random(1f));
                                     Draw.alpha(bfo * 0.88f);
                                     Drawf.tri(ex + x, ey + y, ss, sl, sr);
                                     Drawf.tri(ex + x, ey + y, ss * 0.5f, sl * 0.4f, sr + 180f);
 
-                                    Draw.color(Color.valueOf("eeffee"));
+                                    Draw.color(JBColor.nemesisGlow);
                                     Draw.alpha(bfo * 0.55f);
                                     Drawf.tri(ex + x, ey + y, ss * 0.35f, sl * 0.7f, sr);
 
                                     Drawf.light(ex + x, ey + y, ss * 3f * bfo,
-                                            Color.valueOf("75ffb0"), 0.7f);
+                                            Color.valueOf("8be9d4"), 0.7f);
                                 });
 
                         float expRadius = 480f;
@@ -443,12 +443,12 @@ public class VerdantBullets {
                             float dev1 = Fx.rand.random(-18f, 18f);
                             float dev2 = Fx.rand.random(-28f, 28f);
 
-                            Draw.color(Color.valueOf("0a2e18"));
+                            Draw.color(Color.valueOf("0c2c26"));
                             Draw.alpha(bfo * 0.7f);
                             Lines.stroke(bfo * 4.5f);
                             Lines.lineAngle(lx, ly, lAngle + 180f + dev1, toCenter);
 
-                            Draw.color(Color.valueOf("75ffb0"), Color.white, bfo * 0.4f);
+                            Draw.color(Color.valueOf("8be9d4"), Color.white, bfo * 0.4f);
                             Lines.stroke(bfo * 2.8f);
                             Lines.lineAngle(lx, ly, lAngle + 180f + dev1, toCenter);
 
@@ -460,7 +460,7 @@ public class VerdantBullets {
                             if (toCenter > 30f) {
                                 float midX = lx + Angles.trnsx(lAngle + 180f + dev1, toCenter * 0.45f);
                                 float midY = ly + Angles.trnsy(lAngle + 180f + dev1, toCenter * 0.45f);
-                                Draw.color(Color.valueOf("ccffdd"));
+                                Draw.color(Color.valueOf("d1faef"));
                                 Draw.alpha(bfo * 0.6f);
                                 Lines.stroke(bfo * 1.4f);
                                 Lines.lineAngle(midX, midY,
@@ -468,8 +468,8 @@ public class VerdantBullets {
                                         toCenter * 0.35f * bfo);
                             }
 
-                            Drawf.light(lx, ly, 55f * bfo, Color.valueOf("75ffb0"), 0.75f);
-                            Drawf.light(ex, ey, 30f * bfo, Color.valueOf("75ffb0"), 0.5f);
+                            Drawf.light(lx, ly, 55f * bfo, Color.valueOf("8be9d4"), 0.75f);
+                            Drawf.light(ex, ey, 30f * bfo, Color.valueOf("8be9d4"), 0.5f);
                         }
 
                         for (int li = 0; li < 16; li++) {
@@ -484,11 +484,11 @@ public class VerdantBullets {
                             float lx = ex + Angles.trnsx(lAngle, lDist);
                             float ly = ey + Angles.trnsy(lAngle, lDist);
 
-                            Draw.color(Color.valueOf("75ffb0"), Color.white, bfo * 0.45f);
+                            Draw.color(Color.valueOf("8be9d4"), Color.white, bfo * 0.45f);
                             Lines.stroke(bfo * (2.5f + Fx.rand.random(1.5f)));
                             Lines.lineAngle(lx, ly, lAngle + lDev, lLen);
 
-                            Draw.color(Color.valueOf("ccffdd"));
+                            Draw.color(Color.valueOf("d1faef"));
                             Lines.stroke(bfo * 1.2f);
                             Lines.lineAngle(
                                     lx + Angles.trnsx(lAngle + lDev, lLen * 0.4f),
@@ -497,7 +497,7 @@ public class VerdantBullets {
                                     lLen * 0.45f * bfo);
 
                             Drawf.light(lx, ly, lLen * 0.8f * bfo,
-                                    Color.valueOf("75ffb0"), 0.65f);
+                                    Color.valueOf("8be9d4"), 0.65f);
                         }
 
                         Draw.color(Color.gray, Color.darkGray, bp);
@@ -506,10 +506,10 @@ public class VerdantBullets {
                                 30f + bp * 230f,
                                 (x, y) -> circle(ex + x, ey + y, bfo * 10f));
 
-                        Drawf.light(ex, ey, bfo * 820f, Color.valueOf("44cc88"), 0.98f);
+                        Drawf.light(ex, ey, bfo * 820f, Color.valueOf("49c7ac"), 0.98f);
                     });
 
-                    Drawf.light(ex, ey, e.fout() * 180f, Color.valueOf("75ffb0"), 0.8f);
+                    Drawf.light(ex, ey, e.fout() * 180f, Color.valueOf("8be9d4"), 0.8f);
                 });
 
                 damageLogicField = new BasicBulletType(0f, 0f) {
@@ -543,7 +543,7 @@ public class VerdantBullets {
                     }
                 };
 
-                hitEffect = JBFx.crossBlast(Color.valueOf("#75FFB0"), 10f);
+                hitEffect = JBFx.crossBlast(Color.valueOf("8be9d4"), 10f);
 
                 pierce = true;
                 pierceCap = 8;
@@ -575,9 +575,9 @@ public class VerdantBullets {
                         effectLightningChance = 0.15f;
                         damage = 420;
 
-                        backColor = trailColor = lightColor = lightningColor = hitColor = Color.valueOf("75ffb0");
+                        backColor = trailColor = lightColor = lightningColor = hitColor = Color.valueOf("8be9d4");
                         size = 8f;
-                        frontColor = Color.valueOf("eeffee");
+                        frontColor = JBColor.nemesisGlow;
                         range = 800f;
                         spreadEffect = Fx.none;
 
@@ -618,19 +618,19 @@ public class VerdantBullets {
 
                 Draw.z(Layer.bullet + 0.003f);
 
-                Draw.color(Color.valueOf("1a5c3a"));
+                Draw.color(Color.valueOf("185e4f"));
                 Draw.alpha(0.5f + pulse * 0.1f);
                 circle(b.x, b.y, (42f + pulse * 6f) * scale);
 
-                Draw.color(Color.valueOf("2a9960"));
+                Draw.color(Color.valueOf("2a9880"));
                 Draw.alpha(0.78f + pulse * 0.1f);
                 circle(b.x, b.y, (30f + pulse * 4f) * scale);
 
-                Draw.color(Color.valueOf("75ffb0"));
+                Draw.color(Color.valueOf("8be9d4"));
                 Draw.alpha(0.92f);
                 circle(b.x, b.y, (20f + pulse * 3f) * scale);
 
-                Draw.color(Color.valueOf("ccffdd"));
+                Draw.color(Color.valueOf("d1faef"));
                 Draw.alpha(0.85f + pulse * 0.12f);
                 circle(b.x, b.y, (13f + pulse * 2f) * scale);
 
@@ -640,22 +640,22 @@ public class VerdantBullets {
                     float ox = b.x + Angles.trnsx(orbAngle, orbR);
                     float oy = b.y + Angles.trnsy(orbAngle, orbR);
 
-                    Draw.color(Color.valueOf("75ffb0"));
+                    Draw.color(Color.valueOf("8be9d4"));
                     Draw.alpha(0.88f + pulse * 0.1f);
                     circle(ox, oy, (4f + pulse * 1.2f) * scale);
 
-                    Draw.color(Color.valueOf("eeffee"));
+                    Draw.color(JBColor.nemesisGlow);
                     Draw.alpha(0.6f + pulse * 0.2f);
                     circle(ox, oy, (2f + pulse * 0.6f) * scale);
 
-                    Drawf.light(ox, oy, 25f + pulse * 8f, Color.valueOf("75ffb0"), 0.8f);
+                    Drawf.light(ox, oy, 25f + pulse * 8f, Color.valueOf("8be9d4"), 0.8f);
                 }
 
-                Draw.color(Color.valueOf("75ffb0"));
+                Draw.color(Color.valueOf("8be9d4"));
                 Draw.alpha(0.9f + pulse * 0.1f);
                 circle(b.x, b.y, (7f + pulse * 2f) * scale);
 
-                Draw.color(Color.valueOf("eeffee"));
+                Draw.color(JBColor.nemesisGlow);
                 Draw.alpha(0.75f + pulse * 0.2f);
                 circle(b.x, b.y, (3.5f + pulse) * scale);
 
@@ -665,7 +665,7 @@ public class VerdantBullets {
 
                 Drawf.light(b.x, b.y,
                         (140f + pulse * 55f) * scale,
-                        Color.valueOf("75ffb0"), 0.97f);
+                        Color.valueOf("8be9d4"), 0.97f);
 
                 Draw.reset();
             }
@@ -682,26 +682,26 @@ public class VerdantBullets {
                 shrinkY = 0f;
                 shrinkX = 0f;
 
-                backColor = Color.valueOf("1a5c3a");
-                frontColor = Color.valueOf("75ffb0");
-                lightColor = Color.valueOf("75ffb0");
+                backColor = Color.valueOf("185e4f");
+                frontColor = Color.valueOf("8be9d4");
+                lightColor = Color.valueOf("8be9d4");
                 lightOpacity = 0.9f;
                 lightRadius = 100f;
 
                 trailLength = 25;
                 trailWidth = 2.5f;
-                trailColor = Color.valueOf("75ffb0");
+                trailColor = Color.valueOf("8be9d4");
                 trailInterval = 0.8f;
 
                 trailEffect = new Effect(25f, e -> {
-                    Draw.color(Color.valueOf("75ffb0"), Color.valueOf("ccffdd"), e.fin());
+                    Draw.color(Color.valueOf("8be9d4"), Color.valueOf("d1faef"), e.fin());
                     Draw.alpha(e.fout() * 0.8f);
                     circle(e.x, e.y, e.fout() * 3.5f);
-                    Drawf.light(e.x, e.y, e.fout() * 15f, Color.valueOf("75ffb0"), 0.6f);
+                    Drawf.light(e.x, e.y, e.fout() * 15f, Color.valueOf("8be9d4"), 0.6f);
                 });
                 trailChance = 0.8f;
 
-                shootEffect = JBFx.crossBlast(Color.valueOf("75ffb0"), 80f);
+                shootEffect = JBFx.crossBlast(Color.valueOf("8be9d4"), 80f);
                 smokeEffect = Fx.none;
 
                 hitEffect = new Effect(120f, 1200f, e -> {
@@ -719,17 +719,17 @@ public class VerdantBullets {
                         Draw.alpha(flash.fout() * 0.95f);
                         circle(ex, ey, flash.fin() * 45f);
 
-                        Draw.color(Color.valueOf("ccffdd"));
+                        Draw.color(Color.valueOf("d1faef"));
                         circle(ex, ey, flash.fin() * 35f);
 
-                        Draw.color(Color.valueOf("75ffb0"));
+                        Draw.color(Color.valueOf("8be9d4"));
                         circle(ex, ey, flash.fin() * 25f);
 
                         Lines.stroke(flash.fout() * 3f);
                         Lines.circle(ex, ey, flash.fin() * 55f);
                         Lines.circle(ex, ey, flash.fin() * 70f);
 
-                        Drawf.light(ex, ey, flash.fin() * 150f, Color.valueOf("75ffb0"), 0.95f);
+                        Drawf.light(ex, ey, flash.fin() * 150f, Color.valueOf("8be9d4"), 0.95f);
                     });
 
                     e.scaled(40f, shards -> {
@@ -738,14 +738,14 @@ public class VerdantBullets {
                                     float angle = Mathf.angle(x, y);
                                     float dist = Mathf.len(x, y);
 
-                                    Draw.color(Color.valueOf("1a5c3a"));
+                                    Draw.color(Color.valueOf("185e4f"));
                                     Draw.alpha(shards.fout() * 0.9f);
                                     Drawf.tri(ex + x, ey + y,
                                             shards.fout() * 4f,
                                             shards.fout() * 12f,
                                             angle);
 
-                                    Draw.color(Color.valueOf("75ffb0"));
+                                    Draw.color(Color.valueOf("8be9d4"));
                                     Draw.alpha(shards.fout() * 0.85f);
                                     Drawf.tri(ex + x, ey + y,
                                             shards.fout() * 2.5f,
@@ -754,7 +754,7 @@ public class VerdantBullets {
 
                                     Drawf.light(ex + x, ey + y,
                                             shards.fout() * 12f,
-                                            Color.valueOf("75ffb0"), 0.7f);
+                                            Color.valueOf("8be9d4"), 0.7f);
                                 });
                     });
 
@@ -777,12 +777,12 @@ public class VerdantBullets {
                         float endX = ex + Angles.trnsx(angle1, beamLen);
                         float endY = ey + Angles.trnsy(angle1, beamLen);
 
-                        Draw.color(Color.valueOf("0a2e18"));
+                        Draw.color(Color.valueOf("0c2c26"));
                         Draw.alpha(bf * 0.85f);
                         Lines.stroke(beamW * 1.5f);
                         Lines.line(ex, ey, endX, endY);
 
-                        Draw.color(Color.valueOf("75ffb0"));
+                        Draw.color(Color.valueOf("8be9d4"));
                         Draw.alpha(bf * 0.92f);
                         Lines.stroke(beamW);
                         Lines.line(ex, ey, endX, endY);
@@ -796,11 +796,11 @@ public class VerdantBullets {
                         Draw.alpha(bf * 0.85f);
                         circle(endX, endY, beamW * 1.5f * bf);
 
-                        Draw.color(Color.valueOf("75ffb0"));
+                        Draw.color(Color.valueOf("8be9d4"));
                         circle(endX, endY, beamW * 0.9f * bf);
 
                         Drawf.light(endX, endY, beamW * 5f * bf,
-                                Color.valueOf("75ffb0"), 0.8f);
+                                Color.valueOf("8be9d4"), 0.8f);
                     }
 
                     final float beam2Start = beam1Start + beamDelay;
@@ -819,12 +819,12 @@ public class VerdantBullets {
                         float endX = ex + Angles.trnsx(angle2, beamLen);
                         float endY = ey + Angles.trnsy(angle2, beamLen);
 
-                        Draw.color(Color.valueOf("0a2e18"));
+                        Draw.color(Color.valueOf("0c2c26"));
                         Draw.alpha(bf * 0.85f);
                         Lines.stroke(beamW * 1.5f);
                         Lines.line(ex, ey, endX, endY);
 
-                        Draw.color(Color.valueOf("75ffb0"));
+                        Draw.color(Color.valueOf("8be9d4"));
                         Draw.alpha(bf * 0.92f);
                         Lines.stroke(beamW);
                         Lines.line(ex, ey, endX, endY);
@@ -838,11 +838,11 @@ public class VerdantBullets {
                         Draw.alpha(bf * 0.85f);
                         circle(endX, endY, beamW * 1.5f * bf);
 
-                        Draw.color(Color.valueOf("75ffb0"));
+                        Draw.color(Color.valueOf("8be9d4"));
                         circle(endX, endY, beamW * 0.9f * bf);
 
                         Drawf.light(endX, endY, beamW * 5f * bf,
-                                Color.valueOf("75ffb0"), 0.8f);
+                                Color.valueOf("8be9d4"), 0.8f);
                     }
 
                     final float beam3Start = beam2Start + beamDelay;
@@ -861,12 +861,12 @@ public class VerdantBullets {
                         float endX = ex + Angles.trnsx(angle3, beamLen);
                         float endY = ey + Angles.trnsy(angle3, beamLen);
 
-                        Draw.color(Color.valueOf("0a2e18"));
+                        Draw.color(Color.valueOf("0c2c26"));
                         Draw.alpha(bf * 0.85f);
                         Lines.stroke(beamW * 1.5f);
                         Lines.line(ex, ey, endX, endY);
 
-                        Draw.color(Color.valueOf("75ffb0"));
+                        Draw.color(Color.valueOf("8be9d4"));
                         Draw.alpha(bf * 0.92f);
                         Lines.stroke(beamW);
                         Lines.line(ex, ey, endX, endY);
@@ -880,11 +880,11 @@ public class VerdantBullets {
                         Draw.alpha(bf * 0.85f);
                         circle(endX, endY, beamW * 1.5f * bf);
 
-                        Draw.color(Color.valueOf("75ffb0"));
+                        Draw.color(Color.valueOf("8be9d4"));
                         circle(endX, endY, beamW * 0.9f * bf);
 
                         Drawf.light(endX, endY, beamW * 5f * bf,
-                                Color.valueOf("75ffb0"), 0.8f);
+                                Color.valueOf("8be9d4"), 0.8f);
                     }
 
                     Draw.z(Layer.effect);
@@ -901,17 +901,17 @@ public class VerdantBullets {
                         Draw.alpha(nfo * 0.75f);
                         circle(ex, ey, (28f + pulse * 3f) * nfo);
 
-                        Draw.color(Color.valueOf("75ffb0"));
+                        Draw.color(Color.valueOf("8be9d4"));
                         Draw.alpha(nfo * 0.95f);
                         Lines.stroke((6f + pulse * 1.5f) * nfo);
                         Lines.circle(ex, ey, (34f + pulse * 4f) * nfo);
 
-                        Draw.color(Color.valueOf("44cc88"));
+                        Draw.color(Color.valueOf("49c7ac"));
                         Draw.alpha(nfo * 0.8f);
                         Lines.stroke((3f + pulse) * nfo);
                         Lines.circle(ex, ey, (26f + pulse * 3f) * nfo);
 
-                        Draw.color(Color.valueOf("ccffdd"));
+                        Draw.color(Color.valueOf("d1faef"));
                         Draw.alpha(nfo * 0.88f);
                         circle(ex, ey, (15f + pulse * 2f) * nfo);
 
@@ -925,7 +925,7 @@ public class VerdantBullets {
                             float px = ex + Angles.trnsx(angle, r);
                             float py = ey + Angles.trnsy(angle, r);
 
-                            Draw.color(Color.valueOf("75ffb0"));
+                            Draw.color(Color.valueOf("8be9d4"));
                             Draw.alpha(nfo * 0.92f);
                             circle(px, py, (3.5f + pulse * 0.8f) * nfo);
 
@@ -935,7 +935,7 @@ public class VerdantBullets {
                         }
 
                         Drawf.light(ex, ey, (85f + pulse * 20f) * nfo,
-                                Color.valueOf("75ffb0"), 0.95f);
+                                Color.valueOf("8be9d4"), 0.95f);
                     }
 
                     Team team = e.data instanceof Bullet b ? b.team : Team.sharded;
@@ -975,18 +975,18 @@ public class VerdantBullets {
                         float fadeP = (etime - 100f) / 20f;
                         float fadeO = 1f - fadeP;
 
-                        Draw.color(Color.valueOf("75ffb0"), Color.white, fadeP * 0.3f);
+                        Draw.color(Color.valueOf("8be9d4"), Color.white, fadeP * 0.3f);
                         Draw.alpha(fadeO * 0.75f);
                         circle(ex, ey, fadeO * 32f);
 
                         Lines.stroke(fadeO * 4f);
                         Lines.circle(ex, ey, fadeO * 48f);
 
-                        Drawf.light(ex, ey, fadeO * 100f, Color.valueOf("75ffb0"), 0.75f);
+                        Drawf.light(ex, ey, fadeO * 100f, Color.valueOf("8be9d4"), 0.75f);
                     }
 
                     Draw.z(Layer.effect);
-                    Drawf.light(ex, ey, e.fout() * 120f, Color.valueOf("75ffb0"), 0.8f);
+                    Drawf.light(ex, ey, e.fout() * 120f, Color.valueOf("8be9d4"), 0.8f);
                 });
 
                 despawnEffect = Fx.none;
@@ -1013,9 +1013,9 @@ public class VerdantBullets {
 
         photosynthesisBullet = new BasicBulletType(17f, 1220f) {
             {
-                Color main = Color.valueOf("#75FFB0");
-                Color core = Color.valueOf("#DFFFEF");
-                Color glow = Color.valueOf("#2AFF80");
+                Color main = Color.valueOf("8be9d4");
+                Color core = Color.valueOf("e1fdf6");
+                Color glow = Color.valueOf("57d2b8");
 
                 backColor = trailColor = lightColor = hitColor = main;
                 frontColor = core;
@@ -1105,8 +1105,8 @@ public class VerdantBullets {
             public void update(Bullet b) {
                 super.update(b);
 
-                Color main = Color.valueOf("#75FFB0");
-                Color core = Color.valueOf("#DFFFEF");
+                Color main = Color.valueOf("8be9d4");
+                Color core = Color.valueOf("e1fdf6");
 
                 
                 if (Mathf.chanceDelta(0.5f)) {
@@ -1224,8 +1224,8 @@ public class VerdantBullets {
             public void draw(Bullet b) {
                 super.draw(b);
 
-                Color main = Color.valueOf("#75FFB0");
-                Color core = Color.valueOf("#DFFFEF");
+                Color main = Color.valueOf("8be9d4");
+                Color core = Color.valueOf("e1fdf6");
 
                 float progress = b.fin();
 
@@ -1257,7 +1257,7 @@ public class VerdantBullets {
 
         verdantLightningWeb = new AdaptedLightningBulletType() {
             {
-                Color main = Color.valueOf("#75FFB0");
+                Color main = Color.valueOf("8be9d4");
 
                 damage = 5985f;
                 lightningColor = main;
@@ -1283,7 +1283,7 @@ public class VerdantBullets {
 
             @Override
             public void init(Bullet b) {
-                Color main = Color.valueOf("#75FFB0");
+                Color main = Color.valueOf("8be9d4");
 
                 Lightning.create(b, main, damage,
                         b.x, b.y,
@@ -1310,8 +1310,8 @@ public class VerdantBullets {
         };
 
         verdantBeam = new LaserBulletType(5350f) {
-            final Color main = Color.valueOf("#75FFB0");
-            final Color core = Color.valueOf("#EAFFF4");
+            final Color main = Color.valueOf("8be9d4");
+            final Color core = JBColor.nemesisGlow;
 
             {
                 length = 1520f;
@@ -1454,8 +1454,8 @@ public class VerdantBullets {
         };
 
         crossSpinLaser = new BasicBulletType(0.001f, 0f) {
-            final Color main = Color.valueOf("#75FFB0");
-            final Color core = Color.valueOf("#EAFFF4");
+            final Color main = Color.valueOf("8be9d4");
+            final Color core = JBColor.nemesisGlow;
             final float laserLength = 1250f;
             final float baseWidth = 38f;
 
@@ -1621,7 +1621,7 @@ public class VerdantBullets {
                 splashDamageRadius = 160f;
 
                 frontColor = Color.white;
-                backColor = Color.valueOf("#75FFB0");
+                backColor = Color.valueOf("8be9d4");
                 trailColor = backColor;
                 trailWidth = 7f;
                 trailLength = 45;
@@ -1633,7 +1633,7 @@ public class VerdantBullets {
                 hitShake = 12f;
 
                 fragBullets = 8;
-                fragBullet = apexShard;
+                fragBullet = apexShardNemesis;
                 fragVelocityMin = 0.7f;
                 fragVelocityMax = 1.4f;
                 fragLifeMin = 0.6f;

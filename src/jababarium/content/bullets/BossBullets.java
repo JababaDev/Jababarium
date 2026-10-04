@@ -46,13 +46,13 @@ public class BossBullets {
         deathBeam = new ContinuousFlameBulletType(5000) {
             {
                 shake = 6;
-                hitColor = flareColor = lightColor = lightningColor = JBColor.thurmixRed;
+                hitColor = flareColor = lightColor = lightningColor = Color.valueOf("ff9292");
 
                 colors = new Color[] {
-                        JBColor.thurmixRed.cpy().mul(0.4f, 0.1f, 0.1f, 0.5f),
-                        JBColor.thurmixRed.cpy().mul(0.8f, 0.2f, 0.2f, 0.7f),
-                        JBColor.thurmixRed.cpy().mul(1f, 0.4f, 0.4f, 0.85f),
-                        JBColor.thurmixRedLight
+                        Color.valueOf("ff9292").cpy().mul(0.4f, 0.1f, 0.1f, 0.5f),
+                        Color.valueOf("ff9292").cpy().mul(0.8f, 0.2f, 0.2f, 0.7f),
+                        Color.valueOf("ff9292").cpy().mul(1f, 0.4f, 0.4f, 0.85f),
+                        Color.valueOf("ffcece")
                 };
 
                 width = 22;
@@ -72,7 +72,7 @@ public class BossBullets {
                 pierceArmor = true;
 
                 hitEffect = new Effect(35f, e -> {
-                    Draw.color(JBColor.thurmixRed, JBColor.thurmixRedLight, e.fout() * 0.5f);
+                    Draw.color(Color.valueOf("ff9292"), Color.valueOf("ffcece"), e.fout() * 0.5f);
 
                     
                     for (int i = 0; i < 3; i++) {
@@ -87,7 +87,7 @@ public class BossBullets {
                     }
 
                     
-                    Draw.color(JBColor.thurmixRedLight, Color.white, e.fout() * 0.4f);
+                    Draw.color(Color.valueOf("ffcece"), Color.white, e.fout() * 0.4f);
                     Lines.stroke(e.fout() * 2f);
                     Angles.randLenVectors(e.id, 10, e.finpow() * 55f, (x, y) -> {
                         float ang = Mathf.angle(x, y);
@@ -96,17 +96,17 @@ public class BossBullets {
 
                     
                     e.scaled(14f, s -> {
-                        Draw.color(Color.white, JBColor.thurmixRed, s.fin());
+                        Draw.color(Color.white, Color.valueOf("ff9292"), s.fin());
                         Fill.circle(e.x, e.y, s.fout() * 18f);
-                        Drawf.light(e.x, e.y, s.fout() * 80f, JBColor.thurmixRed, 0.9f);
+                        Drawf.light(e.x, e.y, s.fout() * 80f, Color.valueOf("ff9292"), 0.9f);
                     });
 
-                    Drawf.light(e.x, e.y, e.fout() * 60f, JBColor.thurmixRed, 0.75f);
+                    Drawf.light(e.x, e.y, e.fout() * 60f, Color.valueOf("ff9292"), 0.75f);
                 });
 
                 shootEffect = new Effect(55f, e -> {
                     
-                    Draw.color(JBColor.thurmixRed, Color.white, e.fout() * 0.5f);
+                    Draw.color(Color.valueOf("ff9292"), Color.white, e.fout() * 0.5f);
                     for (int i = 0; i < 4; i++) {
                         DrawFunc.tri(e.x, e.y,
                                 14f * e.fout(),
@@ -121,7 +121,7 @@ public class BossBullets {
                     Lines.circle(e.x, e.y, e.fin(Interp.pow2Out) * 75f);
 
                     
-                    Draw.color(Color.white, JBColor.thurmixRedLight, e.fout() * 0.4f);
+                    Draw.color(Color.white, Color.valueOf("ffcece"), e.fout() * 0.4f);
                     Lines.stroke(e.fout() * 2.5f);
                     Angles.randLenVectors(e.id, 14, e.finpow() * 60f, e.rotation, 30f, (x, y) -> {
                         Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fout() * 18f + 5f);
@@ -134,12 +134,12 @@ public class BossBullets {
                         Drawf.light(e.x, e.y, s.fout() * 120f, Color.white, 1f);
                     });
 
-                    Drawf.light(e.x, e.y, e.fout() * 180f, JBColor.thurmixRed, 0.9f);
+                    Drawf.light(e.x, e.y, e.fout() * 180f, Color.valueOf("ff9292"), 0.9f);
                 });
             }
 
             
-            final Color edgeColor = JBColor.thurmixRed.cpy().mul(0.5f, 0.1f, 0.1f, 1f);
+            final Color edgeColor = Color.valueOf("ff9292").cpy().mul(0.5f, 0.1f, 0.1f, 1f);
             final Color coreColor = Color.valueOf("ffffff");
             float beamPulse = 0f;
 
@@ -162,7 +162,7 @@ public class BossBullets {
 
                 
                 if (Mathf.chanceDelta(0.06f)) {
-                    Lightning.create(b, JBColor.thurmixRedLight,
+                    Lightning.create(b, Color.valueOf("ffcece"),
                             lightningDamage * 1.8f,
                             b.x, b.y,
                             b.rotation() + Mathf.range(55f),
@@ -176,7 +176,7 @@ public class BossBullets {
                     float by = b.y + Angles.trnsy(b.rotation(), dist);
 
                     new Effect(30f, e -> {
-                        Draw.color(JBColor.thurmixRed, JBColor.thurmixRedLight, e.fout() * 0.5f);
+                        Draw.color(Color.valueOf("ff9292"), Color.valueOf("ffcece"), e.fout() * 0.5f);
                         Draw.alpha(e.fout() * 0.75f);
                         Fill.circle(e.x, e.y, e.fout() * Mathf.randomSeed(e.id, 4f, 9f));
 
@@ -184,26 +184,26 @@ public class BossBullets {
                         Draw.alpha(e.fout() * 0.3f);
                         Fill.circle(e.x, e.y, e.fout() * 3f);
 
-                        Drawf.light(e.x, e.y, e.fout() * 25f, JBColor.thurmixRed, 0.7f);
+                        Drawf.light(e.x, e.y, e.fout() * 25f, Color.valueOf("ff9292"), 0.7f);
                     }).at(bx + Mathf.range(width * 1.5f),
                             by + Mathf.range(width * 1.5f),
-                            b.rotation(), JBColor.thurmixRed);
+                            b.rotation(), Color.valueOf("ff9292"));
                 }
 
                 
                 if (Mathf.chanceDelta(0.35f)) {
                     new Effect(22f, e -> {
-                        Draw.color(JBColor.thurmixRed, Color.white, e.fout() * 0.35f);
+                        Draw.color(Color.valueOf("ff9292"), Color.white, e.fout() * 0.35f);
                         Draw.alpha(e.fout() * 0.7f);
                         Lines.stroke(e.fout() * 2.5f);
                         Lines.arc(e.x, e.y,
                                 (12f + Mathf.randomSeed(e.id, 5f, 14f)) * e.fout(),
                                 0.3f,
                                 e.rotation + Mathf.randomSeed(e.id, 360f));
-                        Drawf.light(e.x, e.y, e.fout() * 35f, JBColor.thurmixRed, 0.6f);
+                        Drawf.light(e.x, e.y, e.fout() * 35f, Color.valueOf("ff9292"), 0.6f);
                     }).at(b.x + Mathf.range(8f),
                             b.y + Mathf.range(8f),
-                            b.rotation(), JBColor.thurmixRed);
+                            b.rotation(), Color.valueOf("ff9292"));
                 }
 
                 
@@ -218,15 +218,15 @@ public class BossBullets {
                         float tx = e.x + Angles.trnsx(e.rotation, travel);
                         float ty = e.y + Angles.trnsy(e.rotation, travel);
 
-                        Draw.color(JBColor.thurmixRed, Color.white, 0.4f + e.fout() * 0.3f);
+                        Draw.color(Color.valueOf("ff9292"), Color.white, 0.4f + e.fout() * 0.3f);
                         Lines.stroke(e.fout() * 3f);
                         Lines.line(e.x, e.y, tx, ty);
 
                         Draw.color(Color.white);
                         Fill.circle(tx, ty, e.fout() * 4f);
 
-                        Drawf.light(tx, ty, e.fout() * 22f, JBColor.thurmixRed, 0.9f);
-                    }).at(spawnX, spawnY, scatterAngle, JBColor.thurmixRed);
+                        Drawf.light(tx, ty, e.fout() * 22f, Color.valueOf("ff9292"), 0.9f);
+                    }).at(spawnX, spawnY, scatterAngle, Color.valueOf("ff9292"));
                 }
             }
 
@@ -245,7 +245,7 @@ public class BossBullets {
 
                 
                 for (int i = 0; i < 3; i++) {
-                    Lightning.create(b, JBColor.thurmixRedLight,
+                    Lightning.create(b, Color.valueOf("ffcece"),
                             lightningDamage * 0.7f,
                             x, y,
                             b.rotation() + i * 120f + Mathf.range(30f),
@@ -254,7 +254,7 @@ public class BossBullets {
 
                 
                 new Effect(45f, 150f, e -> {
-                    Draw.color(JBColor.thurmixRed, JBColor.thurmixRedLight, e.fin() * 0.6f);
+                    Draw.color(Color.valueOf("ff9292"), Color.valueOf("ffcece"), e.fin() * 0.6f);
 
                     Lines.stroke(5f * e.fout());
                     Lines.circle(x, y, e.fin(Interp.pow2Out) * 55f);
@@ -262,7 +262,7 @@ public class BossBullets {
                     Lines.stroke(3f * e.fout());
                     Lines.circle(x, y, e.fin(Interp.pow3Out) * 80f);
 
-                    Draw.color(JBColor.thurmixRed, Color.white, e.fout() * 0.5f);
+                    Draw.color(Color.valueOf("ff9292"), Color.white, e.fout() * 0.5f);
                     Lines.stroke(e.fout() * 2.5f);
                     Angles.randLenVectors(e.id, 14, e.finpow() * 65f, (px, py) -> {
                         float ang = Mathf.angle(px, py);
@@ -271,12 +271,12 @@ public class BossBullets {
                     });
 
                     e.scaled(18f, s -> {
-                        Draw.color(Color.white, JBColor.thurmixRed, s.fin());
+                        Draw.color(Color.white, Color.valueOf("ff9292"), s.fin());
                         Fill.circle(x, y, s.fout() * 22f);
                         Drawf.light(x, y, s.fout() * 100f, Color.white, 1f);
                     });
 
-                    Drawf.light(x, y, e.fout() * 120f, JBColor.thurmixRed, 0.85f);
+                    Drawf.light(x, y, e.fout() * 120f, Color.valueOf("ff9292"), 0.85f);
                 }).at(x, y);
             }
 
@@ -293,11 +293,11 @@ public class BossBullets {
                 Draw.alpha(0.55f + pulse * 0.1f);
                 Fill.circle(b.x, b.y, (width * 2.2f + pulse * 3f));
 
-                Draw.color(JBColor.thurmixRed);
+                Draw.color(Color.valueOf("ff9292"));
                 Draw.alpha(0.85f + pulse * 0.1f);
                 Fill.circle(b.x, b.y, (width * 1.4f + pulse * 2f));
 
-                Draw.color(JBColor.thurmixRedLight);
+                Draw.color(Color.valueOf("ffcece"));
                 Draw.alpha(0.9f);
                 Fill.circle(b.x, b.y, (width * 0.8f + pulse * 1.5f));
 
@@ -315,7 +315,7 @@ public class BossBullets {
                     Lines.stroke(3f);
                     Lines.arc(b.x, b.y, arcR, 0.2f, arcAngle);
 
-                    Draw.color(JBColor.thurmixRed);
+                    Draw.color(Color.valueOf("ff9292"));
                     Draw.alpha(0.8f + pulse * 0.1f);
                     Lines.stroke(1.8f);
                     Lines.arc(b.x, b.y, arcR, 0.2f, arcAngle);
@@ -323,12 +323,12 @@ public class BossBullets {
                     Drawf.light(
                             b.x + Angles.trnsx(arcAngle, arcR),
                             b.y + Angles.trnsy(arcAngle, arcR),
-                            30f + pulse * 10f, JBColor.thurmixRed, 0.75f);
+                            30f + pulse * 10f, Color.valueOf("ff9292"), 0.75f);
                 }
 
                 Drawf.light(b.x, b.y,
                         (width * 9f + pulse * 30f),
-                        JBColor.thurmixRed, 0.95f);
+                        Color.valueOf("ff9292"), 0.95f);
 
                 Draw.reset();
             }
@@ -337,7 +337,7 @@ public class BossBullets {
         ancientBall = new AccelBulletType(2.85f, 240f, MINE_BULLET) {
             {
                 frontColor = Color.white;
-                backColor = lightningColor = trailColor = hitColor = lightColor = JBColor.thurmixRed;
+                backColor = lightningColor = trailColor = hitColor = lightColor = Color.valueOf("ff9292");
                 lifetime = 95f;
 
                 spin = 3f;
@@ -417,8 +417,8 @@ public class BossBullets {
                         lightningAngleRand = 40f;
                         scaledSplashDamage = largeHit = true;
 
-                        lightningColor = trailColor = hitColor = lightColor = JBColor.thurmixRedLight.cpy()
-                                .lerp(Pal.accent, 0.055f);
+                        lightningColor = trailColor = hitColor = lightColor = Color.valueOf("ffcece").cpy()
+                                .lerp(Color.valueOf("ff7f7f"), 0.055f);
 
                         despawnHit = false;
                         hitEffect = new Effect(90, 500, e -> {
@@ -507,9 +507,9 @@ public class BossBullets {
             {
                 effectLightningChance = 0.15f;
                 damage = 200;
-                backColor = trailColor = lightColor = lightningColor = hitColor = JBColor.thurmixRed;
+                backColor = trailColor = lightColor = lightningColor = hitColor = Color.valueOf("ff9292");
                 size = 10f;
-                frontColor = JBColor.thurmixRedLight;
+                frontColor = Color.valueOf("ffcece");
                 range = 600f;
                 spreadEffect = Fx.none;
 
@@ -544,13 +544,13 @@ public class BossBullets {
 
             {
                 shake = 8;
-                hitColor = flareColor = lightColor = lightningColor = JBColor.thurmixRed;
+                hitColor = flareColor = lightColor = lightningColor = Color.valueOf("ff9292");
 
                 colors = new Color[] {
-                        JBColor.thurmixDeep.cpy().a(0.45f),
-                        JBColor.thurmixRed.cpy().a(0.70f),
-                        JBColor.thurmixFlare.cpy().a(0.88f),
-                        JBColor.thurmixCore
+                        JBColor.broodmotherVoid.cpy().a(0.45f),
+                        Color.valueOf("ff9292").cpy().a(0.70f),
+                        Color.valueOf("ff9999").cpy().a(0.88f),
+                        Color.valueOf("ffd0d0")
                 };
 
                 width = 32f;
@@ -571,7 +571,7 @@ public class BossBullets {
 
                 
                 hitEffect = new Effect(40f, e -> {
-                    Draw.color(JBColor.thurmixRed, JBColor.thurmixCore, e.fout() * 0.5f);
+                    Draw.color(Color.valueOf("ff9292"), Color.valueOf("ffd0d0"), e.fout() * 0.5f);
 
                     for (int i = 0; i < 3; i++) {
                         float p = Mathf.curve(e.fin(), i * 0.2f, 1f);
@@ -581,20 +581,20 @@ public class BossBullets {
                         Lines.circle(e.x, e.y, p * (35f + i * 22f));
                     }
 
-                    Draw.color(JBColor.thurmixFlare, JBColor.thurmixCore, e.fout() * 0.4f);
+                    Draw.color(Color.valueOf("ff9999"), Color.valueOf("ffd0d0"), e.fout() * 0.4f);
                     Lines.stroke(e.fout() * 2.5f);
                     Angles.randLenVectors(e.id, 12, e.finpow() * 70f, (x, y) -> {
                         Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fout() * 18f + 5f);
                     });
 
                     e.scaled(15f, s -> {
-                        Draw.color(JBColor.thurmixCore);
+                        Draw.color(Color.valueOf("ffd0d0"));
                         Draw.alpha(s.fout(Interp.pow3Out));
                         Fill.circle(e.x, e.y, s.fout() * 24f);
-                        Drawf.light(e.x, e.y, s.fout() * 100f, JBColor.thurmixCore, 1f);
+                        Drawf.light(e.x, e.y, s.fout() * 100f, Color.valueOf("ffd0d0"), 1f);
                     });
 
-                    Drawf.light(e.x, e.y, e.fout() * 80f, JBColor.thurmixRed, 0.8f);
+                    Drawf.light(e.x, e.y, e.fout() * 80f, Color.valueOf("ff9292"), 0.8f);
                 });
 
                 
@@ -603,10 +603,10 @@ public class BossBullets {
 
                     
                     e.scaled(22f, flash -> {
-                        Draw.color(JBColor.thurmixCore);
+                        Draw.color(Color.valueOf("ffd0d0"));
                         Draw.alpha(flash.fout(Interp.pow3Out));
                         Fill.circle(ex, ey, flash.fout() * 160f);
-                        Drawf.light(ex, ey, flash.fout() * 500f, JBColor.thurmixCore, 1f);
+                        Drawf.light(ex, ey, flash.fout() * 500f, Color.valueOf("ffd0d0"), 1f);
                     });
 
                     
@@ -618,8 +618,8 @@ public class BossBullets {
                             continue;
                         float fo = 1f - p;
 
-                        Draw.color(fw % 2 == 0 ? JBColor.thurmixRed : JBColor.thurmixDeep,
-                                JBColor.thurmixFlare, fo * 0.5f);
+                        Draw.color(fw % 2 == 0 ? Color.valueOf("ff9292") : JBColor.broodmotherVoid,
+                                Color.valueOf("ff9999"), fo * 0.5f);
                         Lines.stroke((14f - fw * 2.2f) * fo);
                         Lines.circle(ex, ey, 10f + Interp.pow2Out.apply(p) * (220f + fw * 60f));
                     }
@@ -631,24 +631,24 @@ public class BossBullets {
                         float w = Fx.rand.random(12f, 28f) * e.fout() * e.fout();
                         float len = Fx.rand.random(100f, 220f) * e.fout(Interp.pow2Out);
 
-                        Draw.color(JBColor.thurmixDeep);
+                        Draw.color(JBColor.broodmotherVoid);
                         Draw.alpha(e.fout() * 0.95f);
                         DrawFunc.tri(ex + x, ey + y, w * 1.3f, len * 1.1f, ang);
                         DrawFunc.tri(ex + x, ey + y, w * 0.65f, len * 0.22f, ang + 180f);
 
-                        Draw.color(JBColor.thurmixRed);
+                        Draw.color(Color.valueOf("ff9292"));
                         Draw.alpha(e.fout() * 0.90f);
                         DrawFunc.tri(ex + x, ey + y, w, len, ang);
                         DrawFunc.tri(ex + x, ey + y, w * 0.45f, len * 0.2f, ang + 180f);
 
-                        Draw.color(JBColor.thurmixFlare);
+                        Draw.color(Color.valueOf("ff9999"));
                         Draw.alpha(e.fout() * 0.6f);
                         DrawFunc.tri(ex + x, ey + y, w * 0.35f, len * 0.75f, ang);
 
-                        Drawf.light(ex + x, ey + y, w * 3f * e.fout(), JBColor.thurmixRed, 0.8f);
+                        Drawf.light(ex + x, ey + y, w * 3f * e.fout(), Color.valueOf("ff9292"), 0.8f);
                     });
 
-                    Drawf.light(ex, ey, e.fout() * 350f, JBColor.thurmixRed, 0.97f);
+                    Drawf.light(ex, ey, e.fout() * 350f, Color.valueOf("ff9292"), 0.97f);
                 });
 
                 smokeEffect = JBFx.hugeSmokeGray;
@@ -662,19 +662,19 @@ public class BossBullets {
                 float bx = b.x, by = b.y;
 
                 
-                Draw.color(JBColor.thurmixDeep);
+                Draw.color(JBColor.broodmotherVoid);
                 Draw.alpha(progress * 0.55f + pulse * 0.08f);
                 Fill.circle(bx, by, (80f + pulse * 8f) * progress);
 
-                Draw.color(JBColor.thurmixRed);
+                Draw.color(Color.valueOf("ff9292"));
                 Draw.alpha(progress * 0.75f + pulse * 0.1f);
                 Fill.circle(bx, by, (55f + pulse * 6f) * progress);
 
-                Draw.color(JBColor.thurmixFlare);
+                Draw.color(Color.valueOf("ff9999"));
                 Draw.alpha(progress * 0.85f);
                 Fill.circle(bx, by, (30f + pulse * 4f) * progress);
 
-                Draw.color(JBColor.thurmixCore);
+                Draw.color(Color.valueOf("ffd0d0"));
                 Draw.alpha(progress * 0.95f);
                 Fill.circle(bx, by, (12f + pulse * 2f) * progress);
 
@@ -684,7 +684,7 @@ public class BossBullets {
                     float ringRadius = (1f - ringProgress) * (180f + i * 20f) * progress;
                     float ringAlpha = ringProgress * (1f - ringProgress) * 4f * progress;
 
-                    Draw.color(i % 2 == 0 ? JBColor.thurmixRed : JBColor.thurmixFlare);
+                    Draw.color(i % 2 == 0 ? Color.valueOf("ff9292") : Color.valueOf("ff9999"));
                     Draw.alpha(ringAlpha * 0.8f);
                     Lines.stroke((3.5f - i * 0.4f) * progress);
                     Lines.circle(bx, by, ringRadius);
@@ -694,10 +694,10 @@ public class BossBullets {
                 Angles.randLenVectors((int) (b.id + t * 0.3f), 20,
                         (1f - progress * 0.7f) * 150f * progress,
                         (x, y) -> {
-                            Draw.color(JBColor.thurmixFlare, JBColor.thurmixCore, progress * 0.5f);
+                            Draw.color(Color.valueOf("ff9999"), Color.valueOf("ffd0d0"), progress * 0.5f);
                             Draw.alpha(progress * 0.8f);
                             Fill.circle(bx + x, by + y, progress * 4.5f);
-                            Drawf.light(bx + x, by + y, progress * 16f, JBColor.thurmixRed, 0.7f);
+                            Drawf.light(bx + x, by + y, progress * 16f, Color.valueOf("ff9292"), 0.7f);
                         });
 
                 
@@ -708,30 +708,30 @@ public class BossBullets {
                     float armW = (14f + pulse * 2f) * progress;
 
                     
-                    Draw.color(JBColor.thurmixDeep);
+                    Draw.color(JBColor.broodmotherVoid);
                     Draw.alpha(progress * 0.9f);
                     DrawFunc.tri(bx, by, armW * 1.25f, armLen * 1.05f, armAngle);
                     DrawFunc.tri(bx, by, armW * 0.7f, armLen * 0.22f, armAngle + 180f);
 
                     
-                    Draw.color(JBColor.thurmixRed);
+                    Draw.color(Color.valueOf("ff9292"));
                     Draw.alpha(progress * 0.95f);
                     DrawFunc.tri(bx, by, armW, armLen, armAngle);
                     DrawFunc.tri(bx, by, armW * 0.5f, armLen * 0.2f, armAngle + 180f);
 
                     
-                    Draw.color(JBColor.thurmixFlare);
+                    Draw.color(Color.valueOf("ff9999"));
                     Draw.alpha(progress * 0.7f);
                     DrawFunc.tri(bx, by, armW * 0.38f, armLen * 0.78f, armAngle);
 
                     
                     float tipX = bx + Angles.trnsx(armAngle, armLen);
                     float tipY = by + Angles.trnsy(armAngle, armLen);
-                    Draw.color(JBColor.thurmixCore);
+                    Draw.color(Color.valueOf("ffd0d0"));
                     Draw.alpha(progress * 0.8f);
                     Fill.circle(tipX, tipY, (5f + pulse) * progress);
 
-                    Drawf.light(tipX, tipY, armLen * 0.25f * progress, JBColor.thurmixRed, 0.75f);
+                    Drawf.light(tipX, tipY, armLen * 0.25f * progress, Color.valueOf("ff9292"), 0.75f);
                 }
 
                 
@@ -741,15 +741,15 @@ public class BossBullets {
                     float armLen = (70f + pulse * 6f) * progress;
                     float armW = (7f + pulse) * progress;
 
-                    Draw.color(JBColor.thurmixDeep);
+                    Draw.color(JBColor.broodmotherVoid);
                     Draw.alpha(progress * 0.75f);
                     DrawFunc.tri(bx, by, armW * 1.2f, armLen * 1.05f, armAngle);
 
-                    Draw.color(JBColor.thurmixRed);
+                    Draw.color(Color.valueOf("ff9292"));
                     Draw.alpha(progress * 0.85f);
                     DrawFunc.tri(bx, by, armW, armLen, armAngle);
 
-                    Draw.color(JBColor.thurmixFlare);
+                    Draw.color(Color.valueOf("ff9999"));
                     Draw.alpha(progress * 0.55f);
                     DrawFunc.tri(bx, by, armW * 0.4f, armLen * 0.72f, armAngle);
                 }
@@ -759,7 +759,7 @@ public class BossBullets {
                     float arcAngle = t * (1.8f + i * 0.25f) * (i % 2 == 0 ? 1f : -1f) + i * 45f;
                     float arcRadius = (38f + i * 8f + pulse * 3f) * progress;
 
-                    Draw.color(i % 3 == 0 ? JBColor.thurmixFlare : JBColor.thurmixRed);
+                    Draw.color(i % 3 == 0 ? Color.valueOf("ff9999") : Color.valueOf("ff9292"));
                     Draw.alpha(progress * (0.5f + (i % 2) * 0.2f));
                     Lines.stroke((2.8f - i * 0.2f) * progress);
                     Lines.arc(bx, by, arcRadius, 0.28f, arcAngle * 60f);
@@ -767,10 +767,10 @@ public class BossBullets {
                     Drawf.light(
                             bx + Angles.trnsx(arcAngle * 60f, arcRadius),
                             by + Angles.trnsy(arcAngle * 60f, arcRadius),
-                            20f * progress, JBColor.thurmixRed, 0.6f);
+                            20f * progress, Color.valueOf("ff9292"), 0.6f);
                 }
 
-                Drawf.light(bx, by, (200f + pulse * 50f) * progress, JBColor.thurmixRed, 0.95f);
+                Drawf.light(bx, by, (200f + pulse * 50f) * progress, Color.valueOf("ff9292"), 0.95f);
             }
 
             
@@ -785,25 +785,25 @@ public class BossBullets {
                     float armLen = 120f + pulse * 10f;
                     float armW = 14f + pulse * 2f;
 
-                    Draw.color(JBColor.thurmixDeep);
+                    Draw.color(JBColor.broodmotherVoid);
                     Draw.alpha(0.9f);
                     DrawFunc.tri(bx, by, armW * 1.25f, armLen * 1.05f, armAngle);
                     DrawFunc.tri(bx, by, armW * 0.7f, armLen * 0.22f, armAngle + 180f);
 
-                    Draw.color(JBColor.thurmixRed);
+                    Draw.color(Color.valueOf("ff9292"));
                     Draw.alpha(0.95f);
                     DrawFunc.tri(bx, by, armW, armLen, armAngle);
                     DrawFunc.tri(bx, by, armW * 0.5f, armLen * 0.2f, armAngle + 180f);
 
-                    Draw.color(JBColor.thurmixFlare);
+                    Draw.color(Color.valueOf("ff9999"));
                     Draw.alpha(0.7f);
                     DrawFunc.tri(bx, by, armW * 0.38f, armLen * 0.78f, armAngle);
 
                     float tipX = bx + Angles.trnsx(armAngle, armLen);
                     float tipY = by + Angles.trnsy(armAngle, armLen);
-                    Draw.color(JBColor.thurmixCore);
+                    Draw.color(Color.valueOf("ffd0d0"));
                     Fill.circle(tipX, tipY, 5f + pulse);
-                    Drawf.light(tipX, tipY, 35f, JBColor.thurmixRed, 0.75f);
+                    Drawf.light(tipX, tipY, 35f, Color.valueOf("ff9292"), 0.75f);
                 }
 
                 float crossRot2 = t * 1.5f + 45f;
@@ -812,20 +812,20 @@ public class BossBullets {
                     float armLen = 70f + pulse * 6f;
                     float armW = 7f + pulse;
 
-                    Draw.color(JBColor.thurmixDeep);
+                    Draw.color(JBColor.broodmotherVoid);
                     Draw.alpha(0.75f);
                     DrawFunc.tri(bx, by, armW * 1.2f, armLen * 1.05f, armAngle);
 
-                    Draw.color(JBColor.thurmixRed);
+                    Draw.color(Color.valueOf("ff9292"));
                     Draw.alpha(0.85f);
                     DrawFunc.tri(bx, by, armW, armLen, armAngle);
 
-                    Draw.color(JBColor.thurmixFlare);
+                    Draw.color(Color.valueOf("ff9999"));
                     Draw.alpha(0.55f);
                     DrawFunc.tri(bx, by, armW * 0.4f, armLen * 0.72f, armAngle);
                 }
 
-                Drawf.light(bx, by, 160f + pulse * 40f, JBColor.thurmixRed, 0.9f);
+                Drawf.light(bx, by, 160f + pulse * 40f, Color.valueOf("ff9292"), 0.9f);
             }
 
             @Override
@@ -848,23 +848,23 @@ public class BossBullets {
                     float pulse = Mathf.absin(t, 5f, 1f);
                     Draw.z(Layer.bullet + 0.003f);
 
-                    Draw.color(JBColor.thurmixDeep);
+                    Draw.color(JBColor.broodmotherVoid);
                     Draw.alpha(0.5f + pulse * 0.1f);
                     Fill.circle(b.x, b.y, width * 2.4f + pulse * 4f);
 
-                    Draw.color(JBColor.thurmixRed);
+                    Draw.color(Color.valueOf("ff9292"));
                     Draw.alpha(0.8f + pulse * 0.1f);
                     Fill.circle(b.x, b.y, width * 1.5f + pulse * 2f);
 
-                    Draw.color(JBColor.thurmixFlare);
+                    Draw.color(Color.valueOf("ff9999"));
                     Draw.alpha(0.9f);
                     Fill.circle(b.x, b.y, width * 0.85f + pulse * 1.5f);
 
-                    Draw.color(JBColor.thurmixCore);
+                    Draw.color(Color.valueOf("ffd0d0"));
                     Draw.alpha(0.95f);
                     Fill.circle(b.x, b.y, width * 0.32f + pulse * 0.8f);
 
-                    Drawf.light(b.x, b.y, width * 10f + pulse * 35f, JBColor.thurmixRed, 0.97f);
+                    Drawf.light(b.x, b.y, width * 10f + pulse * 35f, Color.valueOf("ff9292"), 0.97f);
                     Draw.reset();
                 }
             }
@@ -878,7 +878,7 @@ public class BossBullets {
 
                     
                     if (Mathf.chanceDelta(0.12f)) {
-                        Lightning.create(b, JBColor.thurmixRed,
+                        Lightning.create(b, Color.valueOf("ff9292"),
                                 lightningDamage * 0.4f,
                                 b.x + Mathf.range(120f),
                                 b.y + Mathf.range(120f),
@@ -897,7 +897,7 @@ public class BossBullets {
                     
                     if (Mathf.chanceDelta(0.35f)) {
                         for (int i = 0; i < 4; i++) {
-                            Lightning.create(b, JBColor.thurmixFlare,
+                            Lightning.create(b, Color.valueOf("ff9999"),
                                     lightningDamage * 1.5f,
                                     b.x, b.y,
                                     Mathf.random(360f),
@@ -922,7 +922,7 @@ public class BossBullets {
 
                     
                     if (Mathf.chanceDelta(0.06f)) {
-                        Lightning.create(b, JBColor.thurmixFlare,
+                        Lightning.create(b, Color.valueOf("ff9999"),
                                 lightningDamage * 2f,
                                 b.x, b.y,
                                 b.rotation() + Mathf.range(60f),
@@ -941,16 +941,16 @@ public class BossBullets {
                             float tx = e.x + Angles.trnsx(e.rotation, travel);
                             float ty = e.y + Angles.trnsy(e.rotation, travel);
 
-                            Draw.color(JBColor.thurmixRed, JBColor.thurmixCore, 0.4f + e.fout() * 0.3f);
+                            Draw.color(Color.valueOf("ff9292"), Color.valueOf("ffd0d0"), 0.4f + e.fout() * 0.3f);
                             Lines.stroke(e.fout() * 3f);
                             Lines.line(e.x, e.y, tx, ty);
 
-                            Draw.color(JBColor.thurmixCore);
+                            Draw.color(Color.valueOf("ffd0d0"));
                             Fill.circle(tx, ty, e.fout() * 4.5f);
-                            Drawf.light(tx, ty, e.fout() * 24f, JBColor.thurmixRed, 0.9f);
+                            Drawf.light(tx, ty, e.fout() * 24f, Color.valueOf("ff9292"), 0.9f);
                         }).at(spx + Mathf.range(width * 1.5f),
                                 spy + Mathf.range(width * 1.5f),
-                                sAngle, JBColor.thurmixRed);
+                                sAngle, Color.valueOf("ff9292"));
                     }
                 }
             }
@@ -971,7 +971,7 @@ public class BossBullets {
                         lightningLength + Mathf.random(lightningLengthRand));
 
                 for (int i = 0; i < 3; i++) {
-                    Lightning.create(b, JBColor.thurmixFlare,
+                    Lightning.create(b, Color.valueOf("ff9999"),
                             lightningDamage * 0.75f,
                             x, y,
                             b.rotation() + i * 120f + Mathf.range(30f),
@@ -979,14 +979,14 @@ public class BossBullets {
                 }
 
                 new Effect(50f, 180f, e -> {
-                    Draw.color(JBColor.thurmixRed, JBColor.thurmixFlare, e.fin() * 0.6f);
+                    Draw.color(Color.valueOf("ff9292"), Color.valueOf("ff9999"), e.fin() * 0.6f);
 
                     Lines.stroke(6f * e.fout());
                     Lines.circle(x, y, e.fin(Interp.pow2Out) * 65f);
                     Lines.stroke(3.5f * e.fout());
                     Lines.circle(x, y, e.fin(Interp.pow3Out) * 95f);
 
-                    Draw.color(JBColor.thurmixFlare, JBColor.thurmixCore, e.fout() * 0.45f);
+                    Draw.color(Color.valueOf("ff9999"), Color.valueOf("ffd0d0"), e.fout() * 0.45f);
                     Lines.stroke(e.fout() * 2.8f);
                     Angles.randLenVectors(e.id, 16, e.finpow() * 80f, (px, py) -> {
                         Lines.lineAngle(x + px, y + py, Mathf.angle(px, py), e.fout() * 20f + 6f);
@@ -994,13 +994,13 @@ public class BossBullets {
                     });
 
                     e.scaled(20f, s -> {
-                        Draw.color(JBColor.thurmixCore);
+                        Draw.color(Color.valueOf("ffd0d0"));
                         Draw.alpha(s.fout(Interp.pow3Out));
                         Fill.circle(x, y, s.fout() * 28f);
-                        Drawf.light(x, y, s.fout() * 130f, JBColor.thurmixCore, 1f);
+                        Drawf.light(x, y, s.fout() * 130f, Color.valueOf("ffd0d0"), 1f);
                     });
 
-                    Drawf.light(x, y, e.fout() * 140f, JBColor.thurmixRed, 0.88f);
+                    Drawf.light(x, y, e.fout() * 140f, Color.valueOf("ff9292"), 0.88f);
                 }).at(x, y);
             }
         };

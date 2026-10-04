@@ -49,6 +49,44 @@ public class JBColor {
             thurmixCore = Color.valueOf("#ffd0d0"),
             thurmixFlare = Color.valueOf("#ff9999");
 
+    /** Unit branch palettes, taken from the accent colors of each branch's top unit sprite. */
+    public static Color
+            nemesisVoid = Color.valueOf("071a16"),
+            nemesisDeep = Color.valueOf("0f3a31"),
+            nemesisDark = Color.valueOf("1f7a66"),
+            nemesisMid = Color.valueOf("36b79b"),
+            nemesisLight = Color.valueOf("69e0c7"),
+            nemesisPale = Color.valueOf("c4f7ea"),
+            nemesisGlow = Color.valueOf("ecfffa"),
+            oblivionVoid = Color.valueOf("1a0606"),
+            oblivionDeep = Color.valueOf("3a0f0f"),
+            oblivionDark = Color.valueOf("7a2424"),
+            oblivionMid = Color.valueOf("a63d3d"),
+            oblivionLight = Color.valueOf("e65555"),
+            oblivionPale = Color.valueOf("ffc4c4"),
+            oblivionGlow = Color.valueOf("fff0f0"),
+            tidebreakerVoid = Color.valueOf("08081c"),
+            tidebreakerDeep = Color.valueOf("14143d"),
+            tidebreakerDark = Color.valueOf("33338a"),
+            tidebreakerMid = Color.valueOf("5757c1"),
+            tidebreakerLight = Color.valueOf("8aa3f4"),
+            tidebreakerPale = Color.valueOf("d2dcff"),
+            tidebreakerGlow = Color.valueOf("f0f3ff"),
+            ocelexisVoid = Color.valueOf("1c0808"),
+            ocelexisDeep = Color.valueOf("3d1414"),
+            ocelexisDark = Color.valueOf("8a3a3a"),
+            ocelexisMid = Color.valueOf("c45f5f"),
+            ocelexisLight = Color.valueOf("f19583"),
+            ocelexisPale = Color.valueOf("ffd9cf"),
+            ocelexisGlow = Color.valueOf("fff3ef"),
+            broodmotherVoid = Color.valueOf("200606"),
+            broodmotherDeep = Color.valueOf("4a1010"),
+            broodmotherDark = Color.valueOf("a02c2c"),
+            broodmotherMid = Color.valueOf("ff6363"),
+            broodmotherLight = Color.valueOf("ff9f9f"),
+            broodmotherPale = Color.valueOf("ffdcdc"),
+            broodmotherGlow = Color.valueOf("fff2f2");
+
     static {
         Colors.put("heal", Pal.heal);
         Colors.put("ancient", ancient);

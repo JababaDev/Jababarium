@@ -54,31 +54,31 @@ public class FrostBullets {
                 shrinkY = 0f;
                 shrinkX = 0f;
 
-                backColor = Color.valueOf("0a2f5f");
-                frontColor = Color.valueOf("e0f0ff");
-                lightColor = Color.valueOf("4488ff");
+                backColor = Color.valueOf("155446");
+                frontColor = Color.valueOf("e2fdf6");
+                lightColor = JBColor.nemesisLight;
                 lightOpacity = 1f;
                 lightRadius = 180f;
 
                 trailLength = 24;
                 trailWidth = 8f;
-                trailColor = Color.valueOf("2255aa");
+                trailColor = Color.valueOf("2d9f86");
                 trailInterval = 2f;
 
                 trailEffect = new Effect(65f, e -> {
 
-                    Draw.color(Color.valueOf("0a2f5f"));
+                    Draw.color(Color.valueOf("155446"));
                     Draw.alpha(e.fout() * 0.7f);
                     circle(e.x, e.y, (20f + Mathf.absin(e.time, 2f, 4f)) * e.fout());
 
-                    Draw.color(Color.valueOf("2255aa"));
+                    Draw.color(Color.valueOf("2d9f86"));
                     Draw.alpha(e.fout() * 0.8f);
                     circle(e.x, e.y, (14f + Mathf.absin(e.time, 2f, 3f)) * e.fout());
 
-                    Draw.color(Color.valueOf("4488ff"));
+                    Draw.color(JBColor.nemesisLight);
                     circle(e.x, e.y, (10f + Mathf.absin(e.time, 2f, 2f)) * e.fout());
 
-                    Draw.color(Color.valueOf("c0e0ff"));
+                    Draw.color(Color.valueOf("c7f8eb"));
                     circle(e.x, e.y, (5f + Mathf.absin(e.time, 2f, 1f)) * e.fout());
 
                     float xVal = e.x;
@@ -93,7 +93,7 @@ public class FrostBullets {
 
                         Tmp.v1.trns(angle, rad);
 
-                        Draw.color(Color.valueOf("6699ff"));
+                        Draw.color(Color.valueOf("7fe6d0"));
                         Draw.alpha(foutVal * 0.8f);
 
                         for (int j = 0; j < 3; j++) {
@@ -105,7 +105,7 @@ public class FrostBullets {
                     }
 
                     Angles.randLenVectors(e.id, 8, 4f + e.fin() * 14f, (x, y) -> {
-                        Draw.color(Color.valueOf("88bbff"), Color.valueOf("2255aa"), Mathf.random());
+                        Draw.color(Color.valueOf("9aedda"), Color.valueOf("2d9f86"), Mathf.random());
                         circle(xVal + x, yVal + y, foutVal * 2f);
                     });
                 });
@@ -114,31 +114,31 @@ public class FrostBullets {
 
                 hitEffect = new Effect(140f, 450f, e -> {
 
-                    Draw.color(Color.valueOf("001122"));
+                    Draw.color(JBColor.nemesisVoid);
                     Draw.alpha(e.fout() * 0.5f);
                     circle(e.x, e.y, e.finpow() * 280f);
 
-                    Draw.color(Color.valueOf("0a2f5f"));
+                    Draw.color(Color.valueOf("155446"));
                     Draw.alpha(e.fout() * 0.6f);
                     circle(e.x, e.y, e.finpow() * 240f);
 
-                    Draw.color(Color.valueOf("2255aa"));
+                    Draw.color(Color.valueOf("2d9f86"));
                     Draw.alpha(e.fout() * 0.7f);
                     circle(e.x, e.y, e.finpow() * 200f);
 
-                    Draw.color(Color.valueOf("e0f0ff"));
+                    Draw.color(Color.valueOf("e2fdf6"));
                     circle(e.x, e.y, (55f + Mathf.absin(e.time, 1.5f, 10f)) * e.fout());
 
-                    Draw.color(Color.valueOf("88bbff"));
+                    Draw.color(Color.valueOf("9aedda"));
                     circle(e.x, e.y, (45f + Mathf.absin(e.time, 1.5f, 8f)) * e.fout());
 
-                    Draw.color(Color.valueOf("4488ff"));
+                    Draw.color(JBColor.nemesisLight);
                     circle(e.x, e.y, (35f + Mathf.absin(e.time, 1.5f, 6f)) * e.fout());
 
-                    Draw.color(Color.valueOf("2255aa"));
+                    Draw.color(Color.valueOf("2d9f86"));
                     circle(e.x, e.y, (25f + Mathf.absin(e.time, 1.5f, 4f)) * e.fout());
 
-                    Draw.color(Color.valueOf("4488ff"), Color.valueOf("e0f0ff"), e.fin() * 0.7f);
+                    Draw.color(JBColor.nemesisLight, Color.valueOf("e2fdf6"), e.fin() * 0.7f);
 
                     float exVal = e.x;
                     float eyVal = e.y;
@@ -155,7 +155,7 @@ public class FrostBullets {
                                     float angle = s * 30f;
                                     Tmp.v1.trns(angle, radius);
 
-                                    Draw.color(Color.valueOf("88bbff"));
+                                    Draw.color(Color.valueOf("9aedda"));
                                     Lines.stroke(3f * wave.fout());
                                     Lines.lineAngle(exVal + Tmp.v1.x, eyVal + Tmp.v1.y, angle, wave.fout() * 12f);
                                 }
@@ -170,12 +170,12 @@ public class FrostBullets {
                         e.scaled(35f + (fi % 4) * 20f, beam -> {
                             float len = beam.finpow() * (100f + Mathf.random(40f));
 
-                            Draw.color(Color.valueOf("4488ff"), Color.valueOf("e0f0ff"), beam.fout() * 0.9f);
+                            Draw.color(JBColor.nemesisLight, Color.valueOf("e2fdf6"), beam.fout() * 0.9f);
                             Lines.stroke(4f * beam.fout());
                             Lines.lineAngle(exVal, eyVal, angle, len);
 
                             Tmp.v1.trns(angle, len);
-                            Draw.color(Color.valueOf("88bbff"));
+                            Draw.color(Color.valueOf("9aedda"));
                             circle(exVal + Tmp.v1.x, eyVal + Tmp.v1.y, beam.fout() * 7f);
 
                             for (int k = 0; k < 3; k++) {
@@ -193,22 +193,22 @@ public class FrostBullets {
                     Angles.randLenVectors(e.id, 40, 30f + 140f * finpowVal, (x, y) -> {
                         float angle = Mathf.angle(x, y);
 
-                        Draw.color(Color.valueOf("2255aa"));
+                        Draw.color(Color.valueOf("2d9f86"));
                         Draw.alpha(foutVal * 0.85f);
                         circle(exVal + x, eyVal + y, foutVal * 14f);
 
-                        Draw.color(Color.valueOf("6699ff"));
+                        Draw.color(Color.valueOf("7fe6d0"));
                         Draw.alpha(foutVal * 0.7f);
                         circle(exVal + x, eyVal + y, foutVal * 20f);
 
-                        Draw.color(Color.valueOf("c0e0ff"));
+                        Draw.color(Color.valueOf("c7f8eb"));
                         circle(exVal + x, eyVal + y, foutVal * 7f);
 
                         for (int i = 0; i < 6; i++) {
                             final int fi = i;
                             float off = fi * 60f;
                             Tmp.v1.trns(angle + off, foutVal * 8f);
-                            Draw.color(Color.valueOf("88bbff"));
+                            Draw.color(Color.valueOf("9aedda"));
                             circle(exVal + x + Tmp.v1.x, eyVal + y + Tmp.v1.y, foutVal * 4f);
                         }
                     });
@@ -218,13 +218,13 @@ public class FrostBullets {
                         float angle = e.time * (2.8f + fr * 0.7f) * (fr % 2 == 0 ? 1 : -1);
                         float radius = e.finpow() * (90f + fr * 22f);
 
-                        Draw.color(Color.valueOf("4488ff"));
+                        Draw.color(JBColor.nemesisLight);
                         Draw.alpha(e.fout() * 0.75f);
                         Lines.stroke(4.5f * e.fout());
                         Lines.arc(e.x, e.y, radius, 0.5f, angle * 60f);
                     }
 
-                    Draw.color(Color.valueOf("2255aa"), Color.valueOf("88bbff"), e.fout() * 0.8f);
+                    Draw.color(Color.valueOf("2d9f86"), Color.valueOf("9aedda"), e.fout() * 0.8f);
                     Lines.stroke(5f * e.fout());
 
                     for (int i = 0; i < 12; i++) {
@@ -240,7 +240,7 @@ public class FrostBullets {
                                 e.x + Tmp.v1.x, e.y + Tmp.v1.y,
                                 e.x + Tmp.v2.x, e.y + Tmp.v2.y);
 
-                        Draw.color(Color.valueOf("6699ff"));
+                        Draw.color(Color.valueOf("7fe6d0"));
                         Lines.stroke(3f * e.fout());
                         Lines.lineAngle(e.x + Tmp.v1.x, e.y + Tmp.v1.y, angle1, e.fout() * 15f);
                     }
@@ -255,7 +255,7 @@ public class FrostBullets {
 
                             Tmp.v1.trns(particleAngle, particleDst);
 
-                            Draw.color(Color.valueOf("88bbff"), Color.valueOf("2255aa"), Mathf.random());
+                            Draw.color(Color.valueOf("9aedda"), Color.valueOf("2d9f86"), Mathf.random());
                             Draw.alpha((1f - particleProgress) * 0.8f);
 
                             
@@ -275,21 +275,21 @@ public class FrostBullets {
 
                         Tmp.v1.trns(ringAngle, ringDst);
 
-                        Draw.color(Color.valueOf("4488ff"));
+                        Draw.color(JBColor.nemesisLight);
                         Draw.alpha(e.fout() * 0.85f);
                         circle(e.x + Tmp.v1.x, e.y + Tmp.v1.y, e.fout() * 10f);
 
-                        Draw.color(Color.valueOf("c0e0ff"));
+                        Draw.color(Color.valueOf("c7f8eb"));
                         circle(e.x + Tmp.v1.x, e.y + Tmp.v1.y, e.fout() * 5f);
                     }
 
-                    Drawf.light(e.x, e.y, e.fout() * 320f, Color.valueOf("4488ff"), 1f);
+                    Drawf.light(e.x, e.y, e.fout() * 320f, JBColor.nemesisLight, 1f);
                 });
 
                 despawnHit = true;
 
                 shootEffect = new Effect(55f, e -> {
-                    Draw.color(Color.valueOf("0a2f5f"));
+                    Draw.color(Color.valueOf("155446"));
                     Draw.alpha(e.fin() * 0.95f);
 
                     float xVal = e.x;
@@ -305,7 +305,7 @@ public class FrostBullets {
                         circle(xVal + Tmp.v1.x, yVal + Tmp.v1.y, finVal * (16f - fi * 2f));
                     }
 
-                    Draw.color(Color.valueOf("4488ff"), Color.white, e.fin() * 0.5f);
+                    Draw.color(JBColor.nemesisLight, Color.white, e.fin() * 0.5f);
 
                     for (int i = 0; i < 9; i++) {
                         final int fi = i;
@@ -319,7 +319,7 @@ public class FrostBullets {
                     }
 
                     Angles.randLenVectors(e.id, 24, 85f * (1f - finVal), (x, y) -> {
-                        Draw.color(Color.valueOf("88bbff"), Color.valueOf("2255aa"), finVal);
+                        Draw.color(Color.valueOf("9aedda"), Color.valueOf("2d9f86"), finVal);
                         Draw.alpha(finVal * 0.95f);
 
                         float angle = Mathf.angle(x, y);
@@ -334,14 +334,14 @@ public class FrostBullets {
                     Draw.color(Color.white);
                     circle(e.x, e.y, foutVal * 24f);
 
-                    Draw.color(Color.valueOf("c0e0ff"));
+                    Draw.color(Color.valueOf("c7f8eb"));
                     circle(e.x, e.y, foutVal * 18f);
 
-                    Drawf.light(e.x, e.y, foutVal * 100f, Color.valueOf("4488ff"), 0.9f);
+                    Drawf.light(e.x, e.y, foutVal * 100f, JBColor.nemesisLight, 0.9f);
                 });
 
                 smokeEffect = new Effect(70f, e -> {
-                    Draw.color(Color.valueOf("224466"));
+                    Draw.color(Color.valueOf("1c6c5b"));
                     Draw.alpha(e.fout() * 0.75f);
 
                     float xVal = e.x;
@@ -357,7 +357,7 @@ public class FrostBullets {
                         circle(xVal + Tmp.v1.x, yVal + Tmp.v1.y, foutVal * (14f - fi * 2f));
                     }
 
-                    Draw.color(Color.valueOf("4488ff"));
+                    Draw.color(JBColor.nemesisLight);
                     Lines.stroke(3f * e.fout());
                     Lines.circle(e.x, e.y, e.fin() * 24f);
                 });
@@ -392,14 +392,14 @@ public class FrostBullets {
                         height = 14f;
                         lifetime = 30f;
 
-                        backColor = Color.valueOf("#2255aa");
-                        frontColor = Color.valueOf("#e0f0ff");
-                        lightColor = Color.valueOf("#6699ff");
+                        backColor = Color.valueOf("2d9f86");
+                        frontColor = Color.valueOf("e2fdf6");
+                        lightColor = Color.valueOf("7fe6d0");
                         lightRadius = 35f;
 
                         trailLength = 8;
                         trailWidth = 2.5f;
-                        trailColor = Color.valueOf("#4488ff");
+                        trailColor = JBColor.nemesisLight;
 
                         splashDamageRadius = 22f;
                         splashDamage = 40f;
@@ -408,10 +408,10 @@ public class FrostBullets {
                         statusDuration = 120f;
 
                         hitEffect = new Effect(25f, e -> {
-                            Draw.color(Color.valueOf("4488ff"));
+                            Draw.color(JBColor.nemesisLight);
                             circle(e.x, e.y, e.fout() * 10f);
 
-                            Draw.color(Color.valueOf("c0e0ff"));
+                            Draw.color(Color.valueOf("c7f8eb"));
                             circle(e.x, e.y, e.fout() * 5f);
 
                             Lines.stroke(2.5f * e.fout());
@@ -422,7 +422,7 @@ public class FrostBullets {
                                 float angle = fi * 60f;
                                 Tmp.v1.trns(angle, e.fin() * 12f);
 
-                                Draw.color(Color.valueOf("88bbff"));
+                                Draw.color(Color.valueOf("9aedda"));
                                 circle(e.x + Tmp.v1.x, e.y + Tmp.v1.y, e.fout() * 2.5f);
                             }
                         });
@@ -444,36 +444,36 @@ public class FrostBullets {
                 shrinkY = 0.1f;
                 shrinkX = 0f;
 
-                backColor = Color.valueOf("2b6cff");
-                frontColor = Color.valueOf("a8d8ff");
-                lightColor = Color.valueOf("5ecbff");
+                backColor = Color.valueOf("58d2b8");
+                frontColor = Color.valueOf("b4f3e4");
+                lightColor = Color.valueOf("79e4cd");
                 lightOpacity = 0.9f;
                 lightRadius = 75f;
 
                 trailLength = 22;
                 trailWidth = 4.5f;
-                trailColor = Color.valueOf("3f8cff");
+                trailColor = Color.valueOf("63dbc2");
                 trailInterval = 1.5f;
 
                 trailEffect = new Effect(45f, e -> {
 
-                    Draw.color(Color.valueOf("2b6cff"));
+                    Draw.color(Color.valueOf("58d2b8"));
                     Draw.alpha(e.fout() * 0.7f);
                     circle(e.x, e.y, e.fout() * 7f);
 
-                    Draw.color(Color.valueOf("4da6ff"));
+                    Draw.color(JBColor.nemesisLight);
                     circle(e.x, e.y, e.fout() * 4.5f);
 
                     Draw.color(Color.white);
                     circle(e.x, e.y, e.fout() * 2f);
 
-                    Draw.color(Color.valueOf("3f8cff"));
+                    Draw.color(Color.valueOf("63dbc2"));
                     Draw.alpha(e.fout() * 0.6f);
                     Lines.stroke(1.8f * e.fout());
                     Lines.circle(e.x, e.y, e.fout() * 9f);
 
                     Angles.randLenVectors(e.id, 4, e.fin() * 6f, (x, y) -> {
-                        Draw.color(Color.valueOf("a8d8ff"), Color.valueOf("2b6cff"), Mathf.random());
+                        Draw.color(Color.valueOf("b4f3e4"), Color.valueOf("58d2b8"), Mathf.random());
                         circle(e.x + x, e.y + y, e.fout() * 1.8f);
                     });
                 });
@@ -485,7 +485,7 @@ public class FrostBullets {
                     Draw.color(Color.white);
                     circle(e.x, e.y, e.fout() * 18f);
 
-                    Draw.color(Color.valueOf("2b6cff"), Color.valueOf("a8d8ff"), e.fin() * 0.6f);
+                    Draw.color(Color.valueOf("58d2b8"), Color.valueOf("b4f3e4"), e.fin() * 0.6f);
 
                     e.scaled(25f, s -> {
                         Lines.stroke(5f * s.fout());
@@ -497,7 +497,7 @@ public class FrostBullets {
                         Lines.circle(e.x, e.y, 10f + s.fin(Interp.pow2Out) * 80f);
                     });
 
-                    Draw.color(Color.valueOf("4da6ff"), Color.white, e.fout() * 0.7f);
+                    Draw.color(JBColor.nemesisLight, Color.white, e.fout() * 0.7f);
                     Lines.stroke(2.5f * e.fout());
 
                     Angles.randLenVectors(e.id, 18, 15f + 60f * e.finpow(), (x, y) -> {
@@ -506,7 +506,7 @@ public class FrostBullets {
                     });
 
                     Angles.randLenVectors(e.id + 1, 14, 8f + 45f * e.finpow(), (x, y) -> {
-                        Draw.color(Color.white, Color.valueOf("2b6cff"), e.fin() * 0.8f);
+                        Draw.color(Color.white, Color.valueOf("58d2b8"), e.fin() * 0.8f);
                         circle(e.x + x, e.y + y, e.fout() * 5f);
                     });
 
@@ -516,18 +516,18 @@ public class FrostBullets {
 
                         Tmp.v1.trns(angle, dst);
 
-                        Draw.color(Color.valueOf("4da6ff"), Color.white, e.fout() * 0.6f);
+                        Draw.color(JBColor.nemesisLight, Color.white, e.fout() * 0.6f);
                         Lines.stroke(2.2f * e.fout());
                         Lines.lineAngle(e.x + Tmp.v1.x, e.y + Tmp.v1.y, angle + 90f, e.fout() * 16f);
                     }
 
-                    Drawf.light(e.x, e.y, e.fout() * 100f, Color.valueOf("5ecbff"), 0.85f);
+                    Drawf.light(e.x, e.y, e.fout() * 100f, Color.valueOf("79e4cd"), 0.85f);
                 });
 
                 despawnHit = true;
 
                 shootEffect = new Effect(30f, e -> {
-                    Draw.color(Color.white, Color.valueOf("2b6cff"), e.fin() * 0.7f);
+                    Draw.color(Color.white, Color.valueOf("58d2b8"), e.fin() * 0.7f);
 
                     Lines.stroke(e.fout() * 3.5f);
                     Angles.randLenVectors(e.id, 12, 35f * e.finpow(), (x, y) -> {
@@ -536,19 +536,19 @@ public class FrostBullets {
 
                     circle(e.x, e.y, e.fout() * 9f);
 
-                    Draw.color(Color.valueOf("4da6ff"));
+                    Draw.color(JBColor.nemesisLight);
                     Lines.stroke(3f * e.fout());
                     Lines.circle(e.x, e.y, e.finpow() * 22f);
 
-                    Drawf.light(e.x, e.y, e.fout() * 50f, Color.valueOf("5ecbff"), 0.7f);
+                    Drawf.light(e.x, e.y, e.fout() * 50f, Color.valueOf("79e4cd"), 0.7f);
                 });
 
                 smokeEffect = new Effect(40f, e -> {
-                    Draw.color(Color.valueOf("2b6cff"));
+                    Draw.color(Color.valueOf("58d2b8"));
                     Draw.alpha(e.fout() * 0.7f);
                     circle(e.x, e.y, e.fout() * 6f);
 
-                    Draw.color(Color.valueOf("3f8cff"));
+                    Draw.color(Color.valueOf("63dbc2"));
                     Lines.stroke(2f * e.fout());
                     Lines.circle(e.x, e.y, e.fin() * 14f);
                 });
@@ -588,15 +588,15 @@ public class FrostBullets {
                 shrinkY = 0f;
                 shrinkX = 0f;
 
-                backColor = Color.valueOf("0066ff");
+                backColor = Color.valueOf("40bfa4");
                 frontColor = Color.valueOf("ffffff");
-                lightColor = Color.valueOf("44aaff");
+                lightColor = JBColor.nemesisLight;
                 lightOpacity = 1f;
                 lightRadius = 160f;
 
                 trailLength = 40;
                 trailWidth = 10f;
-                trailColor = Color.valueOf("1188ff");
+                trailColor = Color.valueOf("49c7ac");
                 trailInterval = 0.5f;
 
                 trailEffect = new Effect(50f, e -> {
@@ -605,7 +605,7 @@ public class FrostBullets {
                     float foutVal = e.fout();
                     float timeVal = e.time;
 
-                    Draw.color(Color.valueOf("1188ff"));
+                    Draw.color(Color.valueOf("49c7ac"));
                     Draw.alpha(foutVal * 0.9f);
                     Lines.stroke(5f * foutVal);
 
@@ -633,10 +633,10 @@ public class FrostBullets {
                         }
                     }
 
-                    Draw.color(Color.valueOf("44aaff"));
+                    Draw.color(JBColor.nemesisLight);
                     circle(e.x, e.y, foutVal * 6f);
 
-                    Draw.color(Color.valueOf("ccffff"));
+                    Draw.color(Color.valueOf("d1faef"));
                     circle(e.x, e.y, foutVal * 3f);
                 });
 
@@ -646,7 +646,7 @@ public class FrostBullets {
                     float exVal = e.x;
                     float eyVal = e.y;
 
-                    Draw.color(Color.valueOf("1188ff"), Color.valueOf("ffffff"), e.fin() * 0.5f);
+                    Draw.color(Color.valueOf("49c7ac"), Color.valueOf("ffffff"), e.fin() * 0.5f);
                     Lines.stroke(6f * e.fout());
 
                     for (int ribbon = 0; ribbon < 16; ribbon++) {
@@ -676,7 +676,7 @@ public class FrostBullets {
                         });
                     }
 
-                    Draw.color(Color.valueOf("44aaff"));
+                    Draw.color(JBColor.nemesisLight);
                     circle(e.x, e.y, (35f + Mathf.absin(e.time, 1.5f, 7f)) * e.fout());
 
                     Draw.color(Color.valueOf("ffffff"));
@@ -687,7 +687,7 @@ public class FrostBullets {
                         float spiralAngle = e.time * (1.5f + fs * 0.4f) * (fs % 2 == 0 ? 1 : -1);
 
                         e.scaled(35f + fs * 10f, s -> {
-                            Draw.color(Color.valueOf("66bbff"));
+                            Draw.color(Color.valueOf("7fe6d0"));
                             Draw.alpha(s.fout() * 0.8f);
                             Lines.stroke(4f * s.fout());
 
@@ -715,7 +715,7 @@ public class FrostBullets {
                     for (int w = 0; w < 8; w++) {
                         final int fw = w;
                         e.scaled(15f + fw * 10f, wave -> {
-                            Draw.color(Color.valueOf("1188ff"), Color.valueOf("ccffff"), wave.fout());
+                            Draw.color(Color.valueOf("49c7ac"), Color.valueOf("d1faef"), wave.fout());
                             Lines.stroke((7f - fw * 0.7f) * wave.fout());
 
                             float waveRadius = 20f + wave.fin(Interp.pow3Out) * (90f + fw * 12f);
@@ -726,7 +726,7 @@ public class FrostBullets {
                     Angles.randLenVectors(e.id, 30, 25f + 100f * e.finpow(), (x, y) -> {
                         float angle = Mathf.angle(x, y);
 
-                        Draw.color(Color.valueOf("44aaff"));
+                        Draw.color(JBColor.nemesisLight);
                         Draw.alpha(foutVal * 0.85f);
 
                         Tmp.v1.trns(angle, foutVal * 8f);
@@ -740,7 +740,7 @@ public class FrostBullets {
                         circle(exVal + x + Tmp.v1.x, eyVal + y + Tmp.v1.y, foutVal * 4f);
                     });
 
-                    Draw.color(Color.valueOf("1188ff"));
+                    Draw.color(Color.valueOf("49c7ac"));
                     Draw.alpha(e.fout() * 0.6f);
                     Lines.stroke(2.5f * e.fout());
 
@@ -779,7 +779,7 @@ public class FrostBullets {
                         }
                     }
 
-                    Drawf.light(e.x, e.y, e.fout() * 280f, Color.valueOf("44aaff"), 0.95f);
+                    Drawf.light(e.x, e.y, e.fout() * 280f, JBColor.nemesisLight, 0.95f);
                 });
 
                 despawnHit = true;
@@ -790,7 +790,7 @@ public class FrostBullets {
                     float finVal = e.fin();
                     float foutVal = e.fout();
 
-                    Draw.color(Color.valueOf("1188ff"));
+                    Draw.color(Color.valueOf("49c7ac"));
                     Draw.alpha(finVal * 0.9f);
                     Lines.stroke(4f * finVal);
 
@@ -822,10 +822,10 @@ public class FrostBullets {
                     Draw.color(Color.white);
                     circle(e.x, e.y, foutVal * 20f);
 
-                    Draw.color(Color.valueOf("ccffff"));
+                    Draw.color(Color.valueOf("d1faef"));
                     circle(e.x, e.y, foutVal * 15f);
 
-                    Draw.color(Color.valueOf("44aaff"));
+                    Draw.color(JBColor.nemesisLight);
                     Lines.stroke(3f * foutVal);
 
                     for (int i = 0; i < 4; i++) {
@@ -834,7 +834,7 @@ public class FrostBullets {
                         Lines.arc(e.x, e.y, (15f + fi * 8f) * foutVal, 0.4f, rot * 60f);
                     }
 
-                    Drawf.light(e.x, e.y, foutVal * 85f, Color.valueOf("44aaff"), 0.85f);
+                    Drawf.light(e.x, e.y, foutVal * 85f, JBColor.nemesisLight, 0.85f);
                 });
 
                 smokeEffect = Fx.none;
@@ -869,14 +869,14 @@ public class FrostBullets {
                         height = 8f;
                         sprite = "large-bomb";
 
-                        backColor = Color.valueOf("1188ff");
+                        backColor = Color.valueOf("49c7ac");
                         frontColor = Color.valueOf("ffffff");
-                        lightColor = Color.valueOf("66bbff");
+                        lightColor = Color.valueOf("7fe6d0");
                         lightRadius = 40f;
 
                         trailLength = 12;
                         trailWidth = 3.5f;
-                        trailColor = Color.valueOf("44aaff");
+                        trailColor = JBColor.nemesisLight;
 
                         splashDamageRadius = 26f;
                         splashDamage = 50f;
@@ -888,7 +888,7 @@ public class FrostBullets {
 
                         hitEffect = new Effect(30f, e -> {
 
-                            Draw.color(Color.valueOf("44aaff"));
+                            Draw.color(JBColor.nemesisLight);
                             circle(e.x, e.y, e.fout() * 12f);
 
                             Draw.color(Color.valueOf("ffffff"));
@@ -924,15 +924,15 @@ public class FrostBullets {
                 shrinkY = 0f;
                 shrinkX = 0f;
 
-                backColor = Color.valueOf("3399dd");
+                backColor = Color.valueOf("49c7ac");
                 frontColor = Color.valueOf("ffffff");
-                lightColor = Color.valueOf("66ccff");
+                lightColor = Color.valueOf("7fe6d0");
                 lightOpacity = 1f;
                 lightRadius = 160f;
 
                 trailLength = 22;
                 trailWidth = 7f;
-                trailColor = Color.valueOf("4488cc");
+                trailColor = Color.valueOf("49c7ac");
                 trailInterval = 2f;
 
                 trailEffect = new Effect(55f, e -> {
@@ -940,19 +940,19 @@ public class FrostBullets {
                     float yVal = e.y;
                     float foutVal = e.fout();
 
-                    Draw.color(Color.valueOf("3399dd"));
+                    Draw.color(Color.valueOf("49c7ac"));
                     Draw.alpha(foutVal * 0.8f);
                     Lines.stroke(3f * foutVal);
                     Lines.circle(e.x, e.y, (6f + Mathf.absin(e.time, 1.5f, 4f)) * foutVal);
 
-                    Draw.color(Color.valueOf("66ccff"));
+                    Draw.color(Color.valueOf("7fe6d0"));
                     Lines.stroke(2f * foutVal);
                     Lines.circle(e.x, e.y, (10f + Mathf.absin(e.time, 1.5f, 6f)) * foutVal);
 
                     Draw.color(Color.valueOf("ffffff"));
                     circle(e.x, e.y, foutVal * 4f);
 
-                    Draw.color(Color.valueOf("aaddff"));
+                    Draw.color(Color.valueOf("b6f3e4"));
                     circle(e.x, e.y, foutVal * 2f);
                 });
 
@@ -965,10 +965,10 @@ public class FrostBullets {
                     Draw.color(Color.valueOf("ffffff"));
                     circle(exVal, eyVal, (40f + Mathf.absin(e.time, 1.2f, 8f)) * e.fout());
 
-                    Draw.color(Color.valueOf("aaddff"));
+                    Draw.color(Color.valueOf("b6f3e4"));
                     circle(exVal, eyVal, (28f + Mathf.absin(e.time, 1.2f, 6f)) * e.fout());
 
-                    Draw.color(Color.valueOf("3399dd"));
+                    Draw.color(Color.valueOf("49c7ac"));
                     circle(exVal, eyVal, (18f + Mathf.absin(e.time, 1.2f, 4f)) * e.fout());
 
                     int totalNodes = 12;
@@ -987,14 +987,14 @@ public class FrostBullets {
 
                             Tmp.v1.trns(angle, distance);
 
-                            Draw.color(Color.valueOf("66ccff"));
+                            Draw.color(Color.valueOf("7fe6d0"));
                             Draw.alpha(nodeAlpha * 0.9f);
                             circle(exVal + Tmp.v1.x, eyVal + Tmp.v1.y, nodeAlpha * 20f);
 
                             Draw.color(Color.valueOf("ffffff"));
                             circle(exVal + Tmp.v1.x, eyVal + Tmp.v1.y, nodeAlpha * 10f);
 
-                            Draw.color(Color.valueOf("3399dd"), Color.valueOf("aaddff"), nodeProgress * 0.6f);
+                            Draw.color(Color.valueOf("49c7ac"), Color.valueOf("b6f3e4"), nodeProgress * 0.6f);
                             Draw.alpha(nodeAlpha * 0.8f);
                             Lines.stroke(4f * nodeAlpha);
                             Lines.line(exVal, eyVal, exVal + Tmp.v1.x, eyVal + Tmp.v1.y);
@@ -1003,7 +1003,7 @@ public class FrostBullets {
                                 float pulseProgress = (e.time * 0.1f + pulse * 0.33f) % 1f;
                                 Tmp.v2.set(Tmp.v1).scl(pulseProgress);
 
-                                Draw.color(Color.valueOf("66ccff"));
+                                Draw.color(Color.valueOf("7fe6d0"));
                                 Draw.alpha(nodeAlpha * (1f - pulseProgress) * 0.8f);
                                 circle(exVal + Tmp.v2.x, eyVal + Tmp.v2.y, nodeAlpha * 4f * (1f - pulseProgress));
                             }
@@ -1018,12 +1018,12 @@ public class FrostBullets {
 
                                     float subAlpha = (nodeProgress - 0.7f) / 0.3f * nodeFade;
 
-                                    Draw.color(Color.valueOf("66ccff"));
+                                    Draw.color(Color.valueOf("7fe6d0"));
                                     Draw.alpha(subAlpha * 0.7f);
                                     circle(exVal + Tmp.v1.x + Tmp.v2.x, eyVal + Tmp.v1.y + Tmp.v2.y,
                                             subAlpha * 12f);
 
-                                    Draw.color(Color.valueOf("4488cc"));
+                                    Draw.color(Color.valueOf("49c7ac"));
                                     Draw.alpha(subAlpha * 0.6f);
                                     Lines.stroke(2f * subAlpha);
                                     Lines.line(
@@ -1038,7 +1038,7 @@ public class FrostBullets {
 
                                 float linkAlpha = (nodeProgress - 0.5f) / 0.5f * nodeFade;
 
-                                Draw.color(Color.valueOf("4488cc"));
+                                Draw.color(Color.valueOf("49c7ac"));
                                 Draw.alpha(linkAlpha * 0.5f);
                                 Lines.stroke(2.5f * linkAlpha);
                                 Lines.line(
@@ -1051,13 +1051,13 @@ public class FrostBullets {
                     for (int w = 0; w < 7; w++) {
                         final int fw = w;
                         e.scaled(20f + fw * 13f, wave -> {
-                            Draw.color(Color.valueOf("3399dd"), Color.valueOf("aaddff"), wave.fout());
+                            Draw.color(Color.valueOf("49c7ac"), Color.valueOf("b6f3e4"), wave.fout());
                             Lines.stroke((6f - fw * 0.7f) * wave.fout());
                             Lines.circle(exVal, eyVal, 15f + wave.fin(Interp.pow2Out) * (100f + fw * 16f));
                         });
                     }
 
-                    Draw.color(Color.valueOf("3399dd"));
+                    Draw.color(Color.valueOf("49c7ac"));
                     Draw.alpha(e.fout() * 0.5f);
                     Lines.stroke(2f * e.fout());
 
@@ -1084,7 +1084,7 @@ public class FrostBullets {
                         }
                     }
 
-                    Drawf.light(exVal, eyVal, e.fout() * 300f, Color.valueOf("66ccff"), 0.95f);
+                    Drawf.light(exVal, eyVal, e.fout() * 300f, Color.valueOf("7fe6d0"), 0.95f);
                 });
 
                 despawnHit = true;
@@ -1095,7 +1095,7 @@ public class FrostBullets {
                     float finVal = e.fin();
                     float foutVal = e.fout();
 
-                    Draw.color(Color.valueOf("3399dd"));
+                    Draw.color(Color.valueOf("49c7ac"));
                     Draw.alpha(finVal * 0.9f);
 
                     for (int stream = 0; stream < 6; stream++) {
@@ -1112,7 +1112,7 @@ public class FrostBullets {
                         circle(xVal + Tmp.v1.x, yVal + Tmp.v1.y, finVal * 6f);
                     }
 
-                    Draw.color(Color.valueOf("66ccff"), Color.white, e.fin() * 0.5f);
+                    Draw.color(Color.valueOf("7fe6d0"), Color.white, e.fin() * 0.5f);
 
                     for (int i = 0; i < 5; i++) {
                         final int fi = i;
@@ -1128,10 +1128,10 @@ public class FrostBullets {
                     Draw.color(Color.white);
                     circle(e.x, e.y, foutVal * 20f);
 
-                    Draw.color(Color.valueOf("aaddff"));
+                    Draw.color(Color.valueOf("b6f3e4"));
                     circle(e.x, e.y, foutVal * 14f);
 
-                    Drawf.light(e.x, e.y, foutVal * 85f, Color.valueOf("66ccff"), 0.85f);
+                    Drawf.light(e.x, e.y, foutVal * 85f, Color.valueOf("7fe6d0"), 0.85f);
                 });
 
                 smokeEffect = Fx.none;
@@ -1166,14 +1166,14 @@ public class FrostBullets {
                         height = 8f;
                         sprite = "large-bomb";
 
-                        backColor = Color.valueOf("3399dd");
+                        backColor = Color.valueOf("49c7ac");
                         frontColor = Color.valueOf("ffffff");
-                        lightColor = Color.valueOf("66ccff");
+                        lightColor = Color.valueOf("7fe6d0");
                         lightRadius = 38f;
 
                         trailLength = 10;
                         trailWidth = 3f;
-                        trailColor = Color.valueOf("4488cc");
+                        trailColor = Color.valueOf("49c7ac");
 
                         splashDamageRadius = 25f;
                         splashDamage = 46f;
@@ -1185,7 +1185,7 @@ public class FrostBullets {
 
                         hitEffect = new Effect(30f, e -> {
 
-                            Draw.color(Color.valueOf("66ccff"));
+                            Draw.color(Color.valueOf("7fe6d0"));
                             circle(e.x, e.y, e.fout() * 12f);
 
                             Draw.color(Color.valueOf("ffffff"));
@@ -1197,11 +1197,11 @@ public class FrostBullets {
                                 float angle = fi * 45f;
                                 float len = e.finpow() * 16f;
 
-                                Draw.color(Color.valueOf("aaddff"), Color.valueOf("3399dd"), e.fin());
+                                Draw.color(Color.valueOf("b6f3e4"), Color.valueOf("49c7ac"), e.fin());
                                 Lines.lineAngle(e.x, e.y, angle, len);
                             }
 
-                            Draw.color(Color.valueOf("3399dd"));
+                            Draw.color(Color.valueOf("49c7ac"));
                             Lines.stroke(2.5f * e.fout());
                             Lines.circle(e.x, e.y, e.fin() * 20f);
                         });
@@ -1217,10 +1217,10 @@ public class FrostBullets {
                 length = 350f;
                 width = 3.5f;
 
-                Color crystalBlue = Color.valueOf("7dd7ff");
-                Color frostCyan = Color.valueOf("6bddff");
-                Color deepBlue = Color.valueOf("4a9fd8");
-                Color iceWhite = Color.valueOf("d4f4ff");
+                Color crystalBlue = Color.valueOf("92ead7");
+                Color frostCyan = Color.valueOf("83e7d1");
+                Color deepBlue = Color.valueOf("53cfb4");
+                Color iceWhite = Color.valueOf("d8fbf2");
 
                 colors = new Color[] {
                         deepBlue.cpy().a(0.4f),

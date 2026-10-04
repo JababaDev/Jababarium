@@ -25,7 +25,8 @@ public class JBBullets {
             rift, arcBolt, theridionBolt, chargedCannonBolt, tideLaser, tideBall, deathBeam, tideLightningRed,
             collapseShell, ancientBall, oraxiaBullet,
             oraxiaLaser, broodmotherDeathBeam, supernovaLaser, supernovaCore,
-            supernovaArtillery, repeater, gammaReaper;
+            supernovaArtillery, repeater, gammaReaper,
+            crimsonLanceHeavyOcelexis, OrbTidebreaker, laserBeamOcelexis, lightSupport2Tidebreaker, apexMicroNemesis, apexShardNemesis, supernovaLaserBroodmother, supernovaCoreBroodmother, basicSkyFragTidebreaker, tideLaserBroodmother, tideBallBroodmother;
 
     public static void load() {
         MiscBullets.load();

@@ -54,30 +54,30 @@ public class CrimsonBullets {
                 shrinkY = 0f;
                 shrinkX = 0f;
 
-                backColor = Color.valueOf("ff2222");
-                frontColor = Color.valueOf("ffeeee");
-                lightColor = Color.valueOf("ff3333");
+                backColor = Color.valueOf("d34e4e");
+                frontColor = JBColor.oblivionGlow;
+                lightColor = Color.valueOf("df5353");
                 lightOpacity = 1f;
                 lightRadius = 85f;
 
                 trailLength = 25;
                 trailWidth = 7f;
-                trailColor = Color.valueOf("ff2222");
+                trailColor = Color.valueOf("d34e4e");
                 trailInterval = 1f;
 
                 trailEffect = new Effect(45f, e -> {
 
-                    Draw.color(Color.valueOf("ff2222"));
+                    Draw.color(Color.valueOf("d34e4e"));
                     Draw.alpha(e.fout() * 0.7f);
                     circle(e.x, e.y, e.fout() * 10f);
 
-                    Draw.color(Color.valueOf("ff6644"));
+                    Draw.color(JBColor.oblivionLight);
                     circle(e.x, e.y, e.fout() * 7f);
 
                     Draw.color(Color.white);
                     circle(e.x, e.y, e.fout() * 4f);
 
-                    Draw.color(Color.valueOf("ff4444"));
+                    Draw.color(JBColor.oblivionLight);
                     Draw.alpha(e.fout() * 0.8f);
                     Lines.stroke(2.5f * e.fout());
                     Lines.circle(e.x, e.y, e.fout() * 12f);
@@ -96,18 +96,18 @@ public class CrimsonBullets {
 
                 hitEffect = new Effect(70f, e -> {
 
-                    Draw.color(Color.valueOf("cc0000"));
+                    Draw.color(Color.valueOf("973535"));
                     Draw.alpha(e.fout() * 0.4f);
                     circle(e.x, e.y, e.fin() * 80f);
 
                     Lines.stroke(10f * e.fout());
                     Lines.circle(e.x, e.y, e.fin() * 70f);
 
-                    Draw.color(Color.valueOf("ff4444"));
+                    Draw.color(JBColor.oblivionLight);
                     Lines.stroke(6f * e.fout());
                     Lines.circle(e.x, e.y, e.finpow() * 85f);
 
-                    Draw.color(Color.valueOf("cc0000"));
+                    Draw.color(Color.valueOf("973535"));
                     Draw.alpha(e.fout() * 0.7f);
                     Lines.stroke(4f * e.fout());
                     for (int i = 0; i < 6; i++) {
@@ -129,26 +129,26 @@ public class CrimsonBullets {
 
                         Tmp.v1.trns(angle, distance);
 
-                        Draw.color(Color.valueOf("ff4444"));
+                        Draw.color(JBColor.oblivionLight);
                         Draw.alpha(e.fout());
                         Draw.rect("block-4", e.x + Tmp.v1.x, e.y + Tmp.v1.y,
                                 8f * e.fout(), 16f * e.fout(), angle + 90f);
 
-                        Draw.color(Color.valueOf("cc0000"));
+                        Draw.color(Color.valueOf("973535"));
                         Draw.alpha(e.fout() * 0.6f);
                         Lines.stroke(3f * e.fout());
                         Lines.lineAngle(e.x + Tmp.v1.x, e.y + Tmp.v1.y,
                                 angle + 180f, e.fin() * 20f);
                     }
 
-                    Draw.color(Color.valueOf("880000"));
+                    Draw.color(Color.valueOf("691f1f"));
                     Draw.alpha(e.fout() * 0.8f);
                     circle(e.x, e.y, 25f * e.fout());
 
-                    Draw.color(Color.valueOf("440000"));
+                    Draw.color(Color.valueOf("360e0e"));
                     circle(e.x, e.y, 15f * e.fout());
 
-                    Draw.color(Color.valueOf("ff6666"));
+                    Draw.color(Color.valueOf("ee7777"));
                     Draw.alpha(e.fout() * 0.5f);
                     Lines.stroke(8f * e.fout());
                     Lines.circle(e.x, e.y, e.finpow() * 95f);
@@ -158,7 +158,7 @@ public class CrimsonBullets {
                         float dst = Mathf.random(30f, e.fin() * 75f);
                         Tmp.v1.trns(angle, dst);
 
-                        Draw.color(Color.valueOf("ff4444"), Color.valueOf("cc0000"), Mathf.random());
+                        Draw.color(JBColor.oblivionLight, Color.valueOf("973535"), Mathf.random());
                         Draw.alpha(e.fout() * Mathf.random(0.4f, 0.8f));
                         circle(e.x + Tmp.v1.x, e.y + Tmp.v1.y,
                                 Mathf.random(2f, 5f) * e.fout());
@@ -175,7 +175,7 @@ public class CrimsonBullets {
 
                 shootEffect = new Effect(30f, e -> {
 
-                    Draw.color(Color.valueOf("ff2222"), Color.valueOf("ff6644"), e.fin());
+                    Draw.color(Color.valueOf("d34e4e"), JBColor.oblivionLight, e.fin());
 
                     for (int i = 0; i < 12; i++) {
                         float angle = e.rotation + i * 30f + e.fin() * 720f;
@@ -186,16 +186,16 @@ public class CrimsonBullets {
                         Draw.alpha(e.fin() * 0.9f);
                         circle(e.x + Tmp.v1.x, e.y + Tmp.v1.y, e.fin() * 5f);
 
-                        Draw.color(Color.valueOf("ffaa77"));
+                        Draw.color(Color.valueOf("f18585"));
                         Lines.stroke(2f * e.fin());
                         Lines.lineAngle(e.x, e.y, angle, distance * 1.2f);
                     }
 
-                    Draw.color(Color.valueOf("ff4444"));
+                    Draw.color(JBColor.oblivionLight);
                     Draw.alpha(e.fin() * 0.9f);
                     circle(e.x, e.y, e.fin() * 18f);
 
-                    Draw.color(Color.valueOf("ffaa77"));
+                    Draw.color(Color.valueOf("f18585"));
                     circle(e.x, e.y, e.fin() * 12f);
 
                     Draw.color(Color.white);
@@ -206,12 +206,12 @@ public class CrimsonBullets {
                 });
 
                 smokeEffect = new Effect(50f, e -> {
-                    Draw.color(Color.valueOf("ff4444"));
+                    Draw.color(JBColor.oblivionLight);
                     Draw.alpha(e.fout() * 0.7f);
 
                     circle(e.x, e.y, e.fout() * 12f);
 
-                    Draw.color(Color.valueOf("ff2222"));
+                    Draw.color(Color.valueOf("d34e4e"));
                     Lines.stroke(2.5f * e.fout());
                     Lines.circle(e.x, e.y, e.fin() * 18f);
 
@@ -234,20 +234,20 @@ public class CrimsonBullets {
                         height = 12f;
                         lifetime = 25f;
 
-                        backColor = Color.valueOf("ff2222");
-                        frontColor = Color.valueOf("ffeeee");
-                        lightColor = Color.valueOf("ff4444");
+                        backColor = Color.valueOf("d34e4e");
+                        frontColor = JBColor.oblivionGlow;
+                        lightColor = JBColor.oblivionLight;
                         lightRadius = 35f;
 
                         trailLength = 8;
                         trailWidth = 1.5f;
-                        trailColor = Color.valueOf("ff2222");
+                        trailColor = Color.valueOf("d34e4e");
 
                         splashDamageRadius = 20f;
                         splashDamage = 40f;
 
                         hitEffect = new Effect(20f, e -> {
-                            Draw.color(Color.valueOf("ff2222"));
+                            Draw.color(Color.valueOf("d34e4e"));
                             Draw.alpha(e.fout());
                             circle(e.x, e.y, e.fout() * 8f);
 
@@ -425,26 +425,26 @@ public class CrimsonBullets {
                 shrinkY = 0f;
                 shrinkX = 0f;
 
-                backColor = Color.valueOf("ff1111");
+                backColor = Color.valueOf("c74949");
                 frontColor = Color.valueOf("ffffff");
-                lightColor = Color.valueOf("ff2222");
+                lightColor = Color.valueOf("d34e4e");
                 lightOpacity = 1f;
                 lightRadius = 90f;
 
                 trailLength = 24;
                 trailWidth = 6f;
-                trailColor = Color.valueOf("ff2222");
+                trailColor = Color.valueOf("d34e4e");
                 trailInterval = 1f;
 
                 trailEffect = new Effect(45f, e -> {
-                    Draw.color(Color.valueOf("ff2222"));
+                    Draw.color(Color.valueOf("d34e4e"));
                     Draw.alpha(e.fout() * 0.8f);
                     circle(e.x, e.y, e.fout() * 9f);
 
                     Draw.color(Color.white);
                     circle(e.x, e.y, e.fout() * 5f);
 
-                    Draw.color(Color.valueOf("ff4444"));
+                    Draw.color(JBColor.oblivionLight);
                     Draw.alpha(e.fout() * 0.8f);
                     Lines.stroke(2f * e.fout());
                     Lines.circle(e.x, e.y, e.fout() * 11f);
@@ -465,7 +465,7 @@ public class CrimsonBullets {
                     Draw.color(Color.white);
                     circle(e.x, e.y, e.fout() * 22f);
 
-                    Draw.color(Color.valueOf("ff2222"), Color.white, e.fin() * 0.4f);
+                    Draw.color(Color.valueOf("d34e4e"), Color.white, e.fin() * 0.4f);
 
                     e.scaled(28f, s -> {
                         Lines.stroke(5f * s.fout());
@@ -482,7 +482,7 @@ public class CrimsonBullets {
                         Lines.circle(e.x, e.y, 12f + s.fin() * 100f);
                     });
 
-                    Draw.color(Color.white, Color.valueOf("ff3333"), e.fin() + 0.2f);
+                    Draw.color(Color.white, Color.valueOf("df5353"), e.fin() + 0.2f);
                     Lines.stroke(3f * e.fout());
 
                     Angles.randLenVectors(e.id, 24, 15f + 70f * e.finpow(), (x, y) -> {
@@ -490,7 +490,7 @@ public class CrimsonBullets {
                         Lines.lineAngle(e.x + x, e.y + y, angle, e.fout() * (14f + Mathf.random(14f)));
                     });
 
-                    Draw.color(Color.valueOf("ff5555"), Color.white, e.fout() * 0.6f);
+                    Draw.color(Color.valueOf("eb6969"), Color.white, e.fout() * 0.6f);
                     Lines.stroke(1.8f * e.fout());
 
                     Angles.randLenVectors(e.id + 1, 18, 8f + 50f * e.finpow(), (x, y) -> {
@@ -498,7 +498,7 @@ public class CrimsonBullets {
                     });
 
                     Angles.randLenVectors(e.id + 2, 14, 6f + 40f * e.finpow(), (x, y) -> {
-                        Draw.color(Color.white, Color.valueOf("ff2222"), e.fin() * 0.7f);
+                        Draw.color(Color.white, Color.valueOf("d34e4e"), e.fin() * 0.7f);
                         circle(e.x + x, e.y + y, e.fout() * 5.5f);
                     });
 
@@ -508,12 +508,12 @@ public class CrimsonBullets {
 
                         Tmp.v1.trns(angle, dst);
 
-                        Draw.color(Color.valueOf("ff3333"), Color.white, e.fout() * 0.5f);
+                        Draw.color(Color.valueOf("df5353"), Color.white, e.fout() * 0.5f);
                         Lines.stroke(2.5f * e.fout());
                         Lines.lineAngle(e.x + Tmp.v1.x, e.y + Tmp.v1.y, angle + 90f, e.fout() * 18f);
                     }
 
-                    Draw.color(Color.valueOf("ff4444"));
+                    Draw.color(JBColor.oblivionLight);
                     Lines.stroke(2f * e.fout());
                     for (int i = 0; i < 6; i++) {
                         float angle1 = i * 60f;
@@ -528,13 +528,13 @@ public class CrimsonBullets {
                                 e.x + Tmp.v2.x, e.y + Tmp.v2.y);
                     }
 
-                    Drawf.light(e.x, e.y, e.fout() * 120f, Color.valueOf("ff2222"), 0.9f);
+                    Drawf.light(e.x, e.y, e.fout() * 120f, Color.valueOf("d34e4e"), 0.9f);
                 });
 
                 despawnHit = true;
 
                 shootEffect = new Effect(32f, e -> {
-                    Draw.color(Color.white, Color.valueOf("ff2222"), e.fin() * 0.6f);
+                    Draw.color(Color.white, Color.valueOf("d34e4e"), e.fin() * 0.6f);
 
                     Lines.stroke(e.fout() * 4f);
                     Angles.randLenVectors(e.id, 14, 40f * e.finpow(), (x, y) -> {
@@ -543,15 +543,179 @@ public class CrimsonBullets {
 
                     circle(e.x, e.y, e.fout() * 11f);
 
-                    Draw.color(Color.valueOf("ff3333"));
+                    Draw.color(Color.valueOf("df5353"));
                     Lines.stroke(3.5f * e.fout());
                     Lines.circle(e.x, e.y, e.finpow() * 25f);
 
-                    Drawf.light(e.x, e.y, e.fout() * 60f, Color.valueOf("ff2222"), 0.8f);
+                    Drawf.light(e.x, e.y, e.fout() * 60f, Color.valueOf("d34e4e"), 0.8f);
                 });
 
                 smokeEffect = new Effect(40f, e -> {
-                    Draw.color(Color.valueOf("ff2222"));
+                    Draw.color(Color.valueOf("d34e4e"));
+                    Draw.alpha(e.fout() * 0.7f);
+
+                    circle(e.x, e.y, e.fout() * 8f);
+
+                    Lines.stroke(2f * e.fout());
+                    Lines.circle(e.x, e.y, e.fin() * 16f);
+                });
+
+                pierce = true;
+                pierceCap = 3;
+                pierceBuilding = true;
+
+                splashDamageRadius = 45f;
+                splashDamage = damage * 0.75f;
+
+                knockback = 4f;
+                hitShake = 4f;
+
+                status = StatusEffects.burning;
+                statusDuration = 180f;
+
+                homingPower = 0.12f;
+                homingRange = 120f;
+            }
+        };
+
+        crimsonLanceHeavyOcelexis = new BasicBulletType(7.5f, 780) {
+            {
+                lifetime = 55f;
+
+                width = 14f;
+                height = 36f;
+                sprite = "missile-large";
+
+                shrinkY = 0f;
+                shrinkX = 0f;
+
+                backColor = Color.valueOf("b85858");
+                frontColor = Color.valueOf("ffffff");
+                lightColor = JBColor.ocelexisMid;
+                lightOpacity = 1f;
+                lightRadius = 90f;
+
+                trailLength = 24;
+                trailWidth = 6f;
+                trailColor = JBColor.ocelexisMid;
+                trailInterval = 1f;
+
+                trailEffect = new Effect(45f, e -> {
+                    Draw.color(JBColor.ocelexisMid);
+                    Draw.alpha(e.fout() * 0.8f);
+                    circle(e.x, e.y, e.fout() * 9f);
+
+                    Draw.color(Color.white);
+                    circle(e.x, e.y, e.fout() * 5f);
+
+                    Draw.color(Color.valueOf("d6746d"));
+                    Draw.alpha(e.fout() * 0.8f);
+                    Lines.stroke(2f * e.fout());
+                    Lines.circle(e.x, e.y, e.fout() * 11f);
+
+                    Lines.stroke(1.5f * e.fout());
+                    Lines.circle(e.x, e.y, e.fin() * 8f);
+
+                    for (int i = 0; i < 3; i++) {
+                        float angle = i * 120f + e.fin() * 360f;
+                        Lines.stroke(1.5f * e.fout());
+                        Lines.arc(e.x, e.y, e.fout() * 10f, 0.3f, angle);
+                    }
+                });
+
+                trailChance = 0.8f;
+
+                hitEffect = new Effect(65f, 180f, e -> {
+                    Draw.color(Color.white);
+                    circle(e.x, e.y, e.fout() * 22f);
+
+                    Draw.color(JBColor.ocelexisMid, Color.white, e.fin() * 0.4f);
+
+                    e.scaled(28f, s -> {
+                        Lines.stroke(5f * s.fout());
+                        Lines.circle(e.x, e.y, 6f + s.fin(Interp.pow3Out) * 60f);
+                    });
+
+                    e.scaled(45f, s -> {
+                        Lines.stroke(3.5f * s.fout());
+                        Lines.circle(e.x, e.y, 10f + s.fin(Interp.pow2Out) * 85f);
+                    });
+
+                    e.scaled(55f, s -> {
+                        Lines.stroke(2f * s.fout());
+                        Lines.circle(e.x, e.y, 12f + s.fin() * 100f);
+                    });
+
+                    Draw.color(Color.white, Color.valueOf("cc6966"), e.fin() + 0.2f);
+                    Lines.stroke(3f * e.fout());
+
+                    Angles.randLenVectors(e.id, 24, 15f + 70f * e.finpow(), (x, y) -> {
+                        float angle = Mathf.angle(x, y);
+                        Lines.lineAngle(e.x + x, e.y + y, angle, e.fout() * (14f + Mathf.random(14f)));
+                    });
+
+                    Draw.color(Color.valueOf("df8075"), Color.white, e.fout() * 0.6f);
+                    Lines.stroke(1.8f * e.fout());
+
+                    Angles.randLenVectors(e.id + 1, 18, 8f + 50f * e.finpow(), (x, y) -> {
+                        Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 20f);
+                    });
+
+                    Angles.randLenVectors(e.id + 2, 14, 6f + 40f * e.finpow(), (x, y) -> {
+                        Draw.color(Color.white, JBColor.ocelexisMid, e.fin() * 0.7f);
+                        circle(e.x + x, e.y + y, e.fout() * 5.5f);
+                    });
+
+                    for (int i = 0; i < 8; i++) {
+                        float angle = i * 45f + e.fin() * 25f;
+                        float dst = e.finpow() * 75f;
+
+                        Tmp.v1.trns(angle, dst);
+
+                        Draw.color(Color.valueOf("cc6966"), Color.white, e.fout() * 0.5f);
+                        Lines.stroke(2.5f * e.fout());
+                        Lines.lineAngle(e.x + Tmp.v1.x, e.y + Tmp.v1.y, angle + 90f, e.fout() * 18f);
+                    }
+
+                    Draw.color(Color.valueOf("d6746d"));
+                    Lines.stroke(2f * e.fout());
+                    for (int i = 0; i < 6; i++) {
+                        float angle1 = i * 60f;
+                        float angle2 = (i + 1) * 60f;
+                        float rad = e.finpow() * 70f;
+
+                        Tmp.v1.trns(angle1, rad);
+                        Tmp.v2.trns(angle2, rad);
+
+                        Lines.line(
+                                e.x + Tmp.v1.x, e.y + Tmp.v1.y,
+                                e.x + Tmp.v2.x, e.y + Tmp.v2.y);
+                    }
+
+                    Drawf.light(e.x, e.y, e.fout() * 120f, JBColor.ocelexisMid, 0.9f);
+                });
+
+                despawnHit = true;
+
+                shootEffect = new Effect(32f, e -> {
+                    Draw.color(Color.white, JBColor.ocelexisMid, e.fin() * 0.6f);
+
+                    Lines.stroke(e.fout() * 4f);
+                    Angles.randLenVectors(e.id, 14, 40f * e.finpow(), (x, y) -> {
+                        Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 12f + 4f);
+                    });
+
+                    circle(e.x, e.y, e.fout() * 11f);
+
+                    Draw.color(Color.valueOf("cc6966"));
+                    Lines.stroke(3.5f * e.fout());
+                    Lines.circle(e.x, e.y, e.finpow() * 25f);
+
+                    Drawf.light(e.x, e.y, e.fout() * 60f, JBColor.ocelexisMid, 0.8f);
+                });
+
+                smokeEffect = new Effect(40f, e -> {
+                    Draw.color(JBColor.ocelexisMid);
                     Draw.alpha(e.fout() * 0.7f);
 
                     circle(e.x, e.y, e.fout() * 8f);
@@ -589,24 +753,24 @@ public class CrimsonBullets {
                 shrinkY = 0.05f;
                 shrinkX = 0f;
 
-                backColor = Color.valueOf("ff1a1a");
+                backColor = Color.valueOf("cd4c4c");
                 frontColor = Color.valueOf("ffdddd");
-                lightColor = Color.valueOf("ff3333");
+                lightColor = Color.valueOf("df5353");
                 lightOpacity = 1f;
                 lightRadius = 120f;
 
                 trailLength = 26;
                 trailWidth = 7f;
-                trailColor = Color.valueOf("ff2a2a");
+                trailColor = Color.valueOf("d95050");
                 trailInterval = 1.2f;
 
                 trailEffect = new Effect(50f, e -> {
 
-                    Draw.color(Color.valueOf("ff1a1a"));
+                    Draw.color(Color.valueOf("cd4c4c"));
                     Draw.alpha(e.fout() * 0.9f);
                     circle(e.x, e.y, (10f + Mathf.absin(e.time, 2f, 2.5f)) * e.fout());
 
-                    Draw.color(Color.valueOf("ff4444"));
+                    Draw.color(JBColor.oblivionLight);
                     circle(e.x, e.y, (7f + Mathf.absin(e.time, 2f, 1.8f)) * e.fout());
 
                     Draw.color(Color.valueOf("ffcccc"));
@@ -618,11 +782,11 @@ public class CrimsonBullets {
                     float finVal = e.fin();
 
                     Angles.randLenVectors(e.id, 6, 2f + finVal * 12f, (x, y) -> {
-                        Draw.color(Color.valueOf("ff6644"), Color.valueOf("ff1a1a"), Mathf.random(0.3f, 0.9f));
+                        Draw.color(JBColor.oblivionLight, Color.valueOf("cd4c4c"), Mathf.random(0.3f, 0.9f));
                         circle(xVal + x, yVal + y, foutVal * 2.5f);
                     });
 
-                    Draw.color(Color.valueOf("993333"));
+                    Draw.color(Color.valueOf("973535"));
                     Draw.alpha(e.fout() * 0.5f);
                     circle(e.x, e.y, (12f + Mathf.absin(e.time, 2f, 3f)) * e.fout());
                 });
@@ -631,19 +795,19 @@ public class CrimsonBullets {
 
                 hitEffect = new Effect(80f, 220f, e -> {
 
-                    Draw.color(Color.valueOf("ffcc44"));
+                    Draw.color(JBColor.oblivionLight);
                     circle(e.x, e.y, (35f + Mathf.absin(e.time, 2f, 7f)) * e.fout());
 
-                    Draw.color(Color.valueOf("ff6622"));
+                    Draw.color(Color.valueOf("d34e4e"));
                     circle(e.x, e.y, (28f + Mathf.absin(e.time, 2f, 5f)) * e.fout());
 
-                    Draw.color(Color.valueOf("ff2222"));
+                    Draw.color(Color.valueOf("d34e4e"));
                     circle(e.x, e.y, (20f + Mathf.absin(e.time, 2f, 4f)) * e.fout());
 
                     Draw.color(Color.white);
                     circle(e.x, e.y, (12f + Mathf.absin(e.time, 2f, 2f)) * e.fout());
 
-                    Draw.color(Color.valueOf("ff4444"), Color.valueOf("ffaa66"), e.fin() * 0.7f);
+                    Draw.color(JBColor.oblivionLight, Color.valueOf("ee7777"), e.fin() * 0.7f);
 
                     float exVal = e.x;
                     float eyVal = e.y;
@@ -656,7 +820,7 @@ public class CrimsonBullets {
                         });
                     }
 
-                    Draw.color(Color.white, Color.valueOf("ff6622"), e.fin() + 0.4f);
+                    Draw.color(Color.white, Color.valueOf("d34e4e"), e.fin() + 0.4f);
                     Lines.stroke(4f * e.fout());
 
                     for (int i = 0; i < 16; i++) {
@@ -667,11 +831,11 @@ public class CrimsonBullets {
                         Tmp.v1.trns(angle, len);
                         Lines.lineAngle(e.x, e.y, angle, len * e.fout());
 
-                        Draw.color(Color.valueOf("ffaa33"));
+                        Draw.color(Color.valueOf("df5353"));
                         circle(e.x + Tmp.v1.x, e.y + Tmp.v1.y, e.fout() * 6f);
                     }
 
-                    Draw.color(Color.valueOf("ff6622"), Color.white, e.fout() * 0.8f);
+                    Draw.color(Color.valueOf("d34e4e"), Color.white, e.fout() * 0.8f);
                     Lines.stroke(3f * e.fout());
 
                     float foutVal = e.fout();
@@ -685,10 +849,10 @@ public class CrimsonBullets {
                     float finVal = e.fin();
 
                     Angles.randLenVectors(e.id + 1, 20, 10f + 65f * finpowVal, (x, y) -> {
-                        Draw.color(Color.white, Color.valueOf("ff2222"), finVal * 0.75f);
+                        Draw.color(Color.white, Color.valueOf("d34e4e"), finVal * 0.75f);
                         circle(exVal + x, eyVal + y, foutVal * 8f);
 
-                        Draw.color(Color.valueOf("ff8833"));
+                        Draw.color(Color.valueOf("df5353"));
                         Draw.alpha(foutVal * 0.6f);
                         circle(exVal + x, eyVal + y, foutVal * 12f);
                     });
@@ -700,7 +864,7 @@ public class CrimsonBullets {
 
                         Tmp.v1.trns(angle, dst);
 
-                        Draw.color(Color.valueOf("ff4444"));
+                        Draw.color(JBColor.oblivionLight);
                         Draw.alpha(e.fout() * 0.8f);
 
                         for (int j = 0; j < 4; j++) {
@@ -723,7 +887,7 @@ public class CrimsonBullets {
 
                             Tmp.v1.trns(chainAngle, chainDst);
 
-                            Draw.color(Color.valueOf("ff6622"));
+                            Draw.color(Color.valueOf("d34e4e"));
                             Draw.alpha((1f - chainProgress) * 0.9f);
                             circle(e.x + Tmp.v1.x, e.y + Tmp.v1.y, (1f - chainProgress) * 15f);
 
@@ -732,7 +896,7 @@ public class CrimsonBullets {
                         }
                     }
 
-                    Draw.color(Color.valueOf("774444"));
+                    Draw.color(Color.valueOf("8c2f2f"));
                     Draw.alpha(e.fout() * 0.6f);
                     Lines.stroke(5f * e.fout());
                     for (int i = 0; i < 6; i++) {
@@ -749,14 +913,14 @@ public class CrimsonBullets {
                                 e.x + Tmp.v2.x, e.y + Tmp.v2.y);
                     }
 
-                    Drawf.light(e.x, e.y, e.fout() * 180f, Color.valueOf("ff4444"), 0.95f);
+                    Drawf.light(e.x, e.y, e.fout() * 180f, JBColor.oblivionLight, 0.95f);
                 });
 
                 despawnHit = true;
 
                 shootEffect = new Effect(35f, e -> {
 
-                    Draw.color(Color.valueOf("ff2222"));
+                    Draw.color(Color.valueOf("d34e4e"));
                     Draw.alpha(e.fin() * 0.9f);
 
                     float xVal = e.x;
@@ -771,7 +935,7 @@ public class CrimsonBullets {
                         circle(xVal + Tmp.v1.x, yVal + Tmp.v1.y, finVal * (12f - fi * 2f));
                     }
 
-                    Draw.color(Color.white, Color.valueOf("ff6622"), e.fin() * 0.6f);
+                    Draw.color(Color.white, Color.valueOf("d34e4e"), e.fin() * 0.6f);
 
                     Lines.stroke(e.fout() * 4f);
                     Angles.randLenVectors(e.id, 16, 40f * e.finpow(), (x, y) -> {
@@ -781,18 +945,18 @@ public class CrimsonBullets {
                     Draw.color(Color.white);
                     circle(e.x, e.y, e.fout() * 16f);
 
-                    Draw.color(Color.valueOf("ffaa33"));
+                    Draw.color(Color.valueOf("df5353"));
                     circle(e.x, e.y, e.fout() * 12f);
 
-                    Draw.color(Color.valueOf("ff4444"));
+                    Draw.color(JBColor.oblivionLight);
                     Lines.stroke(4f * e.fout());
                     Lines.circle(e.x, e.y, e.finpow() * 28f);
 
-                    Drawf.light(e.x, e.y, e.fout() * 70f, Color.valueOf("ff4444"), 0.8f);
+                    Drawf.light(e.x, e.y, e.fout() * 70f, JBColor.oblivionLight, 0.8f);
                 });
 
                 smokeEffect = new Effect(55f, e -> {
-                    Draw.color(Color.valueOf("994444"));
+                    Draw.color(Color.valueOf("a23b3b"));
                     Draw.alpha(e.fout() * 0.8f);
 
                     float xVal = e.x;
@@ -808,7 +972,7 @@ public class CrimsonBullets {
                         circle(xVal + Tmp.v1.x, yVal + Tmp.v1.y, foutVal * (10f - fi * 2f));
                     }
 
-                    Draw.color(Color.valueOf("ff6622"));
+                    Draw.color(Color.valueOf("d34e4e"));
                     Lines.stroke(2.5f * e.fout());
                     Lines.circle(e.x, e.y, e.fin() * 20f);
                 });
@@ -839,14 +1003,14 @@ public class CrimsonBullets {
                         height = 12f;
                         lifetime = 22f;
 
-                        backColor = Color.valueOf("ff1a1a");
+                        backColor = Color.valueOf("cd4c4c");
                         frontColor = Color.valueOf("ffdddd");
-                        lightColor = Color.valueOf("ff3333");
+                        lightColor = Color.valueOf("df5353");
                         lightRadius = 30f;
 
                         trailLength = 6;
                         trailWidth = 2f;
-                        trailColor = Color.valueOf("ff2a2a");
+                        trailColor = Color.valueOf("d95050");
 
                         splashDamageRadius = 18f;
                         splashDamage = 35f;
@@ -855,7 +1019,7 @@ public class CrimsonBullets {
                         statusDuration = 90f;
 
                         hitEffect = new Effect(20f, e -> {
-                            Draw.color(Color.valueOf("ff3333"));
+                            Draw.color(Color.valueOf("df5353"));
                             circle(e.x, e.y, e.fout() * 8f);
 
                             Draw.color(Color.valueOf("ffcccc"));
@@ -874,13 +1038,13 @@ public class CrimsonBullets {
         crimsonBeam = new ContinuousFlameBulletType(550) {
             {
                 shake = 5;
-                hitColor = lightColor = lightningColor = Color.valueOf("ff1a1a");
+                hitColor = lightColor = lightningColor = Color.valueOf("cd4c4c");
 
                 colors = new Color[] {
-                        Color.valueOf("aa0000").a(0.55f),
-                        Color.valueOf("ff1a1a").a(0.7f),
-                        Color.valueOf("ff3333").a(0.8f),
-                        Color.valueOf("ff6666").a(0.9f),
+                        Color.valueOf("822828").a(0.55f),
+                        Color.valueOf("cd4c4c").a(0.7f),
+                        Color.valueOf("df5353").a(0.8f),
+                        Color.valueOf("ee7777").a(0.9f),
                         Color.valueOf("ffcccc")
                 };
 
@@ -898,14 +1062,14 @@ public class CrimsonBullets {
                 flareWidth = 9;
 
                 hitEffect = new Effect(15f, e -> {
-                    Draw.color(Color.valueOf("ff3333"), Color.valueOf("ffcccc"), e.fin());
+                    Draw.color(Color.valueOf("df5353"), Color.valueOf("ffcccc"), e.fin());
                     Lines.stroke(2f * e.fout());
                     Lines.circle(e.x, e.y, e.fin() * 12f);
 
-                    Drawf.light(e.x, e.y, e.fout() * 25f, Color.valueOf("ff1a1a"), 0.7f);
+                    Drawf.light(e.x, e.y, e.fout() * 25f, Color.valueOf("cd4c4c"), 0.7f);
                 });
 
-                shootEffect = JBFx.lightningHitLarge(Color.valueOf("ff1a1a"));
+                shootEffect = JBFx.lightningHitLarge(Color.valueOf("cd4c4c"));
 
                 lightningDamage = damage / 5f;
                 despawnHit = false;
@@ -931,11 +1095,11 @@ public class CrimsonBullets {
                     Tmp.v1.trns(b.rotation(), len);
 
                     Effect flareEffect = new Effect(20f, e -> {
-                        Draw.color(Color.valueOf("ff3333"), Color.valueOf("ffcccc"), e.fin());
+                        Draw.color(Color.valueOf("df5353"), Color.valueOf("ffcccc"), e.fin());
                         Draw.alpha(e.fout() * 0.8f);
                         circle(e.x, e.y, e.fout() * 8f);
 
-                        Draw.color(Color.valueOf("ff1a1a"));
+                        Draw.color(Color.valueOf("cd4c4c"));
                         Draw.alpha(e.fout() * 0.6f);
                         circle(e.x, e.y, e.fout() * 12f);
                     });
@@ -958,18 +1122,18 @@ public class CrimsonBullets {
                 }
 
                 Effect impactFlare = new Effect(35f, e -> {
-                    Draw.color(Color.valueOf("ff1a1a"), Color.valueOf("ffcccc"), e.fin() * 0.6f);
+                    Draw.color(Color.valueOf("cd4c4c"), Color.valueOf("ffcccc"), e.fin() * 0.6f);
 
                     Lines.stroke(4f * e.fout());
                     Lines.circle(x, y, e.fin(Interp.pow2Out) * 35f);
 
                     circle(x, y, e.fout() * 15f);
 
-                    Draw.color(Color.valueOf("ff6666"));
+                    Draw.color(Color.valueOf("ee7777"));
                     Lines.stroke(2.5f * e.fout());
                     Lines.circle(x, y, e.fin(Interp.pow3Out) * 50f);
 
-                    Drawf.light(x, y, e.fout() * 60f, Color.valueOf("ff1a1a"), 0.7f);
+                    Drawf.light(x, y, e.fout() * 60f, Color.valueOf("cd4c4c"), 0.7f);
                 });
 
                 impactFlare.at(x, y);
@@ -987,33 +1151,33 @@ public class CrimsonBullets {
                 shrinkY = 0f;
                 shrinkX = 0f;
 
-                backColor = Color.valueOf("990000");
+                backColor = JBColor.oblivionDark;
                 frontColor = Color.valueOf("ffdddd");
-                lightColor = Color.valueOf("ff2222");
+                lightColor = Color.valueOf("d34e4e");
                 lightOpacity = 1f;
                 lightRadius = 130f;
 
                 trailLength = 18;
                 trailWidth = 6f;
-                trailColor = Color.valueOf("cc1111");
+                trailColor = Color.valueOf("a23b3b");
                 trailInterval = 2.5f;
 
                 trailEffect = new Effect(60f, e -> {
-                    Draw.color(Color.valueOf("cc0000"));
+                    Draw.color(Color.valueOf("973535"));
                     Draw.alpha(e.fout() * 0.6f);
                     circle(e.x, e.y, (18f + Mathf.absin(e.time, 2f, 4f)) * e.fout());
 
-                    Draw.color(Color.valueOf("ff2222"));
+                    Draw.color(Color.valueOf("d34e4e"));
                     Draw.alpha(e.fout() * 0.75f);
                     circle(e.x, e.y, (12f + Mathf.absin(e.time, 2f, 3f)) * e.fout());
 
-                    Draw.color(Color.valueOf("ff6666"));
+                    Draw.color(Color.valueOf("ee7777"));
                     circle(e.x, e.y, (8f + Mathf.absin(e.time, 2f, 2f)) * e.fout());
 
                     Draw.color(Color.valueOf("ffcccc"));
                     circle(e.x, e.y, (4f + Mathf.absin(e.time, 2f, 1f)) * e.fout());
 
-                    Draw.color(Color.valueOf("ff3333"));
+                    Draw.color(Color.valueOf("df5353"));
                     Draw.alpha(e.fout() * 0.7f);
                     Lines.stroke(2.5f * e.fout());
 
@@ -1028,28 +1192,28 @@ public class CrimsonBullets {
 
                 hitEffect = new Effect(120f, 400f, e -> {
 
-                    Draw.color(Color.valueOf("880000"));
+                    Draw.color(Color.valueOf("691f1f"));
                     Draw.alpha(e.fout() * 0.4f);
                     circle(e.x, e.y, e.finpow() * 180f);
 
-                    Draw.color(Color.valueOf("cc0000"));
+                    Draw.color(Color.valueOf("973535"));
                     Draw.alpha(e.fout() * 0.5f);
                     circle(e.x, e.y, e.finpow() * 150f);
 
-                    Draw.color(Color.valueOf("ff1a1a"));
+                    Draw.color(Color.valueOf("cd4c4c"));
                     Draw.alpha(e.fout() * 0.6f);
                     circle(e.x, e.y, e.finpow() * 120f);
 
-                    Draw.color(Color.valueOf("ffeeee"));
+                    Draw.color(JBColor.oblivionGlow);
                     circle(e.x, e.y, (45f + Mathf.absin(e.time, 1.5f, 8f)) * e.fout());
 
-                    Draw.color(Color.valueOf("ff6666"));
+                    Draw.color(Color.valueOf("ee7777"));
                     circle(e.x, e.y, (35f + Mathf.absin(e.time, 1.5f, 6f)) * e.fout());
 
-                    Draw.color(Color.valueOf("ff2222"));
+                    Draw.color(Color.valueOf("d34e4e"));
                     circle(e.x, e.y, (25f + Mathf.absin(e.time, 1.5f, 4f)) * e.fout());
 
-                    Draw.color(Color.valueOf("ff3333"), Color.valueOf("ffcccc"), e.fin() * 0.7f);
+                    Draw.color(Color.valueOf("df5353"), Color.valueOf("ffcccc"), e.fin() * 0.7f);
 
                     float exVal = e.x;
                     float eyVal = e.y;
@@ -1070,12 +1234,12 @@ public class CrimsonBullets {
                         e.scaled(30f + (fi % 3) * 20f, pulse -> {
                             float len = pulse.finpow() * (80f + Mathf.random(30f));
 
-                            Draw.color(Color.valueOf("ff2222"), Color.valueOf("ffeeee"), pulse.fout() * 0.8f);
+                            Draw.color(Color.valueOf("d34e4e"), JBColor.oblivionGlow, pulse.fout() * 0.8f);
                             Lines.stroke(4f * pulse.fout());
                             Lines.lineAngle(exVal, eyVal, angle, len);
 
                             Tmp.v1.trns(angle, len);
-                            Draw.color(Color.valueOf("ff6666"));
+                            Draw.color(Color.valueOf("ee7777"));
                             circle(exVal + Tmp.v1.x, eyVal + Tmp.v1.y, pulse.fout() * 8f);
                         });
                     }
@@ -1084,11 +1248,11 @@ public class CrimsonBullets {
                     float finpowVal = e.finpow();
 
                     Angles.randLenVectors(e.id, 30, 25f + 110f * finpowVal, (x, y) -> {
-                        Draw.color(Color.valueOf("ff2222"));
+                        Draw.color(Color.valueOf("d34e4e"));
                         Draw.alpha(foutVal * 0.8f);
                         circle(exVal + x, eyVal + y, foutVal * 12f);
 
-                        Draw.color(Color.valueOf("ff6666"));
+                        Draw.color(Color.valueOf("ee7777"));
                         Draw.alpha(foutVal * 0.6f);
                         circle(exVal + x, eyVal + y, foutVal * 18f);
 
@@ -1096,13 +1260,13 @@ public class CrimsonBullets {
                         circle(exVal + x, eyVal + y, foutVal * 6f);
                     });
 
-                    Drawf.light(e.x, e.y, e.fout() * 280f, Color.valueOf("ff2222"), 0.95f);
+                    Drawf.light(e.x, e.y, e.fout() * 280f, Color.valueOf("d34e4e"), 0.95f);
                 });
 
                 despawnHit = true;
 
                 shootEffect = new Effect(50f, e -> {
-                    Draw.color(Color.valueOf("cc0000"));
+                    Draw.color(Color.valueOf("973535"));
                     Draw.alpha(e.fin() * 0.9f);
 
                     float xVal = e.x;
@@ -1118,7 +1282,7 @@ public class CrimsonBullets {
                         circle(xVal + Tmp.v1.x, yVal + Tmp.v1.y, finVal * (14f - fi * 2f));
                     }
 
-                    Draw.color(Color.valueOf("ff2222"), Color.white, e.fin() * 0.6f);
+                    Draw.color(Color.valueOf("d34e4e"), Color.white, e.fin() * 0.6f);
 
                     for (int i = 0; i < 6; i++) {
                         final int fi = i;
@@ -1132,7 +1296,7 @@ public class CrimsonBullets {
                     }
 
                     Angles.randLenVectors(e.id, 20, 60f * (1f - finVal), (x, y) -> {
-                        Draw.color(Color.valueOf("ff6666"), Color.valueOf("ff1a1a"), finVal);
+                        Draw.color(Color.valueOf("ee7777"), Color.valueOf("cd4c4c"), finVal);
                         Draw.alpha(finVal * 0.9f);
                         circle(xVal + x * (1f - finVal), yVal + y * (1f - finVal), finVal * 5f);
                     });
@@ -1143,11 +1307,11 @@ public class CrimsonBullets {
                     Draw.color(Color.valueOf("ffcccc"));
                     circle(e.x, e.y, foutVal * 15f);
 
-                    Drawf.light(e.x, e.y, foutVal * 90f, Color.valueOf("ff2222"), 0.85f);
+                    Drawf.light(e.x, e.y, foutVal * 90f, Color.valueOf("d34e4e"), 0.85f);
                 });
 
                 smokeEffect = new Effect(65f, e -> {
-                    Draw.color(Color.valueOf("993333"));
+                    Draw.color(Color.valueOf("973535"));
                     Draw.alpha(e.fout() * 0.7f);
 
                     float xVal = e.x;
@@ -1163,7 +1327,7 @@ public class CrimsonBullets {
                         circle(xVal + Tmp.v1.x, yVal + Tmp.v1.y, foutVal * (12f - fi * 2f));
                     }
 
-                    Draw.color(Color.valueOf("ff3333"));
+                    Draw.color(Color.valueOf("df5353"));
                     Lines.stroke(3f * e.fout());
                     Lines.circle(e.x, e.y, e.fin() * 22f);
                 });
@@ -1202,23 +1366,23 @@ public class CrimsonBullets {
                 shrinkY = 0f;
                 shrinkX = 0f;
 
-                backColor = Color.valueOf("aa0000");
+                backColor = Color.valueOf("822828");
                 frontColor = Color.valueOf("ffcccc");
-                lightColor = Color.valueOf("ff3333");
+                lightColor = Color.valueOf("df5353");
                 lightOpacity = 1f;
                 lightRadius = 180f;
 
                 trailLength = 16;
                 trailWidth = 6f;
-                trailColor = Color.valueOf("dd0000");
+                trailColor = Color.valueOf("a23b3b");
                 trailInterval = 3f;
 
                 trailEffect = new Effect(45f, e -> {
-                    Draw.color(Color.valueOf("aa0000"));
+                    Draw.color(Color.valueOf("822828"));
                     Draw.alpha(e.fout() * 0.8f);
                     circle(e.x, e.y, (8f + Mathf.absin(e.time, 2f, 2f)) * e.fout());
 
-                    Draw.color(Color.valueOf("ff3333"));
+                    Draw.color(Color.valueOf("df5353"));
                     circle(e.x, e.y, (5f + Mathf.absin(e.time, 2f, 1.5f)) * e.fout());
                 });
 
@@ -1231,13 +1395,13 @@ public class CrimsonBullets {
                     Draw.color(Color.valueOf("ffffff"));
                     circle(exVal, eyVal, (45f + Mathf.absin(e.time, 1.3f, 8f)) * e.fout());
 
-                    Draw.color(Color.valueOf("ffaaaa"));
+                    Draw.color(Color.valueOf("faafaf"));
                     circle(exVal, eyVal, (35f + Mathf.absin(e.time, 1.3f, 6f)) * e.fout());
 
-                    Draw.color(Color.valueOf("ff3333"));
+                    Draw.color(Color.valueOf("df5353"));
                     circle(exVal, eyVal, (25f + Mathf.absin(e.time, 1.3f, 4f)) * e.fout());
 
-                    Draw.color(Color.valueOf("ff3333"), Color.valueOf("ffcccc"), e.fin() * 0.7f);
+                    Draw.color(Color.valueOf("df5353"), Color.valueOf("ffcccc"), e.fin() * 0.7f);
 
                     for (int spiral = 0; spiral < 12; spiral++) {
                         final int fs = spiral;
@@ -1268,7 +1432,7 @@ public class CrimsonBullets {
                     for (int w = 0; w < 8; w++) {
                         final int fw = w;
                         e.scaled(18f + fw * 12f, wave -> {
-                            Draw.color(Color.valueOf("ff3333"), Color.valueOf("ffcccc"), wave.fout());
+                            Draw.color(Color.valueOf("df5353"), Color.valueOf("ffcccc"), wave.fout());
                             Lines.stroke((7f - fw * 0.75f) * wave.fout());
                             Lines.circle(exVal, eyVal, 20f + wave.fin(Interp.pow2Out) * (110f + fw * 15f));
                         });
@@ -1284,11 +1448,11 @@ public class CrimsonBullets {
 
                         Tmp.v1.trns(orbitAngle, orbitDist);
 
-                        Draw.color(Color.valueOf("ff3333"));
+                        Draw.color(Color.valueOf("df5353"));
                         Draw.alpha(foutVal * 0.9f);
                         circle(exVal + Tmp.v1.x, eyVal + Tmp.v1.y, foutVal * 18f);
 
-                        Draw.color(Color.valueOf("ffaaaa"));
+                        Draw.color(Color.valueOf("faafaf"));
                         Draw.alpha(foutVal * 0.7f);
                         circle(exVal + Tmp.v1.x, eyVal + Tmp.v1.y, foutVal * 25f);
 
@@ -1296,7 +1460,7 @@ public class CrimsonBullets {
                         circle(exVal + Tmp.v1.x, eyVal + Tmp.v1.y, foutVal * 10f);
                     }
 
-                    Drawf.light(exVal, eyVal, e.fout() * 300f, Color.valueOf("ff3333"), 0.95f);
+                    Drawf.light(exVal, eyVal, e.fout() * 300f, Color.valueOf("df5353"), 0.95f);
                 });
 
                 despawnHit = true;
@@ -1308,7 +1472,7 @@ public class CrimsonBullets {
                     float finVal = e.fin();
                     float foutVal = e.fout();
 
-                    Draw.color(Color.valueOf("ff3333"), Color.white, e.fin() * 0.5f);
+                    Draw.color(Color.valueOf("df5353"), Color.white, e.fin() * 0.5f);
 
                     for (int i = 0; i < 6; i++) {
                         final int fi = i;
@@ -1324,11 +1488,11 @@ public class CrimsonBullets {
                     Draw.color(Color.white);
                     circle(e.x, e.y, foutVal * 20f);
 
-                    Drawf.light(e.x, e.y, foutVal * 85f, Color.valueOf("ff3333"), 0.85f);
+                    Drawf.light(e.x, e.y, foutVal * 85f, Color.valueOf("df5353"), 0.85f);
                 });
 
                 smokeEffect = new Effect(60f, e -> {
-                    Draw.color(Color.valueOf("883333"));
+                    Draw.color(Color.valueOf("8c2f2f"));
                     Draw.alpha(e.fout() * 0.75f);
 
                     float xVal = e.x;
@@ -1375,14 +1539,14 @@ public class CrimsonBullets {
                         height = 13f;
                         lifetime = 28f;
 
-                        backColor = Color.valueOf("aa0000");
+                        backColor = Color.valueOf("822828");
                         frontColor = Color.valueOf("ffcccc");
-                        lightColor = Color.valueOf("ff5555");
+                        lightColor = Color.valueOf("eb6969");
                         lightRadius = 36f;
 
                         trailLength = 8;
                         trailWidth = 2.5f;
-                        trailColor = Color.valueOf("ff3333");
+                        trailColor = Color.valueOf("df5353");
 
                         splashDamageRadius = 22f;
                         splashDamage = 42f;
@@ -1391,7 +1555,7 @@ public class CrimsonBullets {
                         statusDuration = 130f;
 
                         hitEffect = new Effect(26f, e -> {
-                            Draw.color(Color.valueOf("ff3333"));
+                            Draw.color(Color.valueOf("df5353"));
                             circle(e.x, e.y, e.fout() * 10f);
 
                             Draw.color(Color.valueOf("ffcccc"));
@@ -1425,22 +1589,22 @@ public class CrimsonBullets {
                     float orbX = b.x + Tmp.v1.x;
                     float orbY = b.y + Tmp.v1.y;
 
-                    Draw.color(Color.valueOf("ff3333"));
+                    Draw.color(Color.valueOf("df5353"));
                     circle(orbX, orbY, 5f);
 
                     Draw.color(Color.valueOf("ffdddd"));
                     circle(orbX, orbY, 3f);
 
-                    Draw.color(Color.valueOf("ff4444"));
+                    Draw.color(JBColor.oblivionLight);
                     Draw.alpha(0.6f);
                     Lines.stroke(1.5f);
 
-                    Draw.color(Color.valueOf("ff3333"));
+                    Draw.color(Color.valueOf("df5353"));
                     Draw.alpha(0.3f);
                     Lines.stroke(1f);
                     Lines.line(b.x, b.y, orbX, orbY);
 
-                    Drawf.light(orbX, orbY, 20f, Color.valueOf("ff5555"), 0.5f);
+                    Drawf.light(orbX, orbY, 20f, Color.valueOf("eb6969"), 0.5f);
                 }
                 Draw.reset();
             }
@@ -1457,26 +1621,26 @@ public class CrimsonBullets {
                 shrinkY = 0.1f;
                 shrinkX = 0f;
 
-                backColor = Color.valueOf("ff2222");
+                backColor = Color.valueOf("d34e4e");
                 frontColor = Color.valueOf("ffffff");
-                lightColor = Color.valueOf("ff3333");
+                lightColor = Color.valueOf("df5353");
                 lightOpacity = 1f;
                 lightRadius = 65f;
 
                 trailLength = 18;
                 trailWidth = 4.5f;
-                trailColor = Color.valueOf("ff3333");
+                trailColor = Color.valueOf("df5353");
                 trailInterval = 1.2f;
 
                 trailEffect = new Effect(35f, e -> {
-                    Draw.color(Color.valueOf("ff3333"));
+                    Draw.color(Color.valueOf("df5353"));
                     Draw.alpha(e.fout() * 0.8f);
                     circle(e.x, e.y, e.fout() * 6f);
 
                     Draw.color(Color.white);
                     circle(e.x, e.y, e.fout() * 3.5f);
 
-                    Draw.color(Color.valueOf("ff4444"));
+                    Draw.color(JBColor.oblivionLight);
                     Draw.alpha(e.fout() * 0.7f);
                     Lines.stroke(1.5f * e.fout());
                     Lines.circle(e.x, e.y, e.fout() * 8f);
@@ -1488,7 +1652,7 @@ public class CrimsonBullets {
                     Draw.color(Color.white);
                     circle(e.x, e.y, e.fout() * 15f);
 
-                    Draw.color(Color.valueOf("ff3333"), Color.white, e.fin() * 0.5f);
+                    Draw.color(Color.valueOf("df5353"), Color.white, e.fin() * 0.5f);
 
                     e.scaled(22f, s -> {
                         Lines.stroke(4f * s.fout());
@@ -1500,38 +1664,38 @@ public class CrimsonBullets {
                         Lines.circle(e.x, e.y, 8f + s.fin(Interp.pow2Out) * 65f);
                     });
 
-                    Draw.color(Color.white, Color.valueOf("ff4444"), e.fin() + 0.25f);
+                    Draw.color(Color.white, JBColor.oblivionLight, e.fin() + 0.25f);
                     Lines.stroke(2.2f * e.fout());
                     Angles.randLenVectors(e.id, 16, 10f + 50f * e.finpow(), (x, y) -> {
                         float angle = Mathf.angle(x, y);
                         Lines.lineAngle(e.x + x, e.y + y, angle, e.fout() * (10f + Mathf.random(10f)));
                     });
 
-                    Draw.color(Color.valueOf("ff6666"), Color.white, e.fout() * 0.7f);
+                    Draw.color(Color.valueOf("ee7777"), Color.white, e.fout() * 0.7f);
                     Lines.stroke(1.2f * e.fout());
                     Angles.randLenVectors(e.id + 1, 12, 6f + 35f * e.finpow(), (x, y) -> {
                         Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 14f);
                     });
 
                     Angles.randLenVectors(e.id + 2, 10, 4f + 28f * e.finpow(), (x, y) -> {
-                        Draw.color(Color.white, Color.valueOf("ff3333"), e.fin() * 0.8f);
+                        Draw.color(Color.white, Color.valueOf("df5353"), e.fin() * 0.8f);
                         circle(e.x + x, e.y + y, e.fout() * 4f);
                     });
 
-                    Draw.color(Color.valueOf("ff2222"));
+                    Draw.color(Color.valueOf("d34e4e"));
                     Angles.randLenVectors(e.id + 3, 8, 20f + 45f * e.fin(), (x, y) -> {
                         Lines.stroke(1.5f * e.fout());
                         Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 16f);
                     });
 
-                    Drawf.light(e.x, e.y, e.fout() * 85f, Color.valueOf("ff3333"), 0.85f);
+                    Drawf.light(e.x, e.y, e.fout() * 85f, Color.valueOf("df5353"), 0.85f);
 
                     for (int i = 0; i < 6; i++) {
                         float angle = i * 60f + e.fin() * 30f;
                         float dst = e.finpow() * 55f;
                         Tmp.v1.trns(angle, dst);
 
-                        Draw.color(Color.valueOf("ff4444"), Color.white, e.fout() * 0.6f);
+                        Draw.color(JBColor.oblivionLight, Color.white, e.fout() * 0.6f);
                         Lines.stroke(1.8f * e.fout());
                         Lines.lineAngle(e.x + Tmp.v1.x, e.y + Tmp.v1.y, angle + 90f, e.fout() * 12f);
                     }
@@ -1540,7 +1704,7 @@ public class CrimsonBullets {
                 despawnHit = true;
 
                 shootEffect = new Effect(25f, e -> {
-                    Draw.color(Color.white, Color.valueOf("ff3333"), e.fin() * 0.7f);
+                    Draw.color(Color.white, Color.valueOf("df5353"), e.fin() * 0.7f);
 
                     Lines.stroke(e.fout() * 3f);
                     Angles.randLenVectors(e.id, 10, 30f * e.finpow(), (x, y) -> {
@@ -1549,15 +1713,15 @@ public class CrimsonBullets {
 
                     circle(e.x, e.y, e.fout() * 8f);
 
-                    Draw.color(Color.valueOf("ff4444"));
+                    Draw.color(JBColor.oblivionLight);
                     Lines.stroke(2.5f * e.fout());
                     Lines.circle(e.x, e.y, e.finpow() * 18f);
 
-                    Drawf.light(e.x, e.y, e.fout() * 45f, Color.valueOf("ff3333"), 0.7f);
+                    Drawf.light(e.x, e.y, e.fout() * 45f, Color.valueOf("df5353"), 0.7f);
                 });
 
                 smokeEffect = new Effect(30f, e -> {
-                    Draw.color(Color.valueOf("ff3333"));
+                    Draw.color(Color.valueOf("df5353"));
                     Draw.alpha(e.fout() * 0.6f);
                     circle(e.x, e.y, e.fout() * 5f);
 
@@ -1600,27 +1764,27 @@ public class CrimsonBullets {
                 shrinkX = 0.3f;
                 shrinkY = 0f;
 
-                backColor = Color.valueOf("550011");
-                frontColor = Color.valueOf("ff1133");
-                lightColor = Color.valueOf("ff0033");
+                backColor = Color.valueOf("431212");
+                frontColor = Color.valueOf("c74949");
+                lightColor = Color.valueOf("ba4545");
                 lightOpacity = 1f;
                 lightRadius = 280f;
                 trailLength = 32;
                 trailWidth = 16f;
-                trailColor = Color.valueOf("cc0022");
+                trailColor = Color.valueOf("973535");
                 trailInterval = 1f;
 
                 trailEffect = JBFx.polyTrail(
-                        Color.valueOf("ff1133"),
-                        Color.valueOf("330011"),
+                        Color.valueOf("c74949"),
+                        Color.valueOf("290a0a"),
                         12f, 55f);
                 trailChance = 0.9f;
-                shootEffect = JBFx.crossBlast(Color.valueOf("ff1133"), 55f);
+                shootEffect = JBFx.crossBlast(Color.valueOf("c74949"), 55f);
 
                 smokeEffect = new Effect(85f, e -> {
                     float fout = e.fout();
 
-                    Draw.color(Color.valueOf("1a0008"));
+                    Draw.color(JBColor.oblivionVoid);
                     Draw.alpha(fout);
                     for (int i = 0; i < 5; i++) {
                         final int fi = i;
@@ -1628,15 +1792,15 @@ public class CrimsonBullets {
                         Tmp.v1.trns(angle * 52f, (12f + fi * 5f) * fout);
                         circle(e.x + Tmp.v1.x, e.y + Tmp.v1.y, fout * (20f - fi * 2.5f));
                     }
-                    Draw.color(Color.valueOf("990022"));
+                    Draw.color(JBColor.oblivionDark);
                     Draw.alpha(fout * 0.7f);
                     circle(e.x, e.y, fout * 14f);
 
-                    Draw.color(Color.valueOf("dd0000"));
+                    Draw.color(Color.valueOf("a23b3b"));
                     Draw.alpha(fout * 0.45f);
                     circle(e.x, e.y, fout * 7f);
 
-                    Drawf.light(e.x, e.y, 60f * fout, Color.valueOf("ff0033"), 0.72f);
+                    Drawf.light(e.x, e.y, 60f * fout, Color.valueOf("ba4545"), 0.72f);
                 });
 
                 hitEffect = new Effect(210f, 600f, e -> {
@@ -1649,16 +1813,16 @@ public class CrimsonBullets {
                         Draw.alpha(ff);
                         circle(ex, ey, ff * 110f);
 
-                        Draw.color(Color.valueOf("ff0033"));
+                        Draw.color(Color.valueOf("ba4545"));
                         Draw.alpha(ff * 0.9f);
                         circle(ex, ey, ff * 145f);
 
-                        Draw.color(Color.valueOf("110005"));
+                        Draw.color(JBColor.oblivionVoid);
                         Draw.alpha(ff * 0.95f);
                         Lines.stroke(18f * ff);
                         Lines.circle(ex, ey, 18f + flash.fin(Interp.pow3Out) * 120f);
 
-                        Draw.color(Color.valueOf("dd0000"));
+                        Draw.color(Color.valueOf("a23b3b"));
                         Draw.alpha(ff * 0.85f);
                         Lines.stroke(9f * ff);
                         Lines.circle(ex, ey, 14f + flash.fin(Interp.pow2Out) * 95f);
@@ -1672,7 +1836,7 @@ public class CrimsonBullets {
                             Lines.line(ex, ey, ex + Tmp.v1.x, ey + Tmp.v1.y);
                         }
 
-                        Drawf.light(ex, ey, ff * 520f, Color.valueOf("ff1133"), 1f);
+                        Drawf.light(ex, ey, ff * 520f, Color.valueOf("c74949"), 1f);
                     });
 
                     for (int em = 0; em < 24; em++) {
@@ -1702,35 +1866,35 @@ public class CrimsonBullets {
                                 Tmp.v2.trns(emAngle, segDist);
                                 float segAlpha = efout * (1f - fseg * 0.22f);
 
-                                Draw.color(Color.valueOf("880000"));
+                                Draw.color(Color.valueOf("691f1f"));
                                 Draw.alpha(segAlpha * 0.85f);
                                 circle(ex + Tmp.v2.x, ey + Tmp.v2.y, (5f - fseg * 0.8f) * efout);
 
-                                Draw.color(Color.valueOf("ff2200"));
+                                Draw.color(Color.valueOf("ba4545"));
                                 Draw.alpha(segAlpha * 0.6f);
                                 circle(ex + Tmp.v2.x, ey + Tmp.v2.y, (2.5f - fseg * 0.4f) * efout);
                             }
 
-                            Draw.color(Color.valueOf("660000"));
+                            Draw.color(Color.valueOf("501616"));
                             Draw.alpha(efout * 0.95f);
                             circle(ex2, ey2, (9f - fem * 0.15f) * efout);
 
-                            Draw.color(Color.valueOf("ff0000"));
+                            Draw.color(Color.valueOf("ba4545"));
                             Draw.alpha(efout * 0.9f);
                             circle(ex2, ey2, (6f - fem * 0.1f) * efout);
 
-                            Draw.color(Color.valueOf("ff4400"));
+                            Draw.color(Color.valueOf("ba4545"));
                             Draw.alpha(efout * 0.8f);
                             circle(ex2, ey2, (3.5f - fem * 0.06f) * efout);
 
-                            Draw.color(Color.valueOf("ff8800"));
+                            Draw.color(Color.valueOf("ba4545"));
                             Draw.alpha(efout * 0.55f);
                             circle(ex2, ey2, 1.8f * efout);
 
                             if (ep > 0.7f) {
                                 float ashP = (ep - 0.7f) * 3.33f;
 
-                                Draw.color(Color.valueOf("331111"));
+                                Draw.color(Color.valueOf("360e0e"));
                                 Draw.alpha(efout * ashP * 0.75f);
                                 Lines.stroke(2f * efout * ashP);
                                 Lines.circle(ex2, ey2, ashP * 18f);
@@ -1744,7 +1908,7 @@ public class CrimsonBullets {
                                 }
                             }
 
-                            Drawf.light(ex2, ey2, (50f - fem * 0.8f) * efout, Color.valueOf("ff2200"), 0.82f);
+                            Drawf.light(ex2, ey2, (50f - fem * 0.8f) * efout, Color.valueOf("ba4545"), 0.82f);
                         });
                     }
 
@@ -1752,19 +1916,19 @@ public class CrimsonBullets {
                         float rp = ring1.fin(Interp.pow2Out);
                         float rfout = ring1.fout();
 
-                        Draw.color(Color.valueOf("ff0033"), Color.valueOf("dd1111"), rfout * 0.4f);
+                        Draw.color(Color.valueOf("ba4545"), Color.valueOf("ae4040"), rfout * 0.4f);
                         Lines.stroke(12f * rfout);
                         Lines.circle(ex, ey, 10f + rp * 180f);
 
-                        Draw.color(Color.valueOf("dd0000"));
+                        Draw.color(Color.valueOf("a23b3b"));
                         Lines.stroke(6f * rfout);
                         Lines.circle(ex, ey, 8f + rp * 160f);
 
-                        Draw.color(Color.valueOf("cc1111"));
+                        Draw.color(Color.valueOf("a23b3b"));
                         Lines.stroke(2.5f * rfout);
                         Lines.circle(ex, ey, 6f + rp * 145f);
 
-                        Drawf.light(ex, ey, rfout * 300f, Color.valueOf("ff0033"), 0.88f);
+                        Drawf.light(ex, ey, rfout * 300f, Color.valueOf("ba4545"), 0.88f);
                     });
 
                     e.scaled(90f, ring2 -> {
@@ -1774,15 +1938,15 @@ public class CrimsonBullets {
                         rp = Mathf.clamp(rp);
                         float rfout = 1f - rp;
 
-                        Draw.color(Color.valueOf("cc0022"), Color.valueOf("bb0000"), rfout * 0.35f);
+                        Draw.color(Color.valueOf("973535"), Color.valueOf("8c2f2f"), rfout * 0.35f);
                         Lines.stroke(9f * rfout);
                         Lines.circle(ex, ey, 10f + Interp.pow2Out.apply(rp) * 220f);
 
-                        Draw.color(Color.valueOf("ff1133"));
+                        Draw.color(Color.valueOf("c74949"));
                         Lines.stroke(4.5f * rfout);
                         Lines.circle(ex, ey, 8f + Interp.pow2Out.apply(rp) * 200f);
 
-                        Drawf.light(ex, ey, rfout * 200f, Color.valueOf("ff0033"), 0.75f);
+                        Drawf.light(ex, ey, rfout * 200f, Color.valueOf("ba4545"), 0.75f);
                     });
 
                     e.scaled(130f, ring3 -> {
@@ -1792,15 +1956,15 @@ public class CrimsonBullets {
                         rp = Mathf.clamp(rp);
                         float rfout = 1f - rp;
 
-                        Draw.color(Color.valueOf("880022"), Color.valueOf("cc0000"), rfout * 0.3f);
+                        Draw.color(Color.valueOf("691f1f"), Color.valueOf("973535"), rfout * 0.3f);
                         Lines.stroke(7f * rfout);
                         Lines.circle(ex, ey, 10f + Interp.pow3Out.apply(rp) * 260f);
 
-                        Draw.color(Color.valueOf("cc0033"));
+                        Draw.color(Color.valueOf("973535"));
                         Lines.stroke(3.5f * rfout);
                         Lines.circle(ex, ey, 8f + Interp.pow3Out.apply(rp) * 240f);
 
-                        Drawf.light(ex, ey, rfout * 150f, Color.valueOf("cc0022"), 0.65f);
+                        Drawf.light(ex, ey, rfout * 150f, Color.valueOf("973535"), 0.65f);
                     });
 
                     for (int d = 0; d < 40; d++) {
@@ -1821,23 +1985,23 @@ public class CrimsonBullets {
                             float dx = ex + Tmp.v1.x;
                             float dy = ey + Tmp.v1.y + height;
 
-                            Drawf.light(dx, dy, 35f * dfout, Color.valueOf("ff0033"), 0.7f);
+                            Drawf.light(dx, dy, 35f * dfout, Color.valueOf("ba4545"), 0.7f);
 
-                            Draw.color(Color.valueOf("770018"));
+                            Draw.color(Color.valueOf("5d1a1a"));
                             Draw.alpha(dfout * 0.9f);
                             circle(dx, dy, (6f + fd * 0.1f) * dfout);
 
-                            Draw.color(Color.valueOf("ff1133"));
+                            Draw.color(Color.valueOf("c74949"));
                             Draw.alpha(dfout * 0.8f);
                             circle(dx, dy, (4f + fd * 0.08f) * dfout);
 
-                            Draw.color(Color.valueOf("cc1111"));
+                            Draw.color(Color.valueOf("a23b3b"));
                             Draw.alpha(dfout * 0.45f);
                             circle(dx - 0.7f, dy + 0.7f, 1.8f * dfout);
 
                             if (dp > 0.65f) {
                                 float splat = (dp - 0.65f) * 2.85f;
-                                Draw.color(Color.valueOf("cc0033"));
+                                Draw.color(Color.valueOf("973535"));
                                 Draw.alpha(dfout * splat * 0.75f);
                                 Lines.stroke(1.8f * dfout * splat);
                                 Lines.circle(ex + Tmp.v1.x, ey + Tmp.v1.y, splat * 12f);
@@ -1853,20 +2017,20 @@ public class CrimsonBullets {
                             float fogDist = fog.fin(Interp.pow3Out) * (150f + fp * 14f);
                             Tmp.v1.trns(fogAngle, fogDist);
 
-                            Draw.color(Color.valueOf("1a0008"));
+                            Draw.color(JBColor.oblivionVoid);
                             Draw.alpha(ff2 * (0.88f - fp * 0.05f));
                             circle(ex + Tmp.v1.x, ey + Tmp.v1.y,
                                     (28f - fp * 1.2f) * ff2 * (1f + Mathf.absin(fog.time, 6f, 0.16f)));
 
-                            Draw.color(Color.valueOf("660018"));
+                            Draw.color(Color.valueOf("501616"));
                             Draw.alpha(ff2 * 0.5f);
                             circle(ex + Tmp.v1.x, ey + Tmp.v1.y, (14f - fp * 0.7f) * ff2);
 
-                            Drawf.light(ex + Tmp.v1.x, ey + Tmp.v1.y, 50f * ff2, Color.valueOf("ff0033"), 0.62f);
+                            Drawf.light(ex + Tmp.v1.x, ey + Tmp.v1.y, 50f * ff2, Color.valueOf("ba4545"), 0.62f);
                         }
                     });
 
-                    Drawf.light(ex, ey, e.fout() * 400f, Color.valueOf("880022"), 0.97f);
+                    Drawf.light(ex, ey, e.fout() * 400f, Color.valueOf("691f1f"), 0.97f);
                 });
 
                 despawnHit = true;
@@ -1902,14 +2066,14 @@ public class CrimsonBullets {
                         height = 16f;
                         lifetime = 34f;
 
-                        backColor = Color.valueOf("330011");
-                        frontColor = Color.valueOf("ff1133");
-                        lightColor = Color.valueOf("ff0033");
+                        backColor = Color.valueOf("290a0a");
+                        frontColor = Color.valueOf("c74949");
+                        lightColor = Color.valueOf("ba4545");
                         lightRadius = 48f;
 
                         trailLength = 8;
                         trailWidth = 2.8f;
-                        trailColor = Color.valueOf("880022");
+                        trailColor = Color.valueOf("691f1f");
 
                         splashDamageRadius = 28f;
                         splashDamage = 85f;
@@ -1920,18 +2084,18 @@ public class CrimsonBullets {
                         hitEffect = new Effect(42f, e -> {
                             float fout = e.fout();
 
-                            Draw.color(Color.valueOf("ff1133"), Color.valueOf("cc1111"), fout * 0.3f);
+                            Draw.color(Color.valueOf("c74949"), Color.valueOf("a23b3b"), fout * 0.3f);
                             Lines.stroke(fout * 1.8f);
                             Angles.randLenVectors(e.id, 20, e.finpow() * 55f, (x, y) -> {
                                 float ang = Mathf.angle(x, y);
                                 Lines.lineAngle(e.x + x, e.y + y, ang, fout * 8f + 3f);
                             });
 
-                            Draw.color(Color.valueOf("cc0033"));
+                            Draw.color(Color.valueOf("973535"));
                             Draw.alpha(fout * 0.85f);
                             circle(e.x, e.y, fout * 14f);
 
-                            Draw.color(Color.valueOf("cc0000"));
+                            Draw.color(Color.valueOf("973535"));
                             Draw.alpha(fout * 0.7f);
                             circle(e.x, e.y, fout * 9f);
 
@@ -1939,7 +2103,7 @@ public class CrimsonBullets {
                             Draw.alpha(fout * 0.55f);
                             circle(e.x, e.y, fout * 5f);
 
-                            Drawf.light(e.x, e.y, 60f * fout, Color.valueOf("ff0033"), 0.85f);
+                            Drawf.light(e.x, e.y, 60f * fout, Color.valueOf("ba4545"), 0.85f);
                         });
                     }
                 };
@@ -1954,19 +2118,19 @@ public class CrimsonBullets {
 
                 Draw.z(Layer.bullet + 0.002f);
 
-                Draw.color(Color.valueOf("880022"));
+                Draw.color(Color.valueOf("691f1f"));
                 Draw.alpha(0.42f + pressure * 0.1f);
                 circle(b.x, b.y, (36f + pressure * 5f) * scale);
 
-                Draw.color(Color.valueOf("550011"));
+                Draw.color(Color.valueOf("431212"));
                 Draw.alpha(0.75f + pressure * 0.1f);
                 circle(b.x, b.y, (26f + pressure * 3f) * scale);
 
-                Draw.color(Color.valueOf("ff0033"));
+                Draw.color(Color.valueOf("ba4545"));
                 Draw.alpha(0.95f);
                 circle(b.x, b.y, (16f + pressure * 2f) * scale);
 
-                Draw.color(Color.valueOf("cc0000"));
+                Draw.color(Color.valueOf("973535"));
                 Draw.alpha(0.85f + pressure * 0.12f);
                 circle(b.x, b.y, (10f + pressure * 2f) * scale);
 
@@ -1977,17 +2141,17 @@ public class CrimsonBullets {
                     float arcStart = arcAngle - 35f;
                     float arcSweep = 70f + pressure * 10f;
 
-                    Draw.color(Color.valueOf("440011"));
+                    Draw.color(Color.valueOf("360e0e"));
                     Draw.alpha(0.9f);
                     Lines.stroke(3f * scale + pressure * 0.3f);
                     Lines.arc(b.x, b.y, arcRadius, arcSweep / 360f, arcStart);
 
-                    Draw.color(Color.valueOf("ff0033"));
+                    Draw.color(Color.valueOf("ba4545"));
                     Draw.alpha(0.85f + pressure * 0.12f);
                     Lines.stroke(1.7f * scale);
                     Lines.arc(b.x, b.y, arcRadius, arcSweep / 360f, arcStart);
 
-                    Draw.color(Color.valueOf("dd1111"));
+                    Draw.color(Color.valueOf("ae4040"));
                     Draw.alpha(0.5f + pressure * 0.18f);
                     Lines.stroke(0.7f);
                     Lines.arc(b.x, b.y, arcRadius, arcSweep / 360f, arcStart);
@@ -1995,10 +2159,10 @@ public class CrimsonBullets {
                     Drawf.light(
                             b.x + Angles.trnsx(arcAngle, arcRadius),
                             b.y + Angles.trnsy(arcAngle, arcRadius),
-                            28f + pressure * 10f, Color.valueOf("ff0033"), 0.78f);
+                            28f + pressure * 10f, Color.valueOf("ba4545"), 0.78f);
                 }
 
-                Draw.color(Color.valueOf("bb0000"));
+                Draw.color(Color.valueOf("8c2f2f"));
                 Draw.alpha(0.88f + pressure * 0.1f);
                 for (int i = 0; i < 6; i++) {
                     float a = (b.time * 1.3f) + i * 60f;
@@ -2009,11 +2173,11 @@ public class CrimsonBullets {
                             (3f + pressure * 1.2f) * scale);
                 }
 
-                Draw.color(Color.valueOf("dd0000"));
+                Draw.color(Color.valueOf("a23b3b"));
                 Draw.alpha(0.92f + pressure * 0.08f);
                 circle(b.x, b.y, (6f + pressure * 2.5f) * scale);
 
-                Draw.color(Color.valueOf("aa0000"));
+                Draw.color(Color.valueOf("822828"));
                 Draw.alpha(0.7f + pressure * 0.2f);
                 circle(b.x, b.y, (3.5f + pressure * 1.5f) * scale);
 
@@ -2023,7 +2187,7 @@ public class CrimsonBullets {
 
                 Drawf.light(b.x, b.y,
                         (115f + pressure * 45f) * scale,
-                        Color.valueOf("ff0033"), 0.96f);
+                        Color.valueOf("ba4545"), 0.96f);
 
                 Draw.reset();
             }
@@ -2040,27 +2204,27 @@ public class CrimsonBullets {
                 shrinkY = 0f;
                 shrinkX = 0f;
 
-                backColor = Color.valueOf("660000");
+                backColor = Color.valueOf("501616");
                 frontColor = Color.white;
-                lightColor = Color.valueOf("ff3333");
+                lightColor = Color.valueOf("df5353");
                 lightOpacity = 1f;
                 lightRadius = 180f;
 
                 trailLength = 24;
                 trailWidth = 8f;
-                trailColor = Color.valueOf("ff2222");
+                trailColor = Color.valueOf("d34e4e");
                 trailInterval = 2f;
 
                 trailEffect = new Effect(65f, e -> {
-                    Draw.color(Color.valueOf("330000"));
+                    Draw.color(Color.valueOf("290a0a"));
                     Draw.alpha(e.fout() * 0.7f);
                     circle(e.x, e.y, (20f + Mathf.absin(e.time, 2f, 4f)) * e.fout());
 
-                    Draw.color(Color.valueOf("990000"));
+                    Draw.color(JBColor.oblivionDark);
                     Draw.alpha(e.fout() * 0.8f);
                     circle(e.x, e.y, (14f + Mathf.absin(e.time, 2f, 3f)) * e.fout());
 
-                    Draw.color(Color.valueOf("ff2222"));
+                    Draw.color(Color.valueOf("d34e4e"));
                     circle(e.x, e.y, (10f + Mathf.absin(e.time, 2f, 2f)) * e.fout());
 
                     Draw.color(Color.valueOf("ffffff"));
@@ -2078,7 +2242,7 @@ public class CrimsonBullets {
 
                         Tmp.v1.trns(angle, rad);
 
-                        Draw.color(Color.valueOf("ff4444"));
+                        Draw.color(JBColor.oblivionLight);
                         Draw.alpha(foutVal * 0.8f);
 
                         for (int j = 0; j < 3; j++) {
@@ -2090,7 +2254,7 @@ public class CrimsonBullets {
                     }
 
                     Angles.randLenVectors(e.id, 8, 4f + e.fin() * 14f, (x, y) -> {
-                        Draw.color(Color.valueOf("ff6666"), Color.valueOf("ff2222"), Mathf.random());
+                        Draw.color(Color.valueOf("ee7777"), Color.valueOf("d34e4e"), Mathf.random());
                         circle(xVal + x, yVal + y, foutVal * 2f);
                     });
                 });
@@ -2099,25 +2263,25 @@ public class CrimsonBullets {
 
                 hitEffect = new Effect(140f, 450f, e -> {
 
-                    Draw.color(Color.valueOf("220000"));
+                    Draw.color(JBColor.oblivionVoid);
                     Draw.alpha(e.fout() * 0.5f);
                     circle(e.x, e.y, e.finpow() * 280f);
 
-                    Draw.color(Color.valueOf("660000"));
+                    Draw.color(Color.valueOf("501616"));
                     Draw.alpha(e.fout() * 0.6f);
                     circle(e.x, e.y, e.finpow() * 240f);
 
-                    Draw.color(Color.valueOf("aa0000"));
+                    Draw.color(Color.valueOf("822828"));
                     Draw.alpha(e.fout() * 0.7f);
                     circle(e.x, e.y, e.finpow() * 200f);
 
                     Draw.color(Color.white);
                     circle(e.x, e.y, (55f + Mathf.absin(e.time, 1.5f, 10f)) * e.fout());
 
-                    Draw.color(Color.valueOf("ff4444"));
+                    Draw.color(JBColor.oblivionLight);
                     circle(e.x, e.y, (45f + Mathf.absin(e.time, 1.5f, 8f)) * e.fout());
 
-                    Draw.color(Color.valueOf("ff2222"));
+                    Draw.color(Color.valueOf("d34e4e"));
                     circle(e.x, e.y, (35f + Mathf.absin(e.time, 1.5f, 6f)) * e.fout());
 
                     float exVal = e.x;
@@ -2139,7 +2303,7 @@ public class CrimsonBullets {
                         e.scaled(35f + (fi % 4) * 20f, beam -> {
                             float len = beam.finpow() * (100f + Mathf.random(40f));
 
-                            Draw.color(Color.valueOf("ff3333"), Color.white, beam.fout() * 0.9f);
+                            Draw.color(Color.valueOf("df5353"), Color.white, beam.fout() * 0.9f);
                             Lines.stroke(4f * beam.fout());
                             Lines.lineAngle(exVal, eyVal, angle, len);
 
@@ -2149,21 +2313,21 @@ public class CrimsonBullets {
                     }
 
                     Angles.randLenVectors(e.id, 40, 30f + 140f * e.finpow(), (x, y) -> {
-                        Draw.color(Color.valueOf("ff2222"));
+                        Draw.color(Color.valueOf("d34e4e"));
                         Draw.alpha(e.fout() * 0.85f);
                         circle(exVal + x, eyVal + y, e.fout() * 14f);
 
-                        Draw.color(Color.valueOf("ff6666"));
+                        Draw.color(Color.valueOf("ee7777"));
                         circle(exVal + x, eyVal + y, e.fout() * 7f);
                     });
 
-                    Drawf.light(e.x, e.y, e.fout() * 320f, Color.valueOf("ff3333"), 1f);
+                    Drawf.light(e.x, e.y, e.fout() * 320f, Color.valueOf("df5353"), 1f);
                 });
 
                 despawnHit = true;
 
                 shootEffect = new Effect(55f, e -> {
-                    Draw.color(Color.valueOf("660000"));
+                    Draw.color(Color.valueOf("501616"));
                     Draw.alpha(e.fin() * 0.95f);
 
                     float xVal = e.x;
@@ -2178,7 +2342,7 @@ public class CrimsonBullets {
                         circle(xVal + Tmp.v1.x, yVal + Tmp.v1.y, finVal * (16f - fi * 2f));
                     }
 
-                    Draw.color(Color.valueOf("ff3333"), Color.white, e.fin() * 0.5f);
+                    Draw.color(Color.valueOf("df5353"), Color.white, e.fin() * 0.5f);
 
                     for (int i = 0; i < 9; i++) {
                         final int fi = i;
@@ -2193,11 +2357,11 @@ public class CrimsonBullets {
                     Draw.color(Color.white);
                     circle(e.x, e.y, foutVal * 24f);
 
-                    Drawf.light(e.x, e.y, foutVal * 100f, Color.valueOf("ff3333"), 0.9f);
+                    Drawf.light(e.x, e.y, foutVal * 100f, Color.valueOf("df5353"), 0.9f);
                 });
 
                 smokeEffect = new Effect(70f, e -> {
-                    Draw.color(Color.valueOf("440000"));
+                    Draw.color(Color.valueOf("360e0e"));
                     Draw.alpha(e.fout() * 0.75f);
 
                     for (int i = 0; i < 5; i++) {
@@ -2206,7 +2370,7 @@ public class CrimsonBullets {
                         circle(e.x + Tmp.v1.x, e.y + Tmp.v1.y, e.fout() * (14f - i * 2f));
                     }
 
-                    Draw.color(Color.valueOf("ff3333"));
+                    Draw.color(Color.valueOf("df5353"));
                     Lines.stroke(3f * e.fout());
                     Lines.circle(e.x, e.y, e.fin() * 24f);
                 });
@@ -2242,14 +2406,14 @@ public class CrimsonBullets {
                         height = 14f;
                         lifetime = 30f;
 
-                        backColor = Color.valueOf("990000");
+                        backColor = JBColor.oblivionDark;
                         frontColor = Color.white;
-                        lightColor = Color.valueOf("ff3333");
+                        lightColor = Color.valueOf("df5353");
                         lightRadius = 35f;
 
                         trailLength = 8;
                         trailWidth = 2.5f;
-                        trailColor = Color.valueOf("ff2222");
+                        trailColor = Color.valueOf("d34e4e");
 
                         splashDamageRadius = 22f;
                         splashDamage = 40f;
@@ -2258,7 +2422,7 @@ public class CrimsonBullets {
                         statusDuration = 120f;
 
                         hitEffect = new Effect(25f, e -> {
-                            Draw.color(Color.valueOf("ff3333"));
+                            Draw.color(Color.valueOf("df5353"));
                             circle(e.x, e.y, e.fout() * 10f);
 
                             Draw.color(Color.white);

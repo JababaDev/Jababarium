@@ -365,6 +365,26 @@ public class MiscBullets {
             }
         };
 
+        apexMicroNemesis = new BasicBulletType(7f, 800) {
+            {
+                lifetime = 45f;
+                width = 8f;
+                height = 10f;
+                homingPower = 0.12f;
+                homingRange = 220f;
+
+                frontColor = Color.white;
+                backColor = Color.valueOf("90ead6");
+                trailColor = backColor;
+                trailWidth = 2.8f;
+                trailLength = 10;
+
+                hitEffect = Fx.hitBulletBig;
+                despawnHit = true;
+                hitSound = JBSounds.shootGauss1;
+            }
+        };
+
         apexShard = new BasicBulletType(5f, 1520) {
             {
                 lifetime = 55f;
@@ -384,6 +404,32 @@ public class MiscBullets {
 
                 fragBullets = 12;
                 fragBullet = apexMicro;
+                fragVelocityMin = 0.8f;
+                fragVelocityMax = 1.6f;
+                fragLifeMin = 0.6f;
+                fragLifeMax = 1.1f;
+            }
+        };
+
+        apexShardNemesis = new BasicBulletType(5f, 1520) {
+            {
+                lifetime = 55f;
+                width = 12f;
+                height = 18f;
+                shrinkY = 0.2f;
+
+                frontColor = Color.white;
+                backColor = JBColor.nemesisLight;
+                trailColor = backColor;
+                trailWidth = 3.6f;
+                trailLength = 20;
+
+                hitEffect = Fx.hitBulletColor;
+                despawnHit = true;
+                hitSound = JBSounds.blast;
+
+                fragBullets = 12;
+                fragBullet = apexMicroNemesis;
                 fragVelocityMin = 0.8f;
                 fragVelocityMax = 1.6f;
                 fragLifeMin = 0.6f;
@@ -830,7 +876,7 @@ public class MiscBullets {
                 homingRange = 220f;
 
                 frontColor = Color.white;
-                backColor = Color.valueOf("#bc2312");
+                backColor = JBColor.broodmotherDark;
                 trailColor = backColor;
                 trailWidth = 2.8f;
                 trailLength = 10;
@@ -850,8 +896,8 @@ public class MiscBullets {
 
                 
                 colors = new Color[] {
-                        Color.valueOf("ff000033"), 
-                        Color.valueOf("ff3333bb"), 
+                        Color.valueOf("c03f3f33"), 
+                        Color.valueOf("e15151bb"), 
                         Color.valueOf("ff8888ee"), 
                         Color.valueOf("ffffffff") 
                 };
@@ -864,9 +910,9 @@ public class MiscBullets {
                 statusDuration = 480f; 
 
                 
-                shootEffect = JBFx.hitSpark(Color.valueOf("ff2222"), 35f, 14, 45f, 2.0f, 11f);
-                hitEffect = JBFx.hitSpark(Color.valueOf("ff5555"), 40f, 18, 55f, 2.2f, 13f);
-                hitColor = Color.valueOf("ff2222");
+                shootEffect = JBFx.hitSpark(Color.valueOf("d64b4b"), 35f, 14, 45f, 2.0f, 11f);
+                hitEffect = JBFx.hitSpark(Color.valueOf("f65e5e"), 40f, 18, 55f, 2.2f, 13f);
+                hitColor = Color.valueOf("d64b4b");
                 smokeEffect = JBFx.hugeSmoke; 
 
                 
@@ -877,7 +923,7 @@ public class MiscBullets {
 
                 
                 lightRadius = 55f;
-                lightColor = Color.valueOf("ff333388");
+                lightColor = Color.valueOf("e1515188");
                 lightOpacity = 0.75f;
             }
         };
@@ -889,16 +935,16 @@ public class MiscBullets {
                 height = 18f;
 
                 
-                backColor = Color.valueOf("ff3333"); 
+                backColor = Color.valueOf("e15151"); 
                 frontColor = Color.valueOf("ffffff"); 
 
                 
                 lifetime = 35f;
 
                 
-                hitEffect = JBFx.lightningHitLarge(Color.valueOf("ff4444"));
+                hitEffect = JBFx.lightningHitLarge(Color.valueOf("eb5858"));
                 despawnEffect = JBFx.lightningHitSmall;
-                hitColor = Color.valueOf("ff6666");
+                hitColor = JBColor.broodmotherMid;
 
                 
                 lightningDamage = 305f; 
@@ -907,12 +953,12 @@ public class MiscBullets {
 
                 
                 trailLength = 12;
-                trailColor = Color.valueOf("ff333388");
+                trailColor = Color.valueOf("e1515188");
                 trailWidth = 4.5f;
                 trailEffect = JBFx.lightningSpark;
 
                 
-                shootEffect = JBFx.hitSpark(Color.valueOf("ff2222"), 20f, 8, 22f, 1.6f, 8f);
+                shootEffect = JBFx.hitSpark(Color.valueOf("d64b4b"), 20f, 8, 22f, 1.6f, 8f);
                 smokeEffect = JBFx.hugeSmokeGray;
 
                 
@@ -922,7 +968,7 @@ public class MiscBullets {
 
                 
                 lightRadius = 30f;
-                lightColor = Color.valueOf("ff333366");
+                lightColor = Color.valueOf("e1515166");
                 lightOpacity = 0.65f;
             }
         };
@@ -932,7 +978,7 @@ public class MiscBullets {
                 
                 width = 44f;
                 height = 44f;
-                backColor = Color.valueOf("ff2222"); 
+                backColor = Color.valueOf("d64b4b"); 
                 frontColor = Color.valueOf("ffffff"); 
 
                 
@@ -947,30 +993,30 @@ public class MiscBullets {
 
                 
                 hitEffect = new MultiEffect(
-                        JBFx.crossBlast(Color.valueOf("ff2222"), 140f), 
+                        JBFx.crossBlast(Color.valueOf("d64b4b"), 140f), 
                         JBFx.circleOut(Color.valueOf("ffffff"), 130f), 
                         JBFx.hitSparkHuge 
                 );
                 despawnEffect = new MultiEffect(
-                        JBFx.blast(Color.valueOf("ff1111"), 130f),
+                        JBFx.blast(Color.valueOf("cb4545"), 130f),
                         JBFx.circleOut(Color.valueOf("ffaaaa"), 140f));
-                hitColor = Color.valueOf("ff2222");
+                hitColor = Color.valueOf("d64b4b");
 
                 
                 despawnHit = true;
 
                 
                 trailLength = 14;
-                trailColor = Color.valueOf("ff222299");
+                trailColor = Color.valueOf("d64b4b99");
                 trailWidth = 7f;
 
                 
-                shootEffect = JBFx.crossBlast(Color.valueOf("ff2222"), 50f);
+                shootEffect = JBFx.crossBlast(Color.valueOf("d64b4b"), 50f);
                 smokeEffect = JBFx.hugeSmokeGray;
 
                 
                 lightRadius = 55f;
-                lightColor = Color.valueOf("ff111188");
+                lightColor = Color.valueOf("cb454588");
                 lightOpacity = 0.8f;
 
                 drag = 0.015f;
@@ -984,8 +1030,8 @@ public class MiscBullets {
 
         missileStrike = new BasicBulletType(8, 1100f, JBBullets.STRIKE) {
             {
-                trailColor = lightningColor = backColor = lightColor = JBColor.lightSkyBack;
-                frontColor = JBColor.lightSkyFront;
+                trailColor = lightningColor = backColor = lightColor = Color.valueOf("aabcf9");
+                frontColor = Color.valueOf("e5ebff");
                 lightning = 2;
                 lightningCone = 360;
                 lightningLengthRand = lightningLength = 8;
@@ -1029,9 +1075,9 @@ public class MiscBullets {
             {
                 effectLightningChance = 0.15f;
                 damage = 1200;
-                backColor = trailColor = lightColor = lightningColor = hitColor = Color.valueOf("#75FFB0");
+                backColor = trailColor = lightColor = lightningColor = hitColor = Color.valueOf("8be9d4");
                 size = 10f;
-                frontColor = JBColor.thurmixRedLight;
+                frontColor = Color.valueOf("d3faf0");
                 range = 1200f;
                 spreadEffect = Fx.none;
 
