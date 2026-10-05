@@ -68,6 +68,8 @@ jar{
 
     from("assets/"){
         include "**"
+        // local-only sprite library (gitignored), not used by the mod
+        exclude "sprites/free/**"
     }
 }
 

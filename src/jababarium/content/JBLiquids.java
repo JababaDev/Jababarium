@@ -1,13 +1,10 @@
 package jababarium.content;
 
 import arc.graphics.Color;
-import arc.struct.Seq;
 import mindustry.content.Liquids;
 import mindustry.type.Liquid;
 
 public class JBLiquids {
-    public static Seq<Liquid> streams = Seq.with();
-
     public static Liquid nectron, aerial, mercury, argon;
 
     public static Liquid water, slag, oil, cryofluid, arkycite, gallium, neoplasm, ozone, hydrogen, nitrogen, cyanogen;

@@ -96,6 +96,7 @@ public class UnitBuilder {
     }
 
     public UnitBuilder stepSound(Sound sound) {
+        unit.stepSound = sound;
         return this;
     }
 

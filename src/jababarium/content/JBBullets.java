@@ -76,8 +76,11 @@ public class JBBullets {
     }
 
     private static void loadMiscBullets() {
-        burst = new ArtilleryBulletType(16f, 2500) {
+        burst = new ArtilleryBulletType(16f, 0) {
             {
+                // artillery shells deal no direct damage, only splash + frags
+                splashDamage = 750f;
+                splashDamageRadius = 70f;
                 lifetime = 80f;
                 width = 14f;
                 height = 24f;
@@ -94,11 +97,11 @@ public class JBBullets {
                 despawnEffect = Fx.scatheExplosion;
 
                 fragBullets = 12;
-                fragBullet = new BasicBulletType(5f, 40) {
+                fragBullet = new BasicBulletType(5f, 25) {
                     {
                         width = 7f;
                         height = 12f;
-                        lifetime = 25f; 
+                        lifetime = 25f;
                         backColor = Color.valueOf("#5CE65C");
                         frontColor = Color.white;
                         lightning = 2;
@@ -120,7 +123,7 @@ public class JBBullets {
                 lightColor = Color.valueOf("bf92f9");
 
                 hitSound = JBSounds.shootGauss3;
-                damage = 3050f;
+                damage = 3700f;
                 speed = 500f;
                 hitShake = 8f;
 
@@ -166,7 +169,7 @@ public class JBBullets {
             }
         };
 
-        entropyBolt = new BasicBulletType(8f, 150) {
+        entropyBolt = new BasicBulletType(8f, 80) {
             {
                 lifetime = 40f;
                 width = 12f;
@@ -205,7 +208,7 @@ public class JBBullets {
             }
         };
 
-        transgression = new ContinuousFlameBulletType(300) {
+        transgression = new ContinuousFlameBulletType(120) {
             {
                 shake = 3;
                 hitColor = flareColor = lightColor = lightningColor = JBColor.lightSkyBack;
@@ -213,7 +216,7 @@ public class JBBullets {
                         JBColor.lightSkyBack.cpy().mul(1f, 1f, 1f, 0.65f),
                         JBColor.lightSkyBack.cpy().lerp(JBColor.green, 0.5f), JBColor.green };
                 width = 6;
-                length = 380f;
+                length = 400f;
                 oscScl = 0.9f;
                 oscMag *= 2f;
                 lifetime = 35f;
@@ -384,14 +387,18 @@ public class JBBullets {
         apexShard = apexShard(Color.valueOf("4dff7a"), apexMicro);
         apexShardNemesis = apexShard(JBColor.nemesisLight, apexMicroNemesis);
 
-        apexShell = new ArtilleryBulletType(5.2f, 7000f) {
+        // balance: apex-only copies (the nemesis variants above keep their damage)
+        apexMicro.damage = 220f;
+        apexShard.damage = 300f;
+
+        apexShell = new ArtilleryBulletType(5.2f, 2500f) {
             {
                 lifetime = 180f;
                 width = 30f;
                 height = 40f;
                 shrinkY = 0.3f;
 
-                splashDamage = 1400f;
+                splashDamage = 500f;
                 splashDamageRadius = 160f;
 
                 frontColor = Color.white;
@@ -414,7 +421,7 @@ public class JBBullets {
             }
         };
 
-        abbys = new ArtilleryBulletType(3f, 25000) {
+        abbys = new ArtilleryBulletType(3f, 32000) {
             BulletType damageField;
 
             {
@@ -443,7 +450,7 @@ public class JBBullets {
 
                 lightning = 12;
                 lightningLength = 35;
-                lightningDamage = 600f;
+                lightningDamage = 775f;
                 lightningColor = Color.valueOf("#fef4f4");
 
                 trailWidth = 8f;
@@ -453,7 +460,7 @@ public class JBBullets {
 
                 fragBullets = 0;
 
-                fragBullet = new BasicBulletType(8f, 250) {
+                fragBullet = new BasicBulletType(8f, 320) {
                     {
                         width = 14f;
                         height = 18f;
@@ -463,7 +470,7 @@ public class JBBullets {
 
                         lightning = 4;
                         lightningLength = 14;
-                        lightningDamage = 120;
+                        lightningDamage = 155;
                         lightningColor = Color.valueOf("fff4f4");
 
                         collidesAir = true;
@@ -718,7 +725,7 @@ public class JBBullets {
                         
                         if (b.time < 60f) {
                             if (b.timer.get(0, 8f)) {
-                                Damage.damage(b.team, b.x, b.y, 200f, 1800f);
+                                Damage.damage(b.team, b.x, b.y, 200f, 2300f);
                                 Damage.status(b.team, b.x, b.y, 200f, StatusEffects.slow, 90f, true, true);
 
                                 if (!Vars.headless) {
@@ -738,7 +745,7 @@ public class JBBullets {
                                 float progress = (b.time - 60f) / 240f;
                                 float radius = 200f + progress * 600f;
 
-                                Damage.damage(b.team, b.x, b.y, radius, 5500f);
+                                Damage.damage(b.team, b.x, b.y, radius, 7100f);
 
                                 if (Mathf.chance(0.35)) {
                                     JBFx.hitSparkHuge.at(b.x + Mathf.range(radius / 2), b.y + Mathf.range(radius / 2),
@@ -754,7 +761,7 @@ public class JBBullets {
 
                             
                         } else if (b.time < 350f && Math.abs(b.time - 300f) < 3f) {
-                            Damage.damage(b.team, b.x, b.y, 1100f, 85000f);
+                            Damage.damage(b.team, b.x, b.y, 1100f, 110000f);
                             Damage.status(b.team, b.x, b.y, 1100f, StatusEffects.melting, 900f, true, true);
                             Damage.status(b.team, b.x, b.y, 800f, StatusEffects.slow, 600f, true, true);
 
@@ -780,7 +787,7 @@ public class JBBullets {
                         } else if (b.time >= 350f) {
                             if (b.timer.get(0, 12f)) {
                                 float progress = (b.time - 350f) / 70f;
-                                Damage.damage(b.team, b.x, b.y, 900f + progress * 200f, 2500f);
+                                Damage.damage(b.team, b.x, b.y, 900f + progress * 200f, 3200f);
                             }
                         }
                     }
@@ -814,9 +821,9 @@ public class JBBullets {
             }
         };
 
-        tinyShell = new BasicBulletType(7f, 100) {
+        tinyShell = new BasicBulletType(7f, 42) {
             {
-                lifetime = 45f;
+                lifetime = 23f;
                 width = 8f;
                 height = 10f;
                 homingPower = 0.12f;
@@ -837,8 +844,8 @@ public class JBBullets {
         laserBurn = new LaserBulletType() {
             {
                 
-                damage = 2800f; 
-                length = 320f; 
+                damage = 250f; 
+                length = 360f; 
                 width = 7.5f; 
 
                 
@@ -875,7 +882,7 @@ public class JBBullets {
             }
         };
 
-        thunderShot = new BasicBulletType(13f, 650f) {
+        thunderShot = new BasicBulletType(13f, 250f) {
             {
                 
                 width = 10f;
@@ -886,7 +893,7 @@ public class JBBullets {
                 frontColor = Color.valueOf("ffffff"); 
 
                 
-                lifetime = 35f;
+                lifetime = 28f;
 
                 
                 hitEffect = JBFx.lightningHitLarge(Color.valueOf("eb5858"));
@@ -929,10 +936,10 @@ public class JBBullets {
                 frontColor = Color.valueOf("ffffff"); 
 
                 
-                lifetime = 30f;
+                lifetime = 80f;
 
                 
-                splashDamage = 6800f; 
+                splashDamage = 980f; 
                 splashDamageRadius = 280f; 
 
                 
@@ -975,7 +982,7 @@ public class JBBullets {
             }
         };
 
-        missileStrike = new BasicBulletType(8, 1100f, JBBullets.STRIKE) {
+        missileStrike = new BasicBulletType(8, 170f, JBBullets.STRIKE) {
             {
                 trailColor = lightningColor = backColor = lightColor = Color.valueOf("aabcf9");
                 frontColor = Color.valueOf("e5ebff");
@@ -1021,11 +1028,11 @@ public class JBBullets {
         nemesisBullet = new LightningLinkerBulletType() {
             {
                 effectLightningChance = 0.15f;
-                damage = 1200;
+                damage = 600;
                 backColor = trailColor = lightColor = lightningColor = hitColor = Color.valueOf("8be9d4");
                 size = 10f;
                 frontColor = Color.valueOf("d3faf0");
-                range = 1200f;
+                range = 900f;
                 spreadEffect = Fx.none;
 
                 trailWidth = 8f;
@@ -1040,7 +1047,7 @@ public class JBBullets {
                 hitSound = Sounds.explosion;
                 splashDamageRadius = 90f;
                 splashDamage = lightningDamage = damage / 3f;
-                lifetime = 230f;
+                lifetime = 205f;
                 despawnEffect = JBFx.lightningHitLarge(hitColor);
                 hitEffect = JBFx.sharpBlast(hitColor, frontColor, 35, splashDamageRadius * 1.25f);
                 shootEffect = JBFx.hitSpark(backColor, 45f, 12, 60, 3, 8);
@@ -1086,9 +1093,9 @@ public class JBBullets {
         laserBeam = laserBeam(Color.valueOf("d24d4d"), Color.valueOf("ed7272"), JBColor.oblivionLight);
         laserBeamOcelexis = laserBeam(JBColor.ocelexisMid, Color.valueOf("e5877a"), Color.valueOf("d6746d"));
 
-        plasma = new BasicBulletType(6f, 850) {
+        plasma = new BasicBulletType(6f, 176) {
             {
-                lifetime = 55f;
+                lifetime = 75f;
 
                 width = 18f;
                 height = 28f;
@@ -1236,7 +1243,7 @@ public class JBBullets {
             }
         };
 
-        plasmaBeam = new ContinuousFlameBulletType(340) {
+        plasmaBeam = new ContinuousFlameBulletType(29) {
             {
                 shake = 3;
                 hitColor = flareColor = lightColor = lightningColor = JBColor.nemesisLight;
@@ -1297,9 +1304,9 @@ public class JBBullets {
             }
         };
 
-        lightSupport = new BasicBulletType(8f, 120) {
+        lightSupport = new BasicBulletType(8f, 36) {
             {
-                lifetime = 65f;
+                lifetime = 56f;
 
                 width = 8f;
                 height = 12f;
@@ -1496,7 +1503,7 @@ public class JBBullets {
             {
                 float rad = 100f;
 
-                rangeOverride = 400f;
+                rangeOverride = 630f;
 
                 scaleLife = true;
                 lightOpacity = 0.7f;
@@ -1504,7 +1511,7 @@ public class JBBullets {
                 timeIncrease = 3f;
                 timeDuration = 60f * 20f;
                 powerDamageScl = 3f;
-                damage = 600;
+                damage = 410;
                 hitColor = lightColor = Color.valueOf("859cef");
                 lightRadius = 70f;
                 shootEffect = new Effect(40, e -> {
@@ -1523,7 +1530,7 @@ public class JBBullets {
                     Lines.circle(e.x, e.y, 4f + e.finpow() * 60f);
                 });
 
-                lifetime = 60f;
+                lifetime = 80f;
                 lightningColor = backColor = Color.valueOf("859cef");
                 frontColor = Color.white;
 
@@ -1570,9 +1577,9 @@ public class JBBullets {
         ionPulseBullet = new BasicBulletType() {
             {
                 
-                damage = 285f;
+                damage = 165f;
                 speed = 7.5f;
-                lifetime = 65f;
+                lifetime = 80f;
                 width = 11f;
                 height = 28f;
 
@@ -1594,7 +1601,7 @@ public class JBBullets {
                 lightOpacity = 0.65f;
 
                 
-                splashDamage = 45f;
+                splashDamage = 27f;
                 splashDamageRadius = 38f;
 
                 
@@ -1667,7 +1674,7 @@ public class JBBullets {
         plasmaBoltBullet = new LightningLinkerBulletType() {
             {
                 effectLightningChance = 0.15f;
-                damage = 1200;
+                damage = 800;
                 backColor = trailColor = lightColor = lightningColor = hitColor = Color.valueOf("859cef");
                 size = 10f;
                 frontColor = JBColor.tidebreakerPale;
@@ -1677,7 +1684,7 @@ public class JBBullets {
                 trailWidth = 8f;
                 trailLength = 20;
 
-                speed = 8f;
+                speed = 8.8f;
 
                 linkRange = 280f;
 
@@ -1697,9 +1704,9 @@ public class JBBullets {
         hyperBeamBullet = new BasicBulletType() {
             {
                 
-                damage = 1220f;
+                damage = 1000f;
                 speed = 11f;
-                lifetime = 75f;
+                lifetime = 64f;
                 width = 13f;
                 height = 44f;
 
@@ -1721,12 +1728,12 @@ public class JBBullets {
                 lightOpacity = 0.8f;
 
                 
-                splashDamage = 160f;
+                splashDamage = 200f;
                 splashDamageRadius = 70f;
 
                 
                 lightning = 3;
-                lightningDamage = 55f;
+                lightningDamage = 70f;
                 lightningLength = 8;
                 lightningLengthRand = 14;
                 lightningColor = Color.valueOf("859cef");
@@ -1852,9 +1859,9 @@ public class JBBullets {
     }
 
     private static void loadCrimsonBullets() {
-        crimson = new BasicBulletType(5.5f, 780) {
+        crimson = new BasicBulletType(5.5f, 252) {
             {
-                lifetime = 55f;
+                lifetime = 73f;
 
                 width = 24f;
                 height = 24f;
@@ -2037,7 +2044,7 @@ public class JBBullets {
                 splashDamage = damage * 0.85f;
 
                 fragBullets = 6;
-                fragBullet = new BasicBulletType(4f, 80) {
+                fragBullet = new BasicBulletType(4f, 26) {
                     {
                         width = 8f;
                         height = 12f;
@@ -2053,7 +2060,7 @@ public class JBBullets {
                         trailColor = Color.valueOf("d34e4e");
 
                         splashDamageRadius = 20f;
-                        splashDamage = 40f;
+                        splashDamage = 13f;
 
                         hitEffect = new Effect(20f, e -> {
                             Draw.color(Color.valueOf("d34e4e"));
@@ -2226,9 +2233,9 @@ public class JBBullets {
         crimsonLanceHeavy = crimsonLanceHeavy(Color.valueOf("c74949"), Color.valueOf("d34e4e"), Color.valueOf("df5353"), Color.valueOf("eb6969"));
         crimsonLanceHeavyOcelexis = crimsonLanceHeavy(Color.valueOf("b85858"), JBColor.ocelexisMid, Color.valueOf("cc6966"), Color.valueOf("df8075"));
 
-        crimsonChain = new BasicBulletType(8f, 750) {
+        crimsonChain = new BasicBulletType(8f, 486) {
             {
-                lifetime = 85f;
+                lifetime = 63f;
 
                 width = 16f;
                 height = 38f;
@@ -2481,7 +2488,7 @@ public class JBBullets {
 
                 fragOnHit = true;
                 fragBullets = 16;
-                fragBullet = new BasicBulletType(5f, 65) {
+                fragBullet = new BasicBulletType(5f, 42) {
                     {
                         width = 8f;
                         height = 12f;
@@ -2497,7 +2504,7 @@ public class JBBullets {
                         trailColor = Color.valueOf("d95050");
 
                         splashDamageRadius = 18f;
-                        splashDamage = 35f;
+                        splashDamage = 23f;
 
                         status = StatusEffects.burning;
                         statusDuration = 90f;
@@ -2519,7 +2526,7 @@ public class JBBullets {
             }
         };
 
-        crimsonBeam = new ContinuousFlameBulletType(550) {
+        crimsonBeam = new ContinuousFlameBulletType(125) {
             {
                 shake = 5;
                 hitColor = lightColor = lightningColor = Color.valueOf("cd4c4c");
@@ -2624,7 +2631,7 @@ public class JBBullets {
             }
         };
 
-        crimsonNova = new BasicBulletType(8f, 720) {
+        crimsonNova = new BasicBulletType(8f, 564) {
             {
                 lifetime = 50f;
 
@@ -2839,9 +2846,9 @@ public class JBBullets {
             }
         };
 
-        crimsonVortex = new BasicBulletType(7f, 1840) {
+        crimsonVortex = new BasicBulletType(7f, 892) {
             {
-                lifetime = 105f;
+                lifetime = 90f;
 
                 width = 20f;
                 height = 20f;
@@ -3017,7 +3024,7 @@ public class JBBullets {
 
                 fragOnHit = true;
                 fragBullets = 18;
-                fragBullet = new BasicBulletType(7f, 85) {
+                fragBullet = new BasicBulletType(7f, 41) {
                     {
                         width = 9f;
                         height = 13f;
@@ -3033,7 +3040,7 @@ public class JBBullets {
                         trailColor = Color.valueOf("df5353");
 
                         splashDamageRadius = 22f;
-                        splashDamage = 42f;
+                        splashDamage = 20f;
 
                         status = StatusEffects.burning;
                         statusDuration = 130f;
@@ -3094,9 +3101,9 @@ public class JBBullets {
             }
         };
 
-        guidedCrimsonLance = new BasicBulletType(8.5f, 680) {
+        guidedCrimsonLance = new BasicBulletType(8.5f, 351) {
             {
-                lifetime = 170f;
+                lifetime = 74f;
 
                 width = 12f;
                 height = 32f;
@@ -3237,9 +3244,9 @@ public class JBBullets {
             }
         };
 
-        infernoCore = new BasicBulletType(9.2f, 1300) {
+        infernoCore = new BasicBulletType(9.2f, 667) {
             {
-                lifetime = 80f;
+                lifetime = 68f;
 
                 width = 18f;
                 height = 38f;
@@ -3544,7 +3551,7 @@ public class JBBullets {
                 fragBullets = 18;
                 fragVelocityMin = 0.75f;
                 fragVelocityMax = 1.95f;
-                fragBullet = new BasicBulletType(8f, 210) {
+                fragBullet = new BasicBulletType(8f, 108) {
                     {
                         width = 7f;
                         height = 16f;
@@ -3560,7 +3567,7 @@ public class JBBullets {
                         trailColor = Color.valueOf("691f1f");
 
                         splashDamageRadius = 28f;
-                        splashDamage = 85f;
+                        splashDamage = 44f;
 
                         status = StatusEffects.burning;
                         statusDuration = 170f;
@@ -3677,9 +3684,9 @@ public class JBBullets {
             }
         };
 
-        absoluteInferno = new BasicBulletType(7f, 1090) {
+        absoluteInferno = new BasicBulletType(7f, 782) {
             {
-                lifetime = 100f;
+                lifetime = 90f;
 
                 width = 28f;
                 height = 28f;
@@ -3884,7 +3891,7 @@ public class JBBullets {
                 fragOnHit = true;
                 fragBullets = 24;
 
-                fragBullet = new BasicBulletType(6f, 85) {
+                fragBullet = new BasicBulletType(6f, 61) {
                     {
                         width = 9f;
                         height = 14f;
@@ -3900,7 +3907,7 @@ public class JBBullets {
                         trailColor = Color.valueOf("d34e4e");
 
                         splashDamageRadius = 22f;
-                        splashDamage = 40f;
+                        splashDamage = 29f;
 
                         status = StatusEffects.burning;
                         statusDuration = 120f;
@@ -3925,9 +3932,9 @@ public class JBBullets {
     }
 
     private static void loadFrostBullets() {
-        absoluteZero = new BasicBulletType(6f, 1990) {
+        absoluteZero = new BasicBulletType(6f, 882) {
             {
-                lifetime = 100f;
+                lifetime = 117f;
 
                 width = 28f;
                 height = 28f;
@@ -4268,7 +4275,7 @@ public class JBBullets {
 
                 fragOnHit = true;
                 fragBullets = 24;
-                fragBullet = new BasicBulletType(6f, 85) {
+                fragBullet = new BasicBulletType(6f, 38) {
                     {
                         width = 9f;
                         height = 14f;
@@ -4284,7 +4291,7 @@ public class JBBullets {
                         trailColor = JBColor.nemesisLight;
 
                         splashDamageRadius = 22f;
-                        splashDamage = 40f;
+                        splashDamage = 18f;
 
                         status = StatusEffects.freezing;
                         statusDuration = 120f;
@@ -4315,9 +4322,9 @@ public class JBBullets {
             }
         };
 
-        guidedZeroMissile = new BasicBulletType(8.5f, 680) {
+        guidedZeroMissile = new BasicBulletType(8.5f, 257) {
             {
-                lifetime = 170f;
+                lifetime = 82f;
 
                 width = 12f;
                 height = 32f;
@@ -4459,9 +4466,9 @@ public class JBBullets {
             }
         };
 
-        azureStream = new BasicBulletType(11f, 1020) {
+        azureStream = new BasicBulletType(11f, 401) {
             {
-                lifetime = 65f;
+                lifetime = 63f;
 
                 width = 11f;
                 height = 55f;
@@ -4745,7 +4752,7 @@ public class JBBullets {
 
                 fragOnHit = true;
                 fragBullets = 18;
-                fragBullet = new BasicBulletType(8f, 95) {
+                fragBullet = new BasicBulletType(8f, 37) {
                     {
                         width = 8f;
                         height = 8f;
@@ -4761,7 +4768,7 @@ public class JBBullets {
                         trailColor = JBColor.nemesisLight;
 
                         splashDamageRadius = 26f;
-                        splashDamage = 50f;
+                        splashDamage = 20f;
 
                         status = StatusEffects.shocked;
                         statusDuration = 150f;
@@ -4795,7 +4802,7 @@ public class JBBullets {
             }
         };
 
-        frostCascade = new BasicBulletType(8f, 1060) {
+        frostCascade = new BasicBulletType(8f, 448) {
             {
                 lifetime = 70f;
 
@@ -5042,7 +5049,7 @@ public class JBBullets {
 
                 fragOnHit = true;
                 fragBullets = 20;
-                fragBullet = new BasicBulletType(7f, 88) {
+                fragBullet = new BasicBulletType(7f, 37) {
                     {
                         width = 8f;
                         height = 8f;
@@ -5058,7 +5065,7 @@ public class JBBullets {
                         trailColor = Color.valueOf("49c7ac");
 
                         splashDamageRadius = 25f;
-                        splashDamage = 46f;
+                        splashDamage = 19f;
 
                         status = StatusEffects.freezing;
                         statusDuration = 140f;
@@ -5094,7 +5101,7 @@ public class JBBullets {
             }
         };
 
-        frostShotgun = new ContinuousLaserBulletType(1000f) {
+        frostShotgun = new ContinuousLaserBulletType(61f) {
             {
                 length = 350f;
                 width = 3.5f;
@@ -5164,9 +5171,9 @@ public class JBBullets {
     }
 
     private static void loadVoidBullets() {
-        voidPlasma = new BasicBulletType(11f, 1020) {
+        voidPlasma = new BasicBulletType(11f, 586) {
             {
-                lifetime = 65f;
+                lifetime = 50f;
 
                 width = 18f;
                 height = 42f;
@@ -5439,9 +5446,9 @@ public class JBBullets {
             }
         };
 
-        guidedVoidMissile = new BasicBulletType(7.5f, 580) {
+        guidedVoidMissile = new BasicBulletType(7.5f, 286) {
             {
-                lifetime = 150f;
+                lifetime = 74f;
 
                 width = 12f;
                 height = 32f;
@@ -5583,9 +5590,9 @@ public class JBBullets {
             }
         };
 
-        voidCollapse = new BasicBulletType(5f, 720) {
+        voidCollapse = new BasicBulletType(5f, 644) {
             {
-                lifetime = 125f;
+                lifetime = 110f;
 
                 width = 28f;
                 height = 28f;
@@ -5796,9 +5803,9 @@ public class JBBullets {
         voidLanceBullet = new BasicBulletType() {
             {
                 
-                damage = 2750f;
+                damage = 1900f;
                 speed = 13f;
-                lifetime = 80f;
+                lifetime = 76f;
                 width = 18f;
                 height = 72f;
 
@@ -5820,12 +5827,12 @@ public class JBBullets {
                 lightOpacity = 0.9f;
 
                 
-                splashDamage = 380f;
+                splashDamage = 265f;
                 splashDamageRadius = 95f;
 
                 
                 lightning = 5;
-                lightningDamage = 90f;
+                lightningDamage = 63f;
                 lightningLength = 12;
                 lightningLengthRand = 20;
                 lightningColor = Color.valueOf("859cef");
@@ -6006,12 +6013,12 @@ public class JBBullets {
     }
 
     private static void loadVerdantBullets() {
-        verdantCollapse = new BasicBulletType(7f, 8500) {
+        verdantCollapse = new BasicBulletType(7f, 684) {
             public BulletType damageLogicField;
 
             {
 
-                lifetime = 130f;
+                lifetime = 128f;
 
                 width = 24f;
                 height = 42f;
@@ -6488,7 +6495,7 @@ public class JBBullets {
                     public void update(Bullet b) {
                         super.update(b);
                         if (b.time >= 10f) {
-                            float damagePerTick = 880f;
+                            float damagePerTick = 71f;
                             Damage.damage(b.team, b.x, b.y, 400f, damagePerTick, true, true);
                         }
                     }
@@ -6496,8 +6503,8 @@ public class JBBullets {
                     @Override
                     public void despawned(Bullet b) {
                         super.despawned(b);
-                        float finalCoreDamage = 19200f;
-                        float finalOuterDamage = 9500f;
+                        float finalCoreDamage = 1545f;
+                        float finalOuterDamage = 765f;
                         float finalCoreRadius = 530f;
                         float finalOuterRadius = 900f;
 
@@ -6536,7 +6543,7 @@ public class JBBullets {
                 fragBullet = new LightningLinkerBulletType() {
                     {
                         effectLightningChance = 0.15f;
-                        damage = 420;
+                        damage = 34;
 
                         backColor = trailColor = lightColor = lightningColor = hitColor = Color.valueOf("8be9d4");
                         size = 8f;
@@ -6634,9 +6641,9 @@ public class JBBullets {
             }
         };
 
-        verdantBeamBurst = new BasicBulletType(20f, 2400) {
+        verdantBeamBurst = new BasicBulletType(20f, 229) {
             {
-                lifetime = 75f;
+                lifetime = 45f;
 
                 width = 4f;
                 height = 28f;
@@ -6908,7 +6915,7 @@ public class JBBullets {
                             float dist = (i / 20f) * 650f;
                             float dx = ex + Angles.trnsx(angle1, dist);
                             float dy = ey + Angles.trnsy(angle1, dist);
-                            Damage.damage(team, dx, dy, 40f, 4200f, true, true);
+                            Damage.damage(team, dx, dy, 40f, 400f, true, true);
                         }
                     }
 
@@ -6918,7 +6925,7 @@ public class JBBullets {
                             Damage.damage(team,
                                     ex + Angles.trnsx(angle2, dist),
                                     ey + Angles.trnsy(angle2, dist),
-                                    40f, 4200f, true, true);
+                                    40f, 400f, true, true);
                         }
                     }
 
@@ -6928,7 +6935,7 @@ public class JBBullets {
                             Damage.damage(team,
                                     ex + Angles.trnsx(angle3, dist),
                                     ey + Angles.trnsy(angle3, dist),
-                                    40f, 4200f, true, true);
+                                    40f, 400f, true, true);
                         }
                     }
 
@@ -6974,7 +6981,7 @@ public class JBBullets {
             }
         };
 
-        photosynthesisBullet = new BasicBulletType(17f, 1220f) {
+        photosynthesisBullet = new BasicBulletType(17f, 200f) {
             {
                 Color main = Color.valueOf("8be9d4");
                 Color core = Color.valueOf("e1fdf6");
@@ -6986,7 +6993,7 @@ public class JBBullets {
                 width = 5f;
                 height = 24f;
 
-                lifetime = 160f;
+                lifetime = 94f;
                 speed = 11f;
                 drag = 0.003f;
 
@@ -7222,11 +7229,11 @@ public class JBBullets {
             {
                 Color main = Color.valueOf("8be9d4");
 
-                damage = 5985f;
+                damage = 156f;
                 lightningColor = main;
-                lightningLength = 192;
+                lightningLength = 145;
                 lightningLengthRand = 10;
-                lightningDamage = 2985f;
+                lightningDamage = 78f;
 
                 hitEffect = JBFx.lightningHitLarge(main);
                 shootEffect = JBFx.lightningSpark;
@@ -7240,7 +7247,7 @@ public class JBBullets {
                 lightRadius = 50f;
                 lightOpacity = 0.75f;
 
-                splashDamage = 5835f;
+                splashDamage = 156f;
                 splashDamageRadius = 192f;
             }
 
@@ -7272,12 +7279,12 @@ public class JBBullets {
             }
         };
 
-        verdantBeam = new LaserBulletType(5350f) {
+        verdantBeam = new LaserBulletType(350f) {
             final Color main = Color.valueOf("8be9d4");
             final Color core = JBColor.nemesisGlow;
 
             {
-                length = 1520f;
+                length = 900f;
                 width = 18f;
 
                 hitColor = main;
@@ -7419,7 +7426,7 @@ public class JBBullets {
         crossSpinLaser = new BasicBulletType(0.001f, 0f) {
             final Color main = Color.valueOf("8be9d4");
             final Color core = JBColor.nemesisGlow;
-            final float laserLength = 1250f;
+            final float laserLength = 900f;
             final float baseWidth = 38f;
 
             {
@@ -7546,7 +7553,7 @@ public class JBBullets {
                         float px = bx + cos * curLen * t;
                         float py = by + sin * curLen * t;
 
-                        Damage.damage(b.team, px, py, baseWidth * 2.8f, 14080f / steps, true, true);
+                        Damage.damage(b.team, px, py, baseWidth * 2.8f, 100f / steps, true, true);
 
                         if (Mathf.chanceDelta(0.05f)) {
                             new Effect(28f, e -> {
@@ -7575,12 +7582,12 @@ public class JBBullets {
 
         verdantApex = new ArtilleryBulletType(7.2f, 7000f) {
             {
-                lifetime = 180f;
+                lifetime = 124f;
                 width = 30f;
                 height = 40f;
                 shrinkY = 0.3f;
 
-                splashDamage = 1400f;
+                splashDamage = 175f;
                 splashDamageRadius = 160f;
 
                 frontColor = Color.white;
@@ -7608,8 +7615,8 @@ public class JBBullets {
     private static void loadTideBullets() {
         tidebreakerLaser = new ShrapnelBulletType() {
             {
-                length = 1320;
-                damage = 1300f;
+                length = 900;
+                damage = 300f;
                 status = StatusEffects.slow;
                 statusDuration = 60f;
                 width = 11f;
@@ -7627,7 +7634,7 @@ public class JBBullets {
 
         condensedBolt = new BasicBulletType() {
             {
-                damage = 2280f;
+                damage = 760f;
                 speed = 10.5f;
                 lifetime = 65f;
                 width = 10f;
@@ -7647,7 +7654,7 @@ public class JBBullets {
                 lightRadius = 80f;
                 lightOpacity = 0.85f;
 
-                splashDamage = 120f;
+                splashDamage = 40f;
                 splashDamageRadius = 65f;
 
                 status = StatusEffects.electrified;
@@ -7800,7 +7807,7 @@ public class JBBullets {
             }
         };
 
-        tidebreakerStd = new AccelBulletType(2.85f, 920f) {
+        tidebreakerStd = new AccelBulletType(2.85f, 140f) {
             {
                 frontColor = Color.valueOf("e5ebff");
                 backColor = lightningColor = hitColor = lightColor = Color.valueOf("aabcf9");
@@ -7851,7 +7858,7 @@ public class JBBullets {
         basicSkyFrag = basicSkyFrag(JBColor.lightSkyBack, JBColor.lightSkyFront);
         basicSkyFragTidebreaker = basicSkyFrag(Color.valueOf("aabcf9"), Color.valueOf("e5ebff"));
 
-        tideLightning = new LightningLinkerBulletType(5.5f, 1950) {
+        tideLightning = new LightningLinkerBulletType(5.5f, 500) {
             {
                 rangeOverride = 480;
                 lightning = 0; 
@@ -7875,11 +7882,11 @@ public class JBBullets {
                 fragLifeMax = 0.45f;
                 fragVelocityMax = 0.75f;
                 fragVelocityMin = 0.25f;
-                fragBullets = 13;
+                fragBullets = 4;
                 fragBullet = JBBullets.basicSkyFragTidebreaker;
                 drawSize = 40;
                 splashDamageRadius = 240;
-                splashDamage = 850;
+                splashDamage = 225;
                 status = StatusEffects.shocked;
                 lifetime = 300;
                 despawnEffect = new OptionalMultiEffect(JBFx.circleOut(Color.valueOf("e5ebff"), 120f),
@@ -7950,11 +7957,11 @@ public class JBBullets {
             }
         };
 
-        arcBolt = new BasicBulletType(75f, 8000) {
+        arcBolt = new BasicBulletType(75f, 3100) {
             {
                 width = 15f;
                 height = 100f;
-                lifetime = 10f;
+                lifetime = 6f;
 
                 pierce = true;
                 pierceCap = -1;
@@ -7967,7 +7974,7 @@ public class JBBullets {
                 trailLength = 60;
 
                 lightning = 5;
-                lightningDamage = 150;
+                lightningDamage = 20;
                 lightningLength = 20;
 
                 hitEffect = Fx.instBomb;
@@ -7996,7 +8003,7 @@ public class JBBullets {
                 backColor = lightningPurple;
                 trailColor = deepPurple;
 
-                lifetime = 120f; 
+                lifetime = 75f; 
 
                 
                 damage = 0f;
@@ -8075,7 +8082,7 @@ public class JBBullets {
                 
                 int mainBolts = 24; 
                 int boltLength = 16; 
-                float boltDamage = 80f; 
+                float boltDamage = 12f; 
                 float novaRadius = 280f; 
 
                 
@@ -8169,7 +8176,7 @@ public class JBBullets {
                         team,
                         x, y,
                         100f, 
-                        200f 
+                        70f 
                 );
 
                 
@@ -8435,11 +8442,11 @@ public class JBBullets {
             }
         };
 
-        chargedCannonBolt = new BasicBulletType(28f, 10500) {
+        chargedCannonBolt = new BasicBulletType(28f, 5000) {
             {
                 width = 35f;
                 height = 95f;
-                lifetime = 45f;
+                lifetime = 20f;
                 sprite = "missile-large";
 
                 
@@ -8460,14 +8467,14 @@ public class JBBullets {
                 pierceCap = 40;
                 pierceBuilding = true;
 
-                splashDamage = 9500f;
+                splashDamage = 8000f;
                 splashDamageRadius = 180f;
 
                 
                 lightning = 10;
                 lightningLength = 30;
                 lightningLengthRand = 20;
-                lightningDamage = 2000f;
+                lightningDamage = 500f;
                 lightningColor = backColor;
 
                 hitSound = JBSounds.blastShockwave;
@@ -8515,13 +8522,18 @@ public class JBBullets {
 
         tideLaser = tideLaser(Color.valueOf("f6ab9b"), JBColor.ocelexisPale);
         tideLaserBroodmother = tideLaser(Color.valueOf("ff9292"), Color.valueOf("ffcece"));
+        tideLaserBroodmother.damage = 583f;
+        ((LaserBulletType) tideLaserBroodmother).length = 700f;
 
         tideBall = tideBall(Color.valueOf("f6ab9b"), JBColor.ocelexisPale);
         tideBallBroodmother = tideBall(Color.valueOf("ff9292"), Color.valueOf("ffcece"));
+        tideBallBroodmother.damage = 800f;
+        tideBallBroodmother.splashDamage = 2840f;
+        tideBallBroodmother.lightningDamage = 680f;
 
-        tideLightningRed = new BasicBulletType(18f, 480) {
+        tideLightningRed = new BasicBulletType(25f, 200) {
             {
-                lifetime = 60f;
+                lifetime = 70f;
                 width = 6f;
                 height = 28f;
                 keepVelocity = false;
@@ -8612,9 +8624,9 @@ public class JBBullets {
             }
         };
 
-        collapseShell = new BasicBulletType(20f, 2800) {
+        collapseShell = new BasicBulletType(30f, 2000) {
             {
-                lifetime = 100f;
+                lifetime = 120f;
                 width = 18f;
                 height = 52f;
                 keepVelocity = false;
@@ -8623,7 +8635,7 @@ public class JBBullets {
                 knockback = 28f;
                 hitShake = despawnShake = 35f;
 
-                splashDamage = 1800f;
+                splashDamage = 1700f;
                 splashDamageRadius = 180f;
 
                 trailLength = 25;
@@ -8726,7 +8738,7 @@ public class JBBullets {
     }
 
     private static void loadBossBullets() {
-        deathBeam = new ContinuousFlameBulletType(5000) {
+        deathBeam = new ContinuousFlameBulletType(156) {
             {
                 shake = 6;
                 hitColor = flareColor = lightColor = lightningColor = Color.valueOf("ff9292");
@@ -8739,7 +8751,7 @@ public class JBBullets {
                 };
 
                 width = 22;
-                length = 1200f;
+                length = 700f;
                 oscScl = 1.4f;
                 oscMag *= 3f;
                 lifetime = 350f;
@@ -9017,7 +9029,7 @@ public class JBBullets {
             }
         };
 
-        ancientBall = new AccelBulletType(2.85f, 240f, MINE_BULLET) {
+        ancientBall = new AccelBulletType(2.85f, 400f, MINE_BULLET) {
             {
                 frontColor = Color.white;
                 backColor = lightningColor = trailColor = hitColor = lightColor = Color.valueOf("ff9292");
@@ -9047,7 +9059,7 @@ public class JBBullets {
                 shrinkX = shrinkY = 0;
 
                 splashDamageRadius = 120f;
-                splashDamage = 800f;
+                splashDamage = 1500f;
 
                 lightningDamage = damage * 0.85f;
 
@@ -9189,7 +9201,7 @@ public class JBBullets {
         oraxiaBullet = new LightningLinkerBulletType() {
             {
                 effectLightningChance = 0.15f;
-                damage = 200;
+                damage = 450;
                 backColor = trailColor = lightColor = lightningColor = hitColor = Color.valueOf("ff9292");
                 size = 10f;
                 frontColor = Color.valueOf("ffcece");
@@ -9216,7 +9228,7 @@ public class JBBullets {
             }
         };
 
-        broodmotherDeathBeam = new ContinuousFlameBulletType(3500) {
+        broodmotherDeathBeam = new ContinuousFlameBulletType(294) {
 
             
             
@@ -9237,7 +9249,7 @@ public class JBBullets {
                 };
 
                 width = 32f;
-                length = 2400f;
+                length = 900f;
                 oscScl = 1.6f;
                 oscMag *= 3.5f;
                 lifetime = 720f;
@@ -9695,10 +9707,12 @@ public class JBBullets {
 
         supernovaCore = supernovaCore(JBColor.thurmixRed, supernovaLaser);
         supernovaCoreBroodmother = supernovaCore(Color.valueOf("ff9292"), supernovaLaserBroodmother);
+        supernovaLaserBroodmother.damage = 47f;
+        supernovaCoreBroodmother.splashDamage = 5000f;
 
-        supernovaArtillery = new ArtilleryBulletType(7f, 2000f) {
+        supernovaArtillery = new ArtilleryBulletType(7f, 1000f) {
             {
-                lifetime = 220f; 
+                lifetime = 130f; 
                 width = 40f;
                 height = 40f;
                 sprite = "large-bomb";
@@ -9712,7 +9726,7 @@ public class JBBullets {
                 trailEffect = JBFx.hitSparkLarge;
                 trailInterval = 4f;
 
-                splashDamage = 8000f; 
+                splashDamage = 4000f; 
                 splashDamageRadius = 120f;
 
                 
@@ -9727,11 +9741,11 @@ public class JBBullets {
             }
         };
 
-        repeater = new BasicBulletType(14f, 1100f) {
+        repeater = new BasicBulletType(14f, 250f) {
             { 
                 width = 18f;
                 height = 45f;
-                lifetime = 70f;
+                lifetime = 65f;
 
                 backColor = Color.valueOf("ff9292");
                 frontColor = Color.white;
@@ -9755,7 +9769,7 @@ public class JBBullets {
                 lightning = 3;
                 lightningLength = 15;
                 lightningLengthRand = 10;
-                lightningDamage = 600f;
+                lightningDamage = 83f;
                 lightningColor = Color.valueOf("ff9292");
 
                 
@@ -9768,7 +9782,7 @@ public class JBBullets {
             }
         };
 
-        gammaReaper = new BasicBulletType(4f, 14000, "missile-large") {
+        gammaReaper = new BasicBulletType(4f, 4500, "missile-large") {
             
             final BulletType[] fragRef = {null};
 
@@ -9787,7 +9801,7 @@ public class JBBullets {
                     if (b.time < 90f) {
                         if (b.timer.get(0, 7f)) {
                             float r = 80f + (b.time / 90f) * 320f;
-                            Damage.damage(b.team, b.x, b.y, r, 3500f);
+                            Damage.damage(b.team, b.x, b.y, r, 1100f);
                             Damage.status(b.team, b.x, b.y, r, StatusEffects.burning, 90f, true, true);
 
                             if (!Vars.headless) {
@@ -9808,7 +9822,7 @@ public class JBBullets {
                         if (b.timer.get(0, 5f)) {
                             float progress = (b.time - 90f) / 210f;
                             float r = 300f + progress * 700f;
-                            Damage.damage(b.team, b.x, b.y, r, 8000f);
+                            Damage.damage(b.team, b.x, b.y, r, 2550f);
                             Damage.status(b.team, b.x, b.y, r, StatusEffects.melting, 200f, true, true);
                             Units.nearbyEnemies(b.team, b.x, b.y, r * 0.5f, u -> {
                                 float dx = b.x - u.x, dy = b.y - u.y;
@@ -9843,7 +9857,7 @@ public class JBBullets {
 
                         
                     } else if (Math.abs(b.time - 300f) < 3f) {
-                        Damage.damage(b.team, b.x, b.y, 1400f, 120000f);
+                        Damage.damage(b.team, b.x, b.y, 1400f, 38000f);
                         Damage.status(b.team, b.x, b.y, 1400f, StatusEffects.melting, 1500f, true, true);
                         Damage.status(b.team, b.x, b.y, 900f, StatusEffects.slow, 900f, true, true);
 
@@ -9876,7 +9890,7 @@ public class JBBullets {
                     } else if (b.time > 300f) {
                         if (b.timer.get(0, 20f)) {
                             float progress = (b.time - 300f) / 180f;
-                            Damage.damage(b.team, b.x, b.y, 900f * (1f - progress * 0.6f), 2500f);
+                            Damage.damage(b.team, b.x, b.y, 900f * (1f - progress * 0.6f), 800f);
                             if (!Vars.headless) {
                                 JBFx.hitSparkHuge.at(
                                         b.x + Mathf.range(200f),
@@ -9911,9 +9925,9 @@ public class JBBullets {
 
                 lightning = 8;
                 lightningLength = lightningLengthRand = 30;
-                lightningDamage = 500f;
+                lightningDamage = 160f;
 
-                splashDamage = 5000f;
+                splashDamage = 1600f;
                 splashDamageRadius = 180f;
                 scaledSplashDamage = true;
                 despawnShake = hitShake = 28f;
@@ -10190,7 +10204,7 @@ public class JBBullets {
 
                 
                 fragBullets = 11;
-                fragBullet = new BasicBulletType(7f, 6000, "missile-large") {{
+                fragBullet = new BasicBulletType(7f, 1900, "missile-large") {{
                     backColor = trailColor = lightColor = lightningColor = hitColor = JBColor.thurmixRed;
                     frontColor = JBColor.thurmixRedLight;
                     trailEffect = JBFx.hugeTrail;
@@ -10234,21 +10248,21 @@ public class JBBullets {
                     despawnSound = hitSound = Sounds.explosion;
 
                     fragBullets = 22;
-                    fragBullet = new BasicBulletType(2f, 300, "circle-bolt") {{
+                    fragBullet = new BasicBulletType(2f, 95, "circle-bolt") {{
                         width = height = 10f;
                         shrinkY = shrinkX = 0.7f;
                         backColor = trailColor = lightColor = lightningColor = hitColor = JBColor.thurmixRed;
                         frontColor = JBColor.thurmixRedLight;
                         trailEffect = Fx.missileTrail;
                         trailParam = 3.5f;
-                        splashDamage = 80;
+                        splashDamage = 26;
                         splashDamageRadius = 40;
 
                         lifetime = 18f;
 
                         lightning = 2;
                         lightningLength = lightningLengthRand = 4;
-                        lightningDamage = 30;
+                        lightningDamage = 10;
 
                         hitSoundVolume /= 2.2f;
                         despawnShake = hitShake = 4f;

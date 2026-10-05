@@ -1,10 +1,8 @@
 package jababarium.content;
 
 import arc.Core;
-import arc.func.Cons;
 import arc.func.Func;
 import arc.func.Prov;
-import arc.graphics.Texture;
 import arc.graphics.g2d.TextureRegion;
 
 import mindustry.Vars;
@@ -13,14 +11,10 @@ import mindustry.ctype.ContentType;
 import mindustry.gen.LogicIO;
 import mindustry.logic.LAssembler;
 import mindustry.logic.LStatement;
-import jababarium.Jababarium;
 
 public class JBContent extends Content {
 
     public static TextureRegion arrowRegion, pointerRegion;
-
-    public static TextureRegion 
-    raid, objective, fleet, capture;
 
     public static void loadPriority() {
         new JBContent().load();
@@ -40,17 +34,7 @@ public class JBContent extends Content {
         if (Vars.headless)
             return;
 
-        
-        
         arrowRegion = Core.atlas.find("jababarium-jump-gate-arrow");
         pointerRegion = Core.atlas.find("jababarium-jump-gate-pointer");
-    }
-
-    Texture loadTex(String name, Cons<Texture> modifier) {
-        Texture tex = new Texture(
-                Jababarium.MOD.root.child("textures").child(name + (name.endsWith(".png") ? "" : ".png")));
-        modifier.get(tex);
-
-        return tex;
     }
 }

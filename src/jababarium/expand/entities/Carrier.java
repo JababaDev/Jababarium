@@ -27,7 +27,7 @@ import jababarium.JBGroups;
 import jababarium.content.JBContent;
 import jababarium.content.JBFx;
 import jababarium.content.JBSounds;
-import jababarium.content.JBStatusEffects;
+import jababarium.content.JBStatus;
 import jababarium.util.feature.PosLightning;
 import jababarium.util.graphic.DrawFunc;
 
@@ -142,7 +142,7 @@ public class Carrier extends JBBaseEntity implements Teamc, Rotc, Scaled {
 
     protected boolean drop() {
         toCarry.set(x, y, rotation);
-        if (intercepted) toCarry.unit.apply(JBStatusEffects.intercepted, 480f);
+        if (intercepted) toCarry.unit.apply(JBStatus.intercepted, 480f);
         return toCarry.dump();
     }
 

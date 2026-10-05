@@ -11,6 +11,7 @@ import mindustry.content.StatusEffects;
 import mindustry.entities.abilities.MoveEffectAbility;
 import mindustry.entities.abilities.RepairFieldAbility;
 import mindustry.entities.bullet.BasicBulletType;
+import mindustry.entities.bullet.BulletType;
 import mindustry.entities.bullet.LaserBoltBulletType;
 import mindustry.entities.bullet.LightningBulletType;
 import mindustry.entities.bullet.MissileBulletType;
@@ -35,8 +36,9 @@ public class JBUnits {
 
                 scout = UnitBuilder.create("scout")
                                 .flying()
-                                .health(420f)
-                                .speed(2.8f)
+                                .health(640f)
+                                .armor(1.5f)
+                                .speed(2.0f)
                                 .acceleration(0.2f)
                                 .inertia(0.010f)
                                 .outlineRadius(0)
@@ -44,7 +46,7 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("scout-gun")
                                                                 .reload(30f)
-                                                                .bullet(new BasicBulletType(4f, 20) {
+                                                                .bullet(new BasicBulletType(4f, 21) {
                                                                         {
                                                                                 backColor = JBColor.nemesisMid;
                                                                                 frontColor = JBColor.nemesisGlow;
@@ -63,8 +65,9 @@ public class JBUnits {
 
                 zanuka = UnitBuilder.create("zanuka")
                                 .flying()
-                                .health(500f)
-                                .speed(3.1f)
+                                .health(320f)
+                                .armor(0.7f)
+                                .speed(3.3f)
                                 .acceleration(0.2f)
                                 .inertia(0.1f)
                                 .outlineRadius(0)
@@ -72,7 +75,7 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("zanuka-gun")
                                                                 .reload(30f)
-                                                                .bullet(new BasicBulletType(4f, 20) {
+                                                                .bullet(new BasicBulletType(4f, 30) {
                                                                         {
                                                                                 backColor = JBColor.oblivionMid;
                                                                                 frontColor = JBColor.oblivionGlow;
@@ -84,15 +87,16 @@ public class JBUnits {
                                                                                 despawnEffect = Fx.none;
                                                                         }
                                                                 })
-                                                                .range(160f)
+                                                                .range(145f)
                                                                 .build())
                                 .build();
                 zanuka.constructor = UnitEntity::create;
 
                 fray = UnitBuilder.create("fray")
                                 .flying()
-                                .health(690f)
-                                .speed(3f)
+                                .health(1600f)
+                                .armor(6f)
+                                .speed(2.2f)
                                 .acceleration(0.8f)
                                 .inertia(0.09f)
                                 
@@ -101,18 +105,20 @@ public class JBUnits {
                                 .lockRotation()
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-fray-gun")
-                                                                .reload(15f)
+                                                                .reload(30f)
                                                                 .rotate(true)
+                                                                .rotateSpeed(10f)
                                                                 .mirror(true)
                                                                 .top(true)
                                                                 .pos(4f, -1f)
-                                                                .bullet(new LaserBoltBulletType(6f, 55) {
+                                                                .bullet(new LaserBoltBulletType(6f, 35) {
                                                                         {
                                                                                 backColor = JBColor.nemesisMid;
                                                                                 frontColor = JBColor.nemesisGlow;
                                                                                 hitColor = lightColor = JBColor.nemesisLight;
                                                                         }
                                                                 })
+                                                                .range(220f)
                                                                 .build())
                                 .build();
                 fray.constructor = UnitEntity::create;
@@ -120,7 +126,8 @@ public class JBUnits {
                 blip = UnitBuilder.create("blip")
                                 .flying()
                                 .health(800f)
-                                .speed(3.3f)
+                                .armor(2.8f)
+                                .speed(3.6f)
                                 .hitSize(15f)
                                 .inertia(0.1f)
                                 .acceleration(0.06f)
@@ -131,6 +138,7 @@ public class JBUnits {
                                                 WeaponBuilder.create("blip-lightning")
                                                                 .reload(20f)
                                                                 .rotate(true)
+                                                                .rotateSpeed(13f)
                                                                 .mirror(true)
                                                                 .shootSound(JBSounds.shootGauss3)
                                                                 .top(true)
@@ -138,7 +146,7 @@ public class JBUnits {
                                                                 .range(16)
                                                                 .bullet(new LightningBulletType() {
                                                                         {
-                                                                                damage = 44f;
+                                                                                damage = 27f;
 
                                                                                 lightningLength = 10;
                                                                                 lightningLengthRand = 6;
@@ -169,7 +177,8 @@ public class JBUnits {
 
                 geran = UnitBuilder.create("geran")
                                 .flying()
-                                .health(300f)
+                                .health(2800f)
+                                .armor(5.6f)
                                 .speed(4.5f)
                                 .acceleration(0.1f)
                                 .inertia(0.20f)
@@ -185,17 +194,18 @@ public class JBUnits {
 
                 omniq = UnitBuilder.create("omniq")
                                 .flying()
-                                .health(5200f)
-                                .speed(3f)
+                                .health(5600f)
+                                .armor(12f)
+                                .speed(2.2f)
                                 .outlineRadius(0)
-                                .shield(55f, 700f, 3f, 100f)
+                                .shield(55f, 3000f, 5f, 100f)
                                 .engines(2, 10f, -18f, 6f, 270f)
                                 .hitSize(30f)
                                 .acceleration(0.06f)
                                 .inertia(0.015f)
                                 .rotateSpeed(5f)
                                 .ability(new RepairFieldAbility(
-                                                120f, 
+                                                300f, 
                                                 360f, 
                                                 60f 
                                 ))
@@ -208,14 +218,19 @@ public class JBUnits {
 
                 omniq.constructor = UnitEntity::create;
 
+                mindustry.entities.bullet.BulletType vortexOrb = JBBullets.Orb.copy();
+                vortexOrb.damage = 117f;
+                vortexOrb.lifetime = 52f;
+
                 vortex = UnitBuilder.create("vortex")
                                 .flying()
-                                .health(7000f)
-                                .armor(40)
-                                .speed(6.5f)
+                                .health(16000f)
+                                .armor(21f)
+                                .speed(2.2f)
                                 .outlineRadius(0)
                                 .engines(2, 10f, -20f, 10f, 270f)
                                 .hitSize(30f)
+                                .shield(65f, 6000f, 6f, 150f)
                                 .acceleration(0.09f)
                                 .rotateSpeed(4f)
                                 .inertia(0.01f)
@@ -224,7 +239,7 @@ public class JBUnits {
                                                                 .reload(40f)
                                                                 .mirror(true)
                                                                 .pos(19.5f, 19.5f)
-                                                                .bullet(JBBullets.Orb)
+                                                                .bullet(vortexOrb)
                                                                 .burst(3, 5f)
                                                                 .shootSound(JBSounds.shootGauss1)
                                                                 .build())
@@ -233,10 +248,15 @@ public class JBUnits {
                 vortex.aiController = InterceptorAI::new;
                 vortex.constructor = UnitEntity::create;
 
+                mindustry.entities.bullet.BulletType spectreLaser = JBBullets.laserBeam.copy();
+                spectreLaser.damage = 188f;
+                ((mindustry.entities.bullet.RailBulletType) spectreLaser).length = 325f;
+
                 spectre = UnitBuilder.create("spectre")
                                 .flying()
                                 .health(8000f)
-                                .speed(3.5f)
+                                .armor(9.8f)
+                                .speed(3.6f)
                                 .outlineRadius(0)
                                 .engines(2, 20f, -25f, 10f, 270f)
                                 .hitSize(60f)
@@ -249,8 +269,9 @@ public class JBUnits {
                                                                 .reload(30f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(3.2f)
                                                                 .pos(38f, 5.5f)
-                                                                .bullet(JBBullets.laserBeam)
+                                                                .bullet(spectreLaser)
                                                                 .shootSound(JBSounds.blast)
                                                                 .build())
                                 .weapon(
@@ -258,8 +279,9 @@ public class JBUnits {
                                                                 .reload(30f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(3.2f)
                                                                 .pos(28f, -10f)
-                                                                .bullet(JBBullets.laserBeam)
+                                                                .bullet(spectreLaser)
                                                                 .shootSound(JBSounds.blast)
                                                                 .build())
                                 .build();
@@ -268,20 +290,21 @@ public class JBUnits {
 
                 destroyer = UnitBuilder.create("destroyer")
                                 .flying()
-                                .health(15000f)
+                                .health(40000f)
                                 .speed(1.4f)
                                 .outlineRadius(0)
                                 .engines(2, 20f, -50f, 10f, 270f)
                                 .hitSize(60f)
                                 .acceleration(0.06f)
                                 .inertia(0.015f)
-                                .armor(120)
+                                .armor(37.5f)
                                 .rotateSpeed(0.8f)
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-destroyer-cannon")
                                                                 .reload(30f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(2.2f)
                                                                 .pos(20f, 10f)
                                                                 .bullet(JBBullets.plasma)
                                                                 .shootSound(JBSounds.blast)
@@ -299,6 +322,7 @@ public class JBUnits {
                                                                 .reload(20f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(8f)
                                                                 .burst(3, 5f)
                                                                 .pos(25f, -15f)
                                                                 .bullet(JBBullets.lightSupport)
@@ -308,22 +332,31 @@ public class JBUnits {
 
                 destroyer.constructor = UnitEntity::create;
 
+                mindustry.entities.bullet.BulletType infernoLance = JBBullets.crimsonLanceHeavy.copy();
+                infernoLance.damage = 222f;
+                infernoLance.splashDamage = 222f * 0.75f;
+                infernoLance.lifetime = 54f;
+                mindustry.entities.bullet.BulletType infernoSupportLaser = JBBullets.laserBeam.copy();
+                infernoSupportLaser.damage = 78f;
+                ((mindustry.entities.bullet.RailBulletType) infernoSupportLaser).length = 380f;
+
                 inferno = UnitBuilder.create("inferno")
                                 .flying()
-                                .health(16000f)
-                                .speed(1.4f)
+                                .health(20000f)
+                                .speed(2.3f)
                                 .outlineRadius(0)
                                 .engines(3, 20f, -55f, 10f, 270f)
                                 .hitSize(65f)
                                 .acceleration(0.06f)
                                 .inertia(0.015f)
                                 .rotateSpeed(0.8f)
-                                .armor(130f)
+                                .armor(17.5f)
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-inferno-cannon")
                                                                 .reload(50f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(3.9f)
                                                                 .pos(21.5f, -22.5f)
                                                                 .bullet(JBBullets.crimson)
                                                                 .shootSound(JBSounds.blast)
@@ -333,21 +366,21 @@ public class JBUnits {
                                                 WeaponBuilder.create("jababarium-inferno-lance")
                                                                 .reload(100f)
                                                                 .pos(0f, 40f)
-                                                                .bullet(JBBullets.crimsonLanceHeavy)
+                                                                .bullet(infernoLance)
                                                                 .shootSound(JBSounds.shootGauss3)
                                                                 .build())
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-inferno-lance")
                                                                 .reload(100f)
                                                                 .pos(15f, 40f)
-                                                                .bullet(JBBullets.crimsonLanceHeavy)
+                                                                .bullet(infernoLance)
                                                                 .shootSound(JBSounds.shootGauss3)
                                                                 .build())
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-inferno-lance")
                                                                 .reload(100f)
                                                                 .pos(-15f, 40f)
-                                                                .bullet(JBBullets.crimsonLanceHeavy)
+                                                                .bullet(infernoLance)
                                                                 .shootSound(JBSounds.shootGauss3)
                                                                 .build())
                                 .weapon(
@@ -355,18 +388,24 @@ public class JBUnits {
                                                                 .reload(20f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(3.2f)
                                                                 .burst(3, 5f)
                                                                 .pos(20f, 12f)
-                                                                .bullet(JBBullets.laserBeam)
+                                                                .bullet(infernoSupportLaser)
                                                                 .shootSound(JBSounds.shootGauss2)
                                                                 .build())
                                 .build();
 
                 inferno.constructor = UnitEntity::create;
 
+                mindustry.entities.bullet.BulletType decimatorSupport = JBBullets.lightSupport2.copy();
+                decimatorSupport.damage = 52f;
+                decimatorSupport.splashDamage = 52f * 0.4f;
+                decimatorSupport.lifetime = 69f;
+
                 decimator = UnitBuilder.create("decimator")
                                 .flying()
-                                .health(25000f)
+                                .health(96000f)
                                 .speed(1f)
                                 .outlineRadius(0)
                                 .engines(3, 25f, -30f, 12f, 270f)
@@ -375,12 +414,13 @@ public class JBUnits {
                                 .inertia(0.015f)
                                 .rotateSpeed(0.6f)
                                 .lockRotation()
-                                .armor(220f)
+                                .armor(75f)
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-decimator-cannon")
                                                                 .reload(100f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.8f)
                                                                 .pos(45f, 0f)
                                                                 .bullet(JBBullets.voidPlasma)
                                                                 .shootSound(JBSounds.gunBlast)
@@ -390,6 +430,7 @@ public class JBUnits {
                                                                 .reload(50f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(3.6f)
                                                                 .pos(25f, 5f)
                                                                 .bullet(JBBullets.guidedVoidMissile)
                                                                 .shootSound(JBSounds.missile2)
@@ -399,9 +440,10 @@ public class JBUnits {
                                                                 .reload(40f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(6f)
                                                                 .pos(29f, 33f)
                                                                 .burst(5, 5f)
-                                                                .bullet(JBBullets.lightSupport2)
+                                                                .bullet(decimatorSupport)
                                                                 .shootSound(JBSounds.shootGauss2)
                                                                 .build())
                                 .weapon(
@@ -409,6 +451,7 @@ public class JBUnits {
                                                                 .reload(110f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.6f)
                                                                 .pos(90f, -27f)
                                                                 .bullet(JBBullets.voidCollapse)
                                                                 .shootSound(JBSounds.shock)
@@ -417,22 +460,27 @@ public class JBUnits {
 
                 decimator.constructor = UnitEntity::create;
 
+                mindustry.entities.bullet.BulletType vindicatorRail = JBBullets.laserBeam2.copy();
+                vindicatorRail.damage = 155f;
+                ((mindustry.entities.bullet.RailBulletType) vindicatorRail).length = 500f;
+
                 vindicator = UnitBuilder.create("vindicator")
                                 .flying()
-                                .health(27000f)
-                                .speed(1f)
+                                .health(48000f)
+                                .speed(1.7f)
                                 .outlineRadius(0)
                                 .engine(0f, -50f, 10f, 270f)
                                 .hitSize(70f)
                                 .acceleration(0.06f)
                                 .inertia(0.015f)
                                 .rotateSpeed(0.6f)
-                                .armor(220f)
+                                .armor(35f)
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-vindicator-cannon")
                                                                 .reload(100f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(2.6f)
                                                                 .pos(45f, -1.5f)
                                                                 .bullet(JBBullets.crimsonChain)
                                                                 .shootSound(JBSounds.gunBlast)
@@ -450,9 +498,10 @@ public class JBUnits {
                                                                 .reload(50f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(2.9f)
                                                                 .pos(16.5f, 42f)
                                                                 .burst(7, 3f)
-                                                                .bullet(JBBullets.laserBeam2)
+                                                                .bullet(vindicatorRail)
                                                                 .shootSound(JBSounds.shootGauss2)
                                                                 .build())
                                 .weapon(
@@ -460,6 +509,7 @@ public class JBUnits {
                                                                 .reload(110f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(2.6f)
                                                                 .pos(18f, 17.5f)
                                                                 .bullet(JBBullets.crimsonNova)
                                                                 .shootSound(JBSounds.shock)
@@ -470,7 +520,7 @@ public class JBUnits {
 
                 revenant = UnitBuilder.create("revenant")
                                 .flying()
-                                .health(120000f)
+                                .health(240000f)
                                 .speed(0.6f)
                                 .outlineRadius(0)
                                 .enginesCustom(new float[][] {
@@ -484,7 +534,7 @@ public class JBUnits {
                                 .inertia(0.015f)
                                 .rotateSpeed(0.1f)
                                 .lockRotation()
-                                .armor(500f)
+                                .armor(150f)
                                 .ability(new AuraCircleAbility(
                                                 270f,
                                                 JBColor.nemesisLight))
@@ -493,6 +543,7 @@ public class JBUnits {
                                                                 .reload(130f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(0.9f)
                                                                 .pos(70f, 0f)
                                                                 .bullet(JBBullets.absoluteZero)
                                                                 .shootSound(JBSounds.gunBlast)
@@ -502,6 +553,7 @@ public class JBUnits {
                                                                 .reload(90f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(3.2f)
                                                                 .burst(3, 5f)
                                                                 .pos(65f, 50f)
                                                                 .bullet(JBBullets.guidedZeroMissile)
@@ -512,6 +564,7 @@ public class JBUnits {
                                                                 .reload(80f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.1f)
                                                                 .pos(100f, -45f)
                                                                 .bullet(JBBullets.azureStream)
                                                                 .shootSound(JBSounds.blast)
@@ -521,6 +574,7 @@ public class JBUnits {
                                                                 .reload(100f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.1f)
                                                                 .pos(68f, -110f)
                                                                 .bullet(JBBullets.frostCascade)
                                                                 .shootSound(JBSounds.shock)
@@ -530,6 +584,7 @@ public class JBUnits {
                                                                 .reload(80f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.4f)
                                                                 .pos(45f, 110f)
                                                                 .shootSpread(8, 10f)
                                                                 .bullet(JBBullets.frostShotgun)
@@ -539,23 +594,28 @@ public class JBUnits {
 
                 revenant.constructor = UnitEntity::create;
 
+                mindustry.entities.bullet.BulletType oblivionRail = JBBullets.laserBeam2.copy();
+                oblivionRail.damage = 156f;
+                ((mindustry.entities.bullet.RailBulletType) oblivionRail).length = 630f;
+
                 oblivion = UnitBuilder.create("oblivion")
                                 .flying()
-                                .health(123000f)
+                                .health(120000f)
                                 .hitSize(190f)
-                                .speed(0.6f)
+                                .speed(1.0f)
                                 .outlineRadius(0)
                                 .engines(2, 43f, -140f, 12f, 270f)
                                 .acceleration(0.06f)
                                 .inertia(0.015f)
                                 .rotateSpeed(0.1f)
                                 .lockRotation()
-                                .armor(500f)
+                                .armor(70f)
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-oblivion-cannon")
                                                                 .reload(90f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.3f)
                                                                 .pos(40f, 0f)
                                                                 .bullet(JBBullets.crimsonVortex)
                                                                 .shootSound(JBSounds.gunBlast)
@@ -565,6 +625,7 @@ public class JBUnits {
                                                                 .reload(110f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.3f)
                                                                 .pos(80f, -40f)
                                                                 .bullet(JBBullets.infernoCore)
                                                                 .shootSound(JBSounds.blastShockwave)
@@ -574,6 +635,7 @@ public class JBUnits {
                                                                 .reload(80f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(4.5f)
                                                                 .pos(20f, 10f)
                                                                 .burst(3, 5f)
                                                                 .bullet(JBBullets.guidedCrimsonLance)
@@ -584,9 +646,10 @@ public class JBUnits {
                                                                 .reload(70f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.6f)
                                                                 .pos(15f, 60f)
                                                                 .burst(9, 3f)
-                                                                .bullet(JBBullets.laserBeam2)
+                                                                .bullet(oblivionRail)
                                                                 .shootSound(JBSounds.shootGauss2)
                                                                 .build())
                                 .weapon(
@@ -594,6 +657,7 @@ public class JBUnits {
                                                                 .reload(120f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.3f)
                                                                 .pos(90f, -65f)
                                                                 .bullet(JBBullets.absoluteInferno)
                                                                 .shootSound(JBSounds.blast)
@@ -602,9 +666,13 @@ public class JBUnits {
 
                 oblivion.constructor = UnitEntity::create;
                 
+                // nemesis-only bullets: scale the apex shard chain
+                JBBullets.apexShardNemesis.damage = 190f;
+                JBBullets.apexMicroNemesis.damage = 100f;
+
                 nemesis = UnitBuilder.create("nemesis")
                                 .flying()
-                                .health(866000f)
+                                .health(640000f)
                                 .speed(0.3f)
                                 .outlineRadius(0)
                                 .engine(0f, -410f, 60f, 270f)
@@ -613,16 +681,17 @@ public class JBUnits {
                                 .acceleration(0.06f)
                                 .inertia(0.015f)
                                 .rotateSpeed(0.07f)
-                                .armor(700)
+                                .armor(200f)
                                 .lockRotation()
                                 .ability(new AuraCircleAbility(530f, Color.valueOf("8be9d4")))
                                 .ability(new RotatingCoreAbility(Color.valueOf("8be9d4"), 35f, 0f, 0f))
-                                .ability(new ShockWaveAbility(50f, 510f, 5890f, Color.valueOf("8be9d4")))
+                                .ability(new ShockWaveAbility(50f, 510f, 1000f, Color.valueOf("8be9d4")))
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-nemesis-cannon")
                                                                 .reload(50f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(0.9f)
                                                                 .pos(100f, 50f)
                                                                 .bullet(JBBullets.nemesisBullet)
                                                                 .shootSound(JBSounds.gunBlast)
@@ -631,6 +700,7 @@ public class JBUnits {
                                                 WeaponBuilder.create("jababarium-nemesis-collapse")
                                                                 .reload(800f)
                                                                 .rotate(true)
+                                                                .rotateSpeed(0.5f)
                                                                 .pos(0f, 0f)
                                                                 .bullet(JBBullets.verdantCollapse)
                                                                 .shootSound(JBSounds.hugeShoot)
@@ -640,6 +710,7 @@ public class JBUnits {
                                                                 .reload(60f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.1f)
                                                                 .pos(150f, 60f)
                                                                 .bullet(JBBullets.verdantBeamBurst)
                                                                 .shootSound(JBSounds.blast)
@@ -649,6 +720,7 @@ public class JBUnits {
                                                                 .reload(9f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(5.4f)
                                                                 .pos(155f, 140f)
                                                                 .alternate(37f)
                                                                 .bullet(JBBullets.photosynthesisBullet)
@@ -659,6 +731,7 @@ public class JBUnits {
                                                                 .reload(15f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(4.5f)
                                                                 .pos(155f, 280f)
                                                                 .bullet(JBBullets.verdantLightningWeb)
                                                                 .shootSound(JBSounds.hugeShoot)
@@ -668,6 +741,7 @@ public class JBUnits {
                                                                 .reload(10f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.0f)
                                                                 .pos(140f, -330f)
                                                                 .bullet(JBBullets.verdantBeam)
                                                                 .shootSound(JBSounds.shootGauss2)
@@ -676,7 +750,7 @@ public class JBUnits {
                                                 WeaponBuilder.createAlwaysFire("jababarium-verdant-cross-spin-laser")
                                                                 .reload(600f)
                                                                 .pos(0f, 0f)
-                                                                .range(1350f)
+                                                                .range(900f)
                                                                 .bullet(JBBullets.crossSpinLaser)
                                                                 .shootSound(JBSounds.beam)
                                                                 .build())
@@ -686,6 +760,7 @@ public class JBUnits {
                                                                 .pos(285f, -245f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.1f)
                                                                 .alternate(false)
                                                                 .bullet(JBBullets.verdantApex)
                                                                 .shootSound(JBSounds.blastShockwave)
@@ -698,7 +773,6 @@ public class JBUnits {
                                 
                                 .spider()
 
-                                
                                 .legCount(6)
                                 .legLength(9f)
                                 .legBaseOffset(4f)
@@ -710,17 +784,15 @@ public class JBUnits {
                                 .legLengthScl(0.9f)
                                 .ripple(0.5f)
 
-                                
-                                .health(120f)
+                                .health(320f)
                                 .speed(1.1f)
-                                .armor(2f)
+                                .armor(1f)
                                 .hitSize(8f)
                                 .rotateSpeed(12f)
                                 .acceleration(0.08f)
                                 .inertia(0.06f)
                                 .outlineRadius(3)
 
-                                
                                 .weapon(
                                                 WeaponBuilder.create("") 
                                                                 .bullet(JBBullets.tinyShell)
@@ -747,31 +819,31 @@ public class JBUnits {
                                 .legStraightness(0.4f)
                                 .ripple(0.6f)
 
-                                .health(320f)
+                                .health(800f)
                                 .speed(1.3f)
-                                .armor(5f)
+                                .armor(4f)
                                 .hitSize(12f)
                                 .rotateSpeed(10f)
                                 .acceleration(0.09f)
                                 .inertia(0.07f)
                                 .outlineRadius(3)
 
-                                
                                 .weapon(
                                                 WeaponBuilder.create("widow-cannon")
                                                                 .reload(25f)
                                                                 .pos(4f, 4f)
                                                                 .rotate(true)
+                                                                .rotateSpeed(12f)
                                                                 .mirror(true)
                                                                 .top(false)
-                                                                .bullet(new BasicBulletType(5.5f, 35) {
+                                                                .bullet(new BasicBulletType(5.5f, 58) {
                                                                         {
                                                                                 backColor = JBColor.broodmotherMid;
                                                                                 frontColor = JBColor.broodmotherGlow;
                                                                                 hitColor = trailColor = lightColor = JBColor.broodmotherLight;
                                                                                 width = 8f;
                                                                                 height = 11f;
-                                                                                lifetime = 45f;
+                                                                                lifetime = 40f;
                                                                                 hitEffect = Fx.hitBulletBig;
                                                                                 despawnEffect = Fx.hitBulletBig;
                                                                                 shootEffect = Fx.shootBig;
@@ -798,15 +870,15 @@ public class JBUnits {
                                 .legSpeed(0.16f)
                                 .legLengthScl(1.0f)
                                 .legStraightness(0.3f)
-                                .legSplashDamage(12f)
+                                .legSplashDamage(140f)
                                 .legSplashRange(20f)
                                 .stepShake(1.5f)
                                 .stepSound(Sounds.explosion)
                                 .ripple(0.8f)
 
-                                .health(2050f)
+                                .health(2800f)
                                 .speed(1.5f)
-                                .armor(10f)
+                                .armor(8f)
                                 .hitSize(18f)
                                 .rotateSpeed(9f)
                                 .acceleration(0.12f)
@@ -818,8 +890,9 @@ public class JBUnits {
                                                                 .reload(20f) 
                                                                 .pos(6f, 5f)
                                                                 .rotate(true)
+                                                                .rotateSpeed(5f)
                                                                 .mirror(true)
-                                                                .bullet(new BasicBulletType(7f, 55) {
+                                                                .bullet(new BasicBulletType(7f, 30) {
                                                                         {
                                                                                 backColor = JBColor.broodmotherMid;
                                                                                 frontColor = JBColor.broodmotherGlow;
@@ -829,7 +902,7 @@ public class JBUnits {
                                                                                 lifetime = 40f;
                                                                                 pierce = true;
                                                                                 pierceCap = 3;
-                                                                                splashDamage = 30f;
+                                                                                splashDamage = 20f;
                                                                                 splashDamageRadius = 25f;
                                                                                 status = StatusEffects.slow;
                                                                                 statusDuration = 120f;
@@ -843,15 +916,16 @@ public class JBUnits {
                                                                 .reload(8f) 
                                                                 .pos(8f, -2f)
                                                                 .rotate(true)
+                                                                .rotateSpeed(10f)
                                                                 .mirror(true)
-                                                                .bullet(new BasicBulletType(8f, 20) {
+                                                                .bullet(new BasicBulletType(8f, 12) {
                                                                         {
                                                                                 backColor = JBColor.broodmotherMid;
                                                                                 frontColor = JBColor.broodmotherGlow;
                                                                                 hitColor = trailColor = lightColor = JBColor.broodmotherLight;
                                                                                 width = 6f;
                                                                                 height = 8f;
-                                                                                lifetime = 30f;
+                                                                                lifetime = 35f;
                                                                                 pierce = true;
                                                                                 pierceCap = 2;
                                                                         }
@@ -864,19 +938,20 @@ public class JBUnits {
                                                                 .reload(45f)
                                                                 .pos(0f, 3f)
                                                                 .rotate(true)
+                                                                .rotateSpeed(5f)
                                                                 .mirror(false)
                                                                 .burst(3, 8f) 
-                                                                .bullet(new MissileBulletType(4f, 60) {
+                                                                .bullet(new MissileBulletType(4f, 35) {
                                                                         {
                                                                                 backColor = JBColor.broodmotherMid;
                                                                                 frontColor = JBColor.broodmotherGlow;
                                                                                 hitColor = trailColor = lightColor = JBColor.broodmotherLight;
                                                                                 width = 8f;
                                                                                 height = 10f;
-                                                                                lifetime = 60f;
+                                                                                lifetime = 70f;
                                                                                 homingPower = 0.1f;
                                                                                 homingRange = 120f;
-                                                                                splashDamage = 50f;
+                                                                                splashDamage = 25f;
                                                                                 splashDamageRadius = 35f;
                                                                         }
                                                                 })
@@ -888,6 +963,7 @@ public class JBUnits {
                                                                 .reload(25f)
                                                                 .pos(0f, -5f)
                                                                 .rotate(true)
+                                                                .rotateSpeed(8f)
                                                                 .mirror(false)
                                                                 .bullet(new LightningBulletType() {
                                                                         {
@@ -917,15 +993,15 @@ public class JBUnits {
                                 .legSpeed(0.16f)
                                 .legLengthScl(1.0f)
                                 .legStraightness(0.3f)
-                                .legSplashDamage(12f)
+                                .legSplashDamage(400f)
                                 .legSplashRange(20f)
                                 .stepShake(1.5f)
                                 .stepSound(Sounds.explosion)
                                 .ripple(0.8f)
 
-                                .health(20050f)
+                                .health(8000f)
                                 .speed(1.5f)
-                                .armor(10f)
+                                .armor(14f)
                                 .hitSize(60f)
                                 .rotateSpeed(9f)
                                 .acceleration(0.12f)
@@ -937,6 +1013,7 @@ public class JBUnits {
                                                                 .reload(30f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(2.5f)
                                                                 .pos(20f, 10f)
                                                                 .bullet(JBBullets.laserBurn)
                                                                 .shootSound(JBSounds.blast)
@@ -954,6 +1031,7 @@ public class JBUnits {
                                                                 .reload(60f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(4.5f)
                                                                 .burst(1, 5f)
                                                                 .pos(25f, -15f)
                                                                 .bullet(JBBullets.thunderShot)
@@ -974,15 +1052,15 @@ public class JBUnits {
                                 .legSpeed(0.16f)
                                 .legLengthScl(1.0f)
                                 .legStraightness(0.3f)
-                                .legSplashDamage(12f)
+                                .legSplashDamage(1000f)
                                 .legSplashRange(20f)
                                 .stepShake(1.5f)
                                 .stepSound(Sounds.explosion)
                                 .ripple(0.8f)
 
-                                .health(25050f)
+                                .health(20000f)
                                 .speed(0.7f)
-                                .armor(10f)
+                                .armor(25f)
                                 .hitSize(45f)
                                 .rotateSpeed(4f)
                                 .acceleration(0.12f)
@@ -994,6 +1072,7 @@ public class JBUnits {
                                                                 .reload(30f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(5f)
                                                                 .pos(15f, -15f)
                                                                 .bullet(JBBullets.theridionBolt)
                                                                 .shootSound(JBSounds.blast)
@@ -1010,12 +1089,16 @@ public class JBUnits {
                                                                 .reload(60f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(5f)
                                                                 .burst(1, 5f)
                                                                 .pos(15f, 19f)
                                                                 .bullet(JBBullets.theridionBolt)
                                                                 .shootSound(JBSounds.shootGauss2)
                                                                 .build())
                                 .build();
+
+                BulletType octoclasmBolt = JBBullets.theridionBolt.copy();
+                octoclasmBolt.lifetime = 92f; // speed 6, no drag -> ~550 range
 
                 octoclasm = UnitBuilder.create("octoclasm")
                                 .spider()
@@ -1030,16 +1113,16 @@ public class JBUnits {
                                 .legSpeed(0.08f)
                                 .legLengthScl(1.0f)
                                 .legStraightness(0.3f)
-                                .legSplashDamage(120f)
+                                .legSplashDamage(2400f)
                                 .legSplashRange(70f)
                                 .stepShake(1.5f)
                                 .stepSound(Sounds.shootNavanax)
                                 .ripple(0.8f)
                                 .landShake(5f)
 
-                                .health(35050f)
+                                .health(48000f)
                                 .speed(0.7f)
-                                .armor(10f)
+                                .armor(50f)
                                 .hitSize(70f)
                                 .rotateSpeed(1f)
                                 .acceleration(0.12f)
@@ -1053,8 +1136,9 @@ public class JBUnits {
                                                                 .pos(23f, 8f)
                                                                 .burst(3, 5f)
                                                                 .rotate(true)
+                                                                .rotateSpeed(4f)
                                                                 .mirror(true)
-                                                                .bullet(JBBullets.theridionBolt)
+                                                                .bullet(octoclasmBolt)
                                                                 .shootSound(JBSounds.missile)
                                                                 .build())
                                 .weapon(
@@ -1080,33 +1164,22 @@ public class JBUnits {
                                 .legSpeed(0.08f)
                                 .legLengthScl(1.0f)
                                 .legStraightness(0.3f)
-                                .legSplashDamage(320f)
+                                .legSplashDamage(6000f)
                                 .legSplashRange(70f)
                                 .stepShake(3f)
                                 .stepSound(Sounds.shootNavanax)
                                 .ripple(0.8f)
                                 .landShake(5f)
 
-                                .health(700000f)
+                                .health(120000f)
                                 .speed(0.7f)
-                                .armor(10f)
+                                .armor(100f)
                                 .hitSize(170f)
                                 .rotateSpeed(1f)
                                 .acceleration(0.12f)
                                 .inertia(0.07f)
                                 .outlineRadius(4)
 
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-oraxia-vortex")
                                                                 .reload(300f)
@@ -1120,6 +1193,7 @@ public class JBUnits {
                                                 WeaponBuilder.create("jababarium-oraxia-cannon")
                                                                 .reload(100f)
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.2f)
                                                                 .pos(73.5f, 49f)
 
                                                                 .mirror(true)
@@ -1130,6 +1204,7 @@ public class JBUnits {
                                                 WeaponBuilder.create("jababarium-oraxia-laser")
                                                                 .reload(50f)
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.2f)
                                                                 .pos(-106f, -50f)
                                                                 .mirror(true)
                                                                 .bullet(JBBullets.oraxiaBullet)
@@ -1139,6 +1214,7 @@ public class JBUnits {
                                                 WeaponBuilder.create("jababarium-oraxia-gun")
                                                                 .reload(10f)
                                                                 .rotate(true)
+                                                                .rotateSpeed(2f)
                                                                 .pos(109f, 12f)
                                                                 .rotate(true)
                                                                 .mirror(true)
@@ -1160,7 +1236,7 @@ public class JBUnits {
                                 .legSpeed(0.08f)
                                 .legLengthScl(1.0f)
                                 .legStraightness(0.3f)
-                                .legSplashDamage(1020f)
+                                .legSplashDamage(16000f)
                                 .legSplashRange(100f)
                                 .stepShake(10f)
                                 .stepSound(Sounds.explosionNavanax)
@@ -1168,26 +1244,15 @@ public class JBUnits {
                                 .landShake(5f)
                                 .noCell()
 
-                                .health(866000f)
+                                .health(320000f)
                                 .speed(0.7f)
-                                .armor(120f)
+                                .armor(170f)
                                 .hitSize(280f)
                                 .rotateSpeed(0.3f)
                                 .acceleration(0.12f)
                                 .inertia(0.07f)
                                 .outlineRadius(4)
 
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-broodmother-vortex")
                                                                 .reload(700f)
@@ -1201,6 +1266,7 @@ public class JBUnits {
                                                 WeaponBuilder.create("jababarium-broodmother-cannon")
                                                                 .reload(100f)
                                                                 .rotate(true)
+                                                                .rotateSpeed(0.8f)
                                                                 .pos(60f, 60f)
                                                                 .mirror(true)
                                                                 .bullet(JBBullets.tideBallBroodmother)
@@ -1210,6 +1276,7 @@ public class JBUnits {
                                                 WeaponBuilder.create("jababarium-broodmother-laser")
                                                                 .reload(5f)
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.5f)
                                                                 .pos(70f, 0f)
                                                                 .mirror(true)
                                                                 .bullet(JBBullets.repeater)
@@ -1219,6 +1286,7 @@ public class JBUnits {
                                                 WeaponBuilder.create("jababarium-broodmother-gun")
                                                                 .reload(200f)
                                                                 .rotate(true)
+                                                                .rotateSpeed(0.6f)
                                                                 .pos(80f, -100f)
                                                                 .rotate(true)
                                                                 .mirror(true)
@@ -1229,9 +1297,9 @@ public class JBUnits {
 
                 undertow = UnitBuilder.create("undertow")
                                 .naval()
-                                .health(700)
+                                .health(440)
                                 .speed(2f)
-                                .armor(10f)
+                                .armor(1.2f)
                                 .outlineRadius(0)
                                 .hitSize(12f)
                                 .waterTrail(10)
@@ -1240,17 +1308,18 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-undertow-gun")
                                                                 .rotate(true)
-                                                                .reload(15f)
+                                                                .rotateSpeed(10f)
+                                                                .reload(40f)
                                                                 .mirror(true)
                                                                 .pos(5f, 0f)
-                                                                .bullet(new BasicBulletType(7f, 55) {
+                                                                .bullet(new BasicBulletType(7f, 18) {
                                                                         {
                                                                                 backColor = JBColor.tidebreakerMid;
                                                                                 frontColor = JBColor.tidebreakerGlow;
                                                                                 hitColor = trailColor = lightColor = JBColor.tidebreakerLight;
                                                                                 width = 6f;
                                                                                 height = 8f;
-                                                                                lifetime = 40f;
+                                                                                lifetime = 33f;
                                                                                 hitEffect = Fx.hitBulletSmall;
                                                                                 despawnEffect = Fx.none;
                                                                         }
@@ -1260,9 +1329,9 @@ public class JBUnits {
 
                 pelagis = UnitBuilder.create("pelagis")
                                 .naval()
-                                .health(1000)
-                                .speed(2f)
-                                .armor(10f)
+                                .health(320)
+                                .speed(1.7f)
+                                .armor(0.8f)
                                 .inertia(0.07f)
                                 .waterTrail(10)
                                 .acceleration(0.12f)
@@ -1270,19 +1339,23 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("pelagis-cannon")
                                                                 .rotate(true)
-                                                                .reload(15f)
+                                                                .rotateSpeed(7f)
+                                                                .reload(90f)
                                                                 .mirror(true)
                                                                 .pos(5f, 0f)
-                                                                .bullet(new BasicBulletType(7f, 55) {
+                                                                .bullet(new BasicBulletType(7f, 5) {
                                                                         {
                                                                                 backColor = JBColor.ocelexisMid;
                                                                                 frontColor = JBColor.ocelexisGlow;
                                                                                 hitColor = trailColor = lightColor = JBColor.ocelexisLight;
                                                                                 width = 6f;
                                                                                 height = 8f;
-                                                                                lifetime = 40f;
+                                                                                lifetime = 42f;
                                                                                 hitEffect = Fx.hitBulletSmall;
                                                                                 despawnEffect = Fx.none;
+                                                                                despawnHit = true;
+                                                                                splashDamage = 33f;
+                                                                                splashDamageRadius = 40f;
                                                                         }
                                                                 })
                                                                 .build())
@@ -1290,9 +1363,9 @@ public class JBUnits {
 
                 ripjaw = UnitBuilder.create("ripjaw")
                                 .naval()
-                                .health(1000)
+                                .health(1100)
                                 .speed(1.8f)
-                                .armor(10f)
+                                .armor(4.8f)
                                 .outlineRadius(0)
                                 .hitSize(20f)
                                 .waterTrail(15)
@@ -1301,20 +1374,21 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-ripjaw-cannon")
                                                                 .rotate(true)
-                                                                .reload(10f)
+                                                                .rotateSpeed(6f)
+                                                                .reload(20f)
                                                                 .mirror(true)
                                                                 .pos(8f, 2f)
-                                                                .bullet(new MissileBulletType(4f, 60) {
+                                                                .bullet(new MissileBulletType(5f, 18) {
                                                                         {
                                                                                 backColor = JBColor.tidebreakerMid;
                                                                                 frontColor = JBColor.tidebreakerGlow;
                                                                                 hitColor = trailColor = lightColor = JBColor.tidebreakerLight;
                                                                                 width = 8f;
                                                                                 height = 10f;
-                                                                                lifetime = 60f;
+                                                                                lifetime = 63f;
                                                                                 homingPower = 0.1f;
                                                                                 homingRange = 120f;
-                                                                                splashDamage = 50f;
+                                                                                splashDamage = 12f;
                                                                                 splashDamageRadius = 35f;
                                                                         }
                                                                 })
@@ -1324,9 +1398,9 @@ public class JBUnits {
 
                 aquarail = UnitBuilder.create("aquarail")
                                 .naval()
-                                .health(1300f)
-                                .speed(2f)
-                                .armor(3f)
+                                .health(800f)
+                                .speed(1.6f)
+                                .armor(3.2f)
                                 .outlineRadius(0)
                                 .hitSize(15f)
                                 .waterTrail(10)
@@ -1336,21 +1410,22 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-aquarail-cannon")
                                                                 .rotate(true)
-                                                                .reload(15f)
+                                                                .rotateSpeed(4.2f)
+                                                                .reload(30f)
                                                                 .mirror(true)
                                                                 .pos(5f, 0f)
-                                                                .bullet(new MissileBulletType(4f, 60) {
+                                                                .bullet(new MissileBulletType(6f, 8) {
                                                                         {
                                                                                 backColor = JBColor.ocelexisMid;
                                                                                 frontColor = JBColor.ocelexisGlow;
                                                                                 hitColor = trailColor = lightColor = JBColor.ocelexisLight;
                                                                                 width = 8f;
                                                                                 height = 10f;
-                                                                                lifetime = 60f;
+                                                                                lifetime = 67f;
                                                                                 homingPower = 0.1f;
                                                                                 homingRange = 120f;
-                                                                                splashDamage = 50f;
-                                                                                splashDamageRadius = 35f;
+                                                                                splashDamage = 32f;
+                                                                                splashDamageRadius = 45f;
                                                                         }
                                                                 })
                                                                 .shootSound(JBSounds.missile)
@@ -1359,9 +1434,9 @@ public class JBUnits {
 
                 brinneclaw = UnitBuilder.create("brinneclaw")
                                 .naval()
-                                .health(3400)
+                                .health(3900)
                                 .speed(1.7f)
-                                .armor(15f)
+                                .armor(9.6f)
                                 .outlineRadius(0)
                                 .hitSize(26f)
                                 .waterTrail(20)
@@ -1370,20 +1445,21 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-brinneclaw-cannon")
                                                                 .rotate(true)
-                                                                .reload(10f)
+                                                                .rotateSpeed(5f)
+                                                                .reload(20f)
                                                                 .mirror(true)
                                                                 .pos(12f, 2f)
-                                                                .bullet(new MissileBulletType(4f, 70) {
+                                                                .bullet(new MissileBulletType(6f, 45) {
                                                                         {
                                                                                 backColor = JBColor.tidebreakerMid;
                                                                                 frontColor = JBColor.tidebreakerGlow;
                                                                                 hitColor = trailColor = lightColor = JBColor.tidebreakerLight;
                                                                                 width = 8f;
                                                                                 height = 10f;
-                                                                                lifetime = 60f;
+                                                                                lifetime = 66f;
                                                                                 homingPower = 0.1f;
                                                                                 homingRange = 120f;
-                                                                                splashDamage = 50f;
+                                                                                splashDamage = 30f;
                                                                                 splashDamageRadius = 35f;
                                                                         }
                                                                 })
@@ -1392,13 +1468,14 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-brinneclaw-lightning")
                                                                 .rotate(true)
-                                                                .reload(15f)
+                                                                .rotateSpeed(8f)
+                                                                .reload(40f)
                                                                 .mirror(true)
                                                                 .pos(10f, 0f)
                                                                 .bullet(new LightningBulletType() {
                                                                         {
                                                                                 lightningColor = hitColor = lightColor = JBColor.tidebreakerLight;
-                                                                                damage = 50f;
+                                                                                damage = 30f;
                                                                                 lightningLength = 15;
                                                                                 lightningLengthRand = 10;
                                                                                 status = StatusEffects.shocked;
@@ -1411,9 +1488,9 @@ public class JBUnits {
 
                 vector = UnitBuilder.create("vector")
                                 .naval()
-                                .health(3400)
-                                .speed(1.7f)
-                                .armor(10f)
+                                .health(2800)
+                                .speed(1.4f)
+                                .armor(6.4f)
                                 .outlineRadius(0)
                                 .hitSize(26f)
                                 .waterTrail(20)
@@ -1423,21 +1500,22 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-vector-cannon")
                                                                 .rotate(true)
-                                                                .reload(10f)
+                                                                .rotateSpeed(3.5f)
+                                                                .reload(24f)
                                                                 .mirror(true)
                                                                 .pos(12f, 2f)
-                                                                .bullet(new MissileBulletType(4f, 70) {
+                                                                .bullet(new MissileBulletType(6.5f, 10) {
                                                                         {
                                                                                 backColor = JBColor.ocelexisMid;
                                                                                 frontColor = JBColor.ocelexisGlow;
                                                                                 hitColor = trailColor = lightColor = JBColor.ocelexisLight;
                                                                                 width = 8f;
                                                                                 height = 10f;
-                                                                                lifetime = 60f;
+                                                                                lifetime = 78f;
                                                                                 homingPower = 0.1f;
                                                                                 homingRange = 120f;
-                                                                                splashDamage = 50f;
-                                                                                splashDamageRadius = 35f;
+                                                                                splashDamage = 70f;
+                                                                                splashDamageRadius = 55f;
                                                                         }
                                                                 })
                                                                 .shootSound(JBSounds.missile)
@@ -1445,13 +1523,14 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-vector-lightning")
                                                                 .rotate(true)
-                                                                .reload(15f)
+                                                                .rotateSpeed(5.6f)
+                                                                .reload(45f)
                                                                 .mirror(true)
                                                                 .pos(10f, 0f)
                                                                 .bullet(new LightningBulletType() {
                                                                         {
                                                                                 lightningColor = hitColor = lightColor = JBColor.ocelexisLight;
-                                                                                damage = 50f;
+                                                                                damage = 30f;
                                                                                 lightningLength = 15;
                                                                                 lightningLengthRand = 10;
                                                                                 status = StatusEffects.shocked;
@@ -1462,11 +1541,19 @@ public class JBUnits {
                                                                 .build())
                                 .build();
 
+                mindustry.entities.bullet.BulletType maelstromisOrb = JBBullets.OrbTidebreaker.copy();
+                maelstromisOrb.damage = 130f;
+                maelstromisOrb.lifetime = 60f;
+                mindustry.entities.bullet.BulletType maelstromisSupport = JBBullets.lightSupport2Tidebreaker.copy();
+                maelstromisSupport.damage = 54f;
+                maelstromisSupport.splashDamage = 21.6f;
+                maelstromisSupport.lifetime = 63f;
+
                 maelstromis = UnitBuilder.create("maelstromis")
                                 .naval()
-                                .health(8000)
+                                .health(11000)
                                 .speed(1.5f)
-                                .armor(15f)
+                                .armor(16.8f)
                                 .outlineRadius(0)
                                 .hitSize(40f)
                                 .waterTrail(50)
@@ -1477,30 +1564,41 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-maelstromis-cannon")
                                                                 .rotate(true)
+                                                                .rotateSpeed(4f)
                                                                 .reload(70f)
                                                                 .mirror(true)
                                                                 .burst(4, 4f)
                                                                 .pos(15f, 0f)
-                                                                .bullet(JBBullets.OrbTidebreaker)
+                                                                .bullet(maelstromisOrb)
                                                                 .shootSound(JBSounds.shootGauss1)
                                                                 .build())
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-maelstromis-support-cannon")
                                                                 .rotate(true)
+                                                                .rotateSpeed(8f)
                                                                 .mirror(true)
                                                                 .burst(3, 5f)
                                                                 .reload(60)
                                                                 .pos(10f, 20f)
-                                                                .bullet(JBBullets.lightSupport2Tidebreaker)
+                                                                .bullet(maelstromisSupport)
                                                                 .shootSound(JBSounds.shootGauss2)
                                                                 .build())
                                 .build();
 
+                mindustry.entities.bullet.BulletType glacialBeam = JBBullets.laserBeamOcelexis.copy();
+                glacialBeam.damage = 90f;
+                ((mindustry.entities.bullet.RailBulletType) glacialBeam).length = 400f;
+                mindustry.entities.bullet.BulletType glacialLance = JBBullets.crimsonLanceHeavyOcelexis.copy();
+                glacialLance.damage = 430f;
+                glacialLance.splashDamage = 322f;
+                glacialLance.splashDamageRadius = 60f;
+                glacialLance.lifetime = 87f;
+
                 glacial = UnitBuilder.create("glacial")
                                 .naval()
                                 .health(8000)
-                                .speed(1.5f)
-                                .armor(15f)
+                                .speed(1.2f)
+                                .armor(11.2f)
                                 .outlineRadius(0)
                                 .hitSize(40f)
                                 .waterTrail(50)
@@ -1514,27 +1612,29 @@ public class JBUnits {
                                                                 .reload(70f)
                                                                 .mirror(true)
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.75f)
                                                                 .burst(2, 8f)
                                                                 .pos(10f, 12f)
-                                                                .bullet(JBBullets.laserBeamOcelexis)
+                                                                .bullet(glacialBeam)
                                                                 .shootSound(JBSounds.blast)
                                                                 .build())
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-glacial-lance")
                                                                 .rotate(true)
+                                                                .rotateSpeed(2.1f)
                                                                 .mirror(true)
                                                                 .reload(100f)
                                                                 .pos(15f, -5f)
-                                                                .bullet(JBBullets.crimsonLanceHeavyOcelexis)
+                                                                .bullet(glacialLance)
                                                                 .shootSound(JBSounds.shootGauss3)
                                                                 .build())
                                 .build();
 
                 quantar = UnitBuilder.create("quantar")
                                 .naval()
-                                .health(20000f)
+                                .health(27000f)
                                 .speed(1.3f)
-                                .armor(125f)
+                                .armor(30f)
                                 .outlineRadius(0)
                                 .hitSize(70f)
                                 .waterTrail(50)
@@ -1545,6 +1645,7 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-quantar-cannon")
                                                                 .rotate(true)
+                                                                .rotateSpeed(3f)
                                                                 .mirror(true)
                                                                 .reload(80f)
                                                                 .pos(20f, -10f)
@@ -1554,6 +1655,7 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-quantar-cannon2")
                                                                 .rotate(true)
+                                                                .rotateSpeed(5f)
                                                                 .mirror(true)
                                                                 .reload(40f)
                                                                 .burst(2, 4f)
@@ -1563,11 +1665,21 @@ public class JBUnits {
                                                                 .build())
                                 .build();
 
+                mindustry.entities.bullet.BulletType riftBolt = JBBullets.rift.copy();
+                riftBolt.damage = 560f;
+                riftBolt.splashDamage = 520f;
+                riftBolt.splashDamageRadius = 70f;
+                riftBolt.lightningDamage = 150f;
+                riftBolt.speed = 27f;
+                mindustry.entities.bullet.BulletType riftLightning = JBBullets.LightningRed.copy();
+                riftLightning.damage = riftLightning.lightningDamage = riftLightning.splashDamage = 200f;
+                riftLightning.speed = 5f;
+
                 rift = UnitBuilder.create("rift")
                                 .naval()
-                                .health(10000f)
-                                .speed(1.5f)
-                                .armor(25f)
+                                .health(20000f)
+                                .speed(1.0f)
+                                .armor(20f)
                                 .outlineRadius(0)
                                 .hitSize(70f)
                                 .waterTrail(50)
@@ -1578,6 +1690,7 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-rift-cannon")
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.75f)
                                                                 .mirror(true)
                                                                 .reload(160f)
                                                                 .pos(30f, -15f)
@@ -1589,25 +1702,32 @@ public class JBUnits {
                                                                                 scl = 2.2f;
                                                                         }
                                                                 })
-                                                                .bullet(JBBullets.rift)
+                                                                .bullet(riftBolt)
                                                                 .shootSound(JBSounds.gunBlast)
                                                                 .build())
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-rift-lightning")
                                                                 .rotate(true)
+                                                                .rotateSpeed(3.5f)
                                                                 .mirror(true)
                                                                 .reload(90f)
                                                                 .pos(25f, 20)
-                                                                .bullet(JBBullets.LightningRed)
+                                                                .bullet(riftLightning)
                                                                 .shootSound(Sounds.shootCollaris)
                                                                 .build())
                                 .build();
 
+                mindustry.entities.bullet.BulletType leviathanShell = JBBullets.quantarBullet.copy();
+                leviathanShell.damage = leviathanShell.lightningDamage = 376f;
+                leviathanShell.splashDamage = 282f;
+                leviathanShell.rangeOverride = 700f;
+                leviathanShell.lifetime = 88f;
+
                 leviathan = UnitBuilder.create("leviathan")
                                 .naval()
-                                .health(35000f)
+                                .health(66000f)
                                 .speed(1.2f)
-                                .armor(195f)
+                                .armor(60f)
                                 .outlineRadius(0)
                                 .hitSize(70f)
                                 .waterTrail(50)
@@ -1618,15 +1738,17 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-leviathan-cannon")
                                                                 .rotate(true)
+                                                                .rotateSpeed(2.5f)
                                                                 .reload(110f)
                                                                 .burst(3, 20f)
                                                                 .pos(0f, 43f)
-                                                                .bullet(JBBullets.quantarBullet)
+                                                                .bullet(leviathanShell)
                                                                 .shootSound(JBSounds.gunBlast)
                                                                 .build())
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-leviathan-cannon2")
                                                                 .rotate(true)
+                                                                .rotateSpeed(3f)
                                                                 .mirror(true)
                                                                 .reload(70f)
                                                                 .pos(18.5f, -32f)
@@ -1636,6 +1758,7 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-leviathan-beam")
                                                                 .rotate(true)
+                                                                .rotateSpeed(2f)
                                                                 .mirror(true)
                                                                 .reload(80f)
                                                                 .pos(26.5f, -6f)
@@ -1644,11 +1767,21 @@ public class JBUnits {
                                                                 .build())
                                 .build();
 
+                mindustry.entities.bullet.BulletType phantomBolt = JBBullets.rift.copy();
+                phantomBolt.damage = 480f;
+                phantomBolt.splashDamage = 430f;
+                phantomBolt.splashDamageRadius = 80f;
+                phantomBolt.lightningDamage = 140f;
+                phantomBolt.speed = 33f;
+                mindustry.entities.bullet.BulletType phantomLightning = JBBullets.LightningRed.copy();
+                phantomLightning.damage = phantomLightning.lightningDamage = phantomLightning.splashDamage = 125f;
+                phantomLightning.speed = 6.2f;
+
                 phantom = UnitBuilder.create("phantom")
                                 .naval()
-                                .health(25000f)
-                                .speed(1.2f)
-                                .armor(95f)
+                                .health(48000f)
+                                .speed(0.9f)
+                                .armor(40f)
                                 .outlineRadius(0)
                                 .hitSize(130f)
                                 .waterTrail(50)
@@ -1659,6 +1792,7 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-phantom-cannon")
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.4f)
                                                                 .mirror(true)
                                                                 .reload(180f)
                                                                 .pos(75f, -16.5f)
@@ -1670,26 +1804,27 @@ public class JBUnits {
                                                                                 scl = 2.2f;
                                                                         }
                                                                 })
-                                                                .bullet(JBBullets.rift)
+                                                                .bullet(phantomBolt)
                                                                 .shootSound(JBSounds.gunBlast)
                                                                 .build())
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-phantom-lightning")
                                                                 .rotate(true)
+                                                                .rotateSpeed(2.8f)
                                                                 .mirror(true)
                                                                 .reload(100f)
                                                                 .burst(4, 8f)
                                                                 .pos(99.5f, 17f)
-                                                                .bullet(JBBullets.LightningRed)
+                                                                .bullet(phantomLightning)
                                                                 .shootSound(Sounds.shootCollaris)
                                                                 .build())
                                 .build();
 
                 tidebreaker = UnitBuilder.create("tidebreaker")
                                 .naval()
-                                .health(70000f)
+                                .health(165000f)
                                 .speed(0.8f)
-                                .armor(795f)
+                                .armor(120f)
                                 .outlineRadius(0)
                                 .hitSize(200f)
                                 .waterTrail(90)
@@ -1701,6 +1836,7 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-tidebreaker-cannon")
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.0f)
                                                                 .mirror(true)
                                                                 .reload(100f)
                                                                 .pos(30f, 30f)
@@ -1710,6 +1846,7 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-tidebreaker-missile-launcher")
                                                                 .rotate(true)
+                                                                .rotateSpeed(3.5f)
                                                                 .mirror(true)
                                                                 .reload(110f)
                                                                 .burst(5, 7f)
@@ -1720,6 +1857,7 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-tidebreaker-laser-cannon")
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.5f)
                                                                 .mirror(true)
                                                                 .reload(30f)
                                                                 .pos(40f, -15f)
@@ -1729,6 +1867,7 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-tidebreaker-laser-cannon")
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.5f)
                                                                 .mirror(true)
                                                                 .reload(30f)
                                                                 .pos(70f, -15f)
@@ -1738,6 +1877,7 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-tidebreaker-cannon2")
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.2f)
                                                                 .mirror(true)
                                                                 .reload(80f)
                                                                 .pos(60f, 80f)
@@ -1747,6 +1887,7 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-tidebreaker-Std")
                                                                 .rotate(true)
+                                                                .rotateSpeed(4f)
                                                                 .mirror(true)
                                                                 .reload(60f)
                                                                 .burst(15, 4f)
@@ -1768,6 +1909,7 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-tidebreaker-lightning")
                                                                 .rotate(true)
+                                                                .rotateSpeed(3f)
                                                                 .mirror(true)
                                                                 .reload(130f)
                                                                 .pos(60f, -70f)
@@ -1776,11 +1918,26 @@ public class JBUnits {
                                                                 .build())
                                 .build();
 
+                mindustry.entities.bullet.BulletType ocelexisLightning = JBBullets.LightningRed.copy();
+                ocelexisLightning.damage = ocelexisLightning.lightningDamage = ocelexisLightning.splashDamage = 220f;
+                ocelexisLightning.speed = 6f;
+                mindustry.entities.bullet.BulletType ocelexisLaser = JBBullets.tideLaser.copy();
+                ocelexisLaser.damage = 280f;
+                ((mindustry.entities.bullet.LaserBulletType) ocelexisLaser).length = 800f;
+                mindustry.entities.bullet.BulletType ocelexisBall = JBBullets.tideBall.copy();
+                ocelexisBall.damage = 150f;
+                ocelexisBall.splashDamage = 500f;
+                ocelexisBall.lightningDamage = 127.5f;
+                ocelexisBall.fragBullet = ocelexisBall.fragBullet.copy();
+                ocelexisBall.fragBullet.damage = 2500f;
+                ocelexisBall.fragBullet.splashDamage = 500f;
+                ocelexisBall.fragBullet.lightningDamage = 280f;
+
                 ocelexis = UnitBuilder.create("ocelexis")
                                 .naval()
-                                .health(760000f)
+                                .health(120000f)
                                 .speed(0.5f)
-                                .armor(500f)
+                                .armor(80f)
                                 .outlineRadius(0)
                                 .hitSize(150f)
                                 .waterTrail(90)
@@ -1792,16 +1949,18 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-ocelexis-cannon")
                                                                 .rotate(true)
+                                                                .rotateSpeed(2.1f)
                                                                 .reload(110f)
                                                                 .mirror(true)
                                                                 .pos(50f, 40f)
                                                                 .burst(4, 8)
-                                                                .bullet(JBBullets.LightningRed)
+                                                                .bullet(ocelexisLightning)
                                                                 .shootSound(Sounds.shootCollaris)
                                                                 .build())
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-ocelexis-laser")
                                                                 .rotate(true)
+                                                                .rotateSpeed(1.0f)
                                                                 .reload(50f)
                                                                 .mirror(true)
                                                                 .pos(40f, -10f)
@@ -1812,15 +1971,16 @@ public class JBUnits {
                                                                                 spread = 1f;
                                                                         }
                                                                 })
-                                                                .bullet(JBBullets.tideLaser)
+                                                                .bullet(ocelexisLaser)
                                                                 .shootSound(JBSounds.laser)
                                                                 .build())
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-ocelexis-cannon2")
                                                                 .rotate(true)
+                                                                .rotateSpeed(0.7f)
                                                                 .reload(180f)
                                                                 .pos(0f, 30f)
-                                                                .bullet(JBBullets.tideBall)
+                                                                .bullet(ocelexisBall)
                                                                 .shootSound(JBSounds.shootGauss1)
                                                                 .build())
 
@@ -1828,6 +1988,7 @@ public class JBUnits {
                                                 WeaponBuilder.create("jababarium-ocelexis-lightning")
                                                                 .reload(100f)
                                                                 .rotate(true)
+                                                                .rotateSpeed(2.1f)
                                                                 .mirror(true)
                                                                 .burst(7, 7f)
                                                                 .pos(35f, 80f)
@@ -1837,6 +1998,7 @@ public class JBUnits {
                                 .weapon(
                                                 WeaponBuilder.create("jababarium-ocelexis-collapse")
                                                                 .rotate(true)
+                                                                .rotateSpeed(0.7f)
                                                                 .mirror(true)
                                                                 .reload(160f)
                                                                 .pos(30f, -50f)

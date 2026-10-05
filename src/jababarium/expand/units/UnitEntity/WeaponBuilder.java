@@ -73,6 +73,11 @@ public class WeaponBuilder {
         return w;
     }
 
+    public WeaponBuilder rotateSpeed(float speed) {
+        w.rotateSpeed = speed;
+        return this;
+    }
+
     public WeaponBuilder rotate(boolean r) {
         w.rotate = r;
         return this;

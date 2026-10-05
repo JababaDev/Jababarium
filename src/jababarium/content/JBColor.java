@@ -40,7 +40,7 @@ public class JBColor {
             chroniteEdge = chroniteBase.cpy().lerp(Pal.accent, 0.06f),
             chroniteGlow = chroniteBase.cpy().lerp(Color.white, 0.22f).a(0.55f),
             pulsariteBase = Color.gray.cpy().lerp(JBColor.nectrone, 0.25f),
-            green = Color.valueOf("##5CE65C"),
+            green = Color.valueOf("5CE65C"),
             sporeLight = Color.valueOf("ffaae0"),
             sporeMid = Color.valueOf("ff9ed5"),
             sporePink = Color.valueOf("ff6ec7"),

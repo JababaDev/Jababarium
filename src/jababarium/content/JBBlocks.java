@@ -267,10 +267,11 @@ public class JBBlocks {
                 requirements(
                         Category.defense,
                         with(
-                                Items.copper, 300,
-                                Items.lead, 200,
-                                Items.silicon, 150,
-                                Items.surgeAlloy, 100));
+                                Items.copper, 500,
+                                Items.lead, 400,
+                                Items.silicon, 400,
+                                Items.thorium, 200,
+                                Items.surgeAlloy, 300));
 
                 bullet = new BasicBulletType(0f, 0f) {
                     {
@@ -283,7 +284,7 @@ public class JBBlocks {
                         backColor = hitColor = lightColor = lightningColor = JBColor.thurmixRed;
                         frontColor = JBColor.thurmixRedLight;
 
-                        splashDamage = 1400f;
+                        splashDamage = 600f;
                         splashDamageRadius = 200f;
 
                         hitShake = despawnShake = 30f;
@@ -293,7 +294,7 @@ public class JBBlocks {
                         lightning = 5;
                         lightningLength = 14;
                         lightningLengthRand = 20;
-                        lightningDamage = 300f;
+                        lightningDamage = 80f;
                         lightningCone = 360f;
 
                         shootEffect = smokeEffect = Fx.none;
@@ -362,7 +363,8 @@ public class JBBlocks {
                 consumePowerCond(26f, BombLauncherBuild::isCharging);
                 consumeItem(Items.surgeAlloy, 2);
                 itemCapacity = 16;
-                health = 1200;
+                health = 5000;
+                armor = 6;
             }
         };
 
@@ -406,13 +408,14 @@ public class JBBlocks {
         entropyChain = new ItemTurret("entropy-chain") {
             {
                 requirements(Category.turret, with(
-                        Items.titanium, 200,
-                        Items.plastanium, 150,
-                        Items.silicon, 200,
-                        JBItems.feronium, 200));
+                        Items.titanium, 250,
+                        Items.plastanium, 200,
+                        Items.silicon, 250,
+                        JBItems.feronium, 250));
 
                 size = 3;
-                health = 1400;
+                health = 2000;
+                armor = 2;
                 range = 260f;
                 reload = 40f;
                 inaccuracy = 5f;
@@ -427,12 +430,13 @@ public class JBBlocks {
         avangard = new ItemTurret("avangard") { 
             {
                 requirements(Category.turret,
-                        with(Items.graphite, 220, JBItems.feronium, 200, Items.silicon, 120, JBItems.plastanium, 100));
+                        with(Items.graphite, 250, JBItems.feronium, 250, Items.silicon, 200, JBItems.plastanium, 150));
 
                 size = 4;
-                health = 1350;
+                health = 2500;
+                armor = 3;
                 reload = 100f;
-                range = 350f;
+                range = 320f;
                 recoil = 4f;
                 rotateSpeed = 4f;
                 inaccuracy = 3f;
@@ -451,7 +455,7 @@ public class JBBlocks {
                 };
 
                 ammo(
-                        Items.sporePod, new BasicBulletType(6f, 100) {
+                        Items.sporePod, new BasicBulletType(6f, 33) {
                             {
                                 width = 14f;
                                 height = 20f;
@@ -478,12 +482,14 @@ public class JBBlocks {
                 shootY = 20.5f;
                 shootX = 0f;
                 requirements(Category.turret,
-                        with(Items.graphite, 160, JBItems.feronium, 150, Items.silicon, 120, JBItems.phaseFabric, 50));
+                        with(Items.graphite, 400, JBItems.feronium, 350, Items.silicon, 400, Items.plastanium, 150,
+                                JBItems.cryostal, 200));
 
                 size = 6;
-                health = 1750;
+                health = 6000;
+                armor = 6;
                 reload = 10f;
-                range = 280f;
+                range = 300f;
                 recoil = 2f;
                 rotateSpeed = 4f;
                 inaccuracy = 3f;
@@ -495,11 +501,11 @@ public class JBBlocks {
                 shoot = new ShootAlternate(20f);
 
                 ammo(
-                        Items.silicon, new BasicBulletType(6f, 100) {
+                        Items.silicon, new BasicBulletType(6f, 125) {
                             {
                                 width = 28f;
                                 height = 40f;
-                                lifetime = 48f;
+                                lifetime = 52f;
                                 ammoMultiplier = 5;
                                 frontColor = Color.valueOf("#948f9b");
                                 backColor = Color.valueOf("#4b4a4f");
@@ -519,10 +525,11 @@ public class JBBlocks {
         ignis = new ItemTurret("ignis") { 
             {
                 requirements(Category.turret,
-                        with(Items.graphite, 220, JBItems.feronium, 200, Items.silicon, 120, JBItems.cryostal, 100));
+                        with(Items.graphite, 400, JBItems.feronium, 350, Items.silicon, 300, JBItems.cryostal, 300));
 
                 size = 5;
-                health = 2350;
+                health = 7000;
+                armor = 8;
                 reload = 50f;
                 range = 350f;
                 recoil = 2f;
@@ -541,11 +548,11 @@ public class JBBlocks {
                 };
 
                 ammo(
-                        Items.graphite, new BasicBulletType(7f, 95) {
+                        Items.graphite, new BasicBulletType(7f, 111) {
                             {
                                 width = 18f;
                                 height = 24f;
-                                lifetime = 50f;
+                                lifetime = 52f;
                                 ammoMultiplier = 4;
                                 status = StatusEffects.corroded;
                                 statusDuration = 150f;
@@ -568,11 +575,12 @@ public class JBBlocks {
         nyx = new ItemTurret("nyx") { 
             {
                 requirements(Category.turret,
-                        with(Items.graphite, 160, JBItems.feronium, 150, JBItems.cryostal, 120, JBItems.phaseFabric,
-                                50));
+                        with(Items.graphite, 800, JBItems.feronium, 700, JBItems.cryostal, 800, JBItems.phaseFabric,
+                                500, JBItems.adamantium, 500));
 
                 size = 8;
-                health = 12350;
+                health = 22000;
+                armor = 15;
                 reload = 3f;
                 range = 350f;
                 recoil = 2f;
@@ -590,11 +598,11 @@ public class JBBlocks {
                 consumePowerCond(100f, TurretBuild::isActive);
 
                 ammo(
-                        Items.titanium, new BasicBulletType(11f, 300) {
+                        Items.titanium, new BasicBulletType(11f, 125) {
                             {
                                 width = 20f;
                                 height = 30f;
-                                lifetime = 30f;
+                                lifetime = 32f;
                                 ammoMultiplier = 5;
                                 status = StatusEffects.corroded;
                                 frontColor = Color.valueOf("#12c6de");
@@ -614,8 +622,9 @@ public class JBBlocks {
 
         helix = new ItemTurret("helix") { 
             {
-                armor = 30;
+                armor = 6;
                 size = 5;
+                targetAir = false;
                 outlineRadius = 7;
                 range = 700;
                 heatColor = JBColor.green;
@@ -674,7 +683,7 @@ public class JBBlocks {
 
                 recoil = 18f;
                 
-                health = 13000;
+                health = 8000;
                 shootCone = 5f;
                 maxAmmo = 80;
                 consumePowerCond(800f, TurretBuild::isActive);
@@ -691,7 +700,8 @@ public class JBBlocks {
                 
 
                 requirements(Category.turret, BuildVisibility.shown,
-                        with(JBItems.cryostal, 300, JBItems.surgeAlloy, 425, JBItems.plastanium, 300));
+                        with(JBItems.cryostal, 500, JBItems.surgeAlloy, 600, JBItems.plastanium, 500,
+                                Items.thorium, 400));
 
             }
         };
@@ -707,8 +717,8 @@ public class JBBlocks {
                         Items.surgeAlloy, 300));
 
                 size = 5;
-                health = 12400;
-                armor = 6;
+                health = 9000;
+                armor = 8;
 
                 range = 480f;
                 reload = 60f;
@@ -785,7 +795,7 @@ public class JBBlocks {
                 };
 
                 ammo(
-                        Items.blastCompound, new BasicBulletType(4f, 650f) {
+                        Items.blastCompound, new BasicBulletType(4f, 240f) {
                             {
                                 sprite = "missile-large";
                                 width = 9f;
@@ -800,7 +810,7 @@ public class JBBlocks {
                                 trailWidth = 2f;
 
                                 
-                                splashDamage = 65f;
+                                splashDamage = 50f;
                                 splashDamageRadius = 35f;
 
                                 status = StatusEffects.blasted;
@@ -866,12 +876,12 @@ public class JBBlocks {
                         },
 
                         
-                        Items.thorium, new BasicBulletType(4.5f, 870f) {
+                        Items.thorium, new BasicBulletType(4.5f, 195f) {
                             {
                                 sprite = "missile-large";
                                 width = 10f;
                                 height = 14f;
-                                lifetime = 106f;
+                                lifetime = 108f;
 
                                 frontColor = Color.white;
                                 backColor = Color.valueOf("f9a3c7");
@@ -880,7 +890,7 @@ public class JBBlocks {
                                 trailLength = 10;
                                 trailWidth = 2.5f;
 
-                                splashDamage = 85f;
+                                splashDamage = 52f;
                                 splashDamageRadius = 45f;
 
                                 status = StatusEffects.blasted;
@@ -966,12 +976,12 @@ public class JBBlocks {
                         },
 
                         
-                        Items.pyratite, new BasicBulletType(3.8f, 600f) {
+                        Items.pyratite, new BasicBulletType(3.8f, 235f) {
                             {
                                 sprite = "missile-large";
                                 width = 9f;
                                 height = 13f;
-                                lifetime = 126f;
+                                lifetime = 127f;
 
                                 frontColor = Color.white;
                                 backColor = Color.valueOf("ffaa5f");
@@ -980,7 +990,7 @@ public class JBBlocks {
                                 trailLength = 12;
                                 trailWidth = 2.5f;
 
-                                splashDamage = 55f;
+                                splashDamage = 45f;
                                 splashDamageRadius = 40f;
 
                                 status = StatusEffects.burning;
@@ -1054,16 +1064,16 @@ public class JBBlocks {
         nexus = new PowerTurret("nexus") {
             {
                 requirements(Category.turret, with(
-                        JBItems.feronium, 1800,
-                        Items.silicon, 1400,
-                        Items.thorium, 600,
-                        Items.surgeAlloy, 400));
+                        JBItems.feronium, 900,
+                        Items.silicon, 700,
+                        Items.thorium, 400,
+                        Items.surgeAlloy, 300));
 
                 size = 7;
-                health = 23800;
+                health = 9000;
                 armor = 8;
 
-                range = 640f;
+                range = 600f;
                 reload = 90f;
                 recoil = 3f;
                 shake = 2f;
@@ -1172,7 +1182,7 @@ public class JBBlocks {
                 };
 
                 
-                shootType = new BasicBulletType(5f, 80f) {
+                shootType = new BasicBulletType(5f, 115f) {
                     {
                         sprite = "circle-bullet";
                         width = 14f;
@@ -1184,9 +1194,9 @@ public class JBBlocks {
                         backColor = plasmaCyan;
                         trailColor = plasmaBlue;
 
-                        lifetime = 128f; 
+                        lifetime = 122f;
 
-                        splashDamage = 40f;
+                        splashDamage = 75f;
                         splashDamageRadius = 45f;
 
                         trailLength = 16;
@@ -1301,10 +1311,10 @@ public class JBBlocks {
                                         Lightning.create(
                                                 team,
                                                 plasmaCyan,
-                                                25f, 
+                                                10f,
                                                 x, y,
                                                 Angles.angle(x, y, target.x, target.y),
-                                                8 
+                                                8
                                         );
 
                                         
@@ -1361,17 +1371,18 @@ public class JBBlocks {
         cascade = new ItemTurret("cascade") {
             {
                 requirements(Category.turret, with(
-                        Items.titanium, 2200,
-                        Items.thorium, 1500,
-                        JBItems.cryostal, 1800,
-                        Items.plastanium, 800,
-                        Items.surgeAlloy, 500));
+                        Items.titanium, 1000,
+                        Items.thorium, 800,
+                        JBItems.cryostal, 1000,
+                        Items.plastanium, 500,
+                        Items.surgeAlloy, 400,
+                        JBItems.adamantium, 600));
 
                 size = 8;
-                health = 28200;
-                armor = 15;
+                health = 28000;
+                armor = 18;
 
-                range = 200f;
+                range = 240f;
                 reload = 60f; 
                 
                 recoil = 2f;
@@ -1487,9 +1498,9 @@ public class JBBlocks {
 
                 
                 ammo(
-                        Items.titanium, new ContinuousLaserBulletType(1000f) {
+                        Items.titanium, new ContinuousLaserBulletType(20f) {
                             {
-                                length = 200f;
+                                length = 240f;
                                 width = 3.5f;
 
                                 colors = new Color[] {
@@ -1502,6 +1513,7 @@ public class JBBlocks {
                                 pierce = true;
                                 pierceCap = 999;
                                 pierceBuilding = true;
+                                pierceArmor = true;
 
                                 status = StatusEffects.freezing;
                                 statusDuration = 90f;
@@ -1860,15 +1872,15 @@ public class JBBlocks {
                 shootY = 21f;
                 shootX = 0f;
                 requirements(Category.turret, with(
-                        JBItems.feronium, 1800,
-                        Items.silicon, 1600,
-                        Items.thorium, 1200,
-                        Items.surgeAlloy, 800,
-                        JBItems.adamantium, 600));
+                        JBItems.feronium, 1200,
+                        Items.silicon, 1200,
+                        Items.thorium, 900,
+                        Items.surgeAlloy, 600,
+                        JBItems.adamantium, 700));
 
                 size = 8;
-                health = 30800;
-                armor = 12;
+                health = 25000;
+                armor = 15;
 
                 range = 720f;
                 reload = 180f;
@@ -1911,9 +1923,9 @@ public class JBBlocks {
                         backColor = lightningPurple;
                         trailColor = deepPurple;
 
-                        lifetime = 120f; 
+                        lifetime = 124f;
 
-                        
+
                         damage = 0f;
                         splashDamage = 0f;
 
@@ -1990,7 +2002,7 @@ public class JBBlocks {
                         
                         int mainBolts = 24; 
                         int boltLength = 16; 
-                        float boltDamage = 80f; 
+                        float boltDamage = 150f;
                         float novaRadius = 280f; 
 
                         
@@ -2083,8 +2095,8 @@ public class JBBlocks {
                         Damage.damage(
                                 team,
                                 x, y,
-                                100f, 
-                                200f 
+                                100f,
+                                600f
                         );
 
                         
@@ -2136,13 +2148,15 @@ public class JBBlocks {
         singularityNeedle = new ItemTurret("singularity-needle") {
             {
                 requirements(Category.turret, with(
-                        JBItems.cryostal, 200,
-                        JBItems.surgeAlloy, 300,
-                        JBItems.chronite, 200,
-                        Items.plastanium, 300));
+                        JBItems.cryostal, 800,
+                        JBItems.surgeAlloy, 1000,
+                        JBItems.chronite, 1800,
+                        JBItems.pulsarite, 1200,
+                        Items.plastanium, 1000));
 
                 size = 6;
-                health = 24000;
+                health = 40000;
+                armor = 25f;
                 range = 760f;
                 reload = 180f;
                 recoil = 2f;
@@ -2163,14 +2177,15 @@ public class JBBlocks {
                 shootY = 17.5f;
                 shootX = 0f;
                 requirements(Category.turret, with(
-                        Items.surgeAlloy, 600,
-                        Items.plastanium, 450,
-                        Items.phaseFabric, 350,
-                        Items.silicon, 800,
-                        JBItems.adamantium, 400));
+                        Items.surgeAlloy, 800,
+                        Items.plastanium, 700,
+                        Items.phaseFabric, 600,
+                        Items.silicon, 1200,
+                        JBItems.adamantium, 700));
 
                 size = 5;
-                health = 38000;
+                health = 20000;
+                armor = 15;
                 range = 500f;
                 reload = 420f;
                 recoil = 8f;
@@ -2226,7 +2241,7 @@ public class JBBlocks {
                     Drawf.light(e.x, e.y, e.fout() * 120, heatColor, 0.7f);
                 });
 
-                shootType = new BasicBulletType(3.5f, 600f) {
+                shootType = new BasicBulletType(3.5f, 1500f) {
                     {
                         width = 45f;
                         height = 45f;
@@ -2250,11 +2265,11 @@ public class JBBlocks {
                         hitSound = JBSounds.blastShockwave;
 
                         lightningColor = Color.valueOf("bf92f9");
-                        lightningDamage = 90f;
+                        lightningDamage = 50f;
                         lightningLength = 25;
                         lightningLengthRand = 15;
 
-                        splashDamage = 5000f;
+                        splashDamage = 9600f;
                         splashDamageRadius = 150f;
                     }
 
@@ -2281,13 +2296,14 @@ public class JBBlocks {
                 shootY = 18.5f;
                 shootX = 0f;
                 requirements(Category.turret, with(
-                        Items.silicon, 1200,
-                        Items.plastanium, 500,
-                        Items.phaseFabric, 400,
-                        JBItems.adamantium, 250));
+                        Items.silicon, 1500,
+                        Items.plastanium, 700,
+                        Items.phaseFabric, 600,
+                        JBItems.adamantium, 600));
 
                 size = 5;
-                health = 35000;
+                health = 20000;
+                armor = 14;
                 range = 400f;
 
                 consumePower(25f);
@@ -2356,8 +2372,8 @@ public class JBBlocks {
                         JBItems.feronium, 600));
 
                 size = 9;
-                health = 38500;
-                armor = 12;
+                health = 30000;
+                armor = 18;
 
                 range = 300f; 
                 reload = 120f; 
@@ -2431,7 +2447,7 @@ public class JBBlocks {
                             {
                                 lifetime = 1f;
 
-                                splashDamage = 8000f;
+                                splashDamage = 1200f;
                                 splashDamageRadius = 300f;
 
                                 status = StatusEffects.corroded;
@@ -2552,7 +2568,7 @@ public class JBBlocks {
                                 fragRandomSpread = 180f;
                                 fragSpread = 15f; 
 
-                                fragBullet = new BasicBulletType(4f, 50f) { 
+                                fragBullet = new BasicBulletType(4f, 20f) {
                                     {
                                         sprite = "circle-bullet";
                                         lifetime = 120f; 
@@ -2566,7 +2582,7 @@ public class JBBlocks {
                                         frontColor = JBColor.sporeMid;
                                         backColor = JBColor.sporeDark;
 
-                                        splashDamage = 700f; 
+                                        splashDamage = 180f;
                                         splashDamageRadius = 60f; 
 
                                         status = StatusEffects.corroded;
@@ -2663,7 +2679,7 @@ public class JBBlocks {
                     float sporeInterval = 35f; 
                     int sporesPerCycle = 5; 
                     float auraRadius = 160f; 
-                    float sporeDamage = 1020f; 
+                    float sporeDamage = 70f;
 
                     @Override
                     public void updateTile() {
@@ -2734,13 +2750,14 @@ public class JBBlocks {
         ionizer = new PowerTurret("ionizer") {
             {
                 requirements(Category.turret, with(
-                        JBItems.pulsarite, 200,
-                        Items.silicon, 950,
-                        Items.plastanium, 600,
-                        JBItems.chronite, 400,
-                        JBItems.cryostal, 800));
+                        JBItems.pulsarite, 1500,
+                        Items.silicon, 1800,
+                        Items.plastanium, 1200,
+                        JBItems.chronite, 1800,
+                        JBItems.cryostal, 1500));
 
-                health = 34600;
+                health = 50000;
+                armor = 30f;
                 size = 11;
                 range = 600f;
                 reload = 40f;
@@ -2763,11 +2780,11 @@ public class JBBlocks {
                     }
                 };
 
-                shootType = new BasicBulletType(16f, 1200f) {
+                shootType = new BasicBulletType(16f, 1670f) {
                     {
                         width = 50;
                         height = 24f;
-                        lifetime = 35f;
+                        lifetime = 38f;
 
                         homingPower = 0.08f;
                         homingRange = 50f;
@@ -2808,14 +2825,15 @@ public class JBBlocks {
                 shootY = 15.5f;
                 shootX = 0f;
                 requirements(Category.turret, with(
-                        JBItems.chronite, 1200,
-                        JBItems.singularium, 900,
-                        JBItems.pulsarite, 1000,
-                        Items.surgeAlloy, 900,
-                        Items.phaseFabric, 700));
+                        JBItems.chronite, 2400,
+                        JBItems.singularium, 2200,
+                        JBItems.pulsarite, 2200,
+                        Items.surgeAlloy, 2000,
+                        Items.phaseFabric, 1600));
 
                 size = 8;
-                health = 800200;
+                health = 100000;
+                armor = 40f;
                 range = 1000f;
                 reload = 1000f;
                 recoil = 6f;
@@ -2940,14 +2958,15 @@ public class JBBlocks {
         apex = new ItemTurret("apex") {
             {
                 requirements(Category.turret, with(
-                        JBItems.singularium, 1400,
-                        JBItems.sergium, 1200,
-                        JBItems.pulsarite, 1100,
-                        Items.surgeAlloy, 1200,
-                        Items.phaseFabric, 800));
+                        JBItems.singularium, 2500,
+                        JBItems.sergium, 2200,
+                        JBItems.pulsarite, 2000,
+                        Items.surgeAlloy, 2200,
+                        Items.phaseFabric, 1800));
 
                 size = 8;
-                health = 950000;
+                health = 120000;
+                armor = 50f;
                 range = 1500f;
                 reload = 420f;
                 recoil = 14f;
@@ -2999,19 +3018,22 @@ public class JBBlocks {
         hastae = new ItemTurret("hastae") {
             {
                 requirements(Category.turret, with(
-                        Items.titanium, 250,
-                        Items.thorium, 150,
-                        Items.plastanium, 100,
-                        JBItems.adamantium, 100,
-                        JBItems.sergium, 500));
+                        Items.titanium, 1500,
+                        Items.thorium, 1200,
+                        Items.plastanium, 800,
+                        JBItems.adamantium, 900,
+                        JBItems.pulsarite, 800,
+                        JBItems.chronite, 800,
+                        JBItems.sergium, 1500));
 
                 size = 6;
-                health = 940000;
+                health = 35000;
+                armor = 25f;
                 range = 2000f;
-                reload = 1000f;
+                reload = 300f;
 
                 recoil = 15f;
-                recoilTime = 1000f;
+                recoilTime = 300f;
                 shake = 6f;
                 rotateSpeed = 0.5f;
 
@@ -3027,7 +3049,7 @@ public class JBBlocks {
                 };
 
                 ammo(
-                        Items.surgeAlloy, new BasicBulletType(75f, 16400) {
+                        Items.surgeAlloy, new BasicBulletType(75f, 19600) {
                             {
                                 width = 15f;
                                 height = 100f;
@@ -3065,14 +3087,15 @@ public class JBBlocks {
         solarApex = new PowerTurret("solar-apex") {
             {
                 requirements(Category.turret, with(
-                        JBItems.singularium, 1200,
-                        JBItems.pulsarite, 1400,
-                        JBItems.sergium, 1600,
-                        Items.surgeAlloy, 1200,
-                        Items.phaseFabric, 900));
+                        JBItems.singularium, 2400,
+                        JBItems.pulsarite, 2400,
+                        JBItems.sergium, 2600,
+                        Items.surgeAlloy, 2200,
+                        Items.phaseFabric, 1800));
 
                 size = 8;
-                health = 120000;
+                health = 130000;
+                armor = 55f;
                 range = 1200f;
                 reload = 10f;
                 recoil = 10f;
@@ -3416,7 +3439,7 @@ public class JBBlocks {
                             }
                         });
 
-                shootType = new ContinuousLaserBulletType(4200f) {
+                shootType = new ContinuousLaserBulletType(1170f) {
                     {
                         length = 1200f;
                         width = 26f;
@@ -3451,13 +3474,14 @@ public class JBBlocks {
                         Items.silicon, 1500,
                         Items.titanium, 2200,
                         Items.thorium, 800,
-                        JBItems.singularium, 800,
+                        JBItems.singularium, 2200,
                         Items.phaseFabric, 4000));
 
                 size = 12;
-                health = 600000;
+                health = 100000;
+                armor = 45f;
                 range = 800f;
-                reload = 2f;
+                reload = 4f;
                 recoil = 1.5f;
                 inaccuracy = 3f;
                 shootCone = 30f;
@@ -3480,11 +3504,11 @@ public class JBBlocks {
                 };
 
                 ammo(
-                        Items.thorium, new BasicBulletType(7.5f, 3500) {
+                        Items.thorium, new BasicBulletType(7.5f, 200) {
                             {
                                 width = 9f;
                                 height = 16f;
-                                lifetime = 106f;
+                                lifetime = 107f;
 
                                 frontColor = Color.white;
                                 backColor = Color.valueOf("ff88cc");
@@ -3517,7 +3541,7 @@ public class JBBlocks {
 
         abbys = new ItemTurret("abbys") {
             {
-                armor = 2000;
+                armor = 100;
                 size = 16;
                 outlineRadius = 7;
                 range = 1200;
@@ -3577,7 +3601,7 @@ public class JBBlocks {
 
                 recoil = 30f;
                 shake = 120f;
-                health = 1000000;
+                health = 350000;
                 reload = 1800f;
                 rotateSpeed = 0.15f;
 
@@ -3586,13 +3610,13 @@ public class JBBlocks {
                 consumePower(1200f);
 
                 requirements(Category.turret, BuildVisibility.shown,
-                        with(JBItems.amalgam, 5000, JBItems.singularium, 2000));
+                        with(JBItems.amalgam, 12000, JBItems.singularium, 6000));
             }
         };
 
         gammaReaper = new ItemTurret("gammaReaper") {
             {
-                armor = 2000;
+                armor = 120;
                 size = 16;
                 outlineRadius = 0;
                 range = 1200;
@@ -3744,7 +3768,7 @@ public class JBBlocks {
 
                 recoil = 30f;
                 shake = 120f;
-                health = 1000000;
+                health = 400000;
                 reload = 2000f;
                 rotateSpeed = 0.15f;
 
@@ -3755,7 +3779,7 @@ public class JBBlocks {
                 consumePower(2200f);
 
                 requirements(Category.turret, BuildVisibility.shown,
-                        with(JBItems.amalgam, 6000, JBItems.singularium, 2500));
+                        with(JBItems.amalgam, 14000, JBItems.singularium, 7000));
             }
         };
     }

@@ -1,9 +1,10 @@
 package jababarium;
 
-import arc.util.*;
+import arc.*;
 import jababarium.content.*;
 import jababarium.expand.block.CraftingBlock;
 import jababarium.expand.units.UnitConstructors;
+import mindustry.game.EventType.*;
 import mindustry.mod.*;
 
 public class Jababarium extends Mod {
@@ -11,7 +12,8 @@ public class Jababarium extends Mod {
     public static Mods.LoadedMod MOD;
 
     public Jababarium() {
-
+        Events.on(WorldLoadEvent.class, e -> JBGroups.worldInit());
+        Events.on(ResetEvent.class, e -> JBGroups.clear());
     }
 
     @Override
@@ -19,6 +21,7 @@ public class Jababarium extends Mod {
         JBItems.load();
         JBLiquids.load();
         JBSounds.load();
+        JBStatus.load();
         JBBullets.load();
         JBUnits.load();
         JBBlocks.load();

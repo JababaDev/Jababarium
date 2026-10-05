@@ -21,11 +21,13 @@ public class JBGroups {
 
     public static void worldInit() {
         gravityFields = new QuadTree<>(world.getQuadBounds(new Rect()));
+        for (GravityTrapField field : gravityFieldSeq) gravityFields.insert(field);
     }
 
     public static void clear() {
         commandableBuilds.clear();
         gravityFields.clear();
+        gravityFieldSeq.clear();
     }
 
     public static void worldReset() {

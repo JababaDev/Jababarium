@@ -16,7 +16,7 @@ public class KamikazeUnitEntity extends UnitEntity {
     public float targetY = Float.NaN;
 
     public float explodeRadius = 180f;
-    public float explodeDamage = 230f;
+    public float explodeDamage = 1500f;
     public float autoTargetRange = 200f;
 
     private static final Vec2 tmp = new Vec2();
